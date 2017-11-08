@@ -1,4 +1,4 @@
-package algorithms.easy._001_twosum
+package algorithms.easy._001_two_sum
 
 import extensions.toIntArray
 

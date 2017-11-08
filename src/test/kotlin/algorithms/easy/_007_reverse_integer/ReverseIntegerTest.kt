@@ -1,4 +1,4 @@
-package algorithms.easy._007_reverseinteger
+package algorithms.easy._007_reverse_integer
 
 import org.junit.Assert.*
 import org.junit.Test
