@@ -1,10 +1,10 @@
 package datastructures
 
 import org.junit.After
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertNull
 import org.junit.Before
-
-import org.junit.Assert.*
-import org.junit.Ignore
 import org.junit.Test
 
 /**
@@ -39,6 +39,20 @@ class ListNodeTest {
     }
 
     @Test
+    fun testLinkedListOf() {
+        assertEquals(listOf(1), linkedListOf(1).toList())
+        assertEquals(listOf(1, 2), linkedListOf(1, 2).toList())
+        assertEquals(listOf(1, 2, 3), linkedListOf(1, 2, 3).toList())
+        assertEquals(listOf(1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1), linkedListOf(1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1).toList())
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun linkedListOfException() {
+        val list = linkedListOf()
+    }
+
+
+    @Test
     fun size() {
         val createdList = ListNode.from(listOf(0, 1, 2, 3))
         assertEquals(4, createdList?.size)
@@ -51,5 +65,11 @@ class ListNodeTest {
         val arrFromLL = linkedList?.toIntArray()
         assertEquals(4, arrFromLL?.size)
         assertEquals(array.contentToString(), arrFromLL?.contentToString())
+    }
+
+    @Test
+    fun contentToString() {
+        val linkedList = ListNode.from(listOf(0, 1, 2, 3))
+        assertEquals("(0)->(1)->(2)->(3)", linkedList?.contentToString())
     }
 }

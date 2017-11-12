@@ -22,7 +22,6 @@ repositories {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion"
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
-    compileOnly "org.projectlombok:lombok:$lombokVersion"
     testCompile "com.natpryce:hamkrest:$hamkrestVersion"
     testCompile "junit:junit:$junitVersion"
     testCompile "org.jetbrains.kotlin:kotlin-test"
