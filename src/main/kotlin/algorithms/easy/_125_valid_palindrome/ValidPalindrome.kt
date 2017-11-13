@@ -9,6 +9,10 @@ package algorithms.easy._125_valid_palindrome
  * @date 11/12/17
  */
 class Solution {
+    /**
+     * Time: O(n)
+     * Space: O(1)
+     */
     fun isPalindrome(s: String): Boolean {
         var i = 0
         var j = s.lastIndex
