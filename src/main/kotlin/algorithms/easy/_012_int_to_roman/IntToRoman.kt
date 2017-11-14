@@ -31,7 +31,7 @@ class Solution {
                 0 -> ""
                 in arabicToRoman -> roman + arabicToRoman[n]
                 else -> {
-                    val nextLargest = arabicToRoman.keys.filter { it < n }.last()
+                    val nextLargest = arabicToRoman.keys.last { it < n }
                     roman + arabicToRoman[nextLargest] + convertToRoman(n - nextLargest)
                 }
             }

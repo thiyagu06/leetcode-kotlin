@@ -19,7 +19,7 @@ class Solution {
                 .map { it.numericValue() }
                 .dropWhile { it == 0 }          // remove leading zeroes
         val asString = digitsReversed.joinToString("")
-        var result = try {
+        val result = try {
             asString.toInt()
         } catch (e: NumberFormatException) {
             0

@@ -11,7 +11,7 @@ package extensions
  * a digit, otherwise throws an [IllegalArgumentException].
  * @throws IllegalArgumentException if the receiver is not a digit ('0'..'9').
  */
-fun Char.numericValue(): Int {
+internal fun Char.numericValue(): Int {
     require(isDigit()) { "Cannot get decimal value of non-digit Char." }
     return toInt() - '0'.toInt()
 }
@@ -19,4 +19,4 @@ fun Char.numericValue(): Int {
 /**
  * See [Char.numericValue]
  */
-fun Char.decimalValue(): Int = numericValue()
+internal fun Char.decimalValue(): Int = numericValue()

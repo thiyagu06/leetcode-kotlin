@@ -42,16 +42,14 @@ class RecursiveSolution {
      * Time: O(n)
      * Space: O(n) - recursive stack space
      */
-    fun plusOne(digits: IntArray): IntArray {
-        return when {
-            digits.size == 1 && digits[0] == 9 -> intArrayOf(1, 0)  // add next most-significant digit
+    fun plusOne(digits: IntArray): IntArray = when {
+        digits.size == 1 && digits[0] == 9 -> intArrayOf(1, 0)  // add next most-significant digit
 
-            digits.last() in 0..8 -> {
-                digits[digits.lastIndex]++
-                digits
-            }
-
-            else -> plusOne(digits.dropLast(1).toIntArray()) + intArrayOf(0)
+        digits.last() in 0..8 -> {
+            digits[digits.lastIndex]++
+            digits
         }
+
+        else -> plusOne(digits.dropLast(1).toIntArray()) + intArrayOf(0)
     }
 }

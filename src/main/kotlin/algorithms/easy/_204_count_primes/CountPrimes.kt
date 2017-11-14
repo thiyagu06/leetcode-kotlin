@@ -10,7 +10,7 @@ package algorithms.easy._204_count_primes
 class Solution {
 
     fun countPrimes(n: Int): Int {
-        var nums = BooleanArray(n)  // 0 until n
+        val nums = BooleanArray(n)  // 0 until n
         (0 until n).forEach { i ->
             nums[i] = i.isPrime()
         }

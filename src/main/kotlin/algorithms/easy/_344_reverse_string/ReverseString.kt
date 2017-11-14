@@ -13,7 +13,7 @@ class Solution {
      */
 
     fun reverseString(s: String): String {
-        var chars = s.toCharArray()
+        val chars = s.toCharArray()
         var (i, j) = (0 to s.lastIndex)
         while (i < j) {
             val temp = chars[i]

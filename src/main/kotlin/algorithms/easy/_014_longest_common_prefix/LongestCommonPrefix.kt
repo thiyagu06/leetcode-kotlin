@@ -37,7 +37,7 @@ class OptimalSolution {
     fun longestCommonPrefix(strs: Array<String>): String {
         if (strs.isEmpty()) return ""
 
-        val minLen: Int = strs.minBy { it.length }?.let { it.length } ?: 0
+        val minLen: Int = strs.minBy { it.length }?.length ?: 0
         var low = 0
         var high = minLen
         while (low <= high) {

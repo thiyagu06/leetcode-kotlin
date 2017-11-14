@@ -6,8 +6,6 @@ package datastructures
 class ListNode(var `val`: Int = 0) {
     var next: ListNode? = null
 
-    override fun toString(): String {
-        return "($`val`)"
     }
 
     companion object {
@@ -57,8 +55,8 @@ fun linkedListOf(vararg elements: Int): ListNode {
  * @return a list containing the elements in the linked list.
  */
 fun ListNode.toList(): List<Int> {
-    var list = mutableListOf(this.`val`)
-    var nextNode: ListNode? = this?.next
+    val list = mutableListOf(this.`val`)
+    var nextNode: ListNode? = this.next
     while (nextNode != null) {
         list.add(nextNode.`val`)
         nextNode = nextNode.next
@@ -96,14 +94,16 @@ fun ListNode.contentToString(): String = with(StringBuilder()) {
     var node: ListNode? = this@contentToString
     while (node != null) {
         append(node)
-        node = node?.next
+        node = node.next
     }
     toString()
 }.replace(")(", ")->(")
 
-
 fun main(args: Array<String>) {
-    val list = listOf("args: ", *args)
+    val a = linkedListOf(1, 2, 3, 4)
+    val b = linkedListOf(1, 2, 3, 5)
 
-    println(list)
+    println("a == b: ${a == b}")
+    println("a === b: ${a === b}")
+
 }

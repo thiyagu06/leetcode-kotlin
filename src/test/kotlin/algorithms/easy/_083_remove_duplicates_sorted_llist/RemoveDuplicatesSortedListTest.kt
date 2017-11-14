@@ -1,18 +1,16 @@
 package algorithms.easy._083_remove_duplicates_sorted_llist
 
 import datastructures.ListNode
-import datastructures.contentToString
 import datastructures.linkedListOf
 import datastructures.toList
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 /**
  * @author nrojiani
  * @date 11/11/17
  */
-class RemoveDeplicatesSortedListTest {
+class RemoveDuplicatesSortedListTest {
     private val solution = Solution()
 
     @Test

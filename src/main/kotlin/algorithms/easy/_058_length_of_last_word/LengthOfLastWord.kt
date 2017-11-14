@@ -14,7 +14,6 @@ class Solution {
     fun lengthOfLastWord(s: String): Int =
         if (s.isBlank()) 0
         else s.split(" ")
-                    .filter { it.isNotEmpty() }
-                    .last()
+                    .last { it.isNotEmpty() }
                     .length
 }

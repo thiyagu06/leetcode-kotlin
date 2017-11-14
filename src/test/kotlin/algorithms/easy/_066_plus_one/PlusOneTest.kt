@@ -1,6 +1,6 @@
 package algorithms.easy._066_plus_one
 
-import org.junit.Assert.assertEquals
+import org.junit.Assert.assertArrayEquals
 import org.junit.Test
 
 /**
@@ -20,21 +20,21 @@ class PlusOneTest {
     @Test
     fun plusOne() {
         val solution = Solution()
-        assertEquals(arr1.toList(), solution.plusOne(arr0).toList())
-        assertEquals(arr2.toList(), solution.plusOne(arr1).toList())
-        assertEquals(arr10.toList(), solution.plusOne(arr9).toList())
-        assertEquals(arr100.toList(), solution.plusOne(arr99).toList())
-        assertEquals(intArrayOf(9, 9, 0, 0).toList(), solution.plusOne(intArrayOf(9, 8, 9, 9)).toList())
+        assertArrayEquals(arr1, solution.plusOne(arr0))
+        assertArrayEquals(arr2, solution.plusOne(arr1))
+        assertArrayEquals(arr10, solution.plusOne(arr9))
+        assertArrayEquals(arr100, solution.plusOne(arr99))
+        assertArrayEquals(intArrayOf(9, 9, 0, 0), solution.plusOne(intArrayOf(9, 8, 9, 9)))
     }
 
     @Test
     fun plusOneRecursive() {
         val rSolution = RecursiveSolution()
-        assertEquals(arr1.toList(), rSolution.plusOne(arr0).toList())
-        assertEquals(arr2.toList(), rSolution.plusOne(arr1).toList())
-        assertEquals(arr10.toList(), rSolution.plusOne(arr9).toList())
-        assertEquals(arr100.toList(), rSolution.plusOne(arr99).toList())
-        assertEquals(intArrayOf(9, 9, 0, 0).toList(), rSolution.plusOne(intArrayOf(9, 8, 9, 9)).toList())
+        assertArrayEquals(arr1, rSolution.plusOne(arr0))
+        assertArrayEquals(arr2, rSolution.plusOne(arr1))
+        assertArrayEquals(arr10, rSolution.plusOne(arr9))
+        assertArrayEquals(arr100, rSolution.plusOne(arr99))
+        assertArrayEquals(intArrayOf(9, 9, 0, 0), rSolution.plusOne(intArrayOf(9, 8, 9, 9)))
     }
 
 }

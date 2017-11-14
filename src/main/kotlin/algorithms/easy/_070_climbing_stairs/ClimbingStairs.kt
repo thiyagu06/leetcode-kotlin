@@ -16,7 +16,7 @@ class Solution {
      * Space: O(n)
      */
     fun climbStairsMemoized(n: Int): Int {
-        var waysToClimb = mutableMapOf(
+        val waysToClimb = mutableMapOf(
                 0 to 0,
                 1 to 1,
                 2 to 2
