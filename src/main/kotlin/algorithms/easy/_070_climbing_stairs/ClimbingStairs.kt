@@ -40,7 +40,7 @@ class Solution {
         var waysToClimbOneLess = 2
         var waysToClimbX = 3
 
-        (3..n).forEach { x ->
+        (3..n).forEach {
             waysToClimbX = waysToClimbOneLess + waysToClimbTwoLess
             waysToClimbTwoLess = waysToClimbOneLess
             waysToClimbOneLess = waysToClimbX

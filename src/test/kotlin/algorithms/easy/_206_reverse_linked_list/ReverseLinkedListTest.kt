@@ -15,10 +15,10 @@ class ReverseLinkedListTest {
 
     @Test
     fun reverseList() {
-        assertEquals(linkedListOf(1).toList(), listReverser.reverseList(linkedListOf(1))?.toList())
-        assertEquals(linkedListOf(2, 1).toList(), listReverser.reverseList(linkedListOf(1, 2))?.toList())
-        assertEquals(linkedListOf(3, 2, 1).toList(), listReverser.reverseList(linkedListOf(1, 2, 3))?.toList())
-        assertEquals(linkedListOf(3, 3, 2, 2, 1).toList(), listReverser.reverseList(linkedListOf(1, 2, 2, 3, 3))?.toList())
+        assertEquals(linkedListOf(1), listReverser.reverseList(linkedListOf(1)))
+        assertEquals(linkedListOf(2, 1), listReverser.reverseList(linkedListOf(1, 2)))
+        assertEquals(linkedListOf(3, 2, 1), listReverser.reverseList(linkedListOf(1, 2, 3)))
+        assertEquals(linkedListOf(3, 3, 2, 2, 1), listReverser.reverseList(linkedListOf(1, 2, 2, 3, 3)))
     }
 
 }

@@ -1,5 +1,8 @@
 package algorithms.easy._189_rotate_array
 
+import extensions.reverseElementsInRange
+import extensions.swap
+
 /**
  * 189 - https://leetcode.com/problems/rotate-array/description/
  *
@@ -45,19 +48,5 @@ class OptimalSolution {
         nums.reverse()
         nums.reverseElementsInRange(0 until rotations)
         nums.reverseElementsInRange(rotations until n)
-    }
-
-    private fun IntArray.reverseElementsInRange(indexRange: IntRange) {
-        var i = indexRange.start
-        var j = indexRange.endInclusive
-        while (i < j) {
-            swapElementsAt(i++, j--)
-        }
-    }
-
-    private fun IntArray.swapElementsAt(i: Int, j: Int) {
-        val temp = this[i]
-        this[i] = this[j]
-        this[j] = temp
     }
 }

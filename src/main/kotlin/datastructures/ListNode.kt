@@ -2,11 +2,54 @@ package datastructures
 
 /**
  * Definition for singly-linked list.
+ * Note: although `val` is declared with a default argument, LeetCode
+ * won't compile if you try to create a node without passing an argument.
  */
 class ListNode(var `val`: Int = 0) {
+
     var next: ListNode? = null
 
+    override fun toString(): String = "($`val`)"
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as ListNode
+
+        if (`val` != other.`val`) return false
+        if (next != other.next) return false
+
+        return true
     }
+
+    override fun hashCode(): Int {
+        var result = `val`
+        result = 31 * result + (next?.hashCode() ?: 0)
+        return result
+    }
+
+    /* Iterator
+        redeclare class as: class ListNode(var `val`: Int = 0): Iterable<ListNode> {
+
+    override fun iterator(): Iterator<ListNode> {
+        return object : Iterator<ListNode> {
+            var node: ListNode? = this@ListNode
+
+            override fun hasNext(): Boolean = node != null
+
+            override fun next(): ListNode {
+                if (!hasNext())
+                    throw NoSuchElementException()
+
+                val current = node!!
+                node = current.next
+                return current
+            }
+        }
+    }
+     */
+
 
     companion object {
         /**
@@ -90,7 +133,7 @@ val ListNode.size: Int
  *
  * @return a String representation of the List.
  */
-fun ListNode.contentToString(): String = with(StringBuilder()) {
+fun ListNode.contentToString(): String = buildString {
     var node: ListNode? = this@contentToString
     while (node != null) {
         append(node)
@@ -99,11 +142,17 @@ fun ListNode.contentToString(): String = with(StringBuilder()) {
     toString()
 }.replace(")(", ")->(")
 
-fun main(args: Array<String>) {
-    val a = linkedListOf(1, 2, 3, 4)
-    val b = linkedListOf(1, 2, 3, 5)
 
-    println("a == b: ${a == b}")
-    println("a === b: ${a === b}")
-
+/* If not using Iterable<T>/iterator implementation: */
+inline fun ListNode.firstOrNull(predicate: (ListNode) -> Boolean): ListNode? {
+    var node: ListNode? = this
+    while (node != null) {
+        if (predicate(node)) {
+            return node
+        }
+        node = node.next
+    }
+    return null
 }
+
+inline fun <T> Iterable<T>.find(predicate: (T) -> Boolean): T? = firstOrNull(predicate)

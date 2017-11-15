@@ -19,9 +19,9 @@ class RemoveDuplicatesSortedListTest {
         val list112 = linkedListOf(1, 1, 2)
         val list11233 = ListNode.from(listOf(1, 1, 2, 3, 3))
 
-        assertEquals(listOf(1, 2), solution.deleteDuplicates(list112)?.toList())
-        assertEquals(listOf(1, 2, 3), solution.deleteDuplicates(list11233)?.toList())
-        assertEquals(listOf(1), solution.deleteDuplicates(list111)?.toList())
+        assertEquals(linkedListOf(1, 2), solution.deleteDuplicates(list112))
+        assertEquals(linkedListOf(1, 2, 3), solution.deleteDuplicates(list11233))
+        assertEquals(linkedListOf(1), solution.deleteDuplicates(list111))
     }
 
 }

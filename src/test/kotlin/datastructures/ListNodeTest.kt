@@ -1,9 +1,7 @@
 package datastructures
 
 import org.junit.After
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotNull
-import org.junit.Assert.assertNull
+import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
@@ -33,9 +31,9 @@ class ListNodeTest {
         assertNull(ListNode.from(emptyList()))
 
         val createdList = ListNode.from(listOf(0, 1, 2, 3))
-        assertNotNull(createdList?.toList())
-        println(createdList?.toList())
-        assertEquals(listA?.toList(), createdList?.toList())
+        assertNotNull(createdList)
+        assertEquals(4, createdList?.size)
+        assertEquals(listA, createdList)
     }
 
     @Test
@@ -48,9 +46,28 @@ class ListNodeTest {
 
     @Test(expected = IllegalArgumentException::class)
     fun linkedListOfException() {
-        val list = linkedListOf()
+        linkedListOf()
     }
 
+    @Test
+    fun equals() {
+        val a = linkedListOf(1, 2, 3, 4)
+        val b = linkedListOf(1, 2, 3, 5)
+        assertFalse(a == b)
+        assertNotEquals(a, b)
+
+        val c = linkedListOf(1, 2, 3, 4)
+        assertTrue(a == c)
+        assertEquals(a, c)
+
+        // 1->2->4
+        a.next?.next = a.next?.next?.next
+        c.next?.next = c.next?.next?.next
+        assertEquals(listOf(1, 2, 4), a.toList())
+        assertEquals(listOf(1, 2, 4), c.toList())
+        assertEquals(linkedListOf(1, 2, 4), a)
+        assertEquals(linkedListOf(1, 2, 4), c)
+    }
 
     @Test
     fun size() {
