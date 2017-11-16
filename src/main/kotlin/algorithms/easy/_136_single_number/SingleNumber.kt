@@ -27,7 +27,8 @@ class ConstantSpaceSolution {
      * Space: O(1)
      */
     fun singleNumber(nums: IntArray): Int {
-        
+        // Bit Manipulation
+        TODO()
     }
 
 }

@@ -1,0 +1,49 @@
+package algorithms.easy._350_intersection_of_two_arrays_ii
+
+import extensions.groupingBy
+import extensions.nCopies
+import java.util.*
+
+/**
+ * 350 - https://leetcode.com/problems/intersection-of-two-arrays-ii/description/
+ *
+ * Each element in the result **should appear as many times as it appears in both arrays**.
+ * The result can be in any order.
+ *
+ * @author nrojiani
+ * @date 11/15/17
+ */
+class Solution {
+    fun intersect(nums1: IntArray, nums2: IntArray): IntArray {
+        val freqs1 = nums1.toTypedArray().groupingBy { it }.eachCount()
+        val freqs2 = nums2.toTypedArray().groupingBy { it }.eachCount()
+
+        return freqs1.entries.fold(intArrayOf()) { acc, (num, _) ->
+            freqs2[num]?.let {
+                val copies = minOf(freqs1[num] ?: 0, freqs2[num] ?: 0)
+                acc + Collections.nCopies(copies, num)
+            } ?: acc
+        }
+    }
+}
+
+class SolutionUsingExtensions {
+    fun intersect(nums1: IntArray, nums2: IntArray): IntArray {
+        val freqs1 = nums1.groupingBy { it }.eachCount()
+        val freqs2 = nums2.groupingBy { it }.eachCount()
+
+        return freqs1.entries.fold(intArrayOf()) { acc, (num, _) ->
+            freqs2[num]?.let {
+                val copies = minOf(freqs1[num] ?: 0, freqs2[num] ?: 0)
+                acc + num.nCopies(copies)
+            } ?: acc
+        }
+    }
+}
+
+/*
+ * Follow up: TODO
+ * What if the given array is already sorted? How would you optimize your algorithm?
+ * What if nums1's size is small compared to nums2's size? Which algorithm is better?
+ * What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
+ */

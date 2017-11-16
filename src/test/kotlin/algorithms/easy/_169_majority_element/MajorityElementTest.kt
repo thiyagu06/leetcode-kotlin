@@ -16,7 +16,6 @@ class MajorityElementTest {
 
     @Test
     fun majorityElement() {
-
         val ms = measureTimeMillis {
             assertEquals(1, solution.majorityElement(intArrayOf(1)))
             assertEquals(1, solution.majorityElement(intArrayOf(1, 1)))
