@@ -30,18 +30,36 @@ class TreeNode(var `val`: Int = 0) {
     }
 }
 
-val TreeNode.hasLeft: Boolean
+internal val TreeNode.hasLeft: Boolean
     get() = left != null
 
-val TreeNode.hasRight: Boolean
+internal val TreeNode.hasRight: Boolean
     get() = right != null
 
-val TreeNode.hasTwoChildren: Boolean
+internal val TreeNode.hasTwoChildren: Boolean
     get() = left != null && right != null
 
-val TreeNode.isLeaf: Boolean
+internal val TreeNode.isLeaf: Boolean
     get() = left == null && right == null
 
 
-val TreeNode.size: Int
+internal val TreeNode.size: Int
     get() = 1 + (left?.size ?: 0) + (right?.size ?: 0)
+
+
+/**
+ * Search for a value in the binary tree, returning the node
+ * containing the value if it is found, or else null.
+ *
+ * Time: O(n)
+ * Space: O(n)
+ */
+internal fun TreeNode.find(value: Int): TreeNode? = when {
+    value < `val` && hasLeft -> left?.find(value)
+    value > `val` && hasRight -> right?.find(value)
+    else -> this
+}
+
+internal fun TreeNode.contains(value: Int): Boolean = find(value) != null
+
+// TODO DFS
