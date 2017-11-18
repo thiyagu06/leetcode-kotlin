@@ -11,9 +11,10 @@ package algorithms.easy._058_length_of_last_word
  * @date 11/12/17
  */
 class Solution {
-    fun lengthOfLastWord(s: String): Int =
-        if (s.isBlank()) 0
-        else s.split(" ")
-                    .last { it.isNotEmpty() }
-                    .length
+    fun lengthOfLastWord(s: String): Int = when {
+        s.isBlank() -> 0
+        else -> s.split(" ")
+                .last { it.isNotEmpty() }
+                .length
+    }
 }

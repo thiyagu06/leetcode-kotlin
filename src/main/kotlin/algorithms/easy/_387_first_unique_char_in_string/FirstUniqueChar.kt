@@ -12,7 +12,7 @@ package algorithms.easy._387_first_unique_char_in_string
 class Solution {
     fun firstUniqChar(s: String): Int {
         val frequencies = s.groupingBy { it }.eachCount()
-        return s.withIndex().firstOrNull { (i, c) ->
+        return s.withIndex().firstOrNull { (_, c) ->
             frequencies[c] == 1
         }?.index ?: -1
     }

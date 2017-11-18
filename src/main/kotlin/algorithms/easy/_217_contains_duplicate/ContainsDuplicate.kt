@@ -36,8 +36,7 @@ class SolutionTwo {
      */
     fun containsDuplicate(nums: IntArray): Boolean {
         nums.fold(emptySet<Int>()) { acc, element ->
-            if (acc.contains(element)) return true
-            else acc + element
+            if (acc.contains(element)) return true else acc + element
         }
         return false
     }

@@ -23,10 +23,8 @@ class Solution {
                     return digits
                 }
                 else -> {
-                    if (i != 0)
-                        digits[i] = 0
-                    else
-                        return intArrayOf(1, 0) + digits.drop(1).toIntArray()
+                    if (i != 0) digits[i] = 0
+                    else return intArrayOf(1, 0) + digits.drop(1).toIntArray()
                 }
             }
         }
