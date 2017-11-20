@@ -1,10 +1,8 @@
 package datastructures
 
-import org.junit.After
-import org.junit.Before
+import org.junit.Assert.*
 import org.junit.Ignore
 import org.junit.Test
-import kotlin.test.assertEquals
 
 /**
  * @author nrojiani
@@ -75,8 +73,47 @@ class TreeNodeTest {
                 bst3LevelsFull.collect { it.`val` * 2 })
     }
 
+    @Test
+    fun buildTree() {
+        val tree = buildTree(1, 2, 3)
+        assertNotNull(tree)
+        assertEquals(3, tree?.size)
+        assertEquals(1, tree?.`val`)
+        assertEquals(2, tree?.left?.`val`)
+        assertEquals(3, tree?.right?.`val`)
+
+        val tree2 = buildTree(5, 3, 8, 1, 4, 6, 9)
+        assertNotNull(tree2)
+        assertEquals(7, tree2?.size)
+        assertEquals(bst3LevelsFull, tree2)
+    }
+
+    @Test
+    fun buildTreeWithNulls() {
+        val tree = buildTree(1, null, 2, 3)
+        assertNotNull(tree)
+        assertEquals(3, tree?.size)
+        assertEquals(1, tree?.`val`)
+        assertNull(tree?.left?.`val`)
+        assertEquals(2, tree?.right?.`val`)
+        assertEquals(3, tree?.right?.left?.`val`)
+        assertNull(tree?.right?.left?.right)
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `Exception if root is null`() {
+        buildTree(null)
+    }
+
+    @Ignore
+    @Test
+    fun contains() {
+        TODO()
+    }
+
     @Ignore
     @Test
     fun find() {
+        TODO()
     }
 }

@@ -1,4 +1,4 @@
-package algorithms.easy._144_binary_tree_inorder_traversal
+package algorithms.easy._144_binary_tree_preorder_traversal
 
 import datastructures.DFSTraveralOrder
 import datastructures.TreeNode

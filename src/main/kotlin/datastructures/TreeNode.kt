@@ -88,7 +88,8 @@ internal fun TreeNode?.depthFirstSearch(order: DFSTraveralOrder = INORDER, visit
 }
 
 /**
- * Traverse the tree, collecting all the values into a [Collection<Int>]
+ * Traverse the tree (using inorder depth-first search), collecting the values
+ * into a [Collection<Int>].
  */
 internal fun TreeNode?.collect(acc: MutableCollection<Int> = arrayListOf()): Collection<Int> =
         this?.let {
@@ -98,7 +99,9 @@ internal fun TreeNode?.collect(acc: MutableCollection<Int> = arrayListOf()): Col
         } ?: acc
 
 /**
- * Traverse the tree and collect the result of applying the transform to each [TreeNode].
+ * Traverses the tree with DFS (in the given [traversalOrder]),
+ * applies the [transform] to each [TreeNode], and
+ * collect the transform result.
  */
 internal fun <T> TreeNode?.collect(traversalOrder: DFSTraveralOrder = INORDER,
                                    acc: MutableCollection<T> = arrayListOf(),
@@ -109,6 +112,11 @@ internal fun <T> TreeNode?.collect(traversalOrder: DFSTraveralOrder = INORDER,
     return acc
 }
 
+/**
+ * Return a list of the values in the tree. For binary search trees, the values
+ * will be sorted.
+ *
+ */
 internal fun TreeNode?.toList(): List<Int> = collect { it.`val` }.toList()
 
 // TODO: Iterative DFS
@@ -121,7 +129,7 @@ internal fun TreeNode?.toList(): List<Int> = collect { it.`val` }.toList()
  * @return The root of a binary tree containing the [elements], or `null` if
  * elements is empty.
  */
-internal fun buildTree(elements: List<Int?>): TreeNode? {
+internal fun buildTree(vararg elements: Int?): TreeNode? {
     if (elements.isEmpty())
         return null
 
@@ -131,7 +139,7 @@ internal fun buildTree(elements: List<Int?>): TreeNode? {
     var parent = root
     var parentQueue: Queue<TreeNode> = ListQueue()
     parentQueue.enqueue(parent)
-    var i = 0
+    var i = 1
     while (i < elements.size) {
         parent = parentQueue.dequeue() ?: return root
 
@@ -141,6 +149,8 @@ internal fun buildTree(elements: List<Int?>): TreeNode? {
             parentQueue.enqueue(it)
         }
 
+        if (i > elements.lastIndex)
+            return root
 
         parent.right = if (elements[i] != null) TreeNode(elements[i]!!) else null
         i++
