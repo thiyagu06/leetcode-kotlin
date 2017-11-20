@@ -10,40 +10,6 @@ import org.junit.Test
  */
 class TreeNodeTest {
 
-    /**
-     * ```
-     *    1
-     *   / \
-     * 2     3
-     * ```
-     */
-    private val tree123 =
-            TreeNode(1).apply {
-                left = TreeNode(2)
-                right = TreeNode(3)
-            }
-
-    /**
-     * ```
-     *        5
-     *      /   \
-     *    3      8
-     *   / \    / \
-     * 1    4  6    9
-     * ```
-     */
-    private val bst3LevelsFull =
-            TreeNode(5).apply {
-                left = TreeNode(3).apply {
-                    left = TreeNode(1)
-                    right = TreeNode(4)
-                }
-                right = TreeNode(8).apply {
-                    left = TreeNode(6)
-                    right = TreeNode(9)
-                }
-            }
-
     @Test
     fun depthFirstSearch() {
         val values = arrayListOf<Int>()
@@ -98,6 +64,16 @@ class TreeNodeTest {
         assertEquals(2, tree?.right?.`val`)
         assertEquals(3, tree?.right?.left?.`val`)
         assertNull(tree?.right?.left?.right)
+
+        val tree2 = buildTree(7, 4, 9, 3, null, 6, null, 1)
+        assertEquals(bstWithNulls, tree2)
+        assertEquals(6, tree2?.size)
+        assertEquals(7, tree2?.`val`)
+        assertEquals(4, tree2?.left?.`val`)
+        assertEquals(9, tree2?.right?.`val`)
+        assertEquals(3, tree2?.left?.left?.`val`)
+        assertEquals(1, tree2?.left?.left?.left?.`val`)
+        assertEquals(6, tree2?.right?.left?.`val`)
     }
 
     @Test(expected = IllegalArgumentException::class)
