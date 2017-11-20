@@ -81,6 +81,14 @@ class TreeNodeTest {
         buildTree(null)
     }
 
+    @Test
+    fun rootToLeafPaths() {
+        assertEquals(listOf(listOf(1, 2), listOf(1, 3)), tree123.rootToLeafPaths())
+        assertEquals(listOf(listOf(5, 3, 1), listOf(5, 3, 4), listOf(5, 8, 6), listOf(5, 8, 9)),
+                bst3LevelsFull.rootToLeafPaths())
+        assertEquals(listOf(listOf(7, 4, 3, 1), listOf(7, 9, 6)), bstWithNulls.rootToLeafPaths())
+    }
+
     @Ignore
     @Test
     fun contains() {

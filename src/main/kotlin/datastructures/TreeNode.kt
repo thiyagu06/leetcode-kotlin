@@ -44,7 +44,6 @@ internal val TreeNode.hasTwoChildren: Boolean
 internal val TreeNode.isLeaf: Boolean
     get() = left == null && right == null
 
-
 internal val TreeNode.size: Int
     get() = 1 + (left?.size ?: 0) + (right?.size ?: 0)
 
@@ -63,7 +62,6 @@ internal fun TreeNode.find(value: Int): TreeNode? = when {
 }
 
 internal fun TreeNode.contains(value: Int): Boolean = find(value) != null
-
 
 internal enum class DFSTraveralOrder { PREORDER, INORDER, POSTORDER; }
 
@@ -121,6 +119,29 @@ internal fun TreeNode?.toList(): List<Int> = collect { it.`val` }.toList()
 
 // TODO: Iterative DFS
 // TODO: BFS
+
+
+/**
+ * Returns a list of all root-to-leaf paths.
+ */
+internal fun TreeNode?.rootToLeafPaths(): List<List<Int>> {
+    this ?: return emptyList()
+
+    val paths = arrayListOf<List<Int>>()
+    rootToLeafPathsHelper(emptyList(), paths)
+    return paths
+}
+
+private fun TreeNode?.rootToLeafPathsHelper(currentPath: List<Int>, paths: MutableList<List<Int>>) {
+    this ?: return
+
+    if (isLeaf) {
+        paths += (currentPath + `val`)
+    } else {
+        left?.rootToLeafPathsHelper(currentPath + `val`, paths)
+        right?.rootToLeafPathsHelper(currentPath + `val`, paths)
+    }
+}
 
 /**
  * Create a binary tree from the given elements.

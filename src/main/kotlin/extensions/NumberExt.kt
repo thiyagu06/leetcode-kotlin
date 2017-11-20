@@ -57,3 +57,6 @@ internal fun Int.digits(): List<Char> {
 
     return digits
 }
+
+internal fun Int.isEven(): Boolean = this % 2 == 0
+internal fun Int.isOdd(): Boolean = this % 2 == 1

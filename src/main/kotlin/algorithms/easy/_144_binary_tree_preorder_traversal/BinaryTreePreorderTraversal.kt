@@ -11,6 +11,10 @@ import datastructures.collect
  * @date 11/17/17
  */
 class Solution {
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
     fun preorderTraversal(root: TreeNode?): List<Int> =
             root.collect(DFSTraveralOrder.PREORDER, arrayListOf()) { it.`val` }.toList()
 }
