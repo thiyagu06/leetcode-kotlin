@@ -1,7 +1,7 @@
 package extensions
 
 /**
- * [Char] extensions
+ * Char extensions
  */
 
 /**

@@ -1,7 +1,7 @@
 package extensions
 
 /**
- * [Number] ([Int], [Double], [Float], [Byte], [Short], etc. extensions.
+ * Number (Int, Double, Float, Byte, Short, etc. extensions.
  *
  * @author nrojiani
  * @date 11/15/17

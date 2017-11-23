@@ -1,6 +1,6 @@
 package algorithms.easy._145_binary_tree_postorder_traversal
 
-import datastructures.tree.DFSTraveralOrder
+import datastructures.tree.DFSTraversalOrder
 import datastructures.tree.TreeNode
 import datastructures.tree.collect
 
@@ -16,5 +16,5 @@ class Solution {
      * Space: O(n)
      */
     fun postorderTraversal(root: TreeNode?): List<Int> =
-            root.collect(DFSTraveralOrder.POSTORDER, arrayListOf()) { it.`val` }.toList()
+            root.collect(DFSTraversalOrder.POSTORDER, arrayListOf()) { it.`val` }.toList()
 }

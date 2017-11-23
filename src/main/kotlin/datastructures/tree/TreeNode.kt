@@ -1,8 +1,8 @@
 package datastructures.tree
 
-import datastructures.tree.DFSTraveralOrder.INORDER
-import datastructures.tree.DFSTraveralOrder.POSTORDER
-import datastructures.tree.DFSTraveralOrder.PREORDER
+import datastructures.tree.DFSTraversalOrder.INORDER
+import datastructures.tree.DFSTraversalOrder.POSTORDER
+import datastructures.tree.DFSTraversalOrder.PREORDER
 import datastructures.queue.ListQueue
 import datastructures.queue.Queue
 
@@ -65,23 +65,23 @@ internal fun TreeNode.find(value: Int): TreeNode? = when {
 
 internal fun TreeNode.contains(value: Int): Boolean = find(value) != null
 
-internal enum class DFSTraveralOrder { PREORDER, INORDER, POSTORDER; }
+internal enum class DFSTraversalOrder { PREORDER, INORDER, POSTORDER; }
 
 /**
  * Perform depth-first search on the tree, executing [visit] on each node.
  */
-internal fun TreeNode?.depthFirstSearch(order: DFSTraveralOrder = INORDER, visit: (TreeNode) -> Unit) {
+internal fun TreeNode?.depthFirstSearch(order: DFSTraversalOrder = INORDER, visit: (TreeNode) -> Unit) {
     this ?: return
 
     if (order == PREORDER)
         visit(this)
 
-    left?.let { it.depthFirstSearch(order, visit) }
+    left?.depthFirstSearch(order, visit)
 
     if (order == INORDER)
         visit(this)
 
-    right?.let { it.depthFirstSearch(order, visit) }
+    right?.depthFirstSearch(order, visit)
 
     if (order == POSTORDER)
         visit(this)
@@ -93,9 +93,9 @@ internal fun TreeNode?.depthFirstSearch(order: DFSTraveralOrder = INORDER, visit
  */
 internal fun TreeNode?.collect(acc: MutableCollection<Int> = arrayListOf()): Collection<Int> =
         this?.let {
-            left?.let { it.collect(acc) }
+            left?.collect(acc)
             acc += `val`
-            right?.let { it.collect(acc) }
+            right?.collect(acc)
         } ?: acc
 
 /**
@@ -103,9 +103,9 @@ internal fun TreeNode?.collect(acc: MutableCollection<Int> = arrayListOf()): Col
  * applies the [transform] to each [TreeNode], and
  * collect the transform result.
  */
-internal fun <T> TreeNode?.collect(traversalOrder: DFSTraveralOrder = INORDER,
-                                                       acc: MutableCollection<T> = arrayListOf(),
-                                                       transform: (TreeNode) -> T): Collection<T> {
+internal fun <T> TreeNode?.collect(traversalOrder: DFSTraversalOrder = INORDER,
+                                   acc: MutableCollection<T> = arrayListOf(),
+                                   transform: (TreeNode) -> T): Collection<T> {
     this ?: return emptyList()
 
     depthFirstSearch(order = traversalOrder) { acc += transform(it) }
