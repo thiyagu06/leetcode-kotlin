@@ -20,3 +20,14 @@ internal fun Char.numericValue(): Int {
  * See [Char.numericValue]
  */
 internal fun Char.decimalValue(): Int = numericValue()
+
+/**
+ * Checks whether the Char is a vowel.
+ * Note: The set of vowels **does not include y** here.
+ */
+internal fun Char.isVowel(): Boolean = toLowerCase() in "aeiou"
+
+/**
+ * Checks whether the Char is a consonant (not a vowel). 'y' is considered a consonant, not a vowel.
+ */
+internal fun Char.isConsonant(): Boolean = toLowerCase() !in "aeiou"
