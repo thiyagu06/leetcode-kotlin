@@ -1,4 +1,4 @@
-package algorithms.easy._019_remove_nth_node_from_end
+package algorithms.medium._019_remove_nth_node_from_end
 
 import datastructures.list.ListNode
 
@@ -13,8 +13,6 @@ import datastructures.list.ListNode
 class Solution {
     fun removeNthFromEnd(head: ListNode?, n: Int): ListNode? {
         if (head == null || n < 1) return null
-
-        /** TODO: case n = size */
 
         var tortoise: ListNode? = head
         var hare: ListNode? = head

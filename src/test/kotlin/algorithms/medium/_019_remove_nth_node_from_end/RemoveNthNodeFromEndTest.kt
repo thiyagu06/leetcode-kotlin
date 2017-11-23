@@ -1,4 +1,4 @@
-package algorithms.easy._019_remove_nth_node_from_end
+package algorithms.medium._019_remove_nth_node_from_end
 
 import datastructures.list.linkedListOf
 import org.junit.Assert.assertEquals
