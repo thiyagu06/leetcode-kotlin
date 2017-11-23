@@ -11,6 +11,10 @@ import extensions.numericValue
  * @date 11/7/17
  */
 class Solution {
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
     fun reverse(x: Int): Int {
         val isNegative = x < 0
         val digitsReversed: List<Int> = x.toLong().toString()

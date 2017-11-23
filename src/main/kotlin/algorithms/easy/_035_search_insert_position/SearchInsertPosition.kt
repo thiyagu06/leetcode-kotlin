@@ -7,6 +7,10 @@ package algorithms.easy._035_search_insert_position
  * @date 11/10/17
  */
 class Solution {
+    /**
+     * Time: O(n)
+     * Space: O(1)
+     */
     fun searchInsert(nums: IntArray, target: Int): Int {
         nums.forEachIndexed { i, n ->
             if (target <= n) {

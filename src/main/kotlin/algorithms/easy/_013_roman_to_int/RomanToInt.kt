@@ -30,6 +30,10 @@ class Solution {
             "CM" to 900
     )
 
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
     fun romanToInt(s: String): Int {
         var decimalValue = 0
         var numerals = s

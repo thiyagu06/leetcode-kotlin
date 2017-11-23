@@ -9,11 +9,20 @@ package algorithms.easy._028_implement_strstr
  * @date 11/10/17
  */
 class Solution {
+    /**
+     * Time: O(?)
+     * Space: O(?)
+     */
     fun strStr(haystack: String, needle: String): Int =
             haystack.findAnyOf(setOf(needle))?.first ?: -1
 }
 
 class SolutionWithoutLibraryMethods {
+
+    /**
+     * Time: O(?)
+     * Space: O(?)
+     */
     fun strStr(haystack: String, needle: String): Int {
         if (needle == "")
             return 0

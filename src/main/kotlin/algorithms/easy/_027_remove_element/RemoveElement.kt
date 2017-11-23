@@ -8,14 +8,15 @@ package algorithms.easy._027_remove_element
  * with `O(1)` extra memory.
  * The order of elements can be changed. It doesn't matter what you leave beyond the new length.
  *
- * Time: O(n)
- * Space: O(1)
- *
  * @author nrojiani
  * @date 11/10/17
  */
 class Solution {
 
+    /**
+     * Time: O(n)
+     * Space: O(1)
+     */
     fun removeElement(nums: IntArray, `val`: Int): Int {
         var i = 0
         for (j in (0..nums.lastIndex)) {

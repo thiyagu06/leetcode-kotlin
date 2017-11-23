@@ -3,13 +3,14 @@ package algorithms.easy._014_longest_common_prefix
 /**
  * 14 - https://leetcode.com/problems/longest-common-prefix/
  *
- * Time: O(S), where S is the sum of all chars in S
- * Space: O(1) - if zip() weren't used
- *
  * @author nrojiani
  * @date 11/9/17
  */
 class Solution {
+    /**
+     * Time: O(S), where S is the sum of all chars in S
+     * Space: O(1) - if zip() weren't used
+     */
     fun longestCommonPrefix(strs: Array<String>): String {
         if (strs.isEmpty()) return ""
 
@@ -29,7 +30,7 @@ class Solution {
 
 /**
  * Using divide & conquer - binary search of the space (0..minLen)
- * Note: the runtime on LeetCode is actually longer
+ * Note: the execution time on LeetCode is actually longer
  * https://leetcode.com/problems/longest-common-prefix/solution/
  */
 class OptimalSolution {

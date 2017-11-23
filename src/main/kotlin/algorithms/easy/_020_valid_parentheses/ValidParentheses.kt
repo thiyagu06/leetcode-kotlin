@@ -7,6 +7,10 @@ package algorithms.easy._020_valid_parentheses
  * @date 11/9/17
  */
 class Solution {
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
     fun isValid(s: String): Boolean =
             s.fold(emptyList<Bracket?>()) { stack, char ->
                 when {
@@ -39,5 +43,5 @@ enum class Bracket(val braces: Pair<Char, Char>) {
     }
 }
 
-internal fun Char.isOpeningBracket() = Bracket.values().any { it.braces.first == this }
-internal fun Char.isClosingBracket() = Bracket.values().any { it.braces.second == this }
+private fun Char.isOpeningBracket() = Bracket.values().any { it.braces.first == this }
+private fun Char.isClosingBracket() = Bracket.values().any { it.braces.second == this }
