@@ -1,6 +1,6 @@
 package algorithms.easy._083_remove_duplicates_sorted_llist
 
-import datastructures.ListNode
+import datastructures.list.ListNode
 
 /**
  * 83 - https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/

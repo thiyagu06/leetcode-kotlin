@@ -1,9 +1,9 @@
 package algorithms.easy._111_min_depth_of_binary_tree
 
-import datastructures.TreeNode
-import datastructures.hasLeft
-import datastructures.hasRight
-import datastructures.hasTwoChildren
+import datastructures.tree.TreeNode
+import datastructures.tree.hasLeft
+import datastructures.tree.hasRight
+import datastructures.tree.hasTwoChildren
 
 /**
  * 111 - https://leetcode.com/problems/minimum-depth-of-binary-tree/description/

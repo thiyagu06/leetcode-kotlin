@@ -1,6 +1,6 @@
 package algorithms.easy._104_max_depth_binary_tree
 
-import datastructures.TreeNode
+import datastructures.tree.TreeNode
 
 /**
  * 104 - https://leetcode.com/problems/maximum-depth-of-binary-tree/description/

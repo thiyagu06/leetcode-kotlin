@@ -1,6 +1,6 @@
 package algorithms.easy._101_is_symmetric_tree
 
-import datastructures.TreeNode
+import datastructures.tree.TreeNode
 
 /**
  * 101 - https://leetcode.com/problems/symmetric-tree/description/

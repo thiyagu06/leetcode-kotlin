@@ -1,7 +1,6 @@
 package algorithms.easy._206_reverse_linked_list
 
-import datastructures.linkedListOf
-import datastructures.toList
+import datastructures.list.linkedListOf
 import org.junit.Test
 
 import org.junit.Assert.*

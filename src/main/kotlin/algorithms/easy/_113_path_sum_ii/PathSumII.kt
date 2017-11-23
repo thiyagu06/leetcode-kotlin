@@ -1,7 +1,7 @@
 package algorithms.easy._113_path_sum_ii
 
-import datastructures.TreeNode
-import datastructures.rootToLeafPaths
+import datastructures.tree.TreeNode
+import datastructures.tree.rootToLeafPaths
 
 /**
  * 113 - https://leetcode.com/problems/path-sum-ii/description/

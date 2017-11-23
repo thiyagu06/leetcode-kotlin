@@ -1,6 +1,6 @@
 package algorithms.easy._021_merge_two_sorted_lists
 
-import datastructures.ListNode
+import datastructures.list.ListNode
 
 /**
  * 21 - https://leetcode.com/problems/merge-two-sorted-lists/description/

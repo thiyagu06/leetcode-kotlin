@@ -1,6 +1,6 @@
 package algorithms.easy._094_binary_tree_inorder_traversal
 
-import datastructures.TreeNode
+import datastructures.tree.TreeNode
 
 /**
  * 94 - https://leetcode.com/problems/binary-tree-inorder-traversal/description/

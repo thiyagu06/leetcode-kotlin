@@ -1,4 +1,4 @@
-package datastructures
+package datastructures.list
 
 import org.junit.After
 import org.junit.Assert.*

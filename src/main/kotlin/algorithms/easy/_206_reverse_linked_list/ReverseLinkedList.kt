@@ -1,6 +1,6 @@
 package algorithms.easy._206_reverse_linked_list
 
-import datastructures.ListNode
+import datastructures.list.ListNode
 
 /**
  * 206 - https://leetcode.com/problems/reverse-linked-list/description/

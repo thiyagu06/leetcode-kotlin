@@ -1,6 +1,6 @@
 package algorithms.easy._203_remove_linked_list_elements
 
-import datastructures.ListNode
+import datastructures.list.ListNode
 
 /**
  * 203 - https://leetcode.com/problems/remove-linked-list-elements/description/

@@ -1,8 +1,7 @@
 package algorithms.easy._083_remove_duplicates_sorted_llist
 
-import datastructures.ListNode
-import datastructures.linkedListOf
-import datastructures.toList
+import datastructures.list.ListNode
+import datastructures.list.linkedListOf
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

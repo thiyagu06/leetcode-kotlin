@@ -1,6 +1,6 @@
 package algorithms.easy._100_same_tree
 
-import datastructures.TreeNode
+import datastructures.tree.TreeNode
 
 /**
  * 100 - https://leetcode.com/problems/same-tree/description/

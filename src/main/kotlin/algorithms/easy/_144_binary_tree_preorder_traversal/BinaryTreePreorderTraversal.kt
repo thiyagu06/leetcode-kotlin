@@ -1,8 +1,8 @@
 package algorithms.easy._144_binary_tree_preorder_traversal
 
-import datastructures.DFSTraveralOrder
-import datastructures.TreeNode
-import datastructures.collect
+import datastructures.tree.DFSTraveralOrder
+import datastructures.tree.TreeNode
+import datastructures.tree.collect
 
 /**
  * 144 - https://leetcode.com/problems/binary-tree-preorder-traversal/description/

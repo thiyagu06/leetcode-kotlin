@@ -1,7 +1,7 @@
 package algorithms.easy._203_remove_linked_list_elements
 
-import datastructures.linkedListOf
-import datastructures.toList
+import datastructures.list.linkedListOf
+import datastructures.list.toList
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Test

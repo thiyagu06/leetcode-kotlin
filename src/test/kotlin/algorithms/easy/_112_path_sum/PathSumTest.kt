@@ -1,6 +1,6 @@
 package algorithms.easy._112_path_sum
 
-import datastructures.buildTree
+import datastructures.tree.buildTree
 import org.junit.Test
 
 import org.junit.Assert.*

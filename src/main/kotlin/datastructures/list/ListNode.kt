@@ -1,4 +1,4 @@
-package datastructures
+package datastructures.list
 
 /**
  * Definition for singly-linked list.

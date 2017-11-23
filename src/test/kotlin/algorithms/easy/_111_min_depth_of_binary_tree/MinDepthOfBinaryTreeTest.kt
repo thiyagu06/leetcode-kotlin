@@ -1,9 +1,8 @@
 package algorithms.easy._111_min_depth_of_binary_tree
 
-import datastructures.bst3LevelsFull
-import datastructures.bstWithNulls
-import datastructures.buildTree
-import datastructures.tree123
+import datastructures.tree.bst3LevelsFull
+import datastructures.tree.bstWithNulls
+import datastructures.tree.tree123
 import org.junit.Test
 
 import org.junit.Assert.*

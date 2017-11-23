@@ -1,8 +1,10 @@
-package datastructures
+package datastructures.tree
 
-import datastructures.DFSTraveralOrder.INORDER
-import datastructures.DFSTraveralOrder.POSTORDER
-import datastructures.DFSTraveralOrder.PREORDER
+import datastructures.tree.DFSTraveralOrder.INORDER
+import datastructures.tree.DFSTraveralOrder.POSTORDER
+import datastructures.tree.DFSTraveralOrder.PREORDER
+import datastructures.queue.ListQueue
+import datastructures.queue.Queue
 
 /**
  * Definition for a binary tree node.
@@ -102,8 +104,8 @@ internal fun TreeNode?.collect(acc: MutableCollection<Int> = arrayListOf()): Col
  * collect the transform result.
  */
 internal fun <T> TreeNode?.collect(traversalOrder: DFSTraveralOrder = INORDER,
-                                   acc: MutableCollection<T> = arrayListOf(),
-                                   transform: (TreeNode) -> T): Collection<T> {
+                                                       acc: MutableCollection<T> = arrayListOf(),
+                                                       transform: (TreeNode) -> T): Collection<T> {
     this ?: return emptyList()
 
     depthFirstSearch(order = traversalOrder) { acc += transform(it) }
