@@ -28,7 +28,7 @@ class Solution {
 
         /* Move H & T up until H reaches the end. T will be before the node to delete */
         while (hare?.next != null) {
-            hare = hare?.next
+            hare = hare.next
             tortoise = tortoise?.next
         }
 
