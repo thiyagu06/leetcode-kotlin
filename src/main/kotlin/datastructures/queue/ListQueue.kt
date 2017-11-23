@@ -5,7 +5,11 @@ package datastructures.queue
  * Queue implementation backed by an [ArrayList].
  */
 class ListQueue<T> : Queue<T> {
+
     private val elements = arrayListOf<T>()
+
+    override val size: Int
+        get() = elements.size
 
     override fun enqueue(value: T) = elements.add(elements.size, value)
 
@@ -15,8 +19,7 @@ class ListQueue<T> : Queue<T> {
 
     override fun isEmpty(): Boolean = elements.isEmpty()
 
-    override val size: Int
-        get() = elements.size
+    override fun isNotEmpty(): Boolean = !elements.isEmpty()
 
     override fun toString(): String = "ListQueue(elements=$elements)"
 
