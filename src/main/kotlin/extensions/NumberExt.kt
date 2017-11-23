@@ -18,14 +18,14 @@ internal fun Int.charForDigit(radix: Int = 10): Char = Character.forDigit(this, 
 
 // note: 03 will be returned as 3
 internal fun Int.valueOfNRightmostDigits(digits: Int): Int {
-    require (digits >= 1) { "invalid argument 'digits': $digits. Must be >= 1" }
+    require(digits >= 1) { "invalid argument 'digits': $digits. Must be >= 1" }
     val modOperand = Math.pow(10.0, digits.toDouble()).toInt()
     return this % modOperand
 }
 
 internal fun Int.valueOfNLeftmostDigits(digits: Int): Int {
     val totalDigits = numberOfDigits()
-    require (digits in 1..totalDigits) { "invalid argument 'digits': $digits. Must be in range 0..total number of digits" }
+    require(digits in 1..totalDigits) { "invalid argument 'digits': $digits. Must be in range 0..total number of digits" }
     val divOperand = Math.pow(10.0, (totalDigits - digits).toDouble()).toInt()
     return this / divOperand
 }
@@ -47,7 +47,7 @@ internal fun Int.numberOfDigits(): Int {
 
 internal fun Int.digits(): List<Char> {
     var remainder = Math.abs(this)
-    var digits = mutableListOf<Char>()
+    val digits = mutableListOf<Char>()
 
     while (remainder > 0) {
         val rightmostDigit = remainder % 10

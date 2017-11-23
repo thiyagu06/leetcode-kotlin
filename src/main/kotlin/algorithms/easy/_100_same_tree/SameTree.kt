@@ -8,14 +8,11 @@ import datastructures.tree.TreeNode
  * @author nrojiani
  * @date 11/13/17
  */
-/**
- * Definition for a binary tree node.
- * class TreeNode(var `val`: Int = 0) {
- *     var left: TreeNode? = null
- *     var right: TreeNode? = null
- * }
- */
 class Solution {
+    /**
+     * Time: O(?)
+     * Space: O(?)
+     */
     fun isSameTree(p: TreeNode?, q: TreeNode?): Boolean {
         if (p == null || q == null)
             return p == q

@@ -28,7 +28,7 @@ class ImperativeSolution {
      */
     fun majorityElement(nums: IntArray): Int {
         val majorityCutoff = (nums.size / 2) + 1
-        var frequencies = mutableMapOf<Int, Int>()
+        val frequencies = mutableMapOf<Int, Int>()
         for (x in nums) {
             frequencies[x] = frequencies.getOrPut(x, { 0 }) + 1
             if (frequencies[x]!! >= majorityCutoff)

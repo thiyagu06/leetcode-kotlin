@@ -160,7 +160,7 @@ internal fun buildTree(vararg elements: Int?): TreeNode? {
 
     val root = TreeNode(elements.first()!!)
     var parent = root
-    var parentQueue: Queue<TreeNode> = ListQueue()
+    val parentQueue: Queue<TreeNode> = ListQueue()
     parentQueue.enqueue(parent)
     var i = 1
     while (i < elements.size) {

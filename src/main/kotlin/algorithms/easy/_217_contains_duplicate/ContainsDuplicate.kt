@@ -16,7 +16,7 @@ class Solution {
      * Space: O(n)
      */
     fun containsDuplicate(nums: IntArray): Boolean {
-        var distinct = mutableSetOf<Int>()
+        val distinct = mutableSetOf<Int>()
         for (x in nums) {
             if (distinct.contains(x)) {
                 return true
