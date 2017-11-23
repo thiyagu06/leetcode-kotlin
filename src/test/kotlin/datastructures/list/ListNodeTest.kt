@@ -89,4 +89,21 @@ class ListNodeTest {
         val linkedList = ListNode.from(listOf(0, 1, 2, 3))
         assertEquals("(0)->(1)->(2)->(3)", linkedList?.contentToString())
     }
+
+    @Test
+    fun middleNode() {
+        val expected = mapOf(
+                null to null,
+                linkedListOf(1) to 1,
+                linkedListOf(1, 2) to 2,
+                linkedListOf(1, 2, 3) to 2,
+                linkedListOf(1, 2, 3, 4) to 3,
+                linkedListOf(1, 2, 3, 4, 5) to 3,
+                linkedListOf(1, 2, 3, 4, 5, 6) to 4
+        )
+
+        expected.forEach { list, middleValue ->
+            assertEquals(middleValue, list.middleNode()?.`val`)
+        }
+    }
 }

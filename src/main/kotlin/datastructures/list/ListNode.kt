@@ -143,6 +143,22 @@ fun ListNode.contentToString(): String = buildString {
 }.replace(")(", ")->(")
 
 
+/**
+ * Return the middle node in the list, or null if the receiver is null.
+ * When the size of the list is even, the "2nd middle" node is returned.
+ */
+fun ListNode?.middleNode(): ListNode? {
+    var tortoise: ListNode? = this
+    var hare: ListNode? = this
+
+    while (hare != null && hare.next != null) {
+        tortoise = tortoise?.next
+        hare = hare.next?.next
+    }
+
+    return tortoise
+}
+
 /* If not using Iterable<T>/iterator implementation: */
 inline fun ListNode.firstOrNull(predicate: (ListNode) -> Boolean): ListNode? {
     var node: ListNode? = this
