@@ -1,4 +1,4 @@
-package algorithms.easy._094_binary_tree_inorder_traversal
+package algorithms.medium._094_binary_tree_inorder_traversal
 
 import datastructures.tree.TreeNode
 
