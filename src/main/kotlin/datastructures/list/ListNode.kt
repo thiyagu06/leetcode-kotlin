@@ -74,6 +74,12 @@ class ListNode(var `val`: Int = 0) {
 }
 
 /**
+ * Return the list of all nodes except the first.
+ */
+val ListNode?.tail: ListNode?
+    get() = this?.next
+
+/**
  * Create a linked list from the given elements.
  * @param elements The elements to add to the list.
  * @return The head of a linked list of the [elements].

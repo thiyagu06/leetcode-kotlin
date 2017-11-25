@@ -106,4 +106,19 @@ class ListNodeTest {
             assertEquals(middleValue, list.middleNode()?.`val`)
         }
     }
+
+    @Test
+    fun tail() {
+        assertNull(null.tail)
+
+        val singleList = linkedListOf(1)
+        assertNull(singleList.tail)
+
+        val list12 = linkedListOf(1, 2)
+        assertEquals(linkedListOf(2), list12.tail)
+
+        val list123 = linkedListOf(1, 2, 3)
+        assertEquals(linkedListOf(2, 3), list123.tail)
+
+    }
 }

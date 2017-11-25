@@ -1,6 +1,7 @@
 package algorithms.easy._206_reverse_linked_list
 
 import datastructures.list.ListNode
+import datastructures.list.tail
 
 /**
  * 206 - https://leetcode.com/problems/reverse-linked-list/description/
@@ -12,6 +13,10 @@ import datastructures.list.ListNode
  * @date 11/11/17
  */
 class Solution {
+    /**
+     * Time: O(n)
+     * Space: O(1)
+     */
     fun reverseList(head: ListNode?): ListNode? {
         if (head == null)
             return null
@@ -30,4 +35,22 @@ class Solution {
 
         return previousNode
     }
+}
+
+class RecursiveSolution {
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
+    fun reverseList(head: ListNode?): ListNode? {
+        head ?: return null
+        head.next ?: return head
+
+        val reversedHead = reverseList(head.tail)
+
+        head.next?.next = head
+        head.next = null
+
+        return reversedHead
+     }
 }

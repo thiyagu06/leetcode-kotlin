@@ -57,10 +57,14 @@ internal val TreeNode.size: Int
  * Time: O(n)
  * Space: O(n)
  */
-internal fun TreeNode.find(value: Int): TreeNode? = when {
-    value < `val` && hasLeft -> left?.find(value)
-    value > `val` && hasRight -> right?.find(value)
-    else -> this
+internal fun TreeNode?.find(searchValue: Int): TreeNode? {
+    this ?: return null
+
+    return when {
+        searchValue < `val` -> left?.find(searchValue)
+        searchValue > `val` -> right?.find(searchValue)
+        else -> this
+    }
 }
 
 internal fun TreeNode.contains(value: Int): Boolean = find(value) != null
@@ -123,6 +127,15 @@ internal fun TreeNode?.toList(): List<Int> = collect { it.`val` }.toList()
 // TODO: BFS
 
 
+internal fun TreeNode?.isBST(validRange: IntRange = (Int.MIN_VALUE..Int.MAX_VALUE)): Boolean {
+    this ?: return true
+
+    val leftSubtreeRange = validRange.first..(`val` - 1)
+    val rightSubtreeRange = (`val` + 1)..validRange.last
+
+    return `val` in validRange && left.isBST(leftSubtreeRange) && right.isBST(rightSubtreeRange)
+}
+
 /**
  * Returns a list of all root-to-leaf paths.
  */
@@ -150,7 +163,7 @@ private fun TreeNode?.rootToLeafPathsHelper(currentPath: List<Int>, paths: Mutab
  * Insertion order is the same as LeetCode's 'Tree Visualizer'
  * @param elements The values to add to the tree.
  * @return The root of a binary tree containing the [elements], or `null` if
- * elements is empty.
+ *         elements is empty.
  */
 internal fun buildTree(vararg elements: Int?): TreeNode? {
     if (elements.isEmpty())
@@ -183,6 +196,22 @@ internal fun buildTree(vararg elements: Int?): TreeNode? {
     }
 
     return root
+}
+
+/**
+ * Create a binary search tree from the given elements.
+ * Insertion order is the same as LeetCode's 'Tree Visualizer'.
+ * For the BST property to be satisfied, all left subtree values must be less than the root,
+ * and all right subtree values must be greater. Duplicates are not permitted.
+ * @param elements The values to add to the tree.
+ * @return The root of a BST containing the [elements], or `null` if
+ *         elements is empty.
+ * @throws IllegalArgumentException if the elements cannot create a valid binary search tree.
+ */
+internal fun buildBST(vararg elements: Int?): TreeNode? {
+    val tree = buildTree(*elements)
+    require(tree.isBST()) { "The elements in the order provided violate the BST property." }
+    return tree
 }
 
 /**
@@ -225,7 +254,7 @@ internal val bst3LevelsFull =
  *         /   \
  *       4      9
  *      /      /
- *    3       6
+ *    3       8
  *   /
  *  1
  * ```
@@ -238,6 +267,6 @@ internal val bstWithNulls =
                 }
             }
             right = TreeNode(9).apply {
-                left = TreeNode(6)
+                left = TreeNode(8)
             }
         }

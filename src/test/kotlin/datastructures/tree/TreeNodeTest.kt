@@ -65,7 +65,7 @@ class TreeNodeTest {
         assertEquals(3, tree?.right?.left?.`val`)
         assertNull(tree?.right?.left?.right)
 
-        val tree2 = buildTree(7, 4, 9, 3, null, 6, null, 1)
+        val tree2 = buildTree(7, 4, 9, 3, null, 8, null, 1)
         assertEquals(bstWithNulls, tree2)
         assertEquals(6, tree2?.size)
         assertEquals(7, tree2?.`val`)
@@ -73,12 +73,35 @@ class TreeNodeTest {
         assertEquals(9, tree2?.right?.`val`)
         assertEquals(3, tree2?.left?.left?.`val`)
         assertEquals(1, tree2?.left?.left?.left?.`val`)
-        assertEquals(6, tree2?.right?.left?.`val`)
+        assertEquals(8, tree2?.right?.left?.`val`)
     }
 
     @Test(expected = IllegalArgumentException::class)
-    fun `Exception if root is null`() {
+    fun `buildTree throws exception if root is null`() {
         buildTree(null)
+    }
+
+    @Test
+    fun buildBST() {
+        val tree1 = buildBST(2, 1, 3)
+        assertNotNull(tree1)
+        assertEquals(3, tree1?.size)
+        assertEquals(2, tree1?.`val`)
+        assertEquals(1, tree1?.left?.`val`)
+        assertEquals(3, tree1?.right?.`val`)
+
+        val tree2 = buildBST(7, 4, 9, 3, null, 8, null, 1)
+        assertEquals(bstWithNulls, tree2)
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `buildBST throws exception if root is null`() {
+        buildBST(null)
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `buildBST throws exception if elements violate BST property`() {
+        buildBST(1, 2, 3)
     }
 
     @Test
@@ -86,18 +109,40 @@ class TreeNodeTest {
         assertEquals(listOf(listOf(1, 2), listOf(1, 3)), tree123.rootToLeafPaths())
         assertEquals(listOf(listOf(5, 3, 1), listOf(5, 3, 4), listOf(5, 8, 6), listOf(5, 8, 9)),
                 bst3LevelsFull.rootToLeafPaths())
-        assertEquals(listOf(listOf(7, 4, 3, 1), listOf(7, 9, 6)), bstWithNulls.rootToLeafPaths())
+        assertEquals(listOf(listOf(7, 4, 3, 1), listOf(7, 9, 8)), bstWithNulls.rootToLeafPaths())
     }
 
-    @Ignore
-    @Test
-    fun contains() {
-        TODO()
-    }
-
-    @Ignore
     @Test
     fun find() {
-        TODO()
+        (1..9).forEach { i ->
+            if (i in setOf(2, 7))
+                assertNull(bst3LevelsFull.find(i))
+            else
+                assertEquals(i, bst3LevelsFull.find(i)?.`val`)
+        }
+
+        (1..9).forEach { i ->
+            if (i in setOf(2, 5, 6))
+                assertNull(bstWithNulls.find(i))
+            else
+                assertEquals(i, bstWithNulls.find(i)?.`val`)
+        }
+    }
+
+    @Test
+    fun contains() {
+        (1..9).forEach { i ->
+            if (i in setOf(2, 7))
+                assertFalse(bst3LevelsFull.contains(i))
+            else
+                assertTrue(bst3LevelsFull.contains(i))
+        }
+
+        (1..9).forEach { i ->
+            if (i in setOf(2, 5, 6))
+                assertFalse(bstWithNulls.contains(i))
+            else
+                assertTrue(bstWithNulls.contains(i))
+        }
     }
 }

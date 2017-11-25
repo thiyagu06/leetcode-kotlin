@@ -47,8 +47,6 @@ class Solution {
 /**
  * Follow up:
  * Could you do it in O(n) time and O(1) space?
- *
- * TODO: same approach, but reverse first half of list?
  */
 class FollowUpSolution {
     /**
