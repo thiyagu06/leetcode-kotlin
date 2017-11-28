@@ -1,4 +1,4 @@
-package algorithms.easy._113_path_sum_ii
+package algorithms.medium._113_path_sum_ii
 
 import datastructures.tree.TreeNode
 import datastructures.tree.rootToLeafPaths
