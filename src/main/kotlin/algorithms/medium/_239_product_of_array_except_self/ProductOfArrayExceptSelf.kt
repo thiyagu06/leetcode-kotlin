@@ -17,7 +17,7 @@ class Solution {
 
         val (productsLtoR, productsRtoL) = cumulativeProductArrays(nums)
 
-        var output = IntArray(nums.size)
+        val output = IntArray(nums.size)
         nums.forEachIndexed { i, _ ->
             output[i] = when (i) {
                 0 -> productsRtoL[1]

@@ -1,9 +1,8 @@
 package algorithms.easy._217_contains_duplicate
 
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
-
-import org.junit.Assert.*
-import org.junit.Ignore
 import kotlin.system.measureNanoTime
 
 /**

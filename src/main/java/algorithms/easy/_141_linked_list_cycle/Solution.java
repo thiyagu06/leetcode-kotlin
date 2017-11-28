@@ -7,7 +7,7 @@ import datastructures.java.ListNode;
  * @author nrojiani
  * @date 11/24/17
  */
-public class Solution {
+class Solution {
     public boolean hasCycle(ListNode head) {
         if (head == null || head.next == null) {
             return false;

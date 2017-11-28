@@ -19,7 +19,7 @@ const val END_SEPARATOR =   "------------------------------------DEBUG END------
  * printVars("a" to a, "b" to b, "c" to c)
  * ```
  */
-fun printVars(vararg variables: Pair<String, Any>): Unit {
+fun printVars(vararg variables: Pair<String, Any>) {
     println(START_SEPARATOR)
     variables.forEach { (variableName, variable) ->
         println(variableName + " = " + variable)

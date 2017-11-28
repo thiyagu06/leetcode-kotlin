@@ -5,7 +5,7 @@
 /**
  * Add an element to the beginning of the list.
  */
-internal fun <E> MutableList<E>.prepend(element: E): Unit = add(0, element)
+internal fun <E> MutableList<E>.prepend(element: E) = add(0, element)
 
 /**
  * Inserts all of the elements in the specified collection [elements] into this list at the beginning of the list.

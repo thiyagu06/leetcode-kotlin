@@ -16,7 +16,7 @@ class Solution {
      * Space: O(n)
      */
     fun merge(nums1: IntArray, m: Int, nums2: IntArray, n: Int) {
-        var aux1 = IntArray(m)
+        val aux1 = IntArray(m)
         for (i in 0 until m) {
             aux1[i] = nums1[i]
         }
