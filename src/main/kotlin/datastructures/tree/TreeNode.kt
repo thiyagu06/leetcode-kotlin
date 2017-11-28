@@ -72,20 +72,20 @@ internal fun TreeNode.contains(value: Int): Boolean = find(value) != null
 internal enum class DFSTraversalOrder { PREORDER, INORDER, POSTORDER; }
 
 /**
- * Perform depth-first search on the tree, executing [visit] on each node.
+ * Perform depth-first traversal on the tree, executing [visit] on each node.
  */
-internal fun TreeNode?.depthFirstSearch(order: DFSTraversalOrder = INORDER, visit: (TreeNode) -> Unit) {
+internal fun TreeNode?.dfs(order: DFSTraversalOrder = INORDER, visit: (TreeNode) -> Unit) {
     this ?: return
 
     if (order == PREORDER)
         visit(this)
 
-    left?.depthFirstSearch(order, visit)
+    left?.dfs(order, visit)
 
     if (order == INORDER)
         visit(this)
 
-    right?.depthFirstSearch(order, visit)
+    right?.dfs(order, visit)
 
     if (order == POSTORDER)
         visit(this)
@@ -112,7 +112,7 @@ internal fun <T> TreeNode?.collect(traversalOrder: DFSTraversalOrder = INORDER,
                                    transform: (TreeNode) -> T): Collection<T> {
     this ?: return emptyList()
 
-    depthFirstSearch(order = traversalOrder) { acc += transform(it) }
+    dfs(order = traversalOrder) { acc += transform(it) }
     return acc
 }
 
@@ -124,8 +124,23 @@ internal fun <T> TreeNode?.collect(traversalOrder: DFSTraversalOrder = INORDER,
 internal fun TreeNode?.toList(): List<Int> = collect { it.`val` }.toList()
 
 // TODO: Iterative DFS
-// TODO: BFS
 
+/**
+ * Execute a breadth-first traversal of the tree.
+ */
+internal fun TreeNode?.bfs(visit: (TreeNode) -> Unit) {
+    this ?: return
+
+    val queue = ListQueue<TreeNode>()
+    var node: TreeNode = this
+    queue.enqueue(node)
+    while (queue.isNotEmpty()) {
+        node = queue.dequeue() ?: return
+        visit(node)
+        node.left?.let { queue.enqueue(it) }
+        node.right?.let { queue.enqueue(it) }
+    }
+}
 
 internal fun TreeNode?.isBST(validRange: IntRange = (Int.MIN_VALUE..Int.MAX_VALUE)): Boolean {
     this ?: return true
@@ -216,9 +231,9 @@ internal fun buildBST(vararg elements: Int?): TreeNode? {
 
 /**
  * ```
- *    1
- *   / \
- * 2     3
+ *         (1)
+ *  ┌───────┴───────┐
+ * (2)             (3)
  * ```
  */
 internal val tree123 =
@@ -229,11 +244,29 @@ internal val tree123 =
 
 /**
  * ```
- *        5
- *      /   \
- *    3      8
- *   / \    / \
- * 1    4  6    9
+ *             (1)
+ *      ┌───────┴───────┐
+ *     (2)             (3)
+ *  ┌───┴───┐
+ * (4)    (5)
+ * ```
+ */
+internal val tree1to5 =
+        TreeNode(1).apply {
+            left = TreeNode(2).apply {
+                left = TreeNode(4)
+                right = TreeNode(5)
+            }
+            right = TreeNode(3)
+        }
+
+/**
+ * ```
+ *            (5)
+ *     ┌───────┴───────┐
+ *    (3)             (8)
+ * ┌───┴───┐       ┌───┴───┐
+ * (1)    (4)     (6)     (9)
  * ```
  */
 internal val bst3LevelsFull =
@@ -250,13 +283,13 @@ internal val bst3LevelsFull =
 
 /**
  * ```
- *           7
- *         /   \
- *       4      9
- *      /      /
- *    3       8
- *   /
- *  1
+ *                 (7)
+ *          ┌───────┴───────┐
+ *         (4)             (9)
+ *      ┌───┴           ┌───┴
+ *      (3)            (8)
+ *   ┌───┴
+ *  (1)
  * ```
  */
 internal val bstWithNulls =

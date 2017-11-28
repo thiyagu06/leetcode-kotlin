@@ -57,7 +57,7 @@ class FollowUpSolution {
         head ?: return true
 
         val listSize = head.size
-        val hasOddNumberOfNodes = listSize.isOdd()
+        val hasOddNumberOfNodes = listSize.isOdd
         val nodesInFirstHalf = listSize / 2
 
         var right = head.middleNode()   // Must get middle node before reversing first half.

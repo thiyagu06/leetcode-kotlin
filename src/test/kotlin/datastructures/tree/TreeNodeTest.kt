@@ -11,14 +11,33 @@ import org.junit.Test
 class TreeNodeTest {
 
     @Test
-    fun depthFirstSearch() {
+    fun dfs() {
         val values = arrayListOf<Int>()
-        tree123.depthFirstSearch { values += it.`val` }
+        tree123.dfs { values += it.`val` }
         assertEquals(arrayListOf(2, 1, 3), values)
 
         val bstValues = arrayListOf<Int>()
-        bst3LevelsFull.depthFirstSearch { bstValues += it.`val` }
+        bst3LevelsFull.dfs { bstValues += it.`val` }
         assertEquals(listOf(1, 3, 4, 5, 6, 8, 9), bstValues.toList())
+    }
+
+    @Test
+    fun bfs() {
+        val nodesTree123 = arrayListOf<Int>()
+        tree123.bfs { nodesTree123 += it.`val` }
+        assertEquals(listOf(1, 2, 3), nodesTree123)
+
+        val nodesTree1to5 = arrayListOf<Int>()
+        tree1to5.bfs { nodesTree1to5 += it.`val` }
+        assertEquals(listOf(1, 2, 3, 4, 5), nodesTree1to5)
+
+        val nodesBst3LevelsFull = arrayListOf<Int>()
+        bst3LevelsFull.bfs { nodesBst3LevelsFull += it.`val` }
+        assertEquals(listOf(5, 3, 8, 1, 4, 6, 9), nodesBst3LevelsFull)
+
+        val nodesBstWithNulls = arrayListOf<Int>()
+        bstWithNulls.bfs { nodesBstWithNulls += it.`val` }
+        assertEquals(listOf(7, 4, 9, 3, 8, 1), nodesBstWithNulls)
     }
 
     @Test

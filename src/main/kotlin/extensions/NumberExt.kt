@@ -11,6 +11,12 @@ package extensions
  * Int
  ********************/
 
+internal val Int.isEven: Boolean
+    get() = this % 2 == 0
+
+internal val Int.isOdd: Boolean
+    get() = this % 2 == 1
+
 /**
  * Applies Java's [Character.forDigit].
  */
@@ -57,6 +63,3 @@ internal fun Int.digits(): List<Char> {
 
     return digits
 }
-
-internal fun Int.isEven(): Boolean = this % 2 == 0
-internal fun Int.isOdd(): Boolean = this % 2 == 1

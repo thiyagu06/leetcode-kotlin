@@ -1,5 +1,7 @@
 package algorithms.easy._204_count_primes
 
+import extensions.isEven
+
 /**
  * 204 - https://leetcode.com/problems/count-primes/description/
  * Count the number of prime numbers less than a non-negative number, n.
@@ -21,9 +23,7 @@ class Solution {
     private fun Int.isPrime(): Boolean =
             when {
                 this < 2 -> false
-                this > 2 && isEven() -> false
+                this > 2 && isEven -> false
                 else -> (2..Math.sqrt(toDouble()).toInt()).all { this % it != 0 }
             }
-
-    private fun Int.isEven() = this % 2 == 0
 }
