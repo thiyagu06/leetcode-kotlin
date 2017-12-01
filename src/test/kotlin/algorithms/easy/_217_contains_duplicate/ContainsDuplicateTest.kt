@@ -3,7 +3,7 @@ package algorithms.easy._217_contains_duplicate
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
-import kotlin.system.measureNanoTime
+import kotlin.system.measureTimeMillis
 
 /**
  * @author nrojiani
@@ -13,54 +13,50 @@ class ContainsDuplicateTest {
 
     private val solution1 = Solution()
     private val solution2 = SolutionTwo()
+
     private val bigInput = IntArray(1000, { i -> i })
     private val bigInputStartDuplicate = intArrayOf(0) + IntArray(1000, { i -> i })
 
     @Test
     fun containsDuplicate() {
-        assertFalse(solution1.containsDuplicate(intArrayOf()))
-        assertFalse(solution1.containsDuplicate(intArrayOf(1)))
-        assertFalse(solution1.containsDuplicate(intArrayOf(1, 2)))
-        assertFalse(solution1.containsDuplicate(intArrayOf(1, 3, 4, 2)))
-        assertTrue(solution1.containsDuplicate(intArrayOf(1, 1)))
-        assertTrue(solution1.containsDuplicate(intArrayOf(1, 2, 1)))
-    }
+        val ms1 = measureTimeMillis {
+            assertFalse(solution1.containsDuplicate(intArrayOf()))
+            assertFalse(solution1.containsDuplicate(intArrayOf(1)))
+            assertFalse(solution1.containsDuplicate(intArrayOf(1, 2)))
+            assertFalse(solution1.containsDuplicate(intArrayOf(1, 3, 4, 2)))
+            assertTrue(solution1.containsDuplicate(intArrayOf(1, 1)))
+            assertTrue(solution1.containsDuplicate(intArrayOf(1, 2, 1)))
+        }
+        println("Solution 1: $ms1 ms\n")
 
-    @Test
-    fun containsDuplicate2() {
-        assertFalse(solution2.containsDuplicate(intArrayOf()))
-        assertFalse(solution2.containsDuplicate(intArrayOf(1)))
-        assertFalse(solution2.containsDuplicate(intArrayOf(1, 2)))
-        assertFalse(solution2.containsDuplicate(intArrayOf(1, 3, 4, 2)))
-        assertTrue(solution2.containsDuplicate(intArrayOf(1, 1)))
-        assertTrue(solution2.containsDuplicate(intArrayOf(1, 2, 1)))
+        val ms2 = measureTimeMillis {
+            assertFalse(solution2.containsDuplicate(intArrayOf()))
+            assertFalse(solution2.containsDuplicate(intArrayOf(1)))
+            assertFalse(solution2.containsDuplicate(intArrayOf(1, 2)))
+            assertFalse(solution2.containsDuplicate(intArrayOf(1, 3, 4, 2)))
+            assertTrue(solution2.containsDuplicate(intArrayOf(1, 1)))
+            assertTrue(solution2.containsDuplicate(intArrayOf(1, 2, 1)))
+        }
+
+        println("Solution 2: $ms2 ms\n")
     }
 
     @Test
     fun bigInputDuplicateAtStart() {
-        assertTrue(solution1.containsDuplicate(bigInputStartDuplicate))
-        val ns = measureNanoTime { solution1.containsDuplicate(bigInputStartDuplicate) }
-        println("${ns / 1000000} ms")
-    }
+        val ms1 = measureTimeMillis { assertTrue(solution1.containsDuplicate(bigInputStartDuplicate)) }
+        println("Solution 1: $ms1 ms\n")
 
-    @Test
-    fun bigInputDuplicateAtStart2() {
-        assertTrue(solution2.containsDuplicate(bigInputStartDuplicate))
-        val ns = measureNanoTime { solution2.containsDuplicate(bigInputStartDuplicate) }
-        println("${ns / 1000000} ms")
+        val ms2 = measureTimeMillis { assertTrue(solution2.containsDuplicate(bigInputStartDuplicate)) }
+        println("Solution 2: $ms2 ms\n")
     }
 
     @Test
     fun bigInputDuplicate() {
-        val ns = measureNanoTime { solution1.containsDuplicate(bigInput) }
-        println("${ns / 1000000} ms")
-        assertFalse(solution1.containsDuplicate(bigInput))
+        val ms1 = measureTimeMillis { assertFalse(solution1.containsDuplicate(bigInput)) }
+        println("Solution 1: $ms1 ms\n")
+
+        val ms2 = measureTimeMillis { assertFalse(solution2.containsDuplicate(bigInput)) }
+        println("Solution 2: $ms2 ms\n")
     }
 
-    @Test
-    fun bigInputDuplicate2() {
-        val ns = measureNanoTime { solution2.containsDuplicate(bigInput) }
-        println("${ns / 1000000} ms")
-        assertFalse(solution2.containsDuplicate(bigInput))
-    }
 }

@@ -30,14 +30,12 @@ class Solution {
 
 class SolutionTwo {
     /**
-     * Time limit exceeded.
      * Time: O(n)
      * Space: O(n)
      */
-    fun containsDuplicate(nums: IntArray): Boolean {
-        nums.fold(emptySet<Int>()) { acc, element ->
-            if (acc.contains(element)) return true else acc + element
-        }
-        return false
-    }
+    fun containsDuplicate(nums: IntArray): Boolean = nums.withIndex()
+            .groupBy({ it.value }, { it.index })
+            .filter { (_, occurrences) -> occurrences.size >= 2 }
+            .isNotEmpty()
 }
+
