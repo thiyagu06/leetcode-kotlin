@@ -49,6 +49,14 @@ internal val TreeNode.isLeaf: Boolean
 internal val TreeNode.size: Int
     get() = 1 + (left?.size ?: 0) + (right?.size ?: 0)
 
+/**
+ * Height: the number of edges on the longest path between this node and a leaf.
+ */
+internal val TreeNode.height: Int
+    get() {
+        if (isLeaf) return 0
+        return 1 + maxOf(left?.height ?: 0, right?.height ?: 0)
+    }
 
 /**
  * Search for a value in the binary tree, returning the node

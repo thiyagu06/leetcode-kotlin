@@ -163,4 +163,9 @@ class TreeNodeTest {
                 assertTrue(bstWithNulls.contains(i))
         }
     }
+
+    @Test
+    fun height() {
+
+    }
 }
