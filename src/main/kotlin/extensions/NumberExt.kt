@@ -1,5 +1,7 @@
 package extensions
 
+import java.math.BigInteger
+
 /**
  * Number (Int, Double, Float, Byte, Short, etc. extensions.
  *
@@ -51,6 +53,10 @@ internal fun Int.numberOfDigits(): Int {
     return digits
 }
 
+/**
+ * Time: O(n) - where n is the number of digits in the integer.
+ * Space: O(n)
+ */
 internal fun Int.digits(): List<Char> {
     var remainder = Math.abs(this)
     val digits = mutableListOf<Char>()
@@ -62,4 +68,24 @@ internal fun Int.digits(): List<Char> {
     }
 
     return digits
+}
+
+
+/**
+ * Calculates the factorial, `n!`.
+ */
+fun Int.factorial(): BigInteger {
+    require(this >= 0) { "Must be > 0" }
+    return when (this) {
+        in 0..1 -> BigInteger.ONE
+        else -> {
+            var result = BigInteger.ONE
+            var i = BigInteger.valueOf(this.toLong())
+            while (i > BigInteger.ONE) {
+                result = i.multiply(result)
+                i = i.minus(BigInteger.ONE)
+            }
+            return result
+        }
+    }
 }
