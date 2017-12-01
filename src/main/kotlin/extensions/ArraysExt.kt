@@ -39,7 +39,6 @@ internal inline fun <K> IntArray.groupingBy(crossinline keySelector: (Int) -> K)
     override fun keyOf(element: Int): K = keySelector(element)
 }
 
-
 /************** swap **************/
 
 /**

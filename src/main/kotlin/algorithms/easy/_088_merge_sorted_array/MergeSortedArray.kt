@@ -1,4 +1,4 @@
-package algorithms.easy._88_merge_sorted_array
+package algorithms.easy._088_merge_sorted_array
 
 /**
  * 88 - https://leetcode.com/problems/merge-sorted-array/description/

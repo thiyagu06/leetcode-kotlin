@@ -1,4 +1,4 @@
-package algorithms.easy._394_decode_string
+package algorithms.medium._394_decode_string
 
 /**
  *
