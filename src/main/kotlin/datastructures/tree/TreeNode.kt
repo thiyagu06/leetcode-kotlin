@@ -50,6 +50,16 @@ internal val TreeNode.size: Int
     get() = 1 + (left?.size ?: 0) + (right?.size ?: 0)
 
 /**
+ * Can't implement component1/component2, since the types can't be nullable.
+ * But this can be used for destructuring (among other uses):
+ * ```
+ * val (l, r) = tree?.children
+ * ```
+ */
+internal val TreeNode.children: Pair<TreeNode?, TreeNode?>
+    get() = Pair(left, right)
+
+/**
  * Height: the number of edges on the longest path between this node and a leaf.
  */
 internal val TreeNode.height: Int
