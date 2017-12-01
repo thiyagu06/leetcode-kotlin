@@ -2,8 +2,6 @@ package algorithms.easy._119_pascals_triangle_II
 
 import algorithms.easy._118_pascals_triangle.PascalsTriangle
 import extensions.choose
-import extensions.isEven
-import extensions.isOdd
 
 /**
  * 119 - https://leetcode.com/problems/pascals-triangle-ii/description/

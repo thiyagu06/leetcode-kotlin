@@ -5,9 +5,6 @@ import org.junit.Test
 import org.junit.Assert.*
 import kotlin.system.measureTimeMillis
 
-/**
- *
- */
 class PascalsTriangleIITest {
     private val solution = Solution()
     private val followup = FollowUpSolution()

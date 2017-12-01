@@ -11,7 +11,7 @@ import org.junit.Assert.*
  */
 class ReverseLinkedListTest {
     private val listReverser = Solution()
-    private val recursiveSolution = Solution()
+    private val recursiveSolution = RecursiveSolution()
 
     @Test
     fun reverseList() {

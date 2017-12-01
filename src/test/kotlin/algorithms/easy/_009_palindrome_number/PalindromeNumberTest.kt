@@ -4,9 +4,6 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- *
- */
 class PalindromeNumberTest {
     private val solution = Solution()
 
