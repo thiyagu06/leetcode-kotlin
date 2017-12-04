@@ -13,8 +13,19 @@ package extensions
  * LongArray
  * ShortArray
  */
-internal fun isArrayType(obj: Any): Boolean {
-    if (obj is Array<*>)
+
+/* https://github.com/Carleslc/kotlin-extensions/blob/master/src/me/carleslc/kotlin/extensions/arrays/ArrayExtensions.kt */
+fun <T> Array<T>?.isBlank(): Boolean = this == null || isEmpty()
+fun <T> Array<T?>.anyNull(): Boolean = any { it == null }
+fun <T> Array<T?>.allNull(): Boolean = all { it == null }
+
+fun IntArray?.isBlank(): Boolean = this == null || isEmpty()
+
+/**
+ * Return true if the object is either an Array<T> or primitive array type.
+ */
+fun Any.isArrayType(): Boolean {
+    if (this is Array<*>)
         return true
 
     val primitiveArrayTypes = setOf(
@@ -28,23 +39,45 @@ internal fun isArrayType(obj: Any): Boolean {
             ShortArray::class
     )
 
-    return obj::class in primitiveArrayTypes
+    return this::class in primitiveArrayTypes
 }
 
 /**
  * https://github.com/ilya-g/kotlinx.collections.experimental/blob/5a7d58147d6e25d80699fa9abb22130d0a5e0f7b/kotlinx-collections-experimental/src/main/kotlin/kotlinx.collections.experimental/grouping/grouping.kt
  */
-internal inline fun <K> IntArray.groupingBy(crossinline keySelector: (Int) -> K): Grouping<Int, K> = object : Grouping<Int, K> {
+inline fun <K> IntArray.groupingBy(crossinline keySelector: (Int) -> K): Grouping<Int, K> = object : Grouping<Int, K> {
     override fun sourceIterator(): IntIterator = this@groupingBy.iterator()
     override fun keyOf(element: Int): K = keySelector(element)
 }
 
+/**
+ * Return a map where the entries are (element -> # of occurrences)
+ */
+fun IntArray.frequencyMap(): Map<Int, Int> = groupingBy { it }.eachCount()
+
+/**
+ * Return a map where the entries are (element -> # of occurrences)
+ */
+fun <T> Array<T>.frequencyMap(): Map<T, Int> = groupingBy { it }.eachCount()
+
+
+/**
+ * Return a map where the entries are (element -> List of indices containing element)
+ */
+fun IntArray.valueToIndicesMap(): Map<Int, List<Int>> = withIndex()
+        .groupBy(keySelector = { (i, n) -> n }, valueTransform = { (i, n) -> i })
+
+/**
+ * Return a map where the entries are (element -> List of indices containing element)
+ */
+fun <T> Array<T>.valueToIndicesMap(): Map<T, List<Int>> = withIndex()
+        .groupBy(keySelector = { (i, n) -> n }, valueTransform = { (i, n) -> i })
 /************** swap **************/
 
 /**
  * **Mutating** - Swap the elements at indices [i] and [j].
  */
-internal fun <T> Array<T>.swap(i: Int, j: Int) {
+fun <T> Array<T>.swap(i: Int, j: Int) {
     val temp = this[i]
     this[i] = this[j]
     this[j] = temp
@@ -53,7 +86,7 @@ internal fun <T> Array<T>.swap(i: Int, j: Int) {
 /**
  * **Mutating** - Swap the elements at indices [i] and [j].
  */
-internal fun IntArray.swap(i: Int, j: Int) {
+fun IntArray.swap(i: Int, j: Int) {
     val temp = this[i]
     this[i] = this[j]
     this[j] = temp
@@ -62,7 +95,7 @@ internal fun IntArray.swap(i: Int, j: Int) {
 /**
  * **Mutating** - Swap the elements at indices [i] and [j].
  */
-internal fun CharArray.swap(i: Int, j: Int) {
+fun CharArray.swap(i: Int, j: Int) {
     val temp = this[i]
     this[i] = this[j]
     this[j] = temp
@@ -73,7 +106,10 @@ internal fun CharArray.swap(i: Int, j: Int) {
 /**
  * **Mutating** - Reverse the elements in the given index range.
  */
-internal fun <T> Array<T>.reverseElementsInRange(indexRange: IntRange) {
+fun <T> Array<T>.reverseElementsInRange(indexRange: IntRange) {
+    require(indexRange.start >= 0 && indexRange.endInclusive <= lastIndex) {
+        "Invalid indexRange: $indexRange for array with indices: $indices"
+    }
     var i = indexRange.start
     var j = indexRange.endInclusive
     while (i < j) {
@@ -84,7 +120,7 @@ internal fun <T> Array<T>.reverseElementsInRange(indexRange: IntRange) {
 /**
  * **Mutating** - Reverse the elements in the given index range.
  */
-internal fun IntArray.reverseElementsInRange(indexRange: IntRange) {
+fun IntArray.reverseElementsInRange(indexRange: IntRange) {
     var i = indexRange.start
     var j = indexRange.endInclusive
     while (i < j) {
@@ -95,7 +131,7 @@ internal fun IntArray.reverseElementsInRange(indexRange: IntRange) {
 /**
  * **Mutating** - Reverse the elements in the given index range.
  */
-internal fun CharArray.reverseElementsInRange(indexRange: IntRange) {
+fun CharArray.reverseElementsInRange(indexRange: IntRange) {
     var i = indexRange.start
     var j = indexRange.endInclusive
     while (i < j) {

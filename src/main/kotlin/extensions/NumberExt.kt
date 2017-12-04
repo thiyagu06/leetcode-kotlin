@@ -1,5 +1,6 @@
 package extensions
 
+import append
 import java.math.BigInteger
 
 /**
@@ -13,51 +14,43 @@ import java.math.BigInteger
  * Int
  ********************/
 
-internal val Int.isEven: Boolean
+val Int.isEven: Boolean
     get() = this % 2 == 0
 
-internal val Int.isOdd: Boolean
+val Int.isOdd: Boolean
     get() = this % 2 == 1
+
 
 /**
  * Applies Java's [Character.forDigit].
  */
-internal fun Int.charForDigit(radix: Int = 10): Char = Character.forDigit(this, radix)
+fun Int.charForDigit(radix: Int = 10): Char = Character.forDigit(this, radix)
 
-// note: 03 will be returned as 3
-internal fun Int.valueOfNRightmostDigits(digits: Int): Int {
-    require(digits >= 1) { "invalid argument 'digits': $digits. Must be >= 1" }
-    val modOperand = Math.pow(10.0, digits.toDouble()).toInt()
-    return this % modOperand
-}
+/**
+ * Returns the digits in the [Int] receiver.
+ * e.g., `497.digits() --> [4, 9, 7]`
+ */
+fun Int.digits(): List<Int> {
+    require(this >= 0) { "Must be > 0" }
+    if (this == 0) return listOf(0)
 
-internal fun Int.valueOfNLeftmostDigits(digits: Int): Int {
-    val totalDigits = numberOfDigits()
-    require(digits in 1..totalDigits) { "invalid argument 'digits': $digits. Must be in range 0..total number of digits" }
-    val divOperand = Math.pow(10.0, (totalDigits - digits).toDouble()).toInt()
-    return this / divOperand
-}
-
-internal fun Int.valueOfLeftmostDigit(): Int = valueOfNLeftmostDigits(1)
-internal fun Int.valueOfRightmostDigit(): Int = valueOfNRightmostDigits(1)
-
-internal fun Int.numberOfDigits(): Int {
     var remainder = Math.abs(this)
-    var digits = 0
+    val digits = mutableListOf<Int>()
 
     while (remainder > 0) {
+        val rightmostDigit = remainder % 10
+        digits.add(rightmostDigit)
         remainder /= 10
-        digits++
     }
 
     return digits
 }
 
 /**
- * Time: O(n) - where n is the number of digits in the integer.
+ * Time: O(n) - where n is the number of digitsAsChars in the integer.
  * Space: O(n)
  */
-internal fun Int.digits(): List<Char> {
+fun Int.digitsAsChars(): List<Char> {
     var remainder = Math.abs(this)
     val digits = mutableListOf<Char>()
 
@@ -70,6 +63,24 @@ internal fun Int.digits(): List<Char> {
     return digits
 }
 
+fun Int.numberOfDigits(): Int = digits().size
+
+// note: 03 will be returned as 3
+fun Int.valueOfNRightmostDigits(digits: Int): Int {
+    require(digits >= 1) { "invalid argument 'digitsAsChars': $digits. Must be >= 1" }
+    val modOperand = Math.pow(10.0, digits.toDouble()).toInt()
+    return this % modOperand
+}
+
+fun Int.valueOfNLeftmostDigits(digits: Int): Int {
+    val totalDigits = numberOfDigits()
+    require(digits in 1..totalDigits) { "invalid argument 'digitsAsChars': $digits. Must be in range 0..total number of digitsAsChars" }
+    val divOperand = Math.pow(10.0, (totalDigits - digits).toDouble()).toInt()
+    return this / divOperand
+}
+
+fun Int.firstDigit(): Int = valueOfNRightmostDigits(1)
+fun Int.lastDigit(): Int = valueOfNLeftmostDigits(1)
 
 /**
  * Calculates the factorial, `n!`.

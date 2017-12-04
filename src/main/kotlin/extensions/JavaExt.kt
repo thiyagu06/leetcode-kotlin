@@ -15,7 +15,7 @@ import java.util.*
  *
  * See Java's [Collections.nCopies].
  */
-internal fun <T> T.nCopies(n: Int): List<T> = Collections.nCopies(n, this)
+fun <T> T.nCopies(n: Int): List<T> = Collections.nCopies(n, this)
 
 /**
  * Returns an immutable list consisting of [n] copies of the
@@ -23,4 +23,4 @@ internal fun <T> T.nCopies(n: Int): List<T> = Collections.nCopies(n, this)
  *
  * See Java's [Collections.nCopies].
  */
-internal fun <T> T.repeated(n: Int): List<T> = Collections.nCopies(n, this)
+fun <T> T.repeated(n: Int): List<T> = Collections.nCopies(n, this)

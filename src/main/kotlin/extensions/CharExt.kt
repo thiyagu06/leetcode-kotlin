@@ -11,7 +11,7 @@ package extensions
  * a digit, otherwise throws an [IllegalArgumentException].
  * @throws IllegalArgumentException if the receiver is not a digit ('0'..'9').
  */
-internal fun Char.numericValue(): Int {
+fun Char.numericValue(): Int {
     require(isDigit()) { "Cannot get decimal value of non-digit Char." }
     return toInt() - '0'.toInt()
 }
@@ -19,15 +19,15 @@ internal fun Char.numericValue(): Int {
 /**
  * See [Char.numericValue]
  */
-internal fun Char.decimalValue(): Int = numericValue()
+fun Char.decimalValue(): Int = numericValue()
 
 /**
  * Checks whether the Char is a vowel.
  * Note: The set of vowels **does not include y** here.
  */
-internal fun Char.isVowel(): Boolean = toLowerCase() in "aeiou"
+fun Char.isVowel(): Boolean = toLowerCase() in "aeiou"
 
 /**
  * Checks whether the Char is a consonant (not a vowel). 'y' is considered a consonant, not a vowel.
  */
-internal fun Char.isConsonant(): Boolean = toLowerCase() !in "aeiou"
+fun Char.isConsonant(): Boolean = toLowerCase() !in "aeiou"
