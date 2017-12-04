@@ -9,5 +9,6 @@ interface Queue<T> {
     fun peek(): T?
     fun isEmpty(): Boolean
     fun isNotEmpty(): Boolean
+    fun clear()
     val size: Int
 }

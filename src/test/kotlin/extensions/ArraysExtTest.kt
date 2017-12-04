@@ -1,9 +1,10 @@
 package extensions
 
+import org.junit.Assert.assertArrayEquals
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
-
-import org.junit.Assert.*
-import org.junit.Ignore
 
 class ArraysExtTest {
     private val nullRefArray: Array<String?>? = null
@@ -113,6 +114,9 @@ class ArraysExtTest {
         var strArr = arrayOf("foo", "bar", "foo", "baz")
         strArr.reverseElementsInRange(1..3)
         assertArrayEquals(arrayOf("foo", "baz", "foo", "bar"), strArr)
+
+        intArray.reverseElementsInRange(0..2)
+        assertArrayEquals(intArrayOf(3, 2, 1), intArray)
     }
 
     @Test(expected = IllegalArgumentException::class)

@@ -11,37 +11,52 @@ import org.junit.Test
  * @date 11/17/17
  */
 class ListQueueTest {
-    private val queue = ListQueue<Int>()
+    private val q1 = ListQueue<Int>()
+    private val q2 = ListQueue(mutableListOf(7, 8, 9))
 
     @Test
     fun test() {
-        assertEquals(0, queue.size)
-        assertTrue(queue.isEmpty())
-        queue.enqueue(1)
-        assertEquals(1, queue.size)
-        assertFalse(queue.isEmpty())
-        queue.enqueue(2)
-        queue.enqueue(3)
-        assertEquals(3, queue.size)
+        assertEquals(0, q1.size)
+        assertTrue(q1.isEmpty())
+        q1.enqueue(1)
+        assertEquals(1, q1.size)
+        assertFalse(q1.isEmpty())
+        q1.enqueue(2)
+        q1.enqueue(3)
+        assertEquals(3, q1.size)
 
-        assertEquals(queue.toList(), listOf(1, 2, 3))
-        assertEquals(1, queue.peek())
+        assertEquals(q1.toList(), listOf(1, 2, 3))
+        assertEquals(1, q1.peek())
 
-        val one = queue.dequeue()
+        val one = q1.dequeue()
         assertEquals(1, one)
-        assertEquals(2, queue.size)
-        val two = queue.dequeue()
+        assertEquals(2, q1.size)
+        val two = q1.dequeue()
         assertEquals(2, two)
-        assertEquals(1, queue.size)
-        assertEquals(queue.toList(), listOf(3))
+        assertEquals(1, q1.size)
+        assertEquals(q1.toList(), listOf(3))
 
-        val three = queue.dequeue()
+        val three = q1.dequeue()
         assertEquals(3, three)
 
-        assertEquals(0, queue.size)
-        assertTrue(queue.isEmpty())
+        assertEquals(0, q1.size)
+        assertTrue(q1.isEmpty())
 
-        assertNull(queue.peek())
-        assertNull(queue.dequeue())
+        assertNull(q1.peek())
+        assertNull(q1.dequeue())
+    }
+
+    @Test
+    fun testQueueInitializedWithElements() {
+        assertEquals(3, q2.size)
+
+        q2.enqueue(99)
+        assertEquals(4, q2.size)
+        assertEquals(7, q2.dequeue())
+        assertEquals(8, q2.dequeue())
+        assertEquals(2, q2.size)
+
+        q2.clear()
+        assertEquals(0, q2.size)
     }
 }
