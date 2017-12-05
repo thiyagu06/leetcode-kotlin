@@ -22,3 +22,10 @@ fun String.swappingCharsAt(i: Int, j: Int): String =
         else substring(0, i) + this[j] + substring(i + 1, j) + this[i] + substring(j + 1)
 
 fun String.isAllCaps(): Boolean = all { it.isUpperCase() }
+
+/**
+ * Returns a map of each character to its frequency.
+ * If `caseSensitive`, all keys will be lowercase.
+ */
+fun String.characterFrequencies(caseSensitive: Boolean = true): Map<Char, Int> =
+        groupingBy { if (caseSensitive) it.toLowerCase() else it }.eachCount()
