@@ -2,11 +2,14 @@ group 'com.nrojiani'
 version '1.0-SNAPSHOT'
 
 buildscript {
+    ext.kotlin_version = '1.2.0'
+
     repositories {
         mavenCentral()
     }
+
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -19,9 +22,9 @@ repositories {
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion"
-    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
-    testCompile "junit:junit:$junitVersion"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    testCompile "junit:junit:4.12"
     testCompile "org.jetbrains.kotlin:kotlin-test"
     testCompile "org.jetbrains.kotlin:kotlin-test-junit"
 }
