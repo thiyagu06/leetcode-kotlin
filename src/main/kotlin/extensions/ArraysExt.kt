@@ -72,6 +72,8 @@ fun IntArray.valueToIndicesMap(): Map<Int, List<Int>> = withIndex()
  */
 fun <T> Array<T>.valueToIndicesMap(): Map<T, List<Int>> = withIndex()
         .groupBy(keySelector = { (i, n) -> n }, valueTransform = { (i, n) -> i })
+
+
 /************** swap **************/
 
 /**
