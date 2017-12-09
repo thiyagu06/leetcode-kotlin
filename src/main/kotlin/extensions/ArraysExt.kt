@@ -141,3 +141,36 @@ fun CharArray.reverseElementsInRange(indexRange: IntRange) {
     }
 }
 
+
+/* Matrices - Array<IntArray> */
+
+typealias Matrix = Array<IntArray>
+
+internal val Matrix.rows: Int
+    get() = size
+
+internal val Matrix.columns: Int
+    get() = if (isEmpty()) 0 else this[0].size
+
+internal val Matrix.lastRow: Int
+    get() = lastIndex
+
+internal val Matrix.lastColumn: Int
+    get() = if (isEmpty()) -1 else this[0].lastIndex
+
+internal fun Matrix.debugString() = StringBuilder().apply {
+    this@debugString.forEach {
+        this.append(it.contentToString() + "\n")
+    }
+}.toString()
+
+
+internal fun Matrix.transpose(): Matrix {
+    var transposed: Matrix = Array(columns, { IntArray(rows) })
+    (0..lastRow).forEach { i ->
+        (0..lastColumn).forEach { j ->
+            transposed[j][i] = this[i][j]
+        }
+    }
+    return transposed
+}
