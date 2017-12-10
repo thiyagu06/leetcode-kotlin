@@ -112,6 +112,9 @@ internal fun TreeNode?.dfs(order: DFSTraversalOrder = INORDER, visit: (TreeNode)
 /**
  * Traverse the tree (using inorder depth-first search), collecting the values
  * into a [Collection<Int>].
+ *
+ * Time: `O(n)`
+ * Space: `O(n)`
  */
 internal fun TreeNode?.collect(acc: MutableCollection<Int> = arrayListOf()): Collection<Int> =
         this?.let {
@@ -124,6 +127,9 @@ internal fun TreeNode?.collect(acc: MutableCollection<Int> = arrayListOf()): Col
  * Traverses the tree with DFS (in the given [traversalOrder]),
  * applies the [transform] to each [TreeNode], and
  * collect the transform result.
+ *
+ * Time: `O(n)` - assuming `transform` is `<= O(n)`
+ * Space: `O(n)`
  */
 internal fun <T> TreeNode?.collect(traversalOrder: DFSTraversalOrder = INORDER,
                                    acc: MutableCollection<T> = arrayListOf(),
