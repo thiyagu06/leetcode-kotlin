@@ -34,19 +34,19 @@ class TreeNode(var `val`: Int = 0, var left: TreeNode? = null, var right: TreeNo
     }
 }
 
-internal val TreeNode.hasLeft: Boolean
+val TreeNode.hasLeft: Boolean
     get() = left != null
 
-internal val TreeNode.hasRight: Boolean
+val TreeNode.hasRight: Boolean
     get() = right != null
 
-internal val TreeNode.hasTwoChildren: Boolean
+val TreeNode.hasTwoChildren: Boolean
     get() = left != null && right != null
 
-internal val TreeNode.isLeaf: Boolean
+val TreeNode.isLeaf: Boolean
     get() = left == null && right == null
 
-internal val TreeNode.size: Int
+val TreeNode.size: Int
     get() = 1 + (left?.size ?: 0) + (right?.size ?: 0)
 
 /**
@@ -56,13 +56,13 @@ internal val TreeNode.size: Int
  * val (l, r) = tree?.children
  * ```
  */
-internal val TreeNode.children: Pair<TreeNode?, TreeNode?>
+val TreeNode.children: Pair<TreeNode?, TreeNode?>
     get() = Pair(left, right)
 
 /**
  * Height: the number of edges on the longest path between this node and a leaf.
  */
-internal val TreeNode.height: Int
+val TreeNode.height: Int
     get() {
         if (isLeaf) return 0
         return 1 + maxOf(left?.height ?: 0, right?.height ?: 0)
@@ -75,7 +75,7 @@ internal val TreeNode.height: Int
  * Time: O(n)
  * Space: O(n)
  */
-internal fun TreeNode?.find(searchValue: Int): TreeNode? {
+fun TreeNode?.find(searchValue: Int): TreeNode? {
     this ?: return null
 
     return when {
@@ -85,14 +85,14 @@ internal fun TreeNode?.find(searchValue: Int): TreeNode? {
     }
 }
 
-internal fun TreeNode.contains(value: Int): Boolean = find(value) != null
+fun TreeNode.contains(value: Int): Boolean = find(value) != null
 
-internal enum class DFSTraversalOrder { PREORDER, INORDER, POSTORDER; }
+enum class DFSTraversalOrder { PREORDER, INORDER, POSTORDER; }
 
 /**
  * Perform depth-first traversal on the tree, executing [visit] on each node.
  */
-internal fun TreeNode?.dfs(order: DFSTraversalOrder = INORDER, visit: (TreeNode) -> Unit) {
+fun TreeNode?.dfs(order: DFSTraversalOrder = INORDER, visit: (TreeNode) -> Unit) {
     this ?: return
 
     if (order == PREORDER)
@@ -116,7 +116,7 @@ internal fun TreeNode?.dfs(order: DFSTraversalOrder = INORDER, visit: (TreeNode)
  * Time: `O(n)`
  * Space: `O(n)`
  */
-internal fun TreeNode?.collect(acc: MutableCollection<Int> = arrayListOf()): Collection<Int> =
+fun TreeNode?.collect(acc: MutableCollection<Int> = arrayListOf()): Collection<Int> =
         this?.let {
             left?.collect(acc)
             acc += `val`
@@ -131,9 +131,9 @@ internal fun TreeNode?.collect(acc: MutableCollection<Int> = arrayListOf()): Col
  * Time: `O(n)` - assuming `transform` is `<= O(n)`
  * Space: `O(n)`
  */
-internal fun <T> TreeNode?.collect(traversalOrder: DFSTraversalOrder = INORDER,
-                                   acc: MutableCollection<T> = arrayListOf(),
-                                   transform: (TreeNode) -> T): Collection<T> {
+fun <T> TreeNode?.collect(traversalOrder: DFSTraversalOrder = INORDER,
+                          acc: MutableCollection<T> = arrayListOf(),
+                          transform: (TreeNode) -> T): Collection<T> {
     this ?: return emptyList()
 
     dfs(order = traversalOrder) { acc += transform(it) }
@@ -145,14 +145,14 @@ internal fun <T> TreeNode?.collect(traversalOrder: DFSTraversalOrder = INORDER,
  * will be sorted.
  *
  */
-internal fun TreeNode?.toList(): List<Int> = collect { it.`val` }.toList()
+fun TreeNode?.toList(): List<Int> = collect { it.`val` }.toList()
 
 // TODO: Iterative DFS
 
 /**
  * Execute a breadth-first traversal of the tree.
  */
-internal fun TreeNode?.bfs(visit: (TreeNode) -> Unit) {
+fun TreeNode?.bfs(visit: (TreeNode) -> Unit) {
     this ?: return
 
     val queue = ListQueue<TreeNode>()
@@ -166,7 +166,7 @@ internal fun TreeNode?.bfs(visit: (TreeNode) -> Unit) {
     }
 }
 
-internal fun TreeNode?.isBST(validRange: IntRange = (Int.MIN_VALUE..Int.MAX_VALUE)): Boolean {
+fun TreeNode?.isBST(validRange: IntRange = (Int.MIN_VALUE..Int.MAX_VALUE)): Boolean {
     this ?: return true
 
     val leftSubtreeRange = validRange.first..(`val` - 1)
@@ -178,7 +178,7 @@ internal fun TreeNode?.isBST(validRange: IntRange = (Int.MIN_VALUE..Int.MAX_VALU
 /**
  * Returns a list of all root-to-leaf paths.
  */
-internal fun TreeNode?.rootToLeafPaths(): List<List<Int>> {
+fun TreeNode?.rootToLeafPaths(): List<List<Int>> {
     this ?: return emptyList()
 
     val paths = arrayListOf<List<Int>>()
@@ -204,7 +204,7 @@ private fun TreeNode?.rootToLeafPathsHelper(currentPath: List<Int>, paths: Mutab
  * @return The root of a binary tree containing the [elements], or `null` if
  *         elements is empty.
  */
-internal fun buildTree(vararg elements: Int?): TreeNode? {
+fun buildTree(vararg elements: Int?): TreeNode? {
     if (elements.isEmpty())
         return null
 
@@ -247,7 +247,7 @@ internal fun buildTree(vararg elements: Int?): TreeNode? {
  *         elements is empty.
  * @throws IllegalArgumentException if the elements cannot create a valid binary search tree.
  */
-internal fun buildBST(vararg elements: Int?): TreeNode? {
+fun buildBST(vararg elements: Int?): TreeNode? {
     val tree = buildTree(*elements)
     require(tree.isBST()) { "The elements in the order provided violate the BST property." }
     return tree
@@ -260,7 +260,7 @@ internal fun buildBST(vararg elements: Int?): TreeNode? {
  * (2)             (3)
  * ```
  */
-internal val tree123 =
+val tree123 =
         TreeNode(1).apply {
             left = TreeNode(2)
             right = TreeNode(3)
@@ -275,7 +275,7 @@ internal val tree123 =
  * (4)    (5)
  * ```
  */
-internal val tree1to5 =
+val tree1to5 =
         TreeNode(1).apply {
             left = TreeNode(2).apply {
                 left = TreeNode(4)
@@ -293,7 +293,7 @@ internal val tree1to5 =
  * (1)    (4)     (6)     (9)
  * ```
  */
-internal val bst3LevelsFull =
+val bst3LevelsFull =
         TreeNode(5).apply {
             left = TreeNode(3).apply {
                 left = TreeNode(1)
@@ -316,7 +316,7 @@ internal val bst3LevelsFull =
  *  (1)
  * ```
  */
-internal val bstWithNulls =
+val bstWithNulls =
         TreeNode(7).apply {
             left = TreeNode(4).apply {
                 left = TreeNode(3).apply {
