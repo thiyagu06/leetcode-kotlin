@@ -1,9 +1,7 @@
 package algorithms.easy._118_pascals_triangle
 
-import algorithms.easy._053_maximum_subarray.Solution2
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 import kotlin.system.measureTimeMillis
 
 class PascalsTriangleTest {

@@ -164,9 +164,12 @@ internal fun Matrix.debugString() = StringBuilder().apply {
     }
 }.toString()
 
+internal fun Matrix.toList(): List<List<Int>> = fold(emptyList()) { acc, intArr ->
+    acc.plusElement(intArr.toList())
+}
 
 internal fun Matrix.transpose(): Matrix {
-    var transposed: Matrix = Array(columns, { IntArray(rows) })
+    val transposed: Matrix = Array(columns, { IntArray(rows) })
     (0..lastRow).forEach { i ->
         (0..lastColumn).forEach { j ->
             transposed[j][i] = this[i][j]

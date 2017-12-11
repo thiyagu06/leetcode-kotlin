@@ -19,7 +19,7 @@ class MoveZeroesTest {
         )
 
         expectedInputOutput.forEach { (input, output) ->
-            var arr = input
+            val arr = input
             solution.moveZeroes(arr)
             assertArrayEquals(output, arr)
         }

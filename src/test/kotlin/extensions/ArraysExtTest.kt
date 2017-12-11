@@ -60,7 +60,7 @@ class ArraysExtTest {
 
         assertTrue(emptyIntArray.isArrayType())
         assertTrue(intArray.isArrayType())
-        assertTrue(charArrayOf().isArrayType())
+        assertTrue(charArray.isArrayType())
         assertTrue(emptyCharArray.isArrayType())
     }
 
@@ -103,13 +103,13 @@ class ArraysExtTest {
 
     @Test
     fun swap() {
-        var strArr = arrayOf("foo", "bar", "foo", "baz")
+        val strArr = arrayOf("foo", "bar", "foo", "baz")
         strArr.swap(0, 2)
         assertArrayEquals(arrayOf("foo", "bar", "foo", "baz"), strArr)
         strArr.swap(1, 3)
         assertArrayEquals(arrayOf("foo", "baz", "foo", "bar"), strArr)
 
-        var intArr = intArrayOf(1, 7, 1, 3, 6, 4)
+        val intArr = intArrayOf(1, 7, 1, 3, 6, 4)
         intArr.swap(1, 5)
         val expected = intArrayOf(1, 4, 1, 3, 6, 7)
         assertArrayEquals(expected, intArr)
@@ -117,7 +117,7 @@ class ArraysExtTest {
 
     @Test
     fun reverseElementsInRange() {
-        var strArr = arrayOf("foo", "bar", "foo", "baz")
+        val strArr = arrayOf("foo", "bar", "foo", "baz")
         strArr.reverseElementsInRange(1..3)
         assertArrayEquals(arrayOf("foo", "baz", "foo", "bar"), strArr)
 
@@ -127,7 +127,7 @@ class ArraysExtTest {
 
     @Test(expected = IllegalArgumentException::class)
     fun `reverseElementsInRange with invalid range`() {
-        var strArr = arrayOf("foo", "bar", "foo", "baz")
+        val strArr = arrayOf("foo", "bar", "foo", "baz")
         strArr.reverseElementsInRange(2..4)
     }
 

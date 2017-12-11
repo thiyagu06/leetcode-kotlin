@@ -8,7 +8,6 @@ class NumArray(nums: IntArray) {
     private val _nums = nums
 
     fun sumRange(i: Int, j: Int): Int = (i..j).fold(0) { acc, index -> acc + _nums[index] }
-
 }
 
 /**

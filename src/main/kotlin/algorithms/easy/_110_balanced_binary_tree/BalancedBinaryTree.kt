@@ -1,7 +1,6 @@
 package algorithms.easy._110_balanced_binary_tree
 
 import datastructures.tree.TreeNode
-import datastructures.tree.height
 
 /**
  * 110 - https://leetcode.com/problems/balanced-binary-tree/
@@ -30,20 +29,4 @@ class Solution {
         root ?: return 0
         return 1 + maxOf(maxDepth(root.left), maxDepth(root.right))
     }
-}
-
-class SolutionCorrect {
-    fun isBalanced(root: TreeNode?): Boolean {
-        root ?: return true
-
-        return isBalanced(root.left) && isBalanced(root.right)
-            && Math.abs(height(root.left) - height(root.right)) <= 1
-    }
-
-    /**
-     * Calculates height the correct way: the # of edges.
-     */
-    internal fun height(node: TreeNode?): Int = node?.height ?: 0
-
-
 }

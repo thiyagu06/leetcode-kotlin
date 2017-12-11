@@ -47,7 +47,7 @@ class SolutionTabulation {
      */
     fun canWinNim(n: Int): Boolean {
         require (n >= 0) { "n must be >= 0 but was $n"}
-        var outcomes = mutableMapOf(
+        val outcomes = mutableMapOf(
                 0 to false,
                 1 to true,
                 2 to true,

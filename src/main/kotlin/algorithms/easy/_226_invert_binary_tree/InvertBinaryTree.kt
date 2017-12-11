@@ -1,7 +1,6 @@
 package algorithms.easy._226_invert_binary_tree
 
 import datastructures.tree.TreeNode
-import datastructures.tree.children
 
 /**
  * 226 - https://leetcode.com/problems/invert-binary-tree/description/
