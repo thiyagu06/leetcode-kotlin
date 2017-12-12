@@ -32,9 +32,9 @@ class FollowUpSolution {
      */
     fun findDisappearedNumbers(nums: IntArray): List<Int> {
         nums.forEach { n ->
-            val indexMapping = Math.abs(n) - 1
-            if (nums[indexMapping] > 0) {
-                nums[indexMapping] = -(nums[indexMapping])
+            val mappedIndex = Math.abs(n) - 1
+            if (nums[mappedIndex] > 0) {
+                nums[mappedIndex] = -(nums[mappedIndex])
             }
         }
 

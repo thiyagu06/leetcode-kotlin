@@ -1,8 +1,6 @@
 package datastructures.stack
 
 /**
- *
- *
  * @author nrojiani
  * @date 11/22/17
  */
