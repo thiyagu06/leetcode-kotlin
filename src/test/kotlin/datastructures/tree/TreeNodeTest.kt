@@ -166,6 +166,8 @@ class TreeNodeTest {
 
     @Test
     fun height() {
-
+        assertEquals(1, tree123.height)
+        assertEquals(2, bst3LevelsFull.height)
+        assertEquals(3, bstWithNulls.height)
     }
 }
