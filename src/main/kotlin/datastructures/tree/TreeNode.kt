@@ -166,6 +166,35 @@ fun TreeNode?.bfs(visit: (TreeNode) -> Unit) {
     }
 }
 
+/**
+ * Execute a depth-aware breadth-first traversal of the tree.
+ *
+ * Example usage:
+ *
+ * var treeLevels = hashMapOf<Int, List<Int>>()     // nodes values by depth (Map of Depth => Values)
+ * binarySearchTree.depthAwareBFS() { (node, depth) ->
+ *     treeLevels[depth] = (treeLevels[depth] ?: emptyList()) + node.`val`
+ * }
+ * println(treeLevels)
+ */
+fun TreeNode?.depthAwareBFS(visit: (Pair<TreeNode, Int>) -> Unit) {
+    this ?: return
+
+    val queue = ListQueue<Pair<TreeNode, Int>>()
+    queue.enqueue(Pair(this, 0))
+
+    while (queue.isNotEmpty()) {
+        val (node, depth) = queue.dequeue()!!
+        visit(node to depth)
+        node.left?.let {
+            queue.enqueue(Pair(it, depth + 1))
+        }
+        node.right?.let {
+            queue.enqueue(Pair(it, depth + 1))
+        }
+    }
+}
+
 fun TreeNode?.isBST(validRange: IntRange = (Int.MIN_VALUE..Int.MAX_VALUE)): Boolean {
     this ?: return true
 

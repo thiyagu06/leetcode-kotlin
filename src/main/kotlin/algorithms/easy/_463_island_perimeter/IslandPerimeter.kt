@@ -39,10 +39,8 @@ class Solution {
 
 class Solution2 {
     fun islandPerimeter(grid: Matrix): Int {
-        println("grid:\n${grid.debugString()}")
         var count = grid.countHorizontalPerimeters()
         val transposed = grid.transpose()
-        println("transposed:\n${transposed.debugString()}")
         count += transposed.countHorizontalPerimeters()
         return count
     }
@@ -60,7 +58,6 @@ class Solution2 {
             (0..lastColumn).forEach { j ->
                 perimeterConditions.forEachIndexed { index, condition ->
                     if (condition(i, j)) {
-                        println("($i, $j) = ${this[i][j]}, $index")
                         count++
                     }
                 }

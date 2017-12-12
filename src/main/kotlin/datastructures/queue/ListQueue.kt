@@ -1,11 +1,9 @@
 package datastructures.queue
 
-
 /**
  * Queue implementation backed by an [ArrayList].
  */
 class ListQueue<T>(private val elements: MutableList<T> = arrayListOf()) : Queue<T> {
-
     override val size: Int
         get() = elements.size
 
