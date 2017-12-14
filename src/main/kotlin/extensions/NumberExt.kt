@@ -21,6 +21,14 @@ val Int.isOdd: Boolean
 
 
 /**
+ * Uses [java.lang.Math]'s abs() function.
+ * (From Javadoc) Note that for Int.MIN_VALUE, the most negative representable int value, the result is that same value,
+ * which is negative, since it can't be represented as a positive 32-bit integer.
+ */
+val Int.absValue: Int
+    get() = Math.abs(this)
+
+/**
  * Applies Java's [Character.forDigit].
  */
 fun Int.charForDigit(radix: Int = 10): Char = Character.forDigit(this, radix)

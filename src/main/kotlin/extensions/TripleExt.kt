@@ -10,3 +10,7 @@ fun Triple<Double, Double, Double>.toDoubleArray(): DoubleArray = doubleArrayOf(
 fun Triple<Int, Int, Int>.toIntArray(): IntArray = intArrayOf(first, second, third)
 fun Triple<Long, Long, Long>.toLongArray(): LongArray = longArrayOf(first, second, third)
 fun Triple<Short, Short, Short>.toShortArray(): ShortArray = shortArrayOf(first, second, third)
+
+// Math
+fun Triple<Int, Int, Int>.sum(): Int = first + second + third
+fun Triple<Int, Int, Int>.product(): Int = first * second * third

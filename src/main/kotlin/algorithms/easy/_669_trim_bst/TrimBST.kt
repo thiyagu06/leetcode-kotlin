@@ -7,13 +7,16 @@ import datastructures.tree.TreeNode
  */
 class Solution {
     fun trimBST(root: TreeNode?, L: Int, R: Int): TreeNode? {
-        root ?: return null
-
         var node = when {
-            root.`val` in (L..R) -> root
+            root == null -> null
             root.`val` < L -> trimBST(root.right, L, R)
             root.`val` > R -> trimBST(root.left, L, R)
+            else -> root    // root.`val` in (L..R)
+        }
+
+        return node?.apply {
+            left = trimBST(node.left, L, R)
+            right = trimBST(node.right, L, R)
         }
     }
-
 }
