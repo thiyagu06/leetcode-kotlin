@@ -1,10 +1,10 @@
 package datastructures.tree
 
+import datastructures.queue.ListQueue
+import datastructures.queue.Queue
 import datastructures.tree.DFSTraversalOrder.INORDER
 import datastructures.tree.DFSTraversalOrder.POSTORDER
 import datastructures.tree.DFSTraversalOrder.PREORDER
-import datastructures.queue.ListQueue
-import datastructures.queue.Queue
 
 /**
  * Definition for a binary tree node.
@@ -267,6 +267,28 @@ fun buildTree(vararg elements: Int?): TreeNode? {
 }
 
 /**
+ * Build tree from LeetCode's array representation:
+ * buildTreeFromString("[1, 2, 3]") -> buildTree(1, 2, 3)
+ */
+fun buildTreeFromString(input: String): TreeNode? {
+    require(input.first() == '[' && input.last() == ']') {
+        "Invalid format: $input"
+    }
+
+    val withoutBraces = input.drop(1).dropLast(1)
+    val elements= withoutBraces.split(',')
+            .map { it.trim() }
+            .map {
+                when {
+                    it.all { it.isDigit() } -> it.toInt()
+                    it == "null" -> null
+                    else -> throw IllegalArgumentException("Unable to parse input")
+                }
+            }
+    return buildTree(*elements.toTypedArray())
+}
+
+/**
  * Create a binary search tree from the given elements.
  * Insertion order is the same as LeetCode's 'Tree Visualizer'.
  * For the BST property to be satisfied, all left subtree values must be less than the root,
@@ -280,6 +302,29 @@ fun buildBST(vararg elements: Int?): TreeNode? {
     val tree = buildTree(*elements)
     require(tree.isBST()) { "The elements in the order provided violate the BST property." }
     return tree
+}
+
+
+/**
+ * Print a string representation of Tree
+ * TODO fix
+ */
+fun printTree(tree: TreeNode?) {
+    treeContent(tree).forEach { node ->
+        println(node)
+    }
+}
+
+// TODO fix
+private fun treeContent(root: TreeNode?, depth: Int = 0, content: MutableList<String> = arrayListOf()): List<String> {
+    root ?: return content
+
+    val indentation = "      ".repeat(depth)
+    treeContent(root.right, depth + 1, content)
+    content.add("$indentation$root")
+    treeContent(root.left, depth + 1, content)
+
+    return content
 }
 
 /**
@@ -354,5 +399,49 @@ val bstWithNulls =
             }
             right = TreeNode(9).apply {
                 left = TreeNode(8)
+            }
+        }
+
+/**
+ *   (1)
+ *    ┴───────┐
+ *           (1)
+ *            ┴───┐
+ *               (1)
+ *           ┌────┴
+ *          (2)
+ */
+val unbalancedTree = TreeNode(1).apply {
+    right = TreeNode(1).apply {
+        right = TreeNode(1).apply {
+            left = TreeNode(2)
+        }
+    }
+}
+
+/**
+ * Almost linear tree with 11 nodes on right, and 1 left child at last right child
+ */
+val unbalancedTree2 =  TreeNode(1).apply {
+            right = TreeNode(1).apply {
+                right = TreeNode(1).apply {
+                    right = TreeNode(1).apply {
+                        right = TreeNode(1).apply {
+                            right = TreeNode(1).apply {
+                                right = TreeNode(1).apply {
+                                    right = TreeNode(1).apply {
+                                        right = TreeNode(1).apply {
+                                            right = TreeNode(1).apply {
+                                                right = TreeNode(1).apply {
+                                                    left = TreeNode(2)
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }

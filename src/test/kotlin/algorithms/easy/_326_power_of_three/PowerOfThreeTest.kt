@@ -4,9 +4,6 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- *
- */
 class PowerOfThreeTest {
     private val solution = Solution()
     private val solutionAlt = SolutionAlt()

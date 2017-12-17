@@ -1,8 +1,7 @@
 package algorithms.medium._442_find_all_duplicates_in_array
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 import kotlin.system.measureTimeMillis
 
 class FindDuplicatesInArrayTest {

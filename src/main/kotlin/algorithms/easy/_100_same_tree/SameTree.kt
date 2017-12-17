@@ -10,8 +10,8 @@ import datastructures.tree.TreeNode
  */
 class Solution {
     /**
-     * Time: O(?)
-     * Space: O(?)
+     * Time: O(n)
+     * Space: O(n)
      */
     fun isSameTree(p: TreeNode?, q: TreeNode?): Boolean {
         if (p == null || q == null)

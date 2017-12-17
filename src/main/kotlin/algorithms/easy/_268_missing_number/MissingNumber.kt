@@ -1,5 +1,7 @@
 package algorithms.easy._268_missing_number
 
+import extensions.sumOfFirstNPositiveIntegers
+
 /**
  * 268 - https://leetcode.com/problems/missing-number/description/
  */
@@ -39,5 +41,19 @@ class Solution2 {
         }
 
         return nums.size
+    }
+}
+
+/**
+ * Your algorithm should run in linear runtime complexity.
+ * Could you implement it using only constant extra space complexity?
+ */
+class FollowUpSolution {
+    /**
+     * Time: O(n)
+     * Space: O(1)
+     */
+    fun missingNumber(nums: IntArray): Int {
+        return sumOfFirstNPositiveIntegers(nums.size) - nums.sum()
     }
 }

@@ -1,6 +1,6 @@
 package algorithms.easy._009_palindrome_number
 
-import extensions.digitsAsChars
+import extensions.digits
 
 /**
  * 9 - https://leetcode.com/problems/palindrome-number/description/
@@ -15,7 +15,7 @@ class Solution {
     fun isPalindrome(x: Int): Boolean {
         if (x < 0) return false
 
-        val digits = x.digitsAsChars()
+        val digits = x.digits().map { it.toChar() }
         var middle = digits
         while (middle.isNotEmpty()) {
             if (middle.first() != middle.last())

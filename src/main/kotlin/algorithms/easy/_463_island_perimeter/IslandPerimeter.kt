@@ -1,7 +1,6 @@
 package algorithms.easy._463_island_perimeter
 
 import extensions.Matrix
-import extensions.debugString
 import extensions.lastColumn
 import extensions.lastRow
 import extensions.transpose

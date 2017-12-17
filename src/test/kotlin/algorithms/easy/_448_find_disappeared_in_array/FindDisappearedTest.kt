@@ -1,8 +1,7 @@
 package algorithms.easy._448_find_disappeared_in_array
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class FindDisappearedTest {
 

@@ -16,7 +16,7 @@ class Solution {
     fun largestValues(root: TreeNode?): List<Int> {
         root ?: return emptyList()
 
-        var treeLevels = hashMapOf<Int, List<Int>>()
+        val treeLevels = hashMapOf<Int, List<Int>>()
         bfs(root) { (node, depth) ->
             treeLevels[depth] = (treeLevels[depth] ?: emptyList()) + node.`val`
         }

@@ -1,12 +1,5 @@
 package algorithms.easy._141_linked_list_cycle;
 
-
-import datastructures.java.ListNode;
-
-/**
- * @author nrojiani
- * @date 11/24/17
- */
 class Solution {
     public boolean hasCycle(ListNode head) {
         if (head == null || head.next == null) {
@@ -26,5 +19,18 @@ class Solution {
         }
 
         return false;
+    }
+
+    /**
+     * Definition for singly-linked list.
+     */
+    class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+            next = null;
+        }
     }
 }

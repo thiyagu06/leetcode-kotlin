@@ -1,49 +1,55 @@
 package extensions
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
-import org.junit.Ignore
 import java.math.BigInteger
 
-/**
- *
- */
 class NumberExtTest {
 
-    @Ignore
     @Test
     fun charForDigit() {
+        assertEquals('0', 0.charForDigit())
+        assertEquals('1', 1.charForDigit())
+        assertEquals('9', 9.charForDigit())
     }
 
-    @Ignore
-    @Test
-    fun valueOfNRightmostDigits() {
-    }
-
-    @Ignore
-    @Test
-    fun valueOfNLeftmostDigits() {
-    }
-
-    @Ignore
-    @Test
-    fun valueOfLeftmostDigit() {
-    }
-
-    @Ignore
-    @Test
-    fun valueOfRightmostDigit() {
-    }
-
-    @Ignore
-    @Test
-    fun numberOfDigits() {
-    }
-
-    @Ignore
     @Test
     fun digits() {
+        assertEquals(listOf(0), 0.digits())
+        assertEquals(listOf(1), 1.digits())
+        assertEquals(listOf(9, 9), 99.digits())
+        assertEquals(listOf(1, 2, 3, 4), 1234.digits())
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `digits throws when negative`() {
+        (-7).digits()
+    }
+
+    @Test
+    fun numberOfDigits() {
+        assertEquals(4, 1234.numberOfDigits())
+        assertEquals(1, 0.numberOfDigits())
+    }
+
+    @Test
+    fun firstDigit() {
+        assertEquals(1, 123.firstDigit())
+    }
+
+    @Test
+    fun lastDigit() {
+        assertEquals(3, 123.lastDigit())
+    }
+
+    @Test
+    fun valueOfNLeftmostDigits() {
+        assertEquals(12, 123.valueOfNLeftmostDigits(2))
+    }
+
+    @Test
+    fun valueOfNRightmostDigits() {
+        assertEquals(23, 123.valueOfNRightmostDigits(2))
     }
 
     @Test

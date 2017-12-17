@@ -1,12 +1,13 @@
 package algorithms.easy._268_missing_number
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class MissingNumberTest {
     private val solution = Solution()
     private val solution2 = Solution2()
+    private val followup = FollowUpSolution()
+
     @Test
     fun missingNumber1() {
         assertEquals(0, solution.missingNumber(intArrayOf(1, 2, 3)))
@@ -15,6 +16,8 @@ class MissingNumberTest {
         assertEquals(3, solution.missingNumber(intArrayOf(0, 1, 2, 4)))
         assertEquals(2, solution.missingNumber(intArrayOf(3, 0, 1)))
         assertEquals(1, solution.missingNumber(intArrayOf(0)))
+        assertEquals(8, solution.missingNumber(intArrayOf(9, 6, 4, 2, 3, 5, 7, 0, 1)))
+
     }
 
     @Test
@@ -23,5 +26,16 @@ class MissingNumberTest {
         assertEquals(1, solution2.missingNumber(intArrayOf(0, 2, 3)))
         assertEquals(2, solution2.missingNumber(intArrayOf(0, 1, 3)))
         assertEquals(3, solution2.missingNumber(intArrayOf(0, 1, 2)))
+        assertEquals(8, solution2.missingNumber(intArrayOf(9, 6, 4, 2, 3, 5, 7, 0, 1)))
+
+    }
+
+    @Test
+    fun missingNumberFollowUp() {
+        assertEquals(0, followup.missingNumber(intArrayOf(1, 2, 3)))
+        assertEquals(1, followup.missingNumber(intArrayOf(0, 2, 3)))
+        assertEquals(2, followup.missingNumber(intArrayOf(0, 1, 3)))
+        assertEquals(3, followup.missingNumber(intArrayOf(0, 1, 2)))
+        assertEquals(8, followup.missingNumber(intArrayOf(9, 6, 4, 2, 3, 5, 7, 0, 1)))
     }
 }

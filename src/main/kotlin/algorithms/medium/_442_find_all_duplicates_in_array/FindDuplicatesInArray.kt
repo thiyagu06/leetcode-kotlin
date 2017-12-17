@@ -14,7 +14,7 @@ class Solution {
      */
     fun findDuplicates(nums: IntArray): List<Int> {
         val sorted = nums.sorted()
-        var duplicates = arrayListOf<Int>()
+        val duplicates = arrayListOf<Int>()
         (1..sorted.lastIndex).forEach { i ->
             if (sorted[i] == sorted[i - 1]) {
                 duplicates.add(sorted[i])
@@ -59,3 +59,4 @@ class FollowUpSolution {
                 acc
             }
 }
+

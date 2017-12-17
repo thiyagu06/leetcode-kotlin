@@ -19,7 +19,7 @@ class Solution {
     internal fun denestInput(input: String): String {
         var result = ""
         var currentStr = ""
-        var stack = ArrayStack<Char>()
+        val stack = ArrayStack<Char>()
         var k = 1
         var kDigits = ""
 

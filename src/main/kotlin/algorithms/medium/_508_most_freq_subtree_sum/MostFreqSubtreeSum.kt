@@ -7,7 +7,7 @@ import datastructures.tree.TreeNode
  */
 class Solution {
     fun findFrequentTreeSum(root: TreeNode?): IntArray {
-        var subtreeSums = hashMapOf<Int, Int>()
+        val subtreeSums = hashMapOf<Int, Int>()
         collectSubtreeSums(root, subtreeSums)
 
         val mostFrequentCount = subtreeSums.values.maxBy { it }

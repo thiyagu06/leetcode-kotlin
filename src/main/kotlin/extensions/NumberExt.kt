@@ -1,9 +1,7 @@
 package extensions
 
-import java.math.BigInteger
-
 /**
- * Number (Int, Double, Float, Byte, Short, etc. extensions.
+ * Number (Int, Double, Float, Byte, Short, etc.) extensions.
  *
  * @author nrojiani
  * @date 11/15/17
@@ -31,11 +29,13 @@ val Int.absValue: Int
 /**
  * Applies Java's [Character.forDigit].
  */
-fun Int.charForDigit(radix: Int = 10): Char = Character.forDigit(this, radix)
+fun Int.charForDigit(): Char = Character.forDigit(this, 10)
 
 /**
  * Returns the digits in the [Int] receiver.
  * e.g., `497.digits() --> [4, 9, 7]`
+ *
+ * Requires that the integer be >= 0
  */
 fun Int.digits(): List<Int> {
     require(this >= 0) { "Must be > 0" }
@@ -50,24 +50,7 @@ fun Int.digits(): List<Int> {
         remainder /= 10
     }
 
-    return digits
-}
-
-/**
- * Time: O(n) - where n is the number of digitsAsChars in the integer.
- * Space: O(n)
- */
-fun Int.digitsAsChars(): List<Char> {
-    var remainder = Math.abs(this)
-    val digits = mutableListOf<Char>()
-
-    while (remainder > 0) {
-        val rightmostDigit = remainder % 10
-        digits.add(0, rightmostDigit.charForDigit())
-        remainder /= 10
-    }
-
-    return digits
+    return digits.reversed()
 }
 
 fun Int.numberOfDigits(): Int = digits().size
@@ -81,29 +64,11 @@ fun Int.valueOfNRightmostDigits(digits: Int): Int {
 
 fun Int.valueOfNLeftmostDigits(digits: Int): Int {
     val totalDigits = numberOfDigits()
-    require(digits in 1..totalDigits) { "invalid argument 'digitsAsChars': $digits. Must be in range 0..total number of digitsAsChars" }
+    require(digits in 1..totalDigits) { "invalid argument 'digits': $digits. Must be in range 0..total number of digits" }
     val divOperand = Math.pow(10.0, (totalDigits - digits).toDouble()).toInt()
     return this / divOperand
 }
 
-fun Int.firstDigit(): Int = valueOfNRightmostDigits(1)
-fun Int.lastDigit(): Int = valueOfNLeftmostDigits(1)
+fun Int.firstDigit(): Int = valueOfNLeftmostDigits(1)
+fun Int.lastDigit(): Int = this % 10
 
-/**
- * Calculates the factorial, `n!`.
- */
-fun Int.factorial(): BigInteger {
-    require(this >= 0) { "Must be > 0" }
-    return when (this) {
-        in 0..1 -> BigInteger.ONE
-        else -> {
-            var result = BigInteger.ONE
-            var i = BigInteger.valueOf(this.toLong())
-            while (i > BigInteger.ONE) {
-                result = i.multiply(result)
-                i = i.minus(BigInteger.ONE)
-            }
-            return result
-        }
-    }
-}

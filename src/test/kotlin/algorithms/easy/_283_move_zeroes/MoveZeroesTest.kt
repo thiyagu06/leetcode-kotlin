@@ -19,9 +19,8 @@ class MoveZeroesTest {
         )
 
         expectedInputOutput.forEach { (input, output) ->
-            val arr = input
-            solution.moveZeroes(arr)
-            assertArrayEquals(output, arr)
+            solution.moveZeroes(input)
+            assertArrayEquals(output, input)
         }
     }
 

@@ -70,6 +70,15 @@ class TreeNodeTest {
         assertNotNull(tree2)
         assertEquals(7, tree2?.size)
         assertEquals(bst3LevelsFull, tree2)
+
+        val tree3 = buildTree(1, null, 1, null, 1, 2)
+        assertNotNull(tree3)
+        assertEquals(4, tree3?.size)
+        assertEquals(unbalancedTree, tree3)
+
+        val tree4 = buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 2)
+        assertEquals(12, tree4?.size)
+        assertEquals(unbalancedTree2, tree4)
     }
 
     @Test
@@ -120,6 +129,35 @@ class TreeNodeTest {
     @Test(expected = IllegalArgumentException::class)
     fun `buildBST throws exception if elements violate BST property`() {
         buildBST(1, 2, 3)
+    }
+
+    @Test
+    fun buildTreeFromString() {
+        val tree = buildTreeFromString("[1, 2, 3]")
+        assertNotNull(tree)
+        assertEquals(3, tree?.size)
+        assertEquals(1, tree?.`val`)
+        assertEquals(2, tree?.left?.`val`)
+        assertEquals(3, tree?.right?.`val`)
+
+        val tree2 = buildTreeFromString("[5, 3, 8, 1, 4, 6, 9]")
+        assertNotNull(tree2)
+        assertEquals(7, tree2?.size)
+        assertEquals(bst3LevelsFull, tree2)
+
+        assertEquals(
+                buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 2),
+                buildTreeFromString("[1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,2]"))
+
+        assertEquals(
+                buildTree(99, 77, 123),
+                buildTreeFromString("[99, 77, 123]")
+        )
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `buildTreeFromString throws exception when input invalid`() {
+        buildTreeFromString("1, 2, 3")
     }
 
     @Test
