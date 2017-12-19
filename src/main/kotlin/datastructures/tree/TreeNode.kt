@@ -147,8 +147,6 @@ fun <T> TreeNode?.collect(traversalOrder: DFSTraversalOrder = INORDER,
  */
 fun TreeNode?.toList(): List<Int> = collect { it.`val` }.toList()
 
-// TODO: Iterative DFS
-
 /**
  * Execute a breadth-first traversal of the tree.
  */
@@ -193,6 +191,33 @@ fun TreeNode?.depthAwareBFS(visit: (Pair<TreeNode, Int>) -> Unit) {
             queue.enqueue(Pair(it, depth + 1))
         }
     }
+}
+
+/**
+ * Get the values in the tree by depth.
+ */
+fun TreeNode?.levels(): List<List<Int>> {
+    this ?: return emptyList()
+
+    val queue = ListQueue<Pair<TreeNode, Int>>()
+    queue.enqueue(this to 0)
+
+    val levels = arrayListOf<MutableList<Int>>()
+
+    while (queue.isNotEmpty()) {
+        val (node, depth) = queue.dequeue()!!
+
+        if (depth > levels.lastIndex) {
+            levels.add(arrayListOf(node.`val`))
+        } else {
+            levels[depth].add(node.`val`)
+        }
+
+        node.left?.let { queue.enqueue(it to depth + 1) }
+        node.right?.let { queue.enqueue(it to depth + 1) }
+    }
+
+    return levels
 }
 
 fun TreeNode?.isBST(validRange: IntRange = (Int.MIN_VALUE..Int.MAX_VALUE)): Boolean {
@@ -276,7 +301,7 @@ fun buildTreeFromString(input: String): TreeNode? {
     }
 
     val withoutBraces = input.drop(1).dropLast(1)
-    val elements= withoutBraces.split(',')
+    val elements = withoutBraces.split(',')
             .map { it.trim() }
             .map {
                 when {
@@ -422,7 +447,9 @@ val unbalancedTree = TreeNode(1).apply {
 /**
  * Almost linear tree with 11 nodes on right, and 1 left child at last right child
  */
-val unbalancedTree2 =  TreeNode(1).apply {
+val unbalancedTree2 = TreeNode(1).apply {
+    right = TreeNode(1).apply {
+        right = TreeNode(1).apply {
             right = TreeNode(1).apply {
                 right = TreeNode(1).apply {
                     right = TreeNode(1).apply {
@@ -431,11 +458,7 @@ val unbalancedTree2 =  TreeNode(1).apply {
                                 right = TreeNode(1).apply {
                                     right = TreeNode(1).apply {
                                         right = TreeNode(1).apply {
-                                            right = TreeNode(1).apply {
-                                                right = TreeNode(1).apply {
-                                                    left = TreeNode(2)
-                                                }
-                                            }
+                                            left = TreeNode(2)
                                         }
                                     }
                                 }
@@ -445,3 +468,5 @@ val unbalancedTree2 =  TreeNode(1).apply {
                 }
             }
         }
+    }
+}

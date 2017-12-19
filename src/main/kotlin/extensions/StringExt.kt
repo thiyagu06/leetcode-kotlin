@@ -29,3 +29,9 @@ fun String.isAllCaps(): Boolean = all { it.isUpperCase() }
  */
 fun String.characterFrequencies(caseSensitive: Boolean = true): Map<Char, Int> =
         groupingBy { if (caseSensitive) it.toLowerCase() else it }.eachCount()
+
+
+/**
+ * Return a list of the distinct chars in the string.
+ */
+fun String.distinctChars(): List<Char> = toCharArray().distinct()
