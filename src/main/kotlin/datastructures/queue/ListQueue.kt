@@ -4,8 +4,7 @@ package datastructures.queue
  * Queue implementation backed by an [ArrayList].
  */
 class ListQueue<T>(private val elements: MutableList<T> = arrayListOf()) : Queue<T> {
-    override val size: Int
-        get() = elements.size
+    override val size: Int get() = elements.size
 
     override fun enqueue(value: T) = elements.add(elements.size, value)
     override fun dequeue(): T? = if (elements.isEmpty()) null else elements.removeAt(0)

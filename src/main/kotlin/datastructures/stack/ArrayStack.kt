@@ -10,26 +10,21 @@ class ArrayStack<T> : Stack<T> {
 
     private val elements = arrayListOf<T>()
 
-    override val size: Int
-        get() = elements.size
+    override val size: Int get() = elements.size
 
     override fun push(element: T) {
         elements += element
     }
 
     override fun pop(): T =
-            if (elements.isNotEmpty()) {
+            if (elements.isNotEmpty())
                 elements.removeAt(elements.lastIndex)
-            } else {
-                throw NoSuchElementException("Stack is empty")
-            }
+            else throw NoSuchElementException("Stack is empty")
 
     override fun peek(): T =
-            if (elements.isNotEmpty()) {
+            if (elements.isNotEmpty())
                 elements[elements.lastIndex]
-            } else {
-                throw NoSuchElementException("Stack is empty")
-            }
+            else throw NoSuchElementException("Stack is empty")
 
     override fun isEmpty(): Boolean = elements.isEmpty()
 

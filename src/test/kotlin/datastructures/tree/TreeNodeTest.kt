@@ -153,6 +153,11 @@ class TreeNodeTest {
                 buildTree(99, 77, 123),
                 buildTreeFromString("[99, 77, 123]")
         )
+
+        assertEquals(
+                buildTree(4, -7, -3, null, null, -9, -3, 9, -7, -4, null, 6, null, -6, -6, null, null, 0, 6, 5, null, 9, null, null, -1, -4, null, null, null, -2),
+                buildTreeFromString("[4,-7,-3,null,null,-9,-3,9,-7,-4,null,6,null,-6,-6,null,null,0,6,5,null,9,null,null,-1,-4,null,null,null,-2]")
+        )
     }
 
     @Test(expected = IllegalArgumentException::class)
@@ -205,6 +210,7 @@ class TreeNodeTest {
     @Test
     fun height() {
         assertEquals(1, tree123.height)
+        assertEquals(2, tree1to5.height)
         assertEquals(2, bst3LevelsFull.height)
         assertEquals(3, bstWithNulls.height)
     }

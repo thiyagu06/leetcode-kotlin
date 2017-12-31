@@ -11,12 +11,8 @@ package extensions
  * Int
  ********************/
 
-val Int.isEven: Boolean
-    get() = this % 2 == 0
-
-val Int.isOdd: Boolean
-    get() = this % 2 == 1
-
+val Int.isEven: Boolean get() = this % 2 == 0
+val Int.isOdd: Boolean get() = this % 2 == 1
 
 /**
  * Uses [java.lang.Math]'s abs() function.

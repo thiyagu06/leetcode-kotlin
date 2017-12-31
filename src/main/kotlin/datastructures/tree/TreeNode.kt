@@ -34,20 +34,12 @@ class TreeNode(var `val`: Int = 0, var left: TreeNode? = null, var right: TreeNo
     }
 }
 
-val TreeNode.hasLeft: Boolean
-    get() = left != null
+val TreeNode.hasLeft: Boolean get() = left != null
+val TreeNode.hasRight: Boolean get() = right != null
+val TreeNode.hasTwoChildren: Boolean get() = left != null && right != null
+val TreeNode.isLeaf: Boolean get() = left == null && right == null
 
-val TreeNode.hasRight: Boolean
-    get() = right != null
-
-val TreeNode.hasTwoChildren: Boolean
-    get() = left != null && right != null
-
-val TreeNode.isLeaf: Boolean
-    get() = left == null && right == null
-
-val TreeNode.size: Int
-    get() = 1 + (left?.size ?: 0) + (right?.size ?: 0)
+val TreeNode.size: Int get() = 1 + (left?.size ?: 0) + (right?.size ?: 0)
 
 /**
  * Can't implement component1/component2, since the types can't be nullable.
@@ -116,7 +108,7 @@ fun TreeNode?.dfs(order: DFSTraversalOrder = INORDER, visit: (TreeNode) -> Unit)
  * Time: `O(n)`
  * Space: `O(n)`
  */
-fun TreeNode?.collect(acc: MutableCollection<Int> = arrayListOf()): Collection<Int> =
+fun TreeNode?.collect(acc: MutableList<Int> = arrayListOf()): List<Int> =
         this?.let {
             left?.collect(acc)
             acc += `val`
@@ -132,8 +124,8 @@ fun TreeNode?.collect(acc: MutableCollection<Int> = arrayListOf()): Collection<I
  * Space: `O(n)`
  */
 fun <T> TreeNode?.collect(traversalOrder: DFSTraversalOrder = INORDER,
-                          acc: MutableCollection<T> = arrayListOf(),
-                          transform: (TreeNode) -> T): Collection<T> {
+                          acc: MutableList<T> = arrayListOf(),
+                          transform: (TreeNode) -> T): List<T> {
     this ?: return emptyList()
 
     dfs(order = traversalOrder) { acc += transform(it) }
@@ -303,10 +295,17 @@ fun buildTreeFromString(input: String): TreeNode? {
     val withoutBraces = input.drop(1).dropLast(1)
     val elements = withoutBraces.split(',')
             .map { it.trim() }
-            .map {
+            .mapIndexed { i, c ->
                 when {
-                    it.all { it.isDigit() } -> it.toInt()
-                    it == "null" -> null
+                    c[0] == '-' -> {
+                        if (!c.drop(1).all { it.isDigit() }) {
+                            throw IllegalArgumentException("Expected digits after negative sign")
+                        } else {
+                            c.toInt()
+                        }
+                    }
+                    c.all { it.isDigit() } -> c.toInt()
+                    c == "null" -> null
                     else -> throw IllegalArgumentException("Unable to parse input")
                 }
             }

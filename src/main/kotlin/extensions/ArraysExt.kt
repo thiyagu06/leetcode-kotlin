@@ -146,23 +146,11 @@ fun CharArray.reverseElementsInRange(indexRange: IntRange) {
 
 typealias Matrix = Array<IntArray>
 
-internal val Matrix.rows: Int
-    get() = size
+internal val Matrix.rows: Int get() = size
+internal val Matrix.columns: Int get() = if (isEmpty()) 0 else this[0].size
 
-internal val Matrix.columns: Int
-    get() = if (isEmpty()) 0 else this[0].size
-
-internal val Matrix.lastRow: Int
-    get() = lastIndex
-
-internal val Matrix.lastColumn: Int
-    get() = if (isEmpty()) -1 else this[0].lastIndex
-
-internal fun Matrix.debugString() = StringBuilder().apply {
-    this@debugString.forEach {
-        this.append(it.contentToString() + "\n")
-    }
-}.toString()
+internal val Matrix.lastRow: Int get() = lastIndex
+internal val Matrix.lastColumn: Int get() = if (isEmpty()) -1 else this[0].lastIndex
 
 internal fun Matrix.toList(): List<List<Int>> = fold(emptyList()) { acc, intArr ->
     acc.plusElement(intArr.toList())
