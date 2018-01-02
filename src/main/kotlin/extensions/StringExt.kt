@@ -35,3 +35,10 @@ fun String.characterFrequencies(caseSensitive: Boolean = true): Map<Char, Int> =
  * Return a list of the distinct chars in the string.
  */
 fun String.distinctChars(): List<Char> = toCharArray().distinct()
+
+/**
+ * Returns a string with the chars sorted. Sorts by the Char's Int value.
+ * If a string contains whitespace or punctuation characters, the sorted order
+ * will be by increasing [ASCII value](https://www.rapidtables.com/code/text/ascii-table.html).
+ */
+fun String.toSortedString(): String = toCharArray().sorted().joinToString("")

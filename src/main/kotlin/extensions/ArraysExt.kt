@@ -43,7 +43,7 @@ fun Any.isArrayType(): Boolean {
 }
 
 /**
- * https://github.com/ilya-g/kotlinx.collections.experimental/blob/5a7d58147d6e25d80699fa9abb22130d0a5e0f7b/kotlinx-collections-experimental/src/main/kotlin/kotlinx.collections.experimental/grouping/grouping.kt
+ * Source: http://tinyurl.com/y92rp67r
  */
 inline fun <K> IntArray.groupingBy(crossinline keySelector: (Int) -> K): Grouping<Int, K> = object : Grouping<Int, K> {
     override fun sourceIterator(): IntIterator = this@groupingBy.iterator()

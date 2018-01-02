@@ -7,6 +7,7 @@ import extensions.digits
  */
 class Solution {
     /**
+     * TODO
      * Time: O(?)
      * Space: O(?)
      */
@@ -28,5 +29,3 @@ class Solution {
 
     private fun Int.sumOfSquaresOfDigits(): Int = this.digits().sumBy { it * it }
 }
-
-

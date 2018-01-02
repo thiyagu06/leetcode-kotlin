@@ -29,27 +29,6 @@ class ListNode(var `val`: Int = 0) {
         return result
     }
 
-    /* Iterator
-        redeclare class as: class ListNode(var `val`: Int = 0): Iterable<ListNode> {
-
-    override fun iterator(): Iterator<ListNode> {
-        return object : Iterator<ListNode> {
-            var node: ListNode? = this@ListNode
-
-            override fun hasNext(): Boolean = node != null
-
-            override fun next(): ListNode {
-                if (!hasNext())
-                    throw NoSuchElementException()
-
-                val current = node!!
-                node = current.next
-                return current
-            }
-        }
-    }
-     */
-
 
     companion object {
         /**
@@ -164,7 +143,6 @@ fun ListNode?.middleNode(): ListNode? {
     return tortoise
 }
 
-/* If not using Iterable<T>/iterator implementation: */
 inline fun ListNode.firstOrNull(predicate: (ListNode) -> Boolean): ListNode? {
     var node: ListNode? = this
     while (node != null) {

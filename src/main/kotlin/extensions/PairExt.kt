@@ -17,3 +17,17 @@ fun Pair<Short, Short>.toShortArray(): ShortArray = shortArrayOf(first, second)
 fun Pair<Int, Int>.sum(): Int = first + second
 fun Pair<Int, Int>.product(): Int = first * second
 fun Pair<Int, Int>.absDifference(): Int = Math.abs(first - second)
+
+fun <T : Comparable<T>> Pair<T, T>.max() = maxOf(first, second)
+fun <T : Comparable<T>> Pair<T, T>.min() = minOf(first, second)
+
+// Null checking
+fun <T : Any?> Pair<T?, T?>.bothNull(): Boolean = first == null && second == null
+fun <T : Any?> Pair<T?, T?>.eitherNull(): Boolean = first == null || second == null
+fun <T : Any?> Pair<T?, T?>.neitherNull(): Boolean = first != null && second != null
+
+// Source: http://tinyurl.com/y6wn9b2k
+infix fun <A, B, C> Pair<A, B>.and(that: C): Triple<A, B, C> = Triple(this.first, this.second, that)
+
+// Flip the pair's order
+fun <T, U> Pair<T, U>.reverse() = Pair(second, first)

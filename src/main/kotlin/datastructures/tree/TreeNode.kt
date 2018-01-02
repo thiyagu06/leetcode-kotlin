@@ -328,29 +328,6 @@ fun buildBST(vararg elements: Int?): TreeNode? {
     return tree
 }
 
-
-/**
- * Print a string representation of Tree
- * TODO fix
- */
-fun printTree(tree: TreeNode?) {
-    treeContent(tree).forEach { node ->
-        println(node)
-    }
-}
-
-// TODO fix
-private fun treeContent(root: TreeNode?, depth: Int = 0, content: MutableList<String> = arrayListOf()): List<String> {
-    root ?: return content
-
-    val indentation = "      ".repeat(depth)
-    treeContent(root.right, depth + 1, content)
-    content.add("$indentation$root")
-    treeContent(root.left, depth + 1, content)
-
-    return content
-}
-
 /**
  * ```
  *         (1)

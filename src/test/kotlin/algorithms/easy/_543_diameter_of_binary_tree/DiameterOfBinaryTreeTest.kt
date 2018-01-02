@@ -1,7 +1,6 @@
 package algorithms.easy._543_diameter_of_binary_tree
 
 import datastructures.tree.buildTree
-import datastructures.tree.buildTreeFromString
 import datastructures.tree.tree123
 import datastructures.tree.tree1to5
 import org.junit.Assert.assertEquals

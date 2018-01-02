@@ -9,7 +9,6 @@ package datastructures.stack
 class ArrayStack<T> : Stack<T> {
 
     private val elements = arrayListOf<T>()
-
     override val size: Int get() = elements.size
 
     override fun push(element: T) {
@@ -27,9 +26,9 @@ class ArrayStack<T> : Stack<T> {
             else throw NoSuchElementException("Stack is empty")
 
     override fun isEmpty(): Boolean = elements.isEmpty()
-
     override fun isNotEmpty(): Boolean = !elements.isEmpty()
-
     override fun toString(): String = "ArrayStack(elements=$elements)"
 
+    fun toList(): List<T> = elements.toList()
+    fun toMutableList(): MutableList<T> = elements.toMutableList()
 }
