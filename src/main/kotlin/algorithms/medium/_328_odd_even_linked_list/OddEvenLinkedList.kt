@@ -1,7 +1,6 @@
 package algorithms.medium._328_odd_even_linked_list
 
 import datastructures.list.ListNode
-import datastructures.list.contentToString
 
 /**
  * 328 - https://leetcode.com/problems/odd-even-linked-list/description/
@@ -15,7 +14,7 @@ class Solution {
         head ?: return null
 
         var node: ListNode = head
-        var evensSentinel = ListNode(Int.MIN_VALUE)
+        val evensSentinel = ListNode(Int.MIN_VALUE)
         var evensTail: ListNode = evensSentinel
 
         while (node.next != null) {

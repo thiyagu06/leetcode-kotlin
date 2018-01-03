@@ -1,6 +1,5 @@
 package extensions
 
-import javafx.beans.binding.Bindings.isEmpty
 import java.math.BigInteger
 
 /**
