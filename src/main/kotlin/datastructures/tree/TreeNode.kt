@@ -133,6 +133,16 @@ fun <T> TreeNode?.collect(traversalOrder: DFSTraversalOrder = INORDER,
 }
 
 /**
+ * Collect the unique values to a Set.
+ */
+fun TreeNode?.collectUnique(acc: MutableSet<Int> = hashSetOf()): Set<Int> =
+        this?.let {
+            left?.collectUnique(acc)
+            acc += `val`
+            right?.collectUnique(acc)
+        } ?: acc
+
+/**
  * Return a list of the values in the tree. For binary search trees, the values
  * will be sorted.
  *
@@ -295,7 +305,7 @@ fun buildTreeFromString(input: String): TreeNode? {
     val withoutBraces = input.drop(1).dropLast(1)
     val elements = withoutBraces.split(',')
             .map { it.trim() }
-            .mapIndexed { i, c ->
+            .map { c ->
                 when {
                     c[0] == '-' -> {
                         if (!c.drop(1).all { it.isDigit() }) {

@@ -93,8 +93,22 @@ class PairExtTest {
     }
 
     @Test
+    fun reverseIf() {
+        assertEquals(Pair(9, 7), Pair(7, 9).reverseIf { it.first < it.second })
+        assertEquals(Pair(7, 9), Pair(7, 9).reverseIf { it.first > it.second })
+    }
+
+    @Test
     fun maxAndMin() {
         assertEquals(7, Pair(7, -9).max())
         assertEquals(-9, Pair(7, -9).min())
+    }
+
+    @Test
+    fun contains() {
+        assertTrue(Pair(7, -9).contains(7))
+        assertTrue(Pair(7, -9).contains(-9))
+        assertFalse(Pair(7, -9).contains(9))
+
     }
 }

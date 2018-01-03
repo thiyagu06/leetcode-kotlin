@@ -14,3 +14,6 @@ fun Triple<Short, Short, Short>.toShortArray(): ShortArray = shortArrayOf(first,
 // Math
 fun Triple<Int, Int, Int>.sum(): Int = first + second + third
 fun Triple<Int, Int, Int>.product(): Int = first * second * third
+
+// contains
+fun <T> Triple<T, T, T>.contains(value: T) = first == value || second == value || third == value
