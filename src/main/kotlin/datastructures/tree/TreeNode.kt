@@ -5,6 +5,7 @@ import datastructures.queue.Queue
 import datastructures.tree.DFSTraversalOrder.INORDER
 import datastructures.tree.DFSTraversalOrder.POSTORDER
 import datastructures.tree.DFSTraversalOrder.PREORDER
+import extensions.repeated
 
 /**
  * Definition for a binary tree node.
@@ -234,24 +235,32 @@ fun TreeNode?.isBST(validRange: IntRange = (Int.MIN_VALUE..Int.MAX_VALUE)): Bool
 /**
  * Returns a list of all root-to-leaf paths.
  */
-fun TreeNode?.rootToLeafPaths(): List<List<Int>> {
-    this ?: return emptyList()
+fun TreeNode?.rootToLeafPaths(currentPath: List<Int> = emptyList(),
+                              paths: MutableList<List<Int>> = mutableListOf()): List<List<Int>> =
+        this?.let {
+            left?.rootToLeafPaths(currentPath = currentPath + `val`, paths = paths)
+            right?.rootToLeafPaths(currentPath = currentPath + `val`, paths = paths)
 
-    val paths = arrayListOf<List<Int>>()
-    rootToLeafPathsHelper(emptyList(), paths)
-    return paths
-}
+            if (isLeaf)
+                paths += (currentPath + `val`)
+            paths
+        } ?: paths
 
-private fun TreeNode?.rootToLeafPathsHelper(currentPath: List<Int>, paths: MutableList<List<Int>>) {
-    this ?: return
+/**
+ * Returns a list of all (downward) paths. A path is defined as any sequence of nodes (length >= 1).
+ * Sequences where a descendant precedes an ancestor are not permitted.
+ */
+fun TreeNode?.allPaths(pathsToParent: List<List<Int>> = emptyList(),
+                       paths: MutableList<List<Int>> = mutableListOf()): List<List<Int>> =
+        this?.let {
+            val pathsToRoot = listOf(listOf(`val`)) + pathsToParent.map { it + `val` }
+            paths += pathsToRoot
 
-    if (isLeaf) {
-        paths += (currentPath + `val`)
-    } else {
-        left?.rootToLeafPathsHelper(currentPath + `val`, paths)
-        right?.rootToLeafPathsHelper(currentPath + `val`, paths)
-    }
-}
+            left?.allPaths(pathsToParent = pathsToRoot, paths = paths)
+            right?.allPaths(pathsToParent = pathsToRoot, paths = paths)
+
+            paths
+        } ?: paths
 
 /**
  * Create a binary tree from the given elements.
@@ -414,6 +423,7 @@ val bstWithNulls =
         }
 
 /**
+ * ```
  *   (1)
  *    ┴───────┐
  *           (1)
@@ -421,8 +431,11 @@ val bstWithNulls =
  *               (1)
  *           ┌────┴
  *          (2)
+ * ```
+ *
+ * Equivalent to `buildTree(1, null, 1, null, 1, 2)`
  */
-val unbalancedTree = TreeNode(1).apply {
+val treeUnbalanced = TreeNode(1).apply {
     right = TreeNode(1).apply {
         right = TreeNode(1).apply {
             left = TreeNode(2)
@@ -431,9 +444,11 @@ val unbalancedTree = TreeNode(1).apply {
 }
 
 /**
- * Almost linear tree with 11 nodes on right, and 1 left child at last right child
+ * Almost linear tree with 11 nodes on right, and 1 left child at last right child.
+ *
+ * Equivalent to `buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 2)`
  */
-val unbalancedTree2 = TreeNode(1).apply {
+val treeUnbalanced2 = TreeNode(1).apply {
     right = TreeNode(1).apply {
         right = TreeNode(1).apply {
             right = TreeNode(1).apply {

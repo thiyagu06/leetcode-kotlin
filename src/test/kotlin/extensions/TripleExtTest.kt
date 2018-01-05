@@ -25,6 +25,12 @@ class TripleExtTest {
     }
 
     @Test
+    fun maxAndMin() {
+        assertEquals(10, intTriple.max())
+        assertEquals(3, intTriple.min())
+    }
+
+    @Test
     fun contains() {
         assertTrue(intTriple.contains(4))
         assertTrue(intTriple.contains(3))

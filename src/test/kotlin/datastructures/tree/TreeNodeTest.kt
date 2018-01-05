@@ -74,11 +74,11 @@ class TreeNodeTest {
         val tree3 = buildTree(1, null, 1, null, 1, 2)
         assertNotNull(tree3)
         assertEquals(4, tree3?.size)
-        assertEquals(unbalancedTree, tree3)
+        assertEquals(treeUnbalanced, tree3)
 
         val tree4 = buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 2)
         assertEquals(12, tree4?.size)
-        assertEquals(unbalancedTree2, tree4)
+        assertEquals(treeUnbalanced2, tree4)
     }
 
     @Test
@@ -171,6 +171,53 @@ class TreeNodeTest {
         assertEquals(listOf(listOf(5, 3, 1), listOf(5, 3, 4), listOf(5, 8, 6), listOf(5, 8, 9)),
                 bst3LevelsFull.rootToLeafPaths())
         assertEquals(listOf(listOf(7, 4, 3, 1), listOf(7, 9, 8)), bstWithNulls.rootToLeafPaths())
+    }
+
+    @Test
+    fun allPaths() {
+        val nullTree: TreeNode? = null
+        assertEquals(emptyList<List<Int>>(), nullTree.allPaths())
+
+        assertEquals(listOf(listOf(1), listOf(2), listOf(1, 2), listOf(3), listOf(1, 3)), tree123.allPaths())
+
+        assertEquals(listOf(
+                        listOf(5),
+                        listOf(3),
+                        listOf(5, 3),
+                        listOf(1),
+                        listOf(3, 1),
+                        listOf(5, 3, 1),
+                        listOf(4),
+                        listOf(3, 4),
+                        listOf(5, 3, 4),
+                        listOf(8),
+                        listOf(5, 8),
+                        listOf(6),
+                        listOf(8, 6),
+                        listOf(5, 8, 6),
+                        listOf(9),
+                        listOf(8, 9),
+                        listOf(5, 8, 9)
+                ), bst3LevelsFull.allPaths())
+
+        assertEquals(
+                listOf(
+                    listOf(7),
+                    listOf(4),
+                    listOf(7, 4),
+                    listOf(3),
+                    listOf(4, 3),
+                    listOf(7, 4, 3),
+                    listOf(1),
+                    listOf(3, 1),
+                    listOf(4, 3, 1),
+                    listOf(7, 4, 3, 1),
+                    listOf(9),
+                    listOf(7, 9),
+                    listOf(8),
+                    listOf(9, 8),
+                    listOf(7, 9, 8)
+                ), bstWithNulls.allPaths())
     }
 
     @Test
