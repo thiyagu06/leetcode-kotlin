@@ -29,27 +29,37 @@ class NumberExtTest {
     @Test
     fun numberOfDigits() {
         assertEquals(4, 1234.numberOfDigits())
+        assertEquals(2, 99.numberOfDigits())
+        assertEquals(2, 10.numberOfDigits())
+        assertEquals(1, 9.numberOfDigits())
+        assertEquals(1, 1.numberOfDigits())
+        assertEquals(1, (-1).numberOfDigits())
+        assertEquals(1, (-9).numberOfDigits())
+        assertEquals(2, (-10).numberOfDigits())
+        assertEquals(4, (-9999).numberOfDigits())
         assertEquals(1, 0.numberOfDigits())
+        assertEquals(10, Int.MAX_VALUE.numberOfDigits())
+        assertEquals(10, Int.MIN_VALUE.numberOfDigits())
     }
 
     @Test
-    fun firstDigit() {
-        assertEquals(1, 123.firstDigit())
+    fun mostSignificantDigit() {
+        assertEquals(1, 123.mostSignificantDigit())
     }
 
     @Test
-    fun lastDigit() {
-        assertEquals(3, 123.lastDigit())
+    fun leastSignificantDigit() {
+        assertEquals(3, 123.leastSignificantDigit())
     }
 
     @Test
-    fun valueOfNLeftmostDigits() {
-        assertEquals(12, 123.valueOfNLeftmostDigits(2))
+    fun nMostSignificantDigits() {
+        assertEquals(12, 123.nMostSignificantDigits(2))
     }
 
     @Test
-    fun valueOfNRightmostDigits() {
-        assertEquals(23, 123.valueOfNRightmostDigits(2))
+    fun nLeastSignificantDigits() {
+        assertEquals(23, 123.nLeastSignificantDigits(2))
     }
 
     @Test

@@ -55,7 +55,7 @@ class Solution2 {
         var count = 0
         (0..lastRow).forEach { i ->
             (0..lastColumn).forEach { j ->
-                perimeterConditions.forEachIndexed { index, condition ->
+                perimeterConditions.forEach { condition ->
                     if (condition(i, j)) {
                         count++
                     }

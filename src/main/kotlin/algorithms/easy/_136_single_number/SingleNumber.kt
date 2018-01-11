@@ -15,7 +15,7 @@ class Solution {
 
 }
 
-class ConstantSpaceSolution {
+class Solution2 {
     /**
      * Time: O(n)
      * Space: O(1)
