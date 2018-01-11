@@ -4,10 +4,6 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- * @author nrojiani
- * @date 11/12/17
- */
 class LengthOfLastWordTest {
     private val solution = Solution()
 

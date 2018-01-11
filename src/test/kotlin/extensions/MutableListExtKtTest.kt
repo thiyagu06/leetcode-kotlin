@@ -10,10 +10,6 @@ import org.junit.Test
 import prepend
 import prependAll
 
-/**
- * @author nrojiani
- * @date 11/25/17
- */
 class MutableListExtKtTest {
 
     private lateinit var emptyList: MutableList<Int>

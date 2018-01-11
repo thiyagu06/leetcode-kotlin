@@ -2,12 +2,6 @@ package algorithms.easy._013_roman_to_int
 
 /**
  * 13 - https://leetcode.com/problems/roman-to-integer/description/
- * Roman to Integer
- *
- * Range: 0..3999
- *
- * @author nrojiani
- * @date 11/7/17
  */
 class Solution {
 

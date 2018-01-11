@@ -2,9 +2,6 @@ package datastructures.stack
 
 /**
  * Stack implemented with an ArrayList.
- *
- * @author nrojiani
- * @date 11/22/17
  */
 class ArrayStack<T> : Stack<T> {
 

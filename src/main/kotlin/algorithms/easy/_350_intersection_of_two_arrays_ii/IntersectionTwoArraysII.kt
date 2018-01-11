@@ -6,12 +6,6 @@ import java.util.*
 
 /**
  * 350 - https://leetcode.com/problems/intersection-of-two-arrays-ii/description/
- *
- * Each element in the result **should appear as many times as it appears in both arrays**.
- * The result can be in any order.
- *
- * @author nrojiani
- * @date 11/15/17
  */
 class Solution {
     fun intersect(nums1: IntArray, nums2: IntArray): IntArray {

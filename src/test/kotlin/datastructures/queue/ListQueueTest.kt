@@ -6,10 +6,6 @@ import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
-/**
- * @author nrojiani
- * @date 11/17/17
- */
 class ListQueueTest {
     private val q1 = ListQueue<Int>()
     private val q2 = ListQueue(mutableListOf(7, 8, 9))

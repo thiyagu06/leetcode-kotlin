@@ -3,11 +3,7 @@ package algorithms.easy._001_two_sum
 import extensions.toIntArray
 
 /**
- * 1.
- * https://leetcode.com/problems/two-sum/description/
- *
- * @author nrojiani
- * @date 11/7/17
+ * 1 - https://leetcode.com/problems/two-sum/description/
  */
 class Solution {
     /**

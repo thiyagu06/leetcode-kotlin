@@ -9,10 +9,7 @@ import extensions.isOdd
 import prepend
 
 /**
- * 103 -
- *
- * @author nrojiani
- * @date 11/25/17
+ * 103 - https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
  */
 class Solution {
 

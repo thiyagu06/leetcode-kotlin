@@ -4,8 +4,7 @@ import datastructures.stack.ArrayStack
 import extensions.numericValue
 
 /**
- * @author nrojiani
- * @date 12/11/17
+ * 394 - https://leetcode.com/problems/decode-string
  */
 class Solution {
     fun decodeString(s: String): String {

@@ -2,9 +2,6 @@ package algorithms.easy._198_house_robber
 
 /**
  * 198 - https://leetcode.com/problems/house-robber/description/
- *
- * @author nrojiani
- * @date 11/19/17
  */
 class Solution {
 

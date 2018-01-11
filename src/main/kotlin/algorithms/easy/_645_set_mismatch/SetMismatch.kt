@@ -1,6 +1,7 @@
 package algorithms.easy._645_set_mismatch
 
 import extensions.groupingBy
+import kotlin.math.abs
 
 /**
  * 645 - https://leetcode.com/problems/set-mismatch/description/
@@ -31,7 +32,7 @@ class OptimalSolution {
      * Space: O(1)
      */
     fun findErrorNums(nums: IntArray): IntArray {
-        val mapValueToIndex: (Int) -> Int = { n -> Math.abs(n) - 1 }
+        val mapValueToIndex: (Int) -> Int = { n -> abs(n) - 1 }
         val unmapIndexToValue: (Int) -> Int = { n -> n + 1 }
 
         var duplicate: Int = -1
@@ -41,7 +42,7 @@ class OptimalSolution {
             val mappedIndex = mapValueToIndex(n)
             nums[mappedIndex] = nums[mappedIndex] * -1
             if (nums[mappedIndex] > 0) {
-                duplicate = Math.abs(n)
+                duplicate = abs(n)
             }
 
         }

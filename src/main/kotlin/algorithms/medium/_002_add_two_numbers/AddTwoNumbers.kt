@@ -4,6 +4,7 @@ import datastructures.list.ListNode
 import datastructures.list.toList
 import java.math.BigDecimal
 import java.math.BigInteger
+import kotlin.math.pow
 
 /**
  * 2 - https://leetcode.com/problems/add-two-numbers/description/
@@ -22,7 +23,7 @@ class Solution {
 
     fun valueOf(reversedDigitList: ListNode): BigInteger =
             reversedDigitList.toList().foldIndexed(BigInteger.ZERO) { exp, total, digit ->
-                val placeValue = Math.pow(10.0, exp.toDouble()).toBigDecimal()
+                val placeValue = 10.0.pow(exp).toBigDecimal()
                 val digitValue = digit.toBigInteger().toBigDecimal()
                 val adjustedDigitValue: BigDecimal = placeValue * digitValue
                 total + adjustedDigitValue.toBigInteger()

@@ -3,10 +3,6 @@ package algorithms.easy._066_plus_one
 import org.junit.Assert.assertArrayEquals
 import org.junit.Test
 
-/**
- * @author nrojiani
- * @date 11/12/17
- */
 class PlusOneTest {
     private val arr0 = intArrayOf(0)
     private val arr1 = intArrayOf(1)

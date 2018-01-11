@@ -8,9 +8,6 @@ import extensions.isOdd
 
 /**
  * 234 - https://leetcode.com/problems/palindrome-linked-list/description/
- *
- * @author nrojiani
- * @date 11/22/17
  */
 class Solution {
     fun isPalindrome(head: ListNode?): Boolean {
@@ -116,4 +113,3 @@ class FollowUpSolution {
         return previousNode
     }
 }
-

@@ -1,5 +1,7 @@
 package algorithms.easy._219_contains_duplicate_ii
 
+import kotlin.math.abs
+
 /**
  * 219 - https://leetcode.com/problems/contains-duplicate-ii/description/
  */
@@ -16,7 +18,7 @@ class Solution {
                 continue
 
             for (index in (0 until occurrences.lastIndex)) {
-                if (Math.abs(occurrences[index] - occurrences[index + 1]) <= k) {
+                if (abs(occurrences[index] - occurrences[index + 1]) <= k) {
                     return true
                 }
             }

@@ -2,9 +2,6 @@ package algorithms.easy._541_reverse_string_ii
 
 /**
  * 541 - https://leetcode.com/problems/reverse-string-ii/description/
- *
- * @author nrojiani
- * @date 11/14/17
  */
 class Solution {
     fun reverseStr(s: String, k: Int): String =

@@ -2,9 +2,6 @@ package algorithms.easy._035_search_insert_position
 
 /**
  * 35 - https://leetcode.com/problems/search-insert-position/description/
- *
- * @author nrojiani
- * @date 11/10/17
  */
 class Solution {
     /**

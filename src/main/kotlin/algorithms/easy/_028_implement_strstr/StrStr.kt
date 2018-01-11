@@ -2,11 +2,6 @@ package algorithms.easy._028_implement_strstr
 
 /**
  * 28 - https://leetcode.com/problems/implement-strstr/description/
- *
- * Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
- *
- * @author nrojiani
- * @date 11/10/17
  */
 class Solution {
     /**

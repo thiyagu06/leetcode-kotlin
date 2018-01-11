@@ -5,10 +5,6 @@ import datastructures.list.linkedListOf
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-/**
- * @author nrojiani
- * @date 11/11/17
- */
 class RemoveDuplicatesSortedListTest {
     private val solution = Solution()
 

@@ -4,10 +4,6 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- * @author nrojiani
- * @date 11/10/17
- */
 class RemoveElementTest {
 
     private val solution = Solution()

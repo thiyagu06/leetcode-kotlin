@@ -1,5 +1,7 @@
 package algorithms.easy._326_power_of_three
 
+import kotlin.math.pow
+
 /**
  * 326 - https://leetcode.com/problems/power-of-three/description/
  */
@@ -11,7 +13,7 @@ class Solution {
     fun isPowerOfThree(n: Int): Boolean {
         var power: Double
         (0 until n).forEach { exp ->
-            power = Math.pow(3.0, exp.toDouble())
+            power = 3.0.pow(exp)
 
             when {
                 power > Int.MAX_VALUE -> return false   // overflow
@@ -34,7 +36,7 @@ class SolutionAlt {
         var power = 1.0
         var exp = 0.0
         while (power < n) {
-            power = Math.pow(3.0, exp)
+            power = 3.0.pow(exp)
 
             if (power > Int.MAX_VALUE) {    /* Overflow */
                 return false

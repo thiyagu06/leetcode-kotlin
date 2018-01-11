@@ -4,10 +4,6 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- * @author nrojiani
- * @date 11/9/17
- */
 class LongestCommonPrefixTest {
 
     private val lcp = Solution()

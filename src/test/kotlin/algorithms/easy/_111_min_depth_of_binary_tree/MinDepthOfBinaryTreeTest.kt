@@ -7,10 +7,6 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- * @author nrojiani
- * @date 11/19/17
- */
 class MinDepthOfBinaryTreeTest {
 
     private val solution = Solution()

@@ -94,10 +94,27 @@ fun <T> List<T>.permutations(): List<List<T>> =
  */
 fun sumOfFirstNPositiveIntegers(n: Int) = ((n * (n + 1)) / 2)
 
+/* kotlin.math: available with Kotlin 1.2+, but LeetCode uses 1.1
+import java.lang.Math as nativeMath
+
+public inline fun abs(x: Double): Double = nativeMath.abs(x)
+public inline fun abs(x: Float): Float = nativeMath.abs(x)
+public inline fun abs(n: Int): Int = nativeMath.abs(n)
+public inline fun abs(n: Long): Long = nativeMath.abs(n)
+
+public inline val Double.absoluteValue: Double get() = nativeMath.abs(this)
+public inline val Float.absoluteValue: Float get() = nativeMath.abs(this)
+public inline val Int.absoluteValue: Int get() = nativeMath.abs(this)
+public inline val Long.absoluteValue: Long get() = nativeMath.abs(this)
+
+public inline fun Double.pow(x: Double): Double = nativeMath.pow(this, x)
+public inline fun Double.pow(n: Int): Double = nativeMath.pow(this, n.toDouble())
+
+public inline fun sqrt(x: Double): Double = nativeMath.sqrt(x)
+public inline fun sqrt(x: Float): Float = nativeMath.sqrt(x.toDouble()).toFloat()
 
 
-/*
-BigInteger/BigDecimal - available with Kotlin 1.2+, but LeetCode uses 1.1
+// BigInteger/BigDecimal
 public inline operator fun BigInteger.plus(other: BigInteger): BigInteger = this.add(other)
 public inline operator fun BigInteger.minus(other: BigInteger): BigInteger = this.subtract(other)
 public inline operator fun BigInteger.times(other: BigInteger): BigInteger = this.multiply(other)

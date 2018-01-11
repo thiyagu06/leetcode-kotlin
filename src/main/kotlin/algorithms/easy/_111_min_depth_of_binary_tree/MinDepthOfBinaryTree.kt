@@ -7,11 +7,6 @@ import datastructures.tree.hasTwoChildren
 
 /**
  * 111 - https://leetcode.com/problems/minimum-depth-of-binary-tree/description/
- *
- * The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
- *
- * @author nrojiani
- * @date 11/19/17
  */
 class Solution {
     fun minDepth(root: TreeNode?): Int {

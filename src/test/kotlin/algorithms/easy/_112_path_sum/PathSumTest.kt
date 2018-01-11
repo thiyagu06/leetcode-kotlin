@@ -5,10 +5,6 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- * @author nrojiani
- * @date 11/19/17
- */
 class PathSumTest {
     private val solution = Solution()
 

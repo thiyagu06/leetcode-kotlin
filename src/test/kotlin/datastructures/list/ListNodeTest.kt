@@ -5,10 +5,6 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
-/**
- * @author nrojiani
- * @date 11/10/17
- */
 class ListNodeTest {
 
     private var listA: ListNode? = null

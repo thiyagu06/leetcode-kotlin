@@ -2,9 +2,6 @@ package algorithms.easy._020_valid_parentheses
 
 /**
  * 20 - https://leetcode.com/problems/valid-parentheses/description/
- *
- * @author nrojiani
- * @date 11/9/17
  */
 class Solution {
     /**

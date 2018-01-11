@@ -5,12 +5,6 @@ import datastructures.list.tail
 
 /**
  * 206 - https://leetcode.com/problems/reverse-linked-list/description/
- *
- * Time: O(n)
- * Space: O(1)
- *
- * @author nrojiani
- * @date 11/11/17
  */
 class Solution {
     /**

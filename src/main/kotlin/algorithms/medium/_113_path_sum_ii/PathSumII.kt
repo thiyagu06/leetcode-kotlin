@@ -5,9 +5,6 @@ import datastructures.tree.rootToLeafPaths
 
 /**
  * 113 - https://leetcode.com/problems/path-sum-ii/description/
- *
- * @author nrojiani
- * @date 11/19/17
  */
 class Solution {
     /**

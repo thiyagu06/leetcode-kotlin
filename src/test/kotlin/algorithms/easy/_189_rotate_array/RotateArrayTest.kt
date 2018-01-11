@@ -3,10 +3,6 @@ package algorithms.easy._189_rotate_array
 import org.junit.Assert.assertArrayEquals
 import org.junit.Test
 
-/**
- * @author nrojiani
- * @date 11/13/17
- */
 class RotateArrayTest {
 
     private val solution = Solution()

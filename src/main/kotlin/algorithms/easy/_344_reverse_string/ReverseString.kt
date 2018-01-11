@@ -2,9 +2,6 @@ package algorithms.easy._344_reverse_string
 
 /**
  * 344 - https://leetcode.com/problems/reverse-string/description/
- *
- * @author nrojiani
- * @date 11/8/17
  */
 class Solution {
     /*

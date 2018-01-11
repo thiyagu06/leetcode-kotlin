@@ -4,9 +4,6 @@ import datastructures.tree.TreeNode
 
 /**
  * 108 - https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
- *
- * @author nrojiani
- * @date 11/27/17
  */
 class Solution {
     /**

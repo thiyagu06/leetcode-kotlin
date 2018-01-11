@@ -6,9 +6,6 @@ import datastructures.tree.collect
 
 /**
  * 145 - https://leetcode.com/problems/binary-tree-postorder-traversal/description/
- *
- * @author nrojiani
- * @date 11/17/17
  */
 class Solution {
     /**

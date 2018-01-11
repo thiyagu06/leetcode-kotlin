@@ -4,10 +4,6 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 import kotlin.system.measureTimeMillis
 
-/**
- * @author nrojiani
- * @date 11/14/17
- */
 class MajorityElementTest {
 
     private val solution = Solution()

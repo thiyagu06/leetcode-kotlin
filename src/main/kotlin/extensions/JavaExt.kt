@@ -3,10 +3,7 @@ package extensions
 import java.util.*
 
 /**
- * Various Kotlin extensions using
- *
- * @author nrojiani
- * @date 11/15/17
+ * Kotlin extensions for Java standard library methods.
  */
 
 /**

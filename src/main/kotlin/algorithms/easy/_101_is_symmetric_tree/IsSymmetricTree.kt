@@ -4,16 +4,6 @@ import datastructures.tree.TreeNode
 
 /**
  * 101 - https://leetcode.com/problems/symmetric-tree/description/
- *
- * @author nrojiani
- * @date 11/13/17
- */
-/**
- * Definition for a binary tree node.
- * class TreeNode(var `val`: Int = 0) {
- *     var left: TreeNode? = null
- *     var right: TreeNode? = null
- * }
  */
 class Solution {
     fun isSymmetric(root: TreeNode?): Boolean {

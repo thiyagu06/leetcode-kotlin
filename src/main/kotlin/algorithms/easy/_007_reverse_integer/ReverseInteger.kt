@@ -4,11 +4,6 @@ import extensions.numericValue
 
 /**
  * 7 - https://leetcode.com/problems/reverse-integer/description/
- * Given a 32-bit signed integer, reverse digitsAsChars of an integer.
- *
- *
- * @author nrojiani
- * @date 11/7/17
  */
 class Solution {
     /**

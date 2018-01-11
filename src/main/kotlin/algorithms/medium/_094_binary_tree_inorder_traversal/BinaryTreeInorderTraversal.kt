@@ -4,9 +4,6 @@ import datastructures.tree.TreeNode
 
 /**
  * 94 - https://leetcode.com/problems/binary-tree-inorder-traversal/description/
- *
- * @author nrojiani
- * @date 11/16/17
  */
 class Solution {
     fun inorderTraversal(root: TreeNode?, values: MutableList<Int> = arrayListOf()): List<Int> =

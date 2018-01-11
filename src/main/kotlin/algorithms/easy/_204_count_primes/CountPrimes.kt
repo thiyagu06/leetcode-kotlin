@@ -1,16 +1,16 @@
 package algorithms.easy._204_count_primes
 
 import extensions.isEven
+import kotlin.math.sqrt
 
 /**
  * 204 - https://leetcode.com/problems/count-primes/description/
- * Count the number of prime numbers less than a non-negative number, n.
- *
- * @author nrojiani
- * @date 11/12/17
  */
 class Solution {
-
+    /**
+     * Time: O(?)
+     * Space: O(?)
+     */
     fun countPrimes(n: Int): Int {
         val nums = BooleanArray(n)  // 0 until n
         (0 until n).forEach { i ->
@@ -24,6 +24,8 @@ class Solution {
             when {
                 this < 2 -> false
                 this > 2 && isEven -> false
-                else -> (2..Math.sqrt(toDouble()).toInt()).all { this % it != 0 }
+                else -> (2..sqrt(toDouble()).toInt()).all { this % it != 0 }
             }
 }
+
+/* TODO: faster solution: Use sieve of Erathosthenes */

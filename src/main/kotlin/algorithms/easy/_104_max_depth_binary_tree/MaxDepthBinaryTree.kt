@@ -4,11 +4,6 @@ import datastructures.tree.TreeNode
 
 /**
  * 104 - https://leetcode.com/problems/maximum-depth-of-binary-tree/description/
- *
- * The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
- *
- * @author nrojiani
- * @date 11/13/17
  */
 class Solution {
     fun maxDepth(root: TreeNode?): Int {

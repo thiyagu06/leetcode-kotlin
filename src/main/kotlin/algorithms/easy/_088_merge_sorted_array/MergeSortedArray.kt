@@ -2,13 +2,6 @@ package algorithms.easy._088_merge_sorted_array
 
 /**
  * 88 - https://leetcode.com/problems/merge-sorted-array/description/
- *
- * Note:
- * You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements
- * from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively.
- *
- * @author nrojiani
- * @date 11/24/17
  */
 class Solution {
     /**

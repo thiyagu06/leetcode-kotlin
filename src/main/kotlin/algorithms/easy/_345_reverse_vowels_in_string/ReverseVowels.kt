@@ -5,9 +5,6 @@ import extensions.swap
 
 /**
  * 345 - https://leetcode.com/problems/reverse-vowels-of-a-string/description/
- *
- * @author nrojiani
- * @date 11/20/17
  */
 class Solution {
     fun reverseVowels(s: String): String {

@@ -4,9 +4,6 @@ import datastructures.tree.TreeNode
 
 /**
  * 102 - https://leetcode.com/problems/binary-tree-level-order-traversal/description/
- *
- * @author nrojiani
- * @date 11/25/17
  */
 class LevelOrderSolution {
     /**

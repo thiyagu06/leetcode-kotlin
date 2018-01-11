@@ -4,10 +4,6 @@ import datastructures.tree.buildTree
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-/**
- * @author nrojiani
- * @date 11/25/17
- */
 class BinaryTreeZigZagLevelOrderTraversalTest {
 
     private val solution = Solution()

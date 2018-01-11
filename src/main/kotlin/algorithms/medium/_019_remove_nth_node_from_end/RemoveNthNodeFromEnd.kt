@@ -4,11 +4,6 @@ import datastructures.list.ListNode
 
 /**
  * 19 - https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
- *
- * Given: n will always be valid (n <= list.size)
- *
- * @author nrojiani
- * @date 11/21/17
  */
 class Solution {
     fun removeNthFromEnd(head: ListNode?, n: Int): ListNode? {

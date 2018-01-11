@@ -4,9 +4,6 @@ import datastructures.list.ListNode
 
 /**
  * 203 - https://leetcode.com/problems/remove-linked-list-elements/description/
- *
- * @author nrojiani
- * @date 11/13/17
  */
 class Solution {
     fun removeElements(head: ListNode?, `val`: Int): ListNode? {

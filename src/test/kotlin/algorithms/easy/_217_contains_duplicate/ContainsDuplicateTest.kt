@@ -5,10 +5,6 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 import kotlin.system.measureTimeMillis
 
-/**
- * @author nrojiani
- * @date 11/13/17
- */
 class ContainsDuplicateTest {
 
     private val solution1 = Solution()

@@ -2,9 +2,6 @@ package algorithms.medium._012_int_to_roman
 
 /**
  * 12 - https://leetcode.com/problems/integer-to-roman/description/
- *
- * @author nrojiani
- * @date 11/7/17
  */
 class Solution {
 

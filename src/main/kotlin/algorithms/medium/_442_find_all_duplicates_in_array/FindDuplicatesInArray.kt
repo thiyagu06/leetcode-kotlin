@@ -1,6 +1,7 @@
 package algorithms.medium._442_find_all_duplicates_in_array
 
 import extensions.frequencyMap
+import kotlin.math.abs
 
 /**
  * 442 - https://leetcode.com/problems/find-all-duplicates-in-an-array/description/
@@ -50,7 +51,7 @@ class FollowUpSolution {
      */
     fun findDuplicates(nums: IntArray): List<Int> =
             nums.fold(mutableListOf()) { acc, n ->
-                val mappedIndex = Math.abs(n) - 1
+                val mappedIndex = abs(n) - 1
                 if (nums[mappedIndex] < 0) {
                     acc.add(mappedIndex + 1)
                 }

@@ -6,10 +6,6 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Test
 
-/**
- * @author nrojiani
- * @date 11/13/17
- */
 class RemoveLinkedListElementsTest {
     private val solution = Solution()
 

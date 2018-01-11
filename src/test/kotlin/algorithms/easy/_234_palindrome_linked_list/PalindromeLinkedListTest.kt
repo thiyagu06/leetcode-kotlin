@@ -4,10 +4,6 @@ import datastructures.list.linkedListOf
 import org.junit.Assert.*
 import org.junit.Test
 
-/**
- * @author nrojiani
- * @date 11/22/17
- */
 class PalindromeLinkedListTest {
 
     private val solution = Solution()

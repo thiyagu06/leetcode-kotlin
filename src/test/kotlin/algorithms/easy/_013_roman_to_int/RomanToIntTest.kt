@@ -3,10 +3,6 @@ package algorithms.easy._013_roman_to_int
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-/**
- * @author nrojiani
- * @date 11/7/17
- */
 class RomanToIntTest {
     private val roman = Solution()
 

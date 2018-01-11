@@ -5,10 +5,6 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Test
 
-/**
- * @author nrojiani
- * @date 11/21/17
- */
 class RemoveNthNodeFromEndTest {
 
     private val solution = Solution()

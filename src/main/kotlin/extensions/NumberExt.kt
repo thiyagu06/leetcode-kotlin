@@ -1,10 +1,11 @@
 package extensions
 
+import kotlin.math.absoluteValue
+import kotlin.math.log10
+import kotlin.math.pow
+
 /**
  * Number (Int, Double, Float, Byte, Short, etc.) extensions.
- *
- * @author nrojiani
- * @date 11/15/17
  */
 
 /********************
@@ -13,14 +14,6 @@ package extensions
 
 val Int.isEven: Boolean get() = this % 2 == 0
 val Int.isOdd: Boolean get() = this % 2 == 1
-
-/**
- * Uses [java.lang.Math]'s abs() function.
- * (From Javadoc) Note that for Int.MIN_VALUE, the most negative representable int value, the result is that same value,
- * which is negative, since it can't be represented as a positive 32-bit integer.
- */
-val Int.absValue: Int
-    get() = Math.abs(this)
 
 /**
  * Applies Java's [Character.forDigit].
@@ -32,12 +25,14 @@ fun Int.charForDigit(): Char = Character.forDigit(this, 10)
  * e.g., `497.digits() --> [4, 9, 7]`
  *
  * Requires that the integer be >= 0
+ *
+ * Time/Space: `O(n)/O(n)` where `n` is the # of digits.
  */
 fun Int.digits(): List<Int> {
     require(this >= 0) { "Must be > 0" }
     if (this == 0) return listOf(0)
 
-    var remainder = Math.abs(this)
+    var remainder = absoluteValue
     val digits = mutableListOf<Int>()
 
     while (remainder > 0) {
@@ -49,22 +44,45 @@ fun Int.digits(): List<Int> {
     return digits.reversed()
 }
 
-fun Int.numberOfDigits(): Int = digits().size
+/**
+ * Return the number of digits in an integer.
+ *
+ * Ex. `4321.numberOfDigits() -> 4`
+ *
+ * Time/Space: `O(1)/O(1)`
+ */
+fun Int.numberOfDigits(): Int = when (this) {
+    0 -> 1                  // log(0.0) -> -inf
+    Int.MIN_VALUE -> 10     // abs(Int.MIN_VALUE) -> Int overflow
+    else -> (log10(absoluteValue.toDouble()) + 1.0).toInt()
+}
+
+fun Int.leastSignificantDigit(): Int = this % 10
+fun Int.mostSignificantDigit(): Int = this / 10.0.pow(numberOfDigits() - 1).toInt()
 
 // note: 03 will be returned as 3
-fun Int.valueOfNRightmostDigits(digits: Int): Int {
-    require(digits >= 1) { "invalid argument 'digitsAsChars': $digits. Must be >= 1" }
-    val modOperand = Math.pow(10.0, digits.toDouble()).toInt()
+internal fun Int.nLeastSignificantDigits(n: Int): Int {
+    require(n >= 1) { "invalid argument n: $n. Must be >= 1" }
+    return this % 10.0.pow(n).toInt()
+}
+
+internal fun Int.nMostSignificantDigits(n: Int): Int {
+    val totalDigits = numberOfDigits()
+    require(n in 1..totalDigits) { "invalid argument n: $n. Must be in range [0, total number of digits]" }
+    return this / 10.0.pow(totalDigits - n).toInt()
+}
+
+/* If using Kotlin < 1.2 (no kotlin.math):
+internal fun Int.nRightmostSignificantDigits(n: Int): Int {
+    require(n >= 1) { "invalid argument n: $n. Must be >= 1" }
+    val modOperand = Math.pow(10.0, n.toDouble()).toInt()
     return this % modOperand
 }
 
-fun Int.valueOfNLeftmostDigits(digits: Int): Int {
+internal fun Int.nMostSignificantDigits(n: Int): Int {
     val totalDigits = numberOfDigits()
-    require(digits in 1..totalDigits) { "invalid argument 'digits': $digits. Must be in range 0..total number of digits" }
-    val divOperand = Math.pow(10.0, (totalDigits - digits).toDouble()).toInt()
+    require(n in 1..totalDigits) { "invalid argument n: $n. Must be in range [0, total number of digits]" }
+    val divOperand = Math.pow(10.0, (totalDigits - n).toDouble()).toInt()
     return this / divOperand
 }
-
-fun Int.firstDigit(): Int = valueOfNLeftmostDigits(1)
-fun Int.lastDigit(): Int = this % 10
-
+*/

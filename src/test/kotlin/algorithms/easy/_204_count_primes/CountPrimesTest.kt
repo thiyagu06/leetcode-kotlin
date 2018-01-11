@@ -4,10 +4,6 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- * @author nrojiani
- * @date 11/12/17
- */
 class CountPrimesTest {
 
     private val solution = Solution()
@@ -31,6 +27,5 @@ class CountPrimesTest {
         assertEquals(9592, solution.countPrimes(100000))
         assertEquals(41537, solution.countPrimes(499979))
     }
-
 
 }

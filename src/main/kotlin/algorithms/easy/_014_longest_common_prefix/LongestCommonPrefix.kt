@@ -2,9 +2,6 @@ package algorithms.easy._014_longest_common_prefix
 
 /**
  * 14 - https://leetcode.com/problems/longest-common-prefix/
- *
- * @author nrojiani
- * @date 11/9/17
  */
 class Solution {
     /**

@@ -5,9 +5,6 @@ import datastructures.tree.rootToLeafPaths
 
 /**
  * 257 - https://leetcode.com/problems/binary-tree-paths/description/
- *
- * @author nrojiani
- * @date 11/20/17
  */
 class Solution {
     fun binaryTreePaths(root: TreeNode?): List<String> {

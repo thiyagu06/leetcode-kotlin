@@ -4,9 +4,6 @@ import datastructures.list.ListNode
 
 /**
  * 83 - https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/
- *
- * @author nrojiani
- * @date 11/10/17
  */
 class Solution {
     fun deleteDuplicates(head: ListNode?): ListNode? {

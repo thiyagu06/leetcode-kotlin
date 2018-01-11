@@ -5,10 +5,6 @@ import org.junit.Test
 import org.junit.Assert.*
 import kotlin.system.measureTimeMillis
 
-/**
- * @author nrojiani
- * @date 11/15/17
- */
 class MaxSubarrayTest {
 
     @Test

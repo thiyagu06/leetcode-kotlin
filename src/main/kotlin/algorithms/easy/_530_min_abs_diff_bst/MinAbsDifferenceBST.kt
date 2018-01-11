@@ -2,6 +2,7 @@ package algorithms.easy._530_min_abs_diff_bst
 
 import datastructures.tree.TreeNode
 import datastructures.tree.collect
+import kotlin.math.abs
 
 /**
  * 530 - https://leetcode.com/problems/minimum-absolute-difference-in-bst/description/
@@ -16,7 +17,7 @@ class Solution {
 
         val sortedValues = root.collect(arrayListOf()).sorted()
         return (1..sortedValues.lastIndex).fold(Int.MAX_VALUE) { min, i ->
-            val currMin = Math.abs(sortedValues[i] - sortedValues[i - 1])
+            val currMin = abs(sortedValues[i] - sortedValues[i - 1])
             if (currMin <= min) currMin else min
         }
     }

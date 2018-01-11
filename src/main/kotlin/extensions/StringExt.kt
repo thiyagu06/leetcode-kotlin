@@ -2,9 +2,6 @@ package extensions
 
 /**
  * String extensions.
- *
- * @author nrojiani
- * @date 11/14/17
  */
 
 /**

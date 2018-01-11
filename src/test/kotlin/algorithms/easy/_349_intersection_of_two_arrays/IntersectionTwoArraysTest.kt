@@ -4,10 +4,6 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- * @author nrojiani
- * @date 11/15/17
- */
 class IntersectionTwoArraysTest {
     private val solution = Solution()
 

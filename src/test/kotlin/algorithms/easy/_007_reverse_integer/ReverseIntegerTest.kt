@@ -3,10 +3,6 @@ package algorithms.easy._007_reverse_integer
 import org.junit.Assert.*
 import org.junit.Test
 
-/**
- * @author nrojiani
- * @date 11/7/17
- */
 class ReverseIntegerTest {
     private val reverseInteger = Solution()
 

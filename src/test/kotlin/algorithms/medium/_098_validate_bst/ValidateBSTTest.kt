@@ -8,10 +8,6 @@ import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
-/**
- * @author nrojiani
- * @date 11/23/17
- */
 class ValidateBSTTest {
 
     private val solution = Solution()

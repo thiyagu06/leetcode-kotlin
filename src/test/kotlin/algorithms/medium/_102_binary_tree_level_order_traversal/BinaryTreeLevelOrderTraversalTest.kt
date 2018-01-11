@@ -5,10 +5,6 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- * @author nrojiani
- * @date 11/25/17
- */
 class BinaryTreeLevelOrderTraversalTest {
 
     private val solution = LevelOrderSolution()

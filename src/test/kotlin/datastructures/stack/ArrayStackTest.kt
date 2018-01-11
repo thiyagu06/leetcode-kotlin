@@ -6,10 +6,6 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
-/**
- * @author nrojiani
- * @date 11/22/17
- */
 class ArrayStackTest {
 
     private val stack = ArrayStack<String>()

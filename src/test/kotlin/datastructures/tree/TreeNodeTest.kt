@@ -3,10 +3,6 @@ package datastructures.tree
 import org.junit.Assert.*
 import org.junit.Test
 
-/**
- * @author nrojiani
- * @date 11/18/17
- */
 class TreeNodeTest {
 
     @Test

@@ -4,10 +4,6 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- * @author nrojiani
- * @date 11/24/17
- */
 class MergeSortedArrayTest {
     private val solution = Solution()
 

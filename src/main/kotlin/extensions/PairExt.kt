@@ -1,5 +1,7 @@
 package extensions
 
+import kotlin.math.abs
+
 /**
  * [Pair] extensions
  */
@@ -16,7 +18,7 @@ fun Pair<Short, Short>.toShortArray(): ShortArray = shortArrayOf(first, second)
 // Math
 fun Pair<Int, Int>.sum(): Int = first + second
 fun Pair<Int, Int>.product(): Int = first * second
-fun Pair<Int, Int>.absDifference(): Int = Math.abs(first - second)
+fun Pair<Int, Int>.absDifference(): Int = abs(first - second)
 
 fun <T : Comparable<T>> Pair<T, T>.max() = maxOf(first, second)
 fun <T : Comparable<T>> Pair<T, T>.min() = minOf(first, second)

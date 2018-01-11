@@ -4,10 +4,6 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- * @author nrojiani
- * @date 11/20/17
- */
 class StringExtTest {
     @Test
     fun reverseCharsInRange() {

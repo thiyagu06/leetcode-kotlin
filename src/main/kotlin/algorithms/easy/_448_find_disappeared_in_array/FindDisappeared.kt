@@ -1,6 +1,7 @@
 package algorithms.easy._448_find_disappeared_in_array
 
 import extensions.valueToIndicesMap
+import kotlin.math.abs
 
 /**
  * 448 - https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/description/
@@ -32,7 +33,7 @@ class FollowUpSolution {
      */
     fun findDisappearedNumbers(nums: IntArray): List<Int> {
         nums.forEach { n ->
-            val mappedIndex = Math.abs(n) - 1
+            val mappedIndex = abs(n) - 1
             if (nums[mappedIndex] > 0) {
                 nums[mappedIndex] = -(nums[mappedIndex])
             }

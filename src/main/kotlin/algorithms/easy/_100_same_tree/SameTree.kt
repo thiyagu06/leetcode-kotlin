@@ -4,9 +4,6 @@ import datastructures.tree.TreeNode
 
 /**
  * 100 - https://leetcode.com/problems/same-tree/description/
- *
- * @author nrojiani
- * @date 11/13/17
  */
 class Solution {
     /**
