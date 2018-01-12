@@ -1,8 +1,10 @@
 package extensions
 
+import java.text.DecimalFormat
 import kotlin.math.absoluteValue
 import kotlin.math.log10
 import kotlin.math.pow
+import kotlin.math.round
 
 /**
  * Number (Int, Double, Float, Byte, Short, etc.) extensions.
@@ -70,6 +72,12 @@ internal fun Int.nMostSignificantDigits(n: Int): Int {
     val totalDigits = numberOfDigits()
     require(n in 1..totalDigits) { "invalid argument n: $n. Must be in range [0, total number of digits]" }
     return this / 10.0.pow(totalDigits - n).toInt()
+}
+
+fun Double.roundedToNDecimalPlaces(n: Int): Double {
+    require(n >= 0) { "Invalid # of decimal places: $n"}
+    val formatter = DecimalFormat("#.${"#".repeat(n)}")
+    return formatter.format(this).toDouble()
 }
 
 /* If using Kotlin < 1.2 (no kotlin.math):
