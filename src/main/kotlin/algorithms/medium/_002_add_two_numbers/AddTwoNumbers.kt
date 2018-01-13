@@ -2,32 +2,21 @@ package algorithms.medium._002_add_two_numbers
 
 import datastructures.list.ListNode
 import datastructures.list.toList
-import java.math.BigDecimal
 import java.math.BigInteger
-import kotlin.math.pow
 
 /**
  * 2 - https://leetcode.com/problems/add-two-numbers/description/
- *
- * This fails on very large BigInteger values, where the result is off by 2-3 digits.
- * Not sure why.
  */
 class Solution {
     fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? {
         l1 ?: return l2
         l2 ?: return l1
 
-        val sum = valueOf(l1) + valueOf(l2)
-        return sum.toLinkedListOfDigitsReversed()
+        return (valueOf(l1) + valueOf(l2)).toLinkedListOfDigitsReversed()
     }
 
     fun valueOf(reversedDigitList: ListNode): BigInteger =
-            reversedDigitList.toList().foldIndexed(BigInteger.ZERO) { exp, total, digit ->
-                val placeValue = 10.0.pow(exp).toBigDecimal()
-                val digitValue = digit.toBigInteger().toBigDecimal()
-                val adjustedDigitValue: BigDecimal = placeValue * digitValue
-                total + adjustedDigitValue.toBigInteger()
-            }
+            BigInteger(reversedDigitList.toList().reversed().joinToString(""))
 
     private fun BigInteger.toLinkedListOfDigitsReversed(): ListNode? {
         if (this == BigInteger.ZERO)
@@ -37,15 +26,13 @@ class Solution {
         var node: ListNode? = sentinel
         var n = this
         while (n > BigInteger.ZERO && node != null) {
-            val leastSignificantDigit: BigInteger = n % 10.toBigInteger()
-            node.next = ListNode(leastSignificantDigit.toInt())
-            n /= (10.toBigInteger())
+            val lastDigit = n % BigInteger.TEN
+            node.next = ListNode(lastDigit.toInt())
+            n /= BigInteger.TEN
             node = node.next
         }
 
         return sentinel.next
     }
 }
-
-
 

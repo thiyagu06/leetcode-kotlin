@@ -26,7 +26,6 @@ class WordBreakIITest {
                 solution.wordBreak("aaaa", listOf("a", "aa", "aaa", "aaaa")).toSet())
     }
 
-    @Ignore
     @Test
     fun wordBreakLongRepeating() {
         assertEquals(listOf("a a a a a a a a", "aa a a a a a a", "a aa a a a a a", "aaa a a a a a", "a a aa a a a a",

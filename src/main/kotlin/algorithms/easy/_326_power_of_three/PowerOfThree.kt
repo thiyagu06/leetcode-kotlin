@@ -59,6 +59,7 @@ class FollowUpSolution {
      * Space: O(?)
      */
     fun isPowerOfThree(n: Int): Boolean {
+        // TODO - Math
         TODO()
     }
 }

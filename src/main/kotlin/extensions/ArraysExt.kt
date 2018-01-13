@@ -74,8 +74,6 @@ fun <T> Array<T>.valueToIndicesMap(): Map<T, List<Int>> = withIndex()
         .groupBy(keySelector = { (i, n) -> n }, valueTransform = { (i, n) -> i })
 
 
-/************** swap **************/
-
 /**
  * **Mutating** - Swap the elements at indices [i] and [j].
  */
@@ -102,8 +100,6 @@ fun CharArray.swap(i: Int, j: Int) {
     this[i] = this[j]
     this[j] = temp
 }
-
-/************** reverseElementsInRange **************/
 
 /**
  * **Mutating** - Reverse the elements in the given index range.
@@ -141,6 +137,25 @@ fun CharArray.reverseElementsInRange(indexRange: IntRange) {
     }
 }
 
+fun <T: Comparable<T>> Array<T>.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }
+fun IntArray.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }
+fun CharArray.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }
+fun LongArray.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }
+fun ShortArray.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }
+fun DoubleArray.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }
+fun FloatArray.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }
+
+fun <T: Comparable<T>> Array<T>.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }
+fun IntArray.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }
+fun CharArray.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }
+fun ShortArray.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }
+fun DoubleArray.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }
+fun FloatArray.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }
+fun LongArray.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }
+
+
+
+// TODO: chunked, windowed, etc.
 
 /* Matrices - Array<IntArray> */
 

@@ -26,3 +26,6 @@ fun <T> List<T>.toTriple(): Triple<T, T, T> {
     require(size == 3) { "List must have size 3 to convert to Triple" }
     return Triple(this[0], this[1], this[2])
 }
+
+fun <T: Comparable<T>> List<T>.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }
+fun <T: Comparable<T>> List<T>.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }

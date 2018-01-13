@@ -1,8 +1,9 @@
 package extensions
 
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class ListExtTest {
 
@@ -58,5 +59,19 @@ class ListExtTest {
     @Test(expected = IllegalArgumentException::class)
     fun `toTriple throws if size greater than 3`() {
         listOf(1, 2, 3, 4).toTriple()
+    }
+
+    @Test
+    fun isSorted() {
+        assertTrue(listOf(1, 2, 3, 4).isSorted())
+        assertFalse(listOf(4, 3, 2, 1).isSorted())
+        assertFalse(listOf(1, 2, 4, 3).isSorted())
+    }
+
+    @Test
+    fun isSortedDescending() {
+        assertFalse(listOf(1, 2, 3, 4).isSortedDescending())
+        assertTrue(listOf(4, 3, 2, 1).isSortedDescending())
+        assertFalse(listOf(1, 2, 4, 3).isSortedDescending())
     }
 }

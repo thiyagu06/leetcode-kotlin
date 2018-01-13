@@ -88,7 +88,6 @@ fun <T> List<T>.permutations(): List<List<T>> =
 
 // TODO: permutations of size k
 
-
 /**
  * https://brilliant.org/wiki/sum-of-n-n2-or-n3/
  */

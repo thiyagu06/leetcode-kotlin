@@ -37,16 +37,19 @@ class Solution {
             selectedWords: MutableList<String> = arrayListOf()
     ): Map<String, List<List<String>>> {
 
-        /* TODO
-val x1 = ["a"]
-val x2 = ["aa", "a a"]
-val x3 = ["a a a", "aa a", "a aa", "aaa"]
-val x4 = ["a a a a", "aa a a", "a aa a", "aaa a", "a a aa", "aa aa", "a aaa", "aaaa"]
-
-solution for "aaaa":
-(combine(x1, x3) + combine(x2, x2) + combine(x3, x1) + x4).distinct()
-         */
-
+        if (unmatched.isRepeatingChar()) {
+            (1 until unmatched.length / 2).forEach { i ->
+                val j = unmatched.length - i
+                val a = unmatched.substring(0 until i)
+                val b = unmatched.substring(j until unmatched.length)
+                if (a.isRepeatingChar() && b.isRepeatingChar() && cache.contains(a) && cache.contains(b)) {
+                    cache.getOrPut(key = a + b, defaultValue = { mutableListOf() })
+                    cache[a + b]!!.add(
+                            combine(cache[a]!!.first(), cache[b]!!.first()) + combine(cache[b]!!.first(), cache[a]!!.first()).distinct()
+                    )
+                }
+            }
+        }
 
         val matchingPrefixes = wordDict.filter { unmatched.startsWith(it) }
         matchingPrefixes.forEach { prefix ->
@@ -69,13 +72,6 @@ solution for "aaaa":
         return cache
     }
 
-    private fun longestPrefixSolved(str: String, cache: MutableMap<String, MutableList<List<String>>>): String =
-        (0..str.length).fold("") { longestPrefix, i ->
-            val prefix = str.take(i)
-            if (!cache.contains(prefix)) longestPrefix
-            else prefix
-        }
-
     private fun combine(list1: List<String>, list2: List<String>): List<String> {
         return list1.fold(arrayListOf()) { acc, el1 ->
             list2.forEach { el2 ->
@@ -84,4 +80,6 @@ solution for "aaaa":
             acc
         }
     }
+
+    private fun String.isRepeatingChar() = all { it == first() }
 }
