@@ -9,14 +9,14 @@ package extensions
  * @throws StringIndexOutOfBoundsException if [indexRange] not in `0..lastIndex`
  */
 fun String.reverseCharsInRange(indexRange: IntRange): String =
-        replaceRange(indexRange, substring(indexRange).reversed())
+    replaceRange(indexRange, substring(indexRange).reversed())
 
 /**
  * Return a string with the Chars at the given indices swapped.
  */
 fun String.swappingCharsAt(i: Int, j: Int): String =
-        if (i == j) this
-        else substring(0, i) + this[j] + substring(i + 1, j) + this[i] + substring(j + 1)
+    if (i == j) this
+    else substring(0, i) + this[j] + substring(i + 1, j) + this[i] + substring(j + 1)
 
 fun String.isAllCaps(): Boolean = all { it.isUpperCase() }
 
@@ -25,7 +25,7 @@ fun String.isAllCaps(): Boolean = all { it.isUpperCase() }
  * If `caseSensitive`, all keys will be lowercase.
  */
 fun String.characterFrequencies(caseSensitive: Boolean = true): Map<Char, Int> =
-        groupingBy { if (caseSensitive) it.toLowerCase() else it }.eachCount()
+    groupingBy { if (caseSensitive) it.toLowerCase() else it }.eachCount()
 
 
 /**

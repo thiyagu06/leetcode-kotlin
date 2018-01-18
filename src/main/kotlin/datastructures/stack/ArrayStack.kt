@@ -13,14 +13,14 @@ class ArrayStack<T> : Stack<T> {
     }
 
     override fun pop(): T =
-            if (elements.isNotEmpty())
-                elements.removeAt(elements.lastIndex)
-            else throw NoSuchElementException("Stack is empty")
+        if (elements.isNotEmpty())
+            elements.removeAt(elements.lastIndex)
+        else throw NoSuchElementException("Stack is empty")
 
     override fun peek(): T =
-            if (elements.isNotEmpty())
-                elements[elements.lastIndex]
-            else throw NoSuchElementException("Stack is empty")
+        if (elements.isNotEmpty())
+            elements[elements.lastIndex]
+        else throw NoSuchElementException("Stack is empty")
 
     override fun isEmpty(): Boolean = elements.isEmpty()
     override fun isNotEmpty(): Boolean = !elements.isEmpty()

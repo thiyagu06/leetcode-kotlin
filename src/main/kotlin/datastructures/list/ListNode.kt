@@ -155,3 +155,5 @@ inline fun ListNode.firstOrNull(predicate: (ListNode) -> Boolean): ListNode? {
 }
 
 inline fun <T> Iterable<T>.find(predicate: (T) -> Boolean): T? = firstOrNull(predicate)
+
+

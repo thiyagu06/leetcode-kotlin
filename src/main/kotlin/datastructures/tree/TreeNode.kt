@@ -109,11 +109,11 @@ fun TreeNode?.dfs(order: DFSTraversalOrder = INORDER, visit: (TreeNode) -> Unit)
  * Space: `O(n)`
  */
 fun TreeNode?.collect(acc: MutableList<Int> = arrayListOf()): List<Int> =
-        this?.let {
-            left?.collect(acc)
-            acc += `val`
-            right?.collect(acc)
-        } ?: acc
+    this?.let {
+        left?.collect(acc)
+        acc += `val`
+        right?.collect(acc)
+    } ?: acc
 
 /**
  * Traverses the tree with DFS (in the given [traversalOrder]),
@@ -123,9 +123,11 @@ fun TreeNode?.collect(acc: MutableList<Int> = arrayListOf()): List<Int> =
  * Time: `O(n)` - assuming `transform` is `<= O(n)`
  * Space: `O(n)`
  */
-fun <T> TreeNode?.collect(traversalOrder: DFSTraversalOrder = INORDER,
-                          acc: MutableList<T> = arrayListOf(),
-                          transform: (TreeNode) -> T): List<T> {
+fun <T> TreeNode?.collect(
+    traversalOrder: DFSTraversalOrder = INORDER,
+    acc: MutableList<T> = arrayListOf(),
+    transform: (TreeNode) -> T
+): List<T> {
     this ?: return emptyList()
 
     dfs(order = traversalOrder) { acc += transform(it) }
@@ -136,11 +138,11 @@ fun <T> TreeNode?.collect(traversalOrder: DFSTraversalOrder = INORDER,
  * Collect the unique values to a Set.
  */
 fun TreeNode?.collectUnique(acc: MutableSet<Int> = hashSetOf()): Set<Int> =
-        this?.let {
-            left?.collectUnique(acc)
-            acc += `val`
-            right?.collectUnique(acc)
-        } ?: acc
+    this?.let {
+        left?.collectUnique(acc)
+        acc += `val`
+        right?.collectUnique(acc)
+    } ?: acc
 
 /**
  * Return a list of the values in the tree. For binary search trees, the values
@@ -234,32 +236,36 @@ fun TreeNode?.isBST(validRange: IntRange = (Int.MIN_VALUE..Int.MAX_VALUE)): Bool
 /**
  * Returns a list of all root-to-leaf paths.
  */
-fun TreeNode?.rootToLeafPaths(currentPath: List<Int> = emptyList(),
-                              paths: MutableList<List<Int>> = mutableListOf()): List<List<Int>> =
-        this?.let {
-            left?.rootToLeafPaths(currentPath = currentPath + `val`, paths = paths)
-            right?.rootToLeafPaths(currentPath = currentPath + `val`, paths = paths)
+fun TreeNode?.rootToLeafPaths(
+    currentPath: List<Int> = emptyList(),
+    paths: MutableList<List<Int>> = mutableListOf()
+): List<List<Int>> =
+    this?.let {
+        left?.rootToLeafPaths(currentPath = currentPath + `val`, paths = paths)
+        right?.rootToLeafPaths(currentPath = currentPath + `val`, paths = paths)
 
-            if (isLeaf)
-                paths += (currentPath + `val`)
-            paths
-        } ?: paths
+        if (isLeaf)
+            paths += (currentPath + `val`)
+        paths
+    } ?: paths
 
 /**
  * Returns a list of all (downward) paths. A path is defined as any sequence of nodes (length >= 1).
  * Sequences where a descendant precedes an ancestor are not permitted.
  */
-fun TreeNode?.allPaths(pathsToParent: List<List<Int>> = emptyList(),
-                       paths: MutableList<List<Int>> = mutableListOf()): List<List<Int>> =
-        this?.let {
-            val pathsToRoot = listOf(listOf(`val`)) + pathsToParent.map { it + `val` }
-            paths += pathsToRoot
+fun TreeNode?.allPaths(
+    pathsToParent: List<List<Int>> = emptyList(),
+    paths: MutableList<List<Int>> = mutableListOf()
+): List<List<Int>> =
+    this?.let {
+        val pathsToRoot = listOf(listOf(`val`)) + pathsToParent.map { it + `val` }
+        paths += pathsToRoot
 
-            left?.allPaths(pathsToParent = pathsToRoot, paths = paths)
-            right?.allPaths(pathsToParent = pathsToRoot, paths = paths)
+        left?.allPaths(pathsToParent = pathsToRoot, paths = paths)
+        right?.allPaths(pathsToParent = pathsToRoot, paths = paths)
 
-            paths
-        } ?: paths
+        paths
+    } ?: paths
 
 /**
  * Create a binary tree from the given elements.
@@ -312,21 +318,21 @@ fun buildTreeFromString(input: String): TreeNode? {
 
     val withoutBraces = input.drop(1).dropLast(1)
     val elements = withoutBraces.split(',')
-            .map { it.trim() }
-            .map { c ->
-                when {
-                    c[0] == '-' -> {
-                        if (!c.drop(1).all { it.isDigit() }) {
-                            throw IllegalArgumentException("Expected digits after negative sign")
-                        } else {
-                            c.toInt()
-                        }
+        .map { it.trim() }
+        .map { c ->
+            when {
+                c[0] == '-' -> {
+                    if (!c.drop(1).all { it.isDigit() }) {
+                        throw IllegalArgumentException("Expected digits after negative sign")
+                    } else {
+                        c.toInt()
                     }
-                    c.all { it.isDigit() } -> c.toInt()
-                    c == "null" -> null
-                    else -> throw IllegalArgumentException("Unable to parse input")
                 }
+                c.all { it.isDigit() } -> c.toInt()
+                c == "null" -> null
+                else -> throw IllegalArgumentException("Unable to parse input")
             }
+        }
     return buildTree(*elements.toTypedArray())
 }
 
@@ -344,129 +350,4 @@ fun buildBST(vararg elements: Int?): TreeNode? {
     val tree = buildTree(*elements)
     require(tree.isBST()) { "The elements in the order provided violate the BST property." }
     return tree
-}
-
-/**
- * ```
- *         (1)
- *  ┌───────┴───────┐
- * (2)             (3)
- * ```
- */
-val tree123 =
-        TreeNode(1).apply {
-            left = TreeNode(2)
-            right = TreeNode(3)
-        }
-
-/**
- * ```
- *             (1)
- *      ┌───────┴───────┐
- *     (2)             (3)
- *  ┌───┴───┐
- * (4)    (5)
- * ```
- */
-val tree1to5 =
-        TreeNode(1).apply {
-            left = TreeNode(2).apply {
-                left = TreeNode(4)
-                right = TreeNode(5)
-            }
-            right = TreeNode(3)
-        }
-
-/**
- * ```
- *            (5)
- *     ┌───────┴───────┐
- *    (3)             (8)
- * ┌───┴───┐       ┌───┴───┐
- * (1)    (4)     (6)     (9)
- * ```
- */
-val bst3LevelsFull =
-        TreeNode(5).apply {
-            left = TreeNode(3).apply {
-                left = TreeNode(1)
-                right = TreeNode(4)
-            }
-            right = TreeNode(8).apply {
-                left = TreeNode(6)
-                right = TreeNode(9)
-            }
-        }
-
-/**
- * ```
- *                 (7)
- *          ┌───────┴───────┐
- *         (4)             (9)
- *      ┌───┴           ┌───┴
- *      (3)            (8)
- *   ┌───┴
- *  (1)
- * ```
- */
-val bstWithNulls =
-        TreeNode(7).apply {
-            left = TreeNode(4).apply {
-                left = TreeNode(3).apply {
-                    left = TreeNode(1)
-                }
-            }
-            right = TreeNode(9).apply {
-                left = TreeNode(8)
-            }
-        }
-
-/**
- * ```
- *   (1)
- *    ┴───────┐
- *           (1)
- *            ┴───┐
- *               (1)
- *           ┌────┴
- *          (2)
- * ```
- *
- * Equivalent to `buildTree(1, null, 1, null, 1, 2)`
- */
-val treeUnbalanced = TreeNode(1).apply {
-    right = TreeNode(1).apply {
-        right = TreeNode(1).apply {
-            left = TreeNode(2)
-        }
-    }
-}
-
-/**
- * Almost linear tree with 11 nodes on right, and 1 left child at last right child.
- *
- * Equivalent to `buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 2)`
- */
-val treeUnbalanced2 = TreeNode(1).apply {
-    right = TreeNode(1).apply {
-        right = TreeNode(1).apply {
-            right = TreeNode(1).apply {
-                right = TreeNode(1).apply {
-                    right = TreeNode(1).apply {
-                        right = TreeNode(1).apply {
-                            right = TreeNode(1).apply {
-                                right = TreeNode(1).apply {
-                                    right = TreeNode(1).apply {
-                                        right = TreeNode(1).apply {
-                                            left = TreeNode(2)
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
 }

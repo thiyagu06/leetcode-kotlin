@@ -89,13 +89,13 @@ class ListNodeTest {
     @Test
     fun middleNode() {
         val expected = mapOf(
-                null to null,
-                linkedListOf(1) to 1,
-                linkedListOf(1, 2) to 2,
-                linkedListOf(1, 2, 3) to 2,
-                linkedListOf(1, 2, 3, 4) to 3,
-                linkedListOf(1, 2, 3, 4, 5) to 3,
-                linkedListOf(1, 2, 3, 4, 5, 6) to 4
+            null to null,
+            linkedListOf(1) to 1,
+            linkedListOf(1, 2) to 2,
+            linkedListOf(1, 2, 3) to 2,
+            linkedListOf(1, 2, 3, 4) to 3,
+            linkedListOf(1, 2, 3, 4, 5) to 3,
+            linkedListOf(1, 2, 3, 4, 5, 6) to 4
         )
 
         expected.forEach { list, middleValue ->
@@ -115,6 +115,13 @@ class ListNodeTest {
 
         val list123 = linkedListOf(1, 2, 3)
         assertEquals(linkedListOf(2, 3), list123.tail)
+    }
 
+    @Test
+    fun firstOrNull() {
+        val nullList: ListNode? = null
+        assertNull(nullList?.firstOrNull { it.`val` == 7 })
+        assertNull(linkedListOf(1, 2, 3).firstOrNull { it.`val` < 0 })
+        assertEquals(2, linkedListOf(1, 2, 3).firstOrNull { it.`val` >= 2 }?.`val`)
     }
 }

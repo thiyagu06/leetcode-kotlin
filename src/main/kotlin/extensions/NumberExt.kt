@@ -74,7 +74,7 @@ internal fun Int.nMostSignificantDigits(n: Int): Int {
 }
 
 fun Double.roundedToNDecimalPlaces(n: Int): Double {
-    require(n >= 0) { "Invalid # of decimal places: $n"}
+    require(n >= 0) { "Invalid # of decimal places: $n" }
     val formatter = DecimalFormat("#.${"#".repeat(n)}")
     return formatter.format(this).toDouble()
 }

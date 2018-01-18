@@ -50,7 +50,7 @@ class TreeNodeTest {
     @Test
     fun collectWithTransform() {
         assertEquals(listOf(1, 3, 4, 5, 6, 8, 9).map { it * 2 },
-                bst3LevelsFull.collect { it.`val` * 2 })
+            bst3LevelsFull.collect { it.`val` * 2 })
     }
 
     @Test
@@ -142,12 +142,13 @@ class TreeNodeTest {
         assertEquals(bst3LevelsFull, tree2)
 
         assertEquals(
-                buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 2),
-                buildTreeFromString("[1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,2]"))
+            buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 2),
+            buildTreeFromString("[1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,2]")
+        )
 
         assertEquals(
-                buildTree(99, 77, 123),
-                buildTreeFromString("[99, 77, 123]")
+            buildTree(99, 77, 123),
+            buildTreeFromString("[99, 77, 123]")
         )
 
         assertEquals(
@@ -164,8 +165,10 @@ class TreeNodeTest {
     @Test
     fun rootToLeafPaths() {
         assertEquals(listOf(listOf(1, 2), listOf(1, 3)), tree123.rootToLeafPaths())
-        assertEquals(listOf(listOf(5, 3, 1), listOf(5, 3, 4), listOf(5, 8, 6), listOf(5, 8, 9)),
-                bst3LevelsFull.rootToLeafPaths())
+        assertEquals(
+            listOf(listOf(5, 3, 1), listOf(5, 3, 4), listOf(5, 8, 6), listOf(5, 8, 9)),
+            bst3LevelsFull.rootToLeafPaths()
+        )
         assertEquals(listOf(listOf(7, 4, 3, 1), listOf(7, 9, 8)), bstWithNulls.rootToLeafPaths())
     }
 
@@ -176,44 +179,47 @@ class TreeNodeTest {
 
         assertEquals(listOf(listOf(1), listOf(2), listOf(1, 2), listOf(3), listOf(1, 3)), tree123.allPaths())
 
-        assertEquals(listOf(
-                        listOf(5),
-                        listOf(3),
-                        listOf(5, 3),
-                        listOf(1),
-                        listOf(3, 1),
-                        listOf(5, 3, 1),
-                        listOf(4),
-                        listOf(3, 4),
-                        listOf(5, 3, 4),
-                        listOf(8),
-                        listOf(5, 8),
-                        listOf(6),
-                        listOf(8, 6),
-                        listOf(5, 8, 6),
-                        listOf(9),
-                        listOf(8, 9),
-                        listOf(5, 8, 9)
-                ), bst3LevelsFull.allPaths())
+        assertEquals(
+            listOf(
+                listOf(5),
+                listOf(3),
+                listOf(5, 3),
+                listOf(1),
+                listOf(3, 1),
+                listOf(5, 3, 1),
+                listOf(4),
+                listOf(3, 4),
+                listOf(5, 3, 4),
+                listOf(8),
+                listOf(5, 8),
+                listOf(6),
+                listOf(8, 6),
+                listOf(5, 8, 6),
+                listOf(9),
+                listOf(8, 9),
+                listOf(5, 8, 9)
+            ), bst3LevelsFull.allPaths()
+        )
 
         assertEquals(
-                listOf(
-                    listOf(7),
-                    listOf(4),
-                    listOf(7, 4),
-                    listOf(3),
-                    listOf(4, 3),
-                    listOf(7, 4, 3),
-                    listOf(1),
-                    listOf(3, 1),
-                    listOf(4, 3, 1),
-                    listOf(7, 4, 3, 1),
-                    listOf(9),
-                    listOf(7, 9),
-                    listOf(8),
-                    listOf(9, 8),
-                    listOf(7, 9, 8)
-                ), bstWithNulls.allPaths())
+            listOf(
+                listOf(7),
+                listOf(4),
+                listOf(7, 4),
+                listOf(3),
+                listOf(4, 3),
+                listOf(7, 4, 3),
+                listOf(1),
+                listOf(3, 1),
+                listOf(4, 3, 1),
+                listOf(7, 4, 3, 1),
+                listOf(9),
+                listOf(7, 9),
+                listOf(8),
+                listOf(9, 8),
+                listOf(7, 9, 8)
+            ), bstWithNulls.allPaths()
+        )
     }
 
     @Test
@@ -248,6 +254,13 @@ class TreeNodeTest {
             else
                 assertTrue(bstWithNulls.contains(i))
         }
+    }
+
+    @Test
+    fun children() {
+        val (one, four) = bst3LevelsFull.left!!.children
+        assertEquals(1, one?.`val`)
+        assertEquals(4, four?.`val`)
     }
 
     @Test

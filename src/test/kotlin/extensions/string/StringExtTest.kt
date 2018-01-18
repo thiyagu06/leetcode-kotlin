@@ -5,6 +5,23 @@ import org.junit.Test
 import org.junit.Assert.*
 
 class StringExtTest {
+
+    @Test
+    fun isAllCaps() {
+        assertTrue("FOOBAR".isAllCaps)
+        assertFalse("FOObar".isAllCaps)
+        assertFalse("foobar".isAllCaps)
+        assertFalse("FOOBAR 99".isAllCaps)
+    }
+
+    @Test
+    fun isAllLowercase() {
+        assertFalse("FOOBAR".isAllLowercase)
+        assertFalse("FOObar".isAllLowercase)
+        assertTrue("foobar".isAllLowercase)
+        assertFalse("foobar 99".isAllLowercase)
+    }
+
     @Test
     fun reverseCharsInRange() {
         assertEquals("hlleo", "hello".reverseCharsInRange(1..3))

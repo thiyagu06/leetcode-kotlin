@@ -9,7 +9,7 @@ class BruteForceSolution {
      * Space: O(n)
      */
     fun canWinNim(n: Int): Boolean {
-        require (n >= 0) { "n must be >= 0 but was $n"}
+        require(n >= 0) { "n must be >= 0 but was $n"}
         return when (n) {
             0 -> false
             in 1..3 -> true
@@ -29,7 +29,7 @@ class SolutionMemo {
                           0 to false, 1 to true, 2 to true, 3 to true, 4 to false
                   )): Boolean {
 
-        require (n >= 0) { "n must be >= 0 but was $n"}
+        require(n >= 0) { "n must be >= 0 but was $n"}
         return when (n) {
             in 0..4 -> cache[n]!!
             else -> {
@@ -46,7 +46,7 @@ class SolutionTabulation {
      * Space: O(n) - could be done in constant space because you only ever need the last 3 results.
      */
     fun canWinNim(n: Int): Boolean {
-        require (n >= 0) { "n must be >= 0 but was $n"}
+        require(n >= 0) { "n must be >= 0 but was $n"}
         val outcomes = mutableMapOf(
                 0 to false,
                 1 to true,
