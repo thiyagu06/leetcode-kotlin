@@ -1,6 +1,6 @@
 package algorithms.easy._268_missing_number
 
-import extensions.sumOfFirstNPositiveIntegers
+import extensions.math.sumOfFirstNPositiveIntegers
 
 /**
  * 268 - https://leetcode.com/problems/missing-number/description/

@@ -4,8 +4,8 @@ import algorithms.medium._102_binary_tree_level_order_traversal.LevelOrderSoluti
 import append
 import datastructures.queue.ListQueue
 import datastructures.tree.TreeNode
-import extensions.isEven
-import extensions.isOdd
+import extensions.math.isEven
+import extensions.math.isOdd
 import prepend
 
 /**

@@ -1,6 +1,6 @@
 package algorithms.medium._139_word_break
 
-import extensions.roundedToNDecimalPlaces
+import extensions.math.roundedToNDecimalPlaces
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test

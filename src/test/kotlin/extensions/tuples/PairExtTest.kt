@@ -1,5 +1,6 @@
-package extensions
+package extensions.tuples
 
+import extensions.tuples.*
 import org.junit.Assert.assertArrayEquals
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse

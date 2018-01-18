@@ -1,6 +1,6 @@
 package algorithms.easy._204_count_primes
 
-import extensions.isEven
+import extensions.math.isEven
 import kotlin.math.sqrt
 
 /**

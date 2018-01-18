@@ -1,6 +1,6 @@
 package algorithms.easy._463_island_perimeter
 
-import extensions.Matrix
+import extensions.arrays.Matrix
 import org.junit.Test
 
 import org.junit.Assert.*

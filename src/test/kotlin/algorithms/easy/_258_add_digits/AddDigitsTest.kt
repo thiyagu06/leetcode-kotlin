@@ -17,5 +17,4 @@ class AddDigitsTest {
         assertEquals(2, solution.addDigits(38))
         assertEquals(6, solution.addDigits(492))
     }
-
 }

@@ -1,6 +1,6 @@
 package algorithms.easy._258_add_digits
 
-import extensions.digits
+import extensions.math.digits
 
 /**
  * 258 - https://leetcode.com/problems/add-digits/description/

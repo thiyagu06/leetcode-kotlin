@@ -3,7 +3,7 @@ package algorithms.easy._671_second_min_node_in_binary_tree
 import datastructures.tree.TreeNode
 import datastructures.tree.collectUnique
 import datastructures.tree.isLeaf
-import extensions.neitherNull
+import extensions.tuples.neitherNull
 
 /**
  * 671 - https://leetcode.com/problems/second-minimum-node-in-a-binary-tree/description/

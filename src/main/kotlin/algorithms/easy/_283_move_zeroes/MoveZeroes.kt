@@ -1,6 +1,6 @@
 package algorithms.easy._283_move_zeroes
 
-import extensions.swap
+import extensions.arrays.swap
 
 /**
  * 283 - https://leetcode.com/problems/move-zeroes/description/

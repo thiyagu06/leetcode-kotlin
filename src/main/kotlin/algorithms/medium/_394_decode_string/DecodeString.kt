@@ -1,7 +1,7 @@
 package algorithms.medium._394_decode_string
 
 import datastructures.stack.ArrayStack
-import extensions.numericValue
+import extensions.chars.numericValue
 
 /**
  * 394 - https://leetcode.com/problems/decode-string

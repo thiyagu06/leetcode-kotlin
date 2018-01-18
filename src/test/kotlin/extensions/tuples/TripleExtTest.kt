@@ -1,5 +1,11 @@
-package extensions
+package extensions.tuples
 
+import extensions.tuples.contains
+import extensions.tuples.max
+import extensions.tuples.min
+import extensions.tuples.product
+import extensions.tuples.sum
+import extensions.tuples.toBooleanArray
 import org.junit.Test
 
 import org.junit.Assert.*

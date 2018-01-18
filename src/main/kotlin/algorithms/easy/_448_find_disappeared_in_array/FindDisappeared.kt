@@ -1,6 +1,6 @@
 package algorithms.easy._448_find_disappeared_in_array
 
-import extensions.valueToIndicesMap
+import extensions.arrays.valueToIndicesMap
 import kotlin.math.abs
 
 /**

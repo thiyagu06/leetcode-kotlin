@@ -1,6 +1,6 @@
 package algorithms.medium._442_find_all_duplicates_in_array
 
-import extensions.frequencyMap
+import extensions.arrays.frequencyMap
 import kotlin.math.abs
 
 /**

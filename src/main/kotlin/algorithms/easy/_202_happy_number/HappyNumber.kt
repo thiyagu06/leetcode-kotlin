@@ -1,6 +1,6 @@
 package algorithms.easy._202_happy_number
 
-import extensions.digits
+import extensions.math.digits
 
 /**
  * 202 - https://leetcode.com/problems/happy-number/description/

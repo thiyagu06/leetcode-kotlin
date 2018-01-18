@@ -1,6 +1,6 @@
 package algorithms.easy._007_reverse_integer
 
-import extensions.numericValue
+import extensions.chars.numericValue
 
 /**
  * 7 - https://leetcode.com/problems/reverse-integer/description/

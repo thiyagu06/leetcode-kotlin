@@ -1,8 +1,8 @@
 package algorithms.easy._009_palindrome_number
 
-import extensions.digits
-import extensions.nMostSignificantDigits
-import extensions.numberOfDigits
+import extensions.math.digits
+import extensions.math.nMostSignificantDigits
+import extensions.math.numberOfDigits
 import kotlin.math.pow
 
 /**

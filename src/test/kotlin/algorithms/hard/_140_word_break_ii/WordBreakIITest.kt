@@ -1,6 +1,6 @@
 package algorithms.hard._140_word_break_ii
 
-import extensions.roundedToNDecimalPlaces
+import extensions.math.roundedToNDecimalPlaces
 import org.junit.Assert.assertEquals
 import org.junit.Ignore
 import org.junit.Test

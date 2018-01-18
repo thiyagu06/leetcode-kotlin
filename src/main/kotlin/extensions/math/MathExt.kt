@@ -1,4 +1,4 @@
-package extensions
+package extensions.math
 
 import java.math.BigInteger
 
@@ -87,6 +87,8 @@ fun <T> List<T>.permutations(): List<List<T>> =
     }
 
 // TODO: permutations of size k
+fun <T> List<T>.permutations(k: Int): List<List<T>> = TODO()
+
 
 /**
  * https://brilliant.org/wiki/sum-of-n-n2-or-n3/

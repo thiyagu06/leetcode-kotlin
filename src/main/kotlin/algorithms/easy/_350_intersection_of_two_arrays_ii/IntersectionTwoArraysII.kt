@@ -1,6 +1,6 @@
 package algorithms.easy._350_intersection_of_two_arrays_ii
 
-import extensions.groupingBy
+import extensions.arrays.groupingBy
 import extensions.nCopies
 import java.util.*
 

@@ -1,6 +1,6 @@
 package algorithms.easy._383_ransom_note
 
-import extensions.characterFrequencies
+import extensions.strings.characterFrequencies
 
 /**
  * 383 - https://leetcode.com/problems/ransom-note/description/

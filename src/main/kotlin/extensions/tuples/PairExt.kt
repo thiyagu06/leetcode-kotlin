@@ -1,4 +1,4 @@
-package extensions
+package extensions.tuples
 
 import kotlin.math.abs
 

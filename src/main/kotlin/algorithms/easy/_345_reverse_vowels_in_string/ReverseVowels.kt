@@ -1,7 +1,7 @@
 package algorithms.easy._345_reverse_vowels_in_string
 
-import extensions.isVowel
-import extensions.swap
+import extensions.chars.isVowel
+import extensions.arrays.swap
 
 /**
  * 345 - https://leetcode.com/problems/reverse-vowels-of-a-string/description/

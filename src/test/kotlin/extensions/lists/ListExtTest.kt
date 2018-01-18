@@ -1,4 +1,4 @@
-package extensions
+package extensions.lists
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse

@@ -1,4 +1,4 @@
-package extensions
+package extensions.math
 
 import java.text.DecimalFormat
 import kotlin.math.absoluteValue

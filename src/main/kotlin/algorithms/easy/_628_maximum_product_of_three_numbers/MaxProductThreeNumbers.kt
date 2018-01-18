@@ -1,6 +1,6 @@
 package algorithms.easy._628_maximum_product_of_three_numbers
 
-import extensions.product
+import extensions.tuples.product
 
 /**
  * 628 - https://leetcode.com/problems/maximum-product-of-three-numbers/description/

@@ -1,6 +1,6 @@
 package algorithms.easy._001_two_sum
 
-import extensions.toIntArray
+import extensions.tuples.toIntArray
 
 /**
  * 1 - https://leetcode.com/problems/two-sum/description/

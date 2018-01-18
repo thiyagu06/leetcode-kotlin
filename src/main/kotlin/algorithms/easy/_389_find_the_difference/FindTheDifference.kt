@@ -1,6 +1,6 @@
 package algorithms.easy._389_find_the_difference
 
-import extensions.characterFrequencies
+import extensions.strings.characterFrequencies
 
 /**
  * 389 - https://leetcode.com/problems/find-the-difference/description/

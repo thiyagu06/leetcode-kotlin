@@ -1,9 +1,9 @@
 package algorithms.easy._463_island_perimeter
 
-import extensions.Matrix
-import extensions.lastColumn
-import extensions.lastRow
-import extensions.transpose
+import extensions.arrays.Matrix
+import extensions.arrays.lastColumn
+import extensions.arrays.lastRow
+import extensions.arrays.transpose
 
 /**
  * 463 - https://leetcode.com/problems/island-perimeter/description/

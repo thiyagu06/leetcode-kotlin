@@ -1,8 +1,15 @@
-package extensions
+package extensions.strings
 
 /**
  * String extensions.
  */
+
+/** True if every character in the String is an uppercase letter. */
+val String.isAllCaps: Boolean get() = all { it.isUpperCase() }
+
+/** True if every character in the String is a lowercase letter. */
+val String.isAllLowercase: Boolean get() = all { it.isLowerCase() }
+
 
 /**
  * Return a String with the elements in the specified range reversed.
@@ -17,8 +24,6 @@ fun String.reverseCharsInRange(indexRange: IntRange): String =
 fun String.swappingCharsAt(i: Int, j: Int): String =
     if (i == j) this
     else substring(0, i) + this[j] + substring(i + 1, j) + this[i] + substring(j + 1)
-
-fun String.isAllCaps(): Boolean = all { it.isUpperCase() }
 
 /**
  * Returns a map of each character to its frequency.

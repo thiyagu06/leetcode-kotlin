@@ -1,5 +1,11 @@
-package extensions
+package extensions.string
 
+import extensions.strings.characterFrequencies
+import extensions.strings.isAllCaps
+import extensions.strings.isAllLowercase
+import extensions.strings.reverseCharsInRange
+import extensions.strings.swappingCharsAt
+import extensions.strings.toSortedString
 import org.junit.Test
 
 import org.junit.Assert.*

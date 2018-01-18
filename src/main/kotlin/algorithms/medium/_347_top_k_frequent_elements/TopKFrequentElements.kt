@@ -1,6 +1,6 @@
 package algorithms.medium._347_top_k_frequent_elements
 
-import extensions.groupingBy
+import extensions.arrays.groupingBy
 import java.util.*
 
 /**

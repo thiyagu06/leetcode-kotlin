@@ -1,4 +1,4 @@
-package extensions
+package extensions.arrays
 
 import org.junit.Assert.assertArrayEquals
 import org.junit.Assert.assertEquals

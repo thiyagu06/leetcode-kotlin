@@ -1,7 +1,7 @@
 package algorithms.medium._031_next_permutation
 
-import extensions.isSortedDescending
-import extensions.swap
+import extensions.arrays.isSortedDescending
+import extensions.arrays.swap
 
 /**
  * 31 - https://leetcode.com/problems/next-permutation/description/

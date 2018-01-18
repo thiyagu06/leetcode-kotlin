@@ -4,7 +4,7 @@ import datastructures.list.ListNode
 import datastructures.list.middleNode
 import datastructures.list.size
 import datastructures.stack.ArrayStack
-import extensions.isOdd
+import extensions.math.isOdd
 
 /**
  * 234 - https://leetcode.com/problems/palindrome-linked-list/description/
