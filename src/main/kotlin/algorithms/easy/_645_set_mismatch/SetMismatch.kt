@@ -38,7 +38,7 @@ class OptimalSolution {
         var duplicate: Int = -1
         var missing: Int = -1
 
-        nums.forEachIndexed { i, n ->
+        nums.forEach { n ->
             val mappedIndex = mapValueToIndex(n)
             nums[mappedIndex] = nums[mappedIndex] * -1
             if (nums[mappedIndex] > 0) {
