@@ -60,7 +60,6 @@ fun IntArray.frequencyMap(): Map<Int, Int> = groupingBy { it }.eachCount()
  */
 fun <T> Array<T>.frequencyMap(): Map<T, Int> = groupingBy { it }.eachCount()
 
-
 /**
  * Return a map where the entries are (element -> List of indices containing element)
  */
@@ -72,7 +71,6 @@ fun IntArray.valueToIndicesMap(): Map<Int, List<Int>> = withIndex()
  */
 fun <T> Array<T>.valueToIndicesMap(): Map<T, List<Int>> = withIndex()
     .groupBy(keySelector = { it.value }, valueTransform = { it.index })
-
 
 /**
  * **Mutating** - Swap the elements at indices [i] and [j].
@@ -153,7 +151,35 @@ fun DoubleArray.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> t
 fun FloatArray.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }
 fun LongArray.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }
 
-// TODO: chunked, windowed, etc.
+
+/* Kotlin 1.2 Functionality */
+fun IntArray.sublist(indexRange: IntRange): List<Int> {
+    require(indexRange.first in indices && indexRange.last in indices) { "Invalid indices" }
+    return indexRange.fold(listOf()) { acc, idx ->
+        acc + this[idx]
+    }
+}
+
+// Kotlin 1.2 equivalent: asIterable().windowed(size = k, partialWindows = false)
+fun IntArray.sublistsOfSize(k: Int): List<List<Int>> {
+    require(k in 1..size) { "subarray size k must be in range [1, size]" }
+    return (0..size - k).fold(arrayListOf()) { acc, startIndex ->
+        acc.apply { acc.add(sublist((startIndex until startIndex + k))) }
+    }
+}
+
+fun <T> Array<T>.sublist(indexRange: IntRange): List<T> =
+    (indexRange.first..indexRange.last).fold(listOf()) { acc, idx ->
+        acc + this[idx]
+    }
+
+// Kotlin 1.2 equivalent: asIterable().windowed(size = k, partialWindows = false)
+fun <T> Array<T>.sublistsOfSize(k: Int): List<List<T>> {
+    require(k > 0) { "subarray size k must be > 0" }
+    return (0..size - k).fold(arrayListOf()) { acc, startIndex ->
+        acc.apply { acc.add(sublist((startIndex until startIndex + k))) }
+    }
+}
 
 /* Matrices - Array<IntArray> */
 

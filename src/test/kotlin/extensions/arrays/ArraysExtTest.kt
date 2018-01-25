@@ -157,6 +157,24 @@ class ArraysExtTest {
         assertTrue(charArrayOf('a', 'A', '1').isSortedDescending())
     }
 
+    @Test
+    fun sublist() {
+        assertEquals(listOf(1), intArray.sublist((0..0)))
+        assertEquals(listOf(2, 3), intArray.sublist((1..2)))
+        assertEquals(listOf("foo"), arrayNoNulls.sublist((0..0)))
+        assertEquals(listOf("bar", "baz"), arrayNoNulls.sublist((1..2)))
+    }
+
+    @Test
+    fun sublistsOfSizeK() {
+        assertEquals(listOf(listOf(1), listOf(2), listOf(3)), intArray.sublistsOfSize(1))
+        assertEquals(listOf(listOf(1, 2), listOf(2, 3)), intArray.sublistsOfSize(2))
+        assertEquals(listOf(listOf(1, 2, 3)), intArray.sublistsOfSize(3))
+        assertEquals(listOf(listOf("foo"), listOf("bar"), listOf("baz")), arrayNoNulls.sublistsOfSize(1))
+        assertEquals(listOf(listOf("foo", "bar"), listOf("bar", "baz")), arrayNoNulls.sublistsOfSize(2))
+        assertEquals(listOf(listOf("foo", "bar", "baz")), arrayNoNulls.sublistsOfSize(3))
+    }
+
     /* Matrix */
     @Test
     fun matrixProperties() {
