@@ -67,7 +67,7 @@ class DegreeOfAnArrayTest {
             mapOf(
                 1 to DegreeAndRange(2, (0..5)),
                 2 to DegreeAndRange(2, (1..3)),
-                3 to DegreeAndRange(1, ˍ(4..4)),
+                3 to DegreeAndRange(1, (4..4)),
                 4 to DegreeAndRange(3, (2..7))
             ),
             solution.findAllDegreesAndRanges(intArrayOf(1, 2, 4, 2, 3, 1, 4, 4))

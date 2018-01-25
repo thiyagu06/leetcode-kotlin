@@ -12,9 +12,9 @@ class Solution {
         if (nums.isEmpty()) return 0
 
         var comparisonIdx = 0
-        for ((i, n) in nums.withIndex()) {
+        nums.forEachIndexed { i, n ->
             if (i == 0 || n == nums[comparisonIdx]) {
-                continue
+                return@forEachIndexed
             }
 
             nums[++comparisonIdx] = n

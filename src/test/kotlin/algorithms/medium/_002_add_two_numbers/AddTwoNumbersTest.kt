@@ -2,7 +2,6 @@ package algorithms.medium._002_add_two_numbers
 
 import datastructures.list.linkedListOf
 import org.junit.Assert.assertEquals
-import org.junit.Ignore
 import org.junit.Test
 import java.math.BigInteger
 
