@@ -1,12 +1,12 @@
 package algorithms.medium._103_binary_tree_zigzag_level_order_traversal
 
 import algorithms.medium._102_binary_tree_level_order_traversal.LevelOrderSolution
-import append
 import datastructures.queue.ListQueue
 import datastructures.tree.TreeNode
+import extensions.lists.append
+import extensions.lists.prepend
 import extensions.math.isEven
 import extensions.math.isOdd
-import prepend
 
 /**
  * 103 - https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/

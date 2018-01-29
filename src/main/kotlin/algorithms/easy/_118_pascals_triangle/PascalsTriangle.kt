@@ -9,13 +9,13 @@ class PascalsTriangle {
      * Space: O(?)
      */
     fun generate(numRows: Int): List<List<Int>> =
-            (1..numRows).fold(emptyList()) { acc, i ->
-                val row = when (i) {
+            (1..numRows).fold(mutableListOf()) { acc, i ->
+                acc += when (i) {
                     1 -> listOf(1)
                     2 -> listOf(1, 1)
                     else -> ithRow(acc.last())
                 }
-                acc.plusElement(row)
+                acc
             }
 
     private fun ithRow(precedingRow: List<Int>): List<Int> =

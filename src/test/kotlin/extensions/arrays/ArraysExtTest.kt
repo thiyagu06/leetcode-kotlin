@@ -20,8 +20,11 @@ class ArraysExtTest {
     private val matrix3x4: Matrix = Array(3, { i ->
         IntArray(4, { j -> (i * 4) + j} )
     })
+
     private val matrix1x3: Matrix = Array(1, { IntArray(3, { i -> i + 1 }) })
 
+    private val list3x4: List<List<Int>> = listOf(listOf(0, 1, 2, 3), listOf(4, 5, 6, 7), listOf(8, 9, 10, 11))
+    private val list1x3: List<List<Int>> = listOf(listOf(1, 2, 3))
 
     @Test
     fun isBlank() {
@@ -115,6 +118,9 @@ class ArraysExtTest {
 
         intArray.reverseElementsInRange(0..2)
         assertArrayEquals(intArrayOf(3, 2, 1), intArray)
+
+        charArray.reverseElementsInRange(0..2)
+        assertArrayEquals(charArrayOf('3', '2', '1'), charArray)
     }
 
     @Test(expected = IllegalArgumentException::class)
@@ -190,12 +196,14 @@ class ArraysExtTest {
 
     @Test
     fun toList() {
-        assertEquals(
-                listOf(listOf(0, 1, 2, 3), listOf(4, 5, 6, 7), listOf(8, 9, 10, 11)),
-                matrix3x4.toList())
-        assertEquals(
-                listOf(listOf(1, 2, 3)),
-                matrix1x3.toList())
+        assertEquals(list3x4, matrix3x4.toList())
+        assertEquals(list1x3, matrix1x3.toList())
+    }
+
+    @Test
+    fun toMatrix() {
+        assertArrayEquals(list1x3.toMatrix(), matrix1x3)
+        assertArrayEquals(list3x4.toMatrix(), matrix3x4)
     }
 
     @Test

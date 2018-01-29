@@ -1,3 +1,5 @@
+package extensions.lists
+
 /**
  * MutableList extensions
  */
@@ -23,4 +25,3 @@ fun <E> MutableList<E>.append(element: E): Boolean = add(element)
  * @return `true` if the list was changed as the result of the operation.
  */
 fun <E> MutableList<E>.appendAll(elements: Collection<E>): Boolean = addAll(elements)
-
