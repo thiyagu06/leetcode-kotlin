@@ -62,6 +62,20 @@ class ListExtTest {
     }
 
     @Test
+    fun headAndTail() {
+        assertEquals(Pair(1, listOf(2, 3, 4)), listOf(1, 2, 3, 4).headAndTail())
+        assertEquals(Pair(1, emptyList<Int>()), listOf(1).headAndTail())
+        assertEquals(Pair(null, emptyList<Int>()), emptyList<Int>().headAndTail())
+    }
+
+    @Test
+    fun headAndTailLists() {
+        assertEquals(Pair(listOf(1), listOf(2, 3, 4)), listOf(1, 2, 3, 4).headAndTailLists())
+        assertEquals(Pair(listOf(1), emptyList<Int>()), listOf(1).headAndTailLists())
+        assertEquals(Pair(emptyList<Int>(), emptyList<Int>()), emptyList<Int>().headAndTailLists())
+    }
+
+    @Test
     fun isSorted() {
         assertTrue(listOf(1, 2, 3, 4).isSorted())
         assertFalse(listOf(4, 3, 2, 1).isSorted())

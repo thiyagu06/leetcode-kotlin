@@ -26,9 +26,11 @@ fun <T> List<T>.toTriple(): Triple<T, T, T> {
     return Triple(this[0], this[1], this[2])
 }
 
+fun <T> List<T>.headAndTail(): Pair<T?, List<T>> = firstOrNull() to drop(1)
+fun <T> List<T>.headAndTailLists(): Pair<List<T>, List<T>> = take(1) to drop(1)
+
 fun <T : Comparable<T>> List<T>.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }
 fun <T : Comparable<T>> List<T>.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }
-
 
 /* 2D Lists: List<List<T>> */
 fun <T> List<List<T>>.debugString(): String = buildString {

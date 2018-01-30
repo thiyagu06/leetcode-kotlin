@@ -158,8 +158,26 @@ class MathExtTest {
                         listOf(3, 1, 2),
                         listOf(3, 2, 1)
                     ),
-                    listOf(1, 2, 3).permutations()
-                )
+                    listOf(1, 2, 3).permutations())
+
+                assertEquals(
+                    setOf(
+                        listOf(1, 1, 3),
+                        listOf(1, 1, 3),
+                        listOf(1, 3, 1),
+                        listOf(1, 3, 1),
+                        listOf(3, 1, 1),
+                        listOf(3, 1, 1)
+                    ),
+                    listOf(1, 1, 3).permutations(distinct = false))
+
+                assertEquals(
+                    setOf(
+                        listOf(1, 1, 3),
+                        listOf(1, 3, 1),
+                        listOf(3, 1, 1)
+                    ),
+                    listOf(1, 1, 3).permutations(distinct = true))
 
                 assertEquals(
                     setOf(

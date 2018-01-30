@@ -1,9 +1,6 @@
 package extensions.arrays
 
-import org.junit.Assert.assertArrayEquals
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import org.junit.Assert.*
 import org.junit.Test
 
 class ArraysExtTest {
@@ -127,6 +124,26 @@ class ArraysExtTest {
     fun `reverseElementsInRange with invalid range`() {
         val strArr = arrayOf("foo", "bar", "foo", "baz")
         strArr.reverseElementsInRange(2..4)
+    }
+
+    @Test
+    fun headAndTailArrays() {
+        assertArrayEquals(intArrayOf(1), intArrayOf(1, 2, 3, 4).headAndTailArrays().first)
+        assertArrayEquals(intArrayOf(2, 3, 4), intArrayOf(1, 2, 3, 4).headAndTailArrays().second)
+        assertArrayEquals(intArrayOf(1), intArrayOf(1).headAndTailArrays().first)
+        assertArrayEquals(intArrayOf(), intArrayOf(1).headAndTailArrays().second)
+        assertArrayEquals(intArrayOf(), intArrayOf().headAndTailArrays().first)
+        assertArrayEquals(intArrayOf(), intArrayOf().headAndTailArrays().second)
+    }
+
+    @Test
+    fun headAndTail() {
+        assertEquals(1, intArrayOf(1, 2, 3, 4).headAndTail().first)
+        assertArrayEquals(intArrayOf(2, 3, 4), intArrayOf(1, 2, 3, 4).headAndTail().second)
+        assertEquals(1, intArrayOf(1).headAndTail().first)
+        assertArrayEquals(intArrayOf(), intArrayOf(1).headAndTail().second)
+        assertNull(intArrayOf().headAndTail().first)
+        assertArrayEquals(intArrayOf(), intArrayOf().headAndTail().second)
     }
 
     @Test

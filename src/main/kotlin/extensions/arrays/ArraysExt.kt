@@ -135,6 +135,19 @@ fun CharArray.reverseElementsInRange(indexRange: IntRange) {
     }
 }
 
+/**
+ * Return the first element (nullable) and the tail of the list.
+ */
+fun IntArray.headAndTail(): Pair<Int?, IntArray> {
+    if (isEmpty()) return (null to intArrayOf())
+    return firstOrNull() to sliceArray(1 until size)
+}
+
+fun IntArray.headAndTailArrays(): Pair<IntArray, IntArray> {
+    if (isEmpty()) return (intArrayOf() to intArrayOf())
+    return sliceArray(0 until 1) to sliceArray(1 until size)
+}
+
 fun <T : Comparable<T>> Array<T>.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }
 fun IntArray.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }
 fun CharArray.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }

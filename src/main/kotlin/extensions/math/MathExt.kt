@@ -1,5 +1,6 @@
 package extensions.math
 
+import extensions.arrays.headAndTail
 import java.math.BigInteger
 import kotlin.math.sqrt
 
@@ -77,18 +78,26 @@ private tailrec fun <T> powerSet(left: Collection<T>, acc: Set<Set<T>>): Set<Set
     else powerSet(left.drop(1), acc + acc.map { it + left.first() })
 
 
-fun <T> List<T>.permutations(): Set<List<T>> = when {
-    isEmpty() -> setOf()
-    size == 1 -> setOf(listOf(this[0]))
-    else -> {
+/**
+ * Generates all permutations (including non-distinct, by default)
+ */
+fun <T> List<T>.permutations(distinct: Boolean = false): Set<List<T>> =
+    if (distinct) permutations().distinct().toSet() else permutations()
+
+
+private fun <T> List<T>.permutations(): Set<List<T>> = when (size) {
+    0 -> setOf()
+    1 -> setOf(listOf(first()))
+    else ->
         drop(1).permutations()
             .flatMap { sublist ->
-                (0..sublist.size).map { i -> sublist.plusAtIndex(index = i, element = first()) }
+                (0..sublist.size).map { i ->
+                    sublist.plusAtIndex(index = i, element = first())
+                }
             }.toSet()
-    }
 }
 
-/** https://github.com/MarcinMoskala/KotlinDiscreteMathToolkit/blob/master/src/main/java/com/marcinmoskala/math/PermutationsExt.kt */
+/** http://tinyurl.com/y9kzqfmp */
 private fun <T> List<T>.plusAtIndex(index: Int, element: T): List<T> {
     require (index in 0..size) { "Invalid index: $index (size: $size)" }
     return when (index) {
@@ -98,6 +107,20 @@ private fun <T> List<T>.plusAtIndex(index: Int, element: T): List<T> {
     }
 }
 
+
+// Returns List<List<Int>> due to signature of LeetCode Problems 46-47
+fun IntArray.permutations(): List<List<Int>> = when (size) {
+    0 -> listOf()
+    1 -> listOf(listOf(this[0]))
+    else -> {
+        val (head, tail) = headAndTail()
+        tail.permutations().flatMap { sublist ->
+            (0..sublist.size).map { i ->
+                sublist.plusAtIndex(index = i, element = head!!)
+            }
+        }
+    }
+}
 
 /* kotlin.math: available with Kotlin 1.2+, but LeetCode uses 1.1
 import java.lang.Math as nativeMath
