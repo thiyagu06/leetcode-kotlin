@@ -1,4 +1,4 @@
-package algorithms.medium._47_permutations_ii
+package algorithms.medium._047_permutations_ii
 
 import extensions.math.permutations
 

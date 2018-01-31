@@ -1,6 +1,5 @@
-package algorithms.medium._46_permutations
+package algorithms.medium._046_permutations
 
-import extensions.math.permutations
 import extensions.math.roundedToNDecimalPlaces
 import org.junit.Test
 
