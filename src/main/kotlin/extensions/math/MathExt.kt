@@ -6,7 +6,7 @@ import kotlin.math.sqrt
 
 /**
  * Mathematical functions
- * See also https://github.com/MarcinMoskala/KotlinDiscreteMathToolkit
+ * Permutation/Combinations taken from: https://github.com/MarcinMoskala/KotlinDiscreteMathToolkit
  */
 
 
@@ -62,16 +62,17 @@ fun choose(n: Int, k: Int): BigInteger {
 /**
  * Generates all combinations of size [k].
  */
-fun <T> Collection<T>.combinations(k: Int = size): Set<Set<T>> =
-    combinations(this, setOf(setOf()), k).filter { it.size == k }.toSet()
-
-private tailrec fun <T> combinations(left: Collection<T>, acc: Set<Set<T>>, k: Int): Set<Set<T>> =
-    if (left.isEmpty()) acc
-    else combinations(left.drop(1), acc + acc.map { it + left.first() }, k)
+fun <T> Set<T>.combinations(k: Int): Set<Set<T>> = when {
+    k < 0 -> throw Error("k cannot be smaller then 0, but was $k")
+    k == 0 -> setOf(setOf())
+    k >= size -> setOf(toSet())
+    else -> powerSet()
+        .filter { it.size == k }
+        .toSet()
+}
 
 /** http://tinyurl.com/yd526qh2 */
-fun <T> Collection<T>.powerSet(): Set<Set<T>> =
-    powerSet(this, setOf(setOf()))
+fun <T> Collection<T>.powerSet(): Set<Set<T>> = powerSet(this, setOf(setOf()))
 
 private tailrec fun <T> powerSet(left: Collection<T>, acc: Set<Set<T>>): Set<Set<T>> =
     if (left.isEmpty()) acc

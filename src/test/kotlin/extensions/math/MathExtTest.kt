@@ -34,111 +34,58 @@ class MathExtTest {
     }
 
     @Test
-    fun combinationsList() {
+    fun combinations() {
         val times = arrayListOf<Long>()
         val runs = 15
         (1..runs).forEach {
             val ms = measureTimeMillis {
                 assertEquals(
                     setOf(emptySet<Int>()),
-                    listOf(1, 2, 3).combinations(0)
+                    setOf(1, 2, 3).combinations(k = 0)
                 )
 
                 assertEquals(
                     setOf(setOf(1), setOf(2), setOf(3)),
-                    listOf(1, 2, 3).combinations(1)
+                    setOf(1, 2, 3).combinations(k = 1)
                 )
 
                 assertEquals(
                     setOf(setOf(1, 2), setOf(1, 3), setOf(2, 3)),
-                    listOf(1, 2, 3).combinations(2)
+                    setOf(1, 2, 3).combinations(k = 2)
                 )
 
                 assertEquals(
                     setOf(setOf(1, 2, 3)),
-                    listOf(1, 2, 3).combinations()
+                    setOf(1, 2, 3).combinations(k = 3)
                 )
 
                 assertEquals(
                     setOf(
-                        setOf(0, 1, 2, 3),
-                        setOf(0, 1, 2, 4),
-                        setOf(0, 1, 2, 5),
-                        setOf(0, 1, 3, 4),
-                        setOf(0, 1, 3, 5),
-                        setOf(0, 1, 4, 5),
-                        setOf(0, 2, 3, 4),
-                        setOf(0, 2, 3, 5),
-                        setOf(0, 2, 4, 5),
-                        setOf(0, 3, 4, 5),
                         setOf(1, 2, 3, 4),
                         setOf(1, 2, 3, 5),
+                        setOf(1, 2, 3, 6),
                         setOf(1, 2, 4, 5),
+                        setOf(1, 2, 4, 6),
+                        setOf(1, 2, 5, 6),
                         setOf(1, 3, 4, 5),
-                        setOf(2, 3, 4, 5)
+                        setOf(1, 3, 4, 6),
+                        setOf(1, 3, 5, 6),
+                        setOf(1, 4, 5, 6),
+                        setOf(2, 3, 4, 5),
+                        setOf(2, 3, 4, 6),
+                        setOf(2, 3, 5, 6),
+                        setOf(2, 4, 5, 6),
+                        setOf(3, 4, 5, 6)
                     ),
-                    listOf(0, 1, 2, 3, 4, 5).combinations(k = 4)
+                    setOf(1, 2, 3, 4, 5, 6).combinations(k = 4)
                 )
+
+                setOf((1..100).toList().toSet()).combinations(k = 10)
 
             }
             times += ms
         }
-        val adjustedTimes = times.drop(2)   // 1st one or two affected by test startup
-        println("adjustedTimes for combinationsList: $adjustedTimes")
-        println("average run: ${adjustedTimes.average().roundedToNDecimalPlaces(2)}")
-    }
-
-    @Test
-    fun combinationsSet() {
-        val times = arrayListOf<Long>()
-        val runs = 15
-        (1..runs).forEach {
-            val ms = measureTimeMillis {
-                assertEquals(
-                    setOf(emptySet<Int>()),
-                    setOf(1, 2, 3).combinations(0)
-                )
-
-                assertEquals(
-                    setOf(setOf(1), setOf(2), setOf(3)),
-                    setOf(1, 2, 3).combinations(1)
-                )
-
-                assertEquals(
-                    setOf(setOf(1, 2), setOf(1, 3), setOf(2, 3)),
-                    setOf(1, 2, 3).combinations(2)
-                )
-
-                assertEquals(
-                    setOf(setOf(1, 2, 3)),
-                    setOf(1, 2, 3).combinations()
-                )
-
-                assertEquals(
-                    setOf(
-                        setOf(0, 1, 2, 3),
-                        setOf(0, 1, 2, 4),
-                        setOf(0, 1, 2, 5),
-                        setOf(0, 1, 3, 4),
-                        setOf(0, 1, 3, 5),
-                        setOf(0, 1, 4, 5),
-                        setOf(0, 2, 3, 4),
-                        setOf(0, 2, 3, 5),
-                        setOf(0, 2, 4, 5),
-                        setOf(0, 3, 4, 5),
-                        setOf(1, 2, 3, 4),
-                        setOf(1, 2, 3, 5),
-                        setOf(1, 2, 4, 5),
-                        setOf(1, 3, 4, 5),
-                        setOf(2, 3, 4, 5)
-                    ),
-                    setOf(0, 1, 2, 3, 4, 5).combinations(k = 4)
-                )
-
-            }
-            times += ms
-        }
-        val adjustedTimes = times.drop(2)
+        val adjustedTimes = times.drop(3)
         println("adjustedTimes for combinationsSet: $adjustedTimes")
         println("average run: ${adjustedTimes.average().roundedToNDecimalPlaces(2)}")
     }
