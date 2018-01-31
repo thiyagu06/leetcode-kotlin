@@ -1,11 +1,9 @@
-package algorithms.medium._077_solution.combine
+package algorithms.medium._077_combinations
 
-import algorithms.medium._077_combinations.Solution
 import extensions.math.roundedToNDecimalPlaces
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import kotlin.system.measureTimeMillis
-import kotlin.text.Typography.times
 
 class CombinationsTest {
 

@@ -33,12 +33,6 @@ fun <T : Comparable<T>> List<T>.isSorted(): Boolean = (0 until lastIndex).all { 
 fun <T : Comparable<T>> List<T>.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }
 
 /* 2D Lists: List<List<T>> */
-fun <T> List<List<T>>.debugString(): String = buildString {
-    this@debugString.forEach { row ->
-        append("$row\n")
-    }
-}
-
 val <T> List<List<T>>.rows: Int get() = size
 val <T> List<List<T>>.columns: Int get() = if (isEmpty()) 0 else this[0].size
 

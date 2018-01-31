@@ -1,10 +1,7 @@
 package algorithms.hard._140_word_break_ii
 
-import extensions.math.roundedToNDecimalPlaces
 import org.junit.Assert.assertEquals
-import org.junit.Ignore
 import org.junit.Test
-import kotlin.system.measureTimeMillis
 
 class WordBreakIITest {
 
@@ -47,22 +44,5 @@ class WordBreakIITest {
 //        assertEquals(emptyList<String>(), solution.wordBreak(
 //                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
 //                listOf("a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa")))
-    }
-
-    @Ignore
-    @Test
-    fun wordBreakTimed() {
-        val times = arrayListOf<Long>()
-        val runs = 10
-        (1..runs).forEach {
-            val ms = measureTimeMillis {
-                wordBreak()
-            }
-            times += ms
-        }
-        val adjustedTimes = times.drop(2)   // 1st one or two affected by test startup
-        println("times: $times")
-        println("adjustedTimes: $adjustedTimes")
-        println("average run: ${adjustedTimes.average().roundedToNDecimalPlaces(2)}")
     }
 }
