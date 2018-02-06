@@ -4,8 +4,7 @@ import datastructures.tree.TreeNode
 
 /**
  * TODO - REVIEW
- * Avoid global var or repetition w/ lambda:
- * https://github.com/kotori233/LeetCode/blob/b391542620e855d89fb9c835798643652c38d5d1/%5B0687%5D_Longest_Univalue_Path/Longest_Univalue_Path_0.py
+ * Avoid global var or repetition w/ lambda: http://tinyurl.com/y8b7qd4z
  *
  * 687 - https://leetcode.com/problems/longest-univalue-path/description/
  */
@@ -22,7 +21,6 @@ class Solution {
                 1 + maxOf(helper(root.left, parentVal), helper(root.right, parentVal))
             else 0
         } ?: 0
-
 }
 
 class IntWrapper(var value: Int = 0)
