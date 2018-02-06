@@ -173,27 +173,6 @@ fun IntArray.sublist(indexRange: IntRange): List<Int> {
     }
 }
 
-// Kotlin 1.2 equivalent: asIterable().windowed(size = k, partialWindows = false)
-fun IntArray.sublistsOfSize(k: Int): List<List<Int>> {
-    require(k in 1..size) { "subarray size k must be in range [1, size]" }
-    return (0..size - k).fold(arrayListOf()) { acc, startIndex ->
-        acc.apply { acc.add(sublist((startIndex until startIndex + k))) }
-    }
-}
-
-fun <T> Array<T>.sublist(indexRange: IntRange): List<T> =
-    (indexRange.first..indexRange.last).fold(listOf()) { acc, idx ->
-        acc + this[idx]
-    }
-
-// Kotlin 1.2 equivalent: asIterable().windowed(size = k, partialWindows = false)
-fun <T> Array<T>.sublistsOfSize(k: Int): List<List<T>> {
-    require(k > 0) { "subarray size k must be > 0" }
-    return (0..size - k).fold(arrayListOf()) { acc, startIndex ->
-        acc.apply { acc.add(sublist((startIndex until startIndex + k))) }
-    }
-}
-
 /* Matrices - Array<IntArray> */
 
 typealias Matrix = Array<IntArray>
@@ -227,4 +206,25 @@ fun Matrix.transpose(): Matrix {
         }
     }
     return transposed
+}
+
+// Kotlin 1.2 equivalent: asIterable().windowed(size = k, partialWindows = false)
+fun IntArray.sublistsOfSize(k: Int): List<List<Int>> {
+    require(k in 1..size) { "subarray size k must be in range [1, size]" }
+    return (0..size - k).fold(arrayListOf()) { acc, startIndex ->
+        acc.apply { acc.add(sublist((startIndex until startIndex + k))) }
+    }
+}
+
+fun <T> Array<T>.sublist(indexRange: IntRange): List<T> =
+    (indexRange.first..indexRange.last).fold(listOf()) { acc, idx ->
+        acc + this[idx]
+    }
+
+// Kotlin 1.2 equivalent: asIterable().windowed(size = k, partialWindows = false)
+fun <T> Array<T>.sublistsOfSize(k: Int): List<List<T>> {
+    require(k > 0) { "subarray size k must be > 0" }
+    return (0..size - k).fold(arrayListOf()) { acc, startIndex ->
+        acc.apply { acc.add(sublist((startIndex until startIndex + k))) }
+    }
 }

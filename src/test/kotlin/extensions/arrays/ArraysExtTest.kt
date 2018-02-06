@@ -180,24 +180,6 @@ class ArraysExtTest {
         assertTrue(charArrayOf('a', 'A', '1').isSortedDescending())
     }
 
-    @Test
-    fun sublist() {
-        assertEquals(listOf(1), intArray.sublist((0..0)))
-        assertEquals(listOf(2, 3), intArray.sublist((1..2)))
-        assertEquals(listOf("foo"), arrayNoNulls.sublist((0..0)))
-        assertEquals(listOf("bar", "baz"), arrayNoNulls.sublist((1..2)))
-    }
-
-    @Test
-    fun sublistsOfSizeK() {
-        assertEquals(listOf(listOf(1), listOf(2), listOf(3)), intArray.sublistsOfSize(1))
-        assertEquals(listOf(listOf(1, 2), listOf(2, 3)), intArray.sublistsOfSize(2))
-        assertEquals(listOf(listOf(1, 2, 3)), intArray.sublistsOfSize(3))
-        assertEquals(listOf(listOf("foo"), listOf("bar"), listOf("baz")), arrayNoNulls.sublistsOfSize(1))
-        assertEquals(listOf(listOf("foo", "bar"), listOf("bar", "baz")), arrayNoNulls.sublistsOfSize(2))
-        assertEquals(listOf(listOf("foo", "bar", "baz")), arrayNoNulls.sublistsOfSize(3))
-    }
-
     /* Matrix */
     @Test
     fun matrixProperties() {
@@ -205,10 +187,14 @@ class ArraysExtTest {
         assertEquals(4, matrix3x4.columns)
         assertEquals(2, matrix3x4.lastRow)
         assertEquals(3, matrix3x4.lastColumn)
+        assertEquals((0 until 3), matrix3x4.rowRange)
+        assertEquals((0 until 4), matrix3x4.columnRange)
         assertEquals(1, matrix1x3.rows)
         assertEquals(3, matrix1x3.columns)
         assertEquals(0, matrix1x3.lastRow)
         assertEquals(2, matrix1x3.lastColumn)
+        assertEquals((0 until 1), matrix1x3.rowRange)
+        assertEquals((0 until 3), matrix1x3.columnRange)
     }
 
     @Test
@@ -229,5 +215,24 @@ class ArraysExtTest {
         assertEquals(
                 listOf(listOf(0, 4, 8), listOf(1, 5, 9), listOf(2, 6, 10), listOf(3, 7, 11)),
                 matrix3x4.transpose().toList())
+    }
+
+    // Kotlin 1.2 equivalents
+    @Test
+    fun sublist() {
+        assertEquals(listOf(1), intArray.sublist((0..0)))
+        assertEquals(listOf(2, 3), intArray.sublist((1..2)))
+        assertEquals(listOf("foo"), arrayNoNulls.sublist((0..0)))
+        assertEquals(listOf("bar", "baz"), arrayNoNulls.sublist((1..2)))
+    }
+
+    @Test
+    fun sublistsOfSizeK() {
+        assertEquals(listOf(listOf(1), listOf(2), listOf(3)), intArray.sublistsOfSize(1))
+        assertEquals(listOf(listOf(1, 2), listOf(2, 3)), intArray.sublistsOfSize(2))
+        assertEquals(listOf(listOf(1, 2, 3)), intArray.sublistsOfSize(3))
+        assertEquals(listOf(listOf("foo"), listOf("bar"), listOf("baz")), arrayNoNulls.sublistsOfSize(1))
+        assertEquals(listOf(listOf("foo", "bar"), listOf("bar", "baz")), arrayNoNulls.sublistsOfSize(2))
+        assertEquals(listOf(listOf("foo", "bar", "baz")), arrayNoNulls.sublistsOfSize(3))
     }
 }

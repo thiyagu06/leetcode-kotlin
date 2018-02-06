@@ -1,6 +1,6 @@
 package algorithms.medium._451_sort_characters_by_freq
 
-import extensions.repeated
+import extensions.java.repeated
 
 /**
  * 451 - https://leetcode.com/problems/sort-characters-by-frequency/description/

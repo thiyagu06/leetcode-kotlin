@@ -16,7 +16,6 @@ class NthDigitTest {
         assertEquals(5, solution.findNthDigit(100))
         assertEquals(3, solution.findNthDigit(1000))
         assertEquals(1, solution.findNthDigit(Int.MAX_VALUE - 1000))
-        assertEquals(2, solution.findNthDigit(Int.MAX_VALUE - 1))
         assertEquals(2, solution.findNthDigit(Int.MAX_VALUE))
     }
 }

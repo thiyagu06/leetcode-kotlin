@@ -1,27 +1,12 @@
 package algorithms.easy._350_intersection_of_two_arrays_ii
 
 import extensions.arrays.groupingBy
-import extensions.nCopies
-import java.util.*
+import extensions.java.repeated
 
 /**
  * 350 - https://leetcode.com/problems/intersection-of-two-arrays-ii/description/
  */
 class Solution {
-    fun intersect(nums1: IntArray, nums2: IntArray): IntArray {
-        val freqs1 = nums1.toTypedArray().groupingBy { it }.eachCount()
-        val freqs2 = nums2.toTypedArray().groupingBy { it }.eachCount()
-
-        return freqs1.entries.fold(intArrayOf()) { acc, (num, _) ->
-            freqs2[num]?.let {
-                val copies = minOf(freqs1[num] ?: 0, freqs2[num] ?: 0)
-                acc + Collections.nCopies(copies, num)
-            } ?: acc
-        }
-    }
-}
-
-class SolutionUsingExtensions {
     fun intersect(nums1: IntArray, nums2: IntArray): IntArray {
         val freqs1 = nums1.groupingBy { it }.eachCount()
         val freqs2 = nums2.groupingBy { it }.eachCount()
@@ -29,7 +14,7 @@ class SolutionUsingExtensions {
         return freqs1.entries.fold(intArrayOf()) { acc, (num, _) ->
             freqs2[num]?.let {
                 val copies = minOf(freqs1[num] ?: 0, freqs2[num] ?: 0)
-                acc + num.nCopies(copies)
+                acc + num.repeated(copies)
             } ?: acc
         }
     }
