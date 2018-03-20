@@ -1,7 +1,9 @@
 LeetCode Solutions
 ==================
 
-LeetCode solutions in Kotlin (v1.2) (and a few in Java, for problems where Kotlin wasn't available).
-Most problems have basic unit tests as well.
-Uses Gradle for build.
-Includes some Kotlin extensions.
+LeetCode solutions in Kotlin (and a few in Java, for problems where Kotlin available).
+
+Notes:
+* Most problems have basic unit tests as well.
+* Kotlin version 1.2.x
+* Gradle build

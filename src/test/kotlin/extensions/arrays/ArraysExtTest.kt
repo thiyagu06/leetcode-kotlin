@@ -15,7 +15,7 @@ class ArraysExtTest {
     private val emptyCharArray = charArrayOf()
 
     private val matrix3x4: Matrix = Array(3, { i ->
-        IntArray(4, { j -> (i * 4) + j} )
+        IntArray(4, { j -> (i * 4) + j })
     })
 
     private val matrix1x3: Matrix = Array(1, { IntArray(3, { i -> i + 1 }) })
@@ -67,30 +67,35 @@ class ArraysExtTest {
     @Test
     fun groupingBy() {
         assertEquals(
-                mapOf(1 to 2, 7 to 1),
-                intArrayOf(1, 7, 1).groupingBy { it }.eachCount())
+            mapOf(1 to 2, 7 to 1),
+            intArrayOf(1, 7, 1).groupingBy { it }.eachCount()
+        )
     }
 
     @Test
     fun frequencyMap() {
         assertEquals(
-                mapOf("foo" to 2, "bar" to 1, "baz" to 1),
-                arrayOf("foo", "bar", "foo", "baz").frequencyMap())
+            mapOf("foo" to 2, "bar" to 1, "baz" to 1),
+            arrayOf("foo", "bar", "foo", "baz").frequencyMap()
+        )
 
         assertEquals(
-                mapOf(1 to 2, 7 to 1),
-                intArrayOf(1, 7, 1).frequencyMap())
+            mapOf(1 to 2, 7 to 1),
+            intArrayOf(1, 7, 1).frequencyMap()
+        )
     }
 
     @Test
     fun valueToIndicesMap() {
         assertEquals(
-                mapOf("foo" to listOf(0, 2), "bar" to listOf(1), "baz" to listOf(3)),
-                arrayOf("foo", "bar", "foo", "baz").valueToIndicesMap())
+            mapOf("foo" to listOf(0, 2), "bar" to listOf(1), "baz" to listOf(3)),
+            arrayOf("foo", "bar", "foo", "baz").valueToIndicesMap()
+        )
 
         assertEquals(
-                mapOf(1 to listOf(0, 2), 7 to listOf(1)),
-                intArrayOf(1, 7, 1).valueToIndicesMap())
+            mapOf(1 to listOf(0, 2), 7 to listOf(1)),
+            intArrayOf(1, 7, 1).valueToIndicesMap()
+        )
     }
 
     @Test
@@ -180,6 +185,58 @@ class ArraysExtTest {
         assertTrue(charArrayOf('a', 'A', '1').isSortedDescending())
     }
 
+    @Test
+    fun subarrays() {
+        val expected = listOf(
+            intArrayOf(1),
+            intArrayOf(1, 2),
+            intArrayOf(1, 2, 3),
+            intArrayOf(1, 2, 3, 4),
+            intArrayOf(1, 2, 3, 4, 5),
+            intArrayOf(2),
+            intArrayOf(2, 3),
+            intArrayOf(2, 3, 4),
+            intArrayOf(2, 3, 4, 5),
+            intArrayOf(3),
+            intArrayOf(3, 4),
+            intArrayOf(3, 4, 5),
+            intArrayOf(4),
+            intArrayOf(4, 5),
+            intArrayOf(5)
+        )
+        val actual = intArrayOf(1, 2, 3, 4, 5).subarrays()
+        assertTrue(expected.size == actual.size)
+        (expected zip actual).forEach { (e, a) ->
+            assertArrayEquals(e, a)
+        }
+    }
+
+    @Test
+    fun sublists() {
+        assertEquals(listOf(listOf(1), listOf(1, 2), listOf(2)), intArrayOf(1, 2).sublists())
+        assertEquals(listOf(listOf(1), listOf(1, 2), listOf(2)), intArrayOf(1, 2).sublists())
+
+        assertEquals(
+            listOf(
+                listOf(1),
+                listOf(1, 2),
+                listOf(1, 2, 3),
+                listOf(1, 2, 3, 4),
+                listOf(1, 2, 3, 4, 5),
+                listOf(2),
+                listOf(2, 3),
+                listOf(2, 3, 4),
+                listOf(2, 3, 4, 5),
+                listOf(3),
+                listOf(3, 4),
+                listOf(3, 4, 5),
+                listOf(4),
+                listOf(4, 5),
+                listOf(5)
+            ), intArrayOf(1, 2, 3, 4, 5).sublists()
+        )
+    }
+
     /* Matrix */
     @Test
     fun matrixProperties() {
@@ -213,8 +270,9 @@ class ArraysExtTest {
     fun transpose() {
         assertEquals(listOf(listOf(1), listOf(2), listOf(3)), matrix1x3.transpose().toList())
         assertEquals(
-                listOf(listOf(0, 4, 8), listOf(1, 5, 9), listOf(2, 6, 10), listOf(3, 7, 11)),
-                matrix3x4.transpose().toList())
+            listOf(listOf(0, 4, 8), listOf(1, 5, 9), listOf(2, 6, 10), listOf(3, 7, 11)),
+            matrix3x4.transpose().toList()
+        )
     }
 
     // Kotlin 1.2 equivalents

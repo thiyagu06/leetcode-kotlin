@@ -208,6 +208,25 @@ fun Matrix.transpose(): Matrix {
     return transposed
 }
 
+
+fun IntArray.subarrays(): List<IntArray> = foldIndexed(mutableListOf()) { i, acc, _ ->
+    (i..lastIndex).forEach { j ->
+        acc.apply { acc.add(sliceArray(i..j)) }
+    }
+    acc
+}
+
+
+fun IntArray.sublists(): List<List<Int>> = foldIndexed(mutableListOf()) { i, acc, _ ->
+    (i..lastIndex).forEach { j ->
+        val sublist = slice(i..j)
+        acc.apply {
+            acc += sublist
+        }
+    }
+    acc
+}
+
 // Kotlin 1.2 equivalent: asIterable().windowed(size = k, partialWindows = false)
 fun IntArray.sublistsOfSize(k: Int): List<List<Int>> {
     require(k in 1..size) { "subarray size k must be in range [1, size]" }

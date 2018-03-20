@@ -103,7 +103,7 @@ fun TreeNode?.dfs(order: DFSTraversalOrder = INORDER, visit: (TreeNode) -> Unit)
 
 /**
  * Traverse the tree (using inorder depth-first search), collecting the values
- * into a [Collection<Int>].
+ * into a [Collection].
  *
  * Time: `O(n)`
  * Space: `O(n)`
