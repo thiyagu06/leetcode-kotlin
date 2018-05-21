@@ -142,6 +142,15 @@ public inline fun Double.pow(n: Int): Double = nativeMath.pow(this, n.toDouble()
 public inline fun sqrt(x: Double): Double = nativeMath.sqrt(x)
 public inline fun sqrt(x: Float): Float = nativeMath.sqrt(x.toDouble()).toFloat()
 
+public inline fun min(a: Int, b: Int): Int = nativeMath.min(a, b)
+public inline fun min(a: Long, b: Long): Long = nativeMath.min(a, b)
+public inline fun min(a: Double, b: Double): Double = nativeMath.min(a, b)
+public inline fun min(a: Float, b: Float): Float = nativeMath.min(a, b)
+
+public inline fun max(a: Int, b: Int): Int = nativeMath.max(a, b)
+public inline fun max(a: Long, b: Long): Long = nativeMath.max(a, b)
+public inline fun max(a: Double, b: Double): Double = nativeMath.max(a, b)
+public inline fun max(a: Float, b: Float): Float = nativeMath.max(a, b)
 
 // BigInteger/BigDecimal
 public inline operator fun BigInteger.plus(other: BigInteger): BigInteger = this.add(other)

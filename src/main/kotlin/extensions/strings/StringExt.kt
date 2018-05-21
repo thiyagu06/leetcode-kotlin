@@ -31,6 +31,12 @@ fun String.swappingCharsAt(i: Int, j: Int): String =
 fun String.characterFrequencies(caseSensitive: Boolean = true): Map<Char, Int> =
     groupingBy { if (caseSensitive) it.toLowerCase() else it }.eachCount()
 
+/**
+ * Return a map where the entries are (Char -> List of indices containing Char)
+ */
+fun String.characterIndices(): Map<Char, List<Int>> = withIndex()
+    .groupBy(keySelector = { it.value }, valueTransform = { it.index })
+
 
 /**
  * Return a list of the distinct chars in the string (retaining order).

@@ -56,6 +56,22 @@ class StringExtTest {
     }
 
     @Test
+    fun characterIndices() {
+        assertEquals(
+            mapOf(
+                'l' to listOf(0, 4),
+                'o' to listOf(1, 9),
+                'v' to listOf(2),
+                'e' to listOf(3, 5, 6, 11),
+                't' to listOf(7),
+                'c' to listOf(8),
+                'd' to listOf(10)
+            ),
+            "loveleetcode".characterIndices()
+        )
+    }
+
+    @Test
     fun distinctChars() {
         assertEquals(listOf('f', 'o', 'b', 'a', 'r'), "foobar".distinctChars())
         assertEquals(listOf('k', 'o', 't', 'l', 'i', 'n'), "kotlin".distinctChars())
