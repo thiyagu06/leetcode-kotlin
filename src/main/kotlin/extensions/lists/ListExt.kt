@@ -14,7 +14,6 @@ val <T> List<T>.halves: Pair<List<T>, List<T>>
         else -> slice(0..lastIndex / 2) to slice((lastIndex / 2) + 1..lastIndex)
     }
 
-
 /**
  * Return a map where the entries are (element -> # of occurrences)
  */

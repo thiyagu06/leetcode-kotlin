@@ -5,7 +5,7 @@ package algorithms.medium._077_combinations
  */
 class Solution {
     fun combine(n: Int, k: Int): List<List<Int>> {
-        require (n >= 1) { "Invalid n: $n" }
+        require(n >= 1) { "Invalid n: $n" }
 
         val list = (1..n).toList()
         if (list.size == k)

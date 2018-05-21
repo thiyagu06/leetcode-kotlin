@@ -10,7 +10,6 @@ val String.isAllCaps: Boolean get() = all { it.isUpperCase() }
 /** True if every character in the String is a lowercase letter. */
 val String.isAllLowercase: Boolean get() = all { it.isLowerCase() }
 
-
 /**
  * Return a String with the elements in the specified range reversed.
  * @throws StringIndexOutOfBoundsException if [indexRange] not in `0..lastIndex`
@@ -44,3 +43,4 @@ fun String.distinctChars(): List<Char> = toCharArray().distinct()
  * will be by increasing [ASCII value](https://www.rapidtables.com/code/text/ascii-table.html).
  */
 fun String.toSortedString(): String = toCharArray().sorted().joinToString("")
+
