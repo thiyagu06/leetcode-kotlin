@@ -144,6 +144,26 @@ class PairExtTest {
         assertTrue(Pair(7, -9).contains(7))
         assertTrue(Pair(7, -9).contains(-9))
         assertFalse(Pair(7, -9).contains(9))
+    }
 
+    @Test
+    fun shorter() {
+        assertEquals("A", Pair("A", "ABC").shorter())
+        assertEquals("ABC", Pair("abcd1234", "ABC").shorter())
+        assertEquals("ABC", Pair("ABC", "DEF").shorter())
+    }
+
+    @Test
+    fun longer() {
+        assertEquals("ABC", Pair("A", "ABC").longer())
+        assertEquals("abcd1234", Pair("abcd1234", "ABC").longer())
+        assertEquals("DEF", Pair("ABC", "DEF").longer())
+    }
+
+    @Test
+    fun shorterAndLonger() {
+        assertEquals(Pair("A", "ABC"), Pair("A", "ABC").shorterAndLonger())
+        assertEquals(Pair("ABC", "abcd1234"), Pair("abcd1234", "ABC").shorterAndLonger())
+        assertEquals(Pair("ABC", "DEF"), Pair("ABC", "DEF").shorterAndLonger())
     }
 }
