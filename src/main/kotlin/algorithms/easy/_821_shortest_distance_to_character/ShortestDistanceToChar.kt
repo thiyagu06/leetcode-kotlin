@@ -3,6 +3,10 @@ package algorithms.easy._821_shortest_distance_to_character
 import kotlin.math.abs
 
 class Solution {
+    /**
+     * Time: O(N)
+     * Space: O(N)
+     */
     fun shortestToChar(S: String, C: Char): IntArray {
         val cIndices = S.foldIndexed(mutableListOf<Int>()) { index, acc, char ->
             if (char == C)

@@ -19,7 +19,7 @@ class Solution {
     }
 
     /**
-     * Time: O(N)
+     * Time: O(N), where N is the length of `nums`
      * Space: O(1)
      */
     fun pivotIndex(nums: IntArray): Int {
@@ -28,9 +28,9 @@ class Solution {
         var rightSum = sum
 
         (0..nums.lastIndex).forEach { index ->
-            if (index > 0) {
+            if (index > 0)
                 leftSum += nums[index - 1]
-            }
+
             rightSum -= nums[index]
 
             if (leftSum == rightSum) {
