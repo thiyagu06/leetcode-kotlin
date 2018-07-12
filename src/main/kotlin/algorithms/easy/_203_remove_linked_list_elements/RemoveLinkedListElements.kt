@@ -7,8 +7,7 @@ import datastructures.list.ListNode
  */
 class Solution {
     fun removeElements(head: ListNode?, `val`: Int): ListNode? {
-        if (head == null)
-            return head
+        head ?: return null
 
         // Create sentinel to simplify case where the 1st node must be removed.
         val sentinel = ListNode(Int.MIN_VALUE)

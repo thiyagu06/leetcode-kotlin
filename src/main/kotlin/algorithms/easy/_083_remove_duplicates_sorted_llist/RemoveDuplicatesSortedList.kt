@@ -7,8 +7,7 @@ import datastructures.list.ListNode
  */
 class Solution {
     fun deleteDuplicates(head: ListNode?): ListNode? {
-        if (head == null)
-            return null
+        head ?: return null
 
         var node: ListNode? = head
         while (node?.next != null) {

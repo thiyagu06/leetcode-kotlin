@@ -12,8 +12,7 @@ class Solution {
      * Space: O(1)
      */
     fun reverseList(head: ListNode?): ListNode? {
-        if (head == null)
-            return null
+        head ?: return null
 
         var currentNode: ListNode? = head
         var previousNode: ListNode? = null
@@ -36,15 +35,17 @@ class RecursiveSolution {
      * Time: O(n)
      * Space: O(n)
      */
-    fun reverseList(head: ListNode?): ListNode? {
-        head ?: return null
-        head.next ?: return head
+    fun reverseList(head: ListNode?): ListNode? =
+        when {
+            head == null -> null
+            head.next == null -> head
+            else -> {
+                val reversedTail = reverseList(head.tail)
 
-        val reversedHead = reverseList(head.tail)
+                head.next?.next = head
+                head.next = null
 
-        head.next?.next = head
-        head.next = null
-
-        return reversedHead
-     }
+                reversedTail
+            }
+        }
 }
