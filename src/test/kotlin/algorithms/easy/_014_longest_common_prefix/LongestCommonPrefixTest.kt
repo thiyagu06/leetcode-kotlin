@@ -1,33 +1,34 @@
 package algorithms.easy._014_longest_common_prefix
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class LongestCommonPrefixTest {
 
-    private val lcp = Solution()
-    private val optLCP = OptimalSolution()
+    private val solution = Solution()
+    private val optimal = OptimalSolution()
 
     @Test
     fun longestCommonPrefix() {
-        assertEquals("", lcp.longestCommonPrefix(arrayOf()))
-        assertEquals("abc", lcp.longestCommonPrefix(arrayOf("abcdef", "abcxyz")))
-        assertEquals("a", lcp.longestCommonPrefix(arrayOf("abcdef", "abcxyz", "axyz")))
-        assertEquals("", lcp.longestCommonPrefix(arrayOf("aca", "cba")))
+        assertEquals("", solution.longestCommonPrefix(arrayOf()))
+        assertEquals("abc", solution.longestCommonPrefix(arrayOf("abcdef", "abcxyz")))
+        assertEquals("kotlin", solution.longestCommonPrefix(arrayOf("kotlin")))
+        assertEquals("a", solution.longestCommonPrefix(arrayOf("abcdef", "abcxyz", "axyz")))
+        assertEquals("", solution.longestCommonPrefix(arrayOf("aca", "cba")))
     }
 
     @Test
     fun longestCommonPrefixTwoStrings() {
-        assertEquals("abc", lcp.longestCommonPrefix("abcdef", "abcxyz"))
-        assertEquals("", lcp.longestCommonPrefix("aca", "cba"))
+        assertEquals("abc", solution.longestCommonPrefix("abcdef", "abcxyz"))
+        assertEquals("", solution.longestCommonPrefix("aca", "cba"))
     }
 
     @Test
     fun longestCommonPrefixOptimal() {
-        assertEquals("", optLCP.longestCommonPrefix(arrayOf()))
-        assertEquals("abc", optLCP.longestCommonPrefix(arrayOf("abcdef", "abcxyz")))
-        assertEquals("a", optLCP.longestCommonPrefix(arrayOf("abcdef", "abcxyz", "axyz")))
-        assertEquals("", lcp.longestCommonPrefix(arrayOf("aca", "cba")))
+        assertEquals("", optimal.longestCommonPrefix(arrayOf()))
+        assertEquals("abc", optimal.longestCommonPrefix(arrayOf("abcdef", "abcxyz")))
+        assertEquals("kotlin", optimal.longestCommonPrefix(arrayOf("kotlin")))
+        assertEquals("a", optimal.longestCommonPrefix(arrayOf("abcdef", "abcxyz", "axyz")))
+        assertEquals("", optimal.longestCommonPrefix(arrayOf("aca", "cba")))
     }
 }

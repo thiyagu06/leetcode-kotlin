@@ -74,7 +74,7 @@ class ListNodeTest {
     @Test
     fun toIntArray() {
         val linkedList = ListNode.from(listOf(0, 1, 2, 3))
-        val array = IntArray(4, { i -> i })
+        val array = IntArray(4) { i -> i }
         val arrFromLL = linkedList?.toIntArray()
         assertEquals(4, arrFromLL?.size)
         assertEquals(array.contentToString(), arrFromLL?.contentToString())

@@ -6,23 +6,21 @@ package algorithms.easy._014_longest_common_prefix
 class Solution {
     /**
      * Time: O(S), where S is the sum of all chars in S
-     * Space: O(1) - if zip() weren't used
+     * Space: O(1) - if zip() weren't used for convenience/cleanness
      */
-    fun longestCommonPrefix(strs: Array<String>): String {
-        if (strs.isEmpty()) return ""
-
-        var prefix = strs[0]
-        for (i in (1..strs.lastIndex)) {
-            prefix = longestCommonPrefix(strs[i], prefix)
+    fun longestCommonPrefix(strs: Array<String>): String =
+        when (strs.size) {
+            0 -> ""
+            1 -> strs.first()
+            else -> (1..strs.lastIndex).fold(strs[0]) { lcp, i ->
+                longestCommonPrefix(strs[i], lcp)
+            }
         }
-        return prefix
-    }
 
-    internal fun longestCommonPrefix(s1: String, s2: String): String {
-        return s1.zip(s2).fold("") { prefix, (c1, c2) ->
-            if (c1 == c2) prefix + c1 else return prefix
+    internal fun longestCommonPrefix(s1: String, s2: String): String =
+        s1.zip(s2).fold("") { lcp, (c1, c2) ->
+            if (c1 == c2) lcp + c1 else return lcp
         }
-    }
 }
 
 /**

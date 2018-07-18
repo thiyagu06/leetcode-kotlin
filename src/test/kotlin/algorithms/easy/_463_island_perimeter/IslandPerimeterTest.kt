@@ -19,7 +19,7 @@ class IslandPerimeterTest {
         val row1 = intArrayOf(1, 1, 1, 0)
         val row2 = intArrayOf(0, 1, 0, 0)
         val row3 = intArrayOf(1, 1, 0, 0)
-        grid = Array(4, { IntArray(4) })
+        grid = Array(4) { IntArray(4) }
         grid[0] = row0
         grid[1] = row1
         grid[2] = row2

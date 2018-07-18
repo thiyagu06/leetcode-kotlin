@@ -22,13 +22,15 @@ class Solution {
         }
     }
 
-    private fun IntArray.rotated(k: Int): IntArray = (takeLast(k % size) + dropLast(k % size)).toIntArray()
+    private fun IntArray.rotated(k: Int): List<Int> = (takeLast(k % size) + dropLast(k % size))
 }
 
-class OptimalSolution {
+class OptimalSolution1 {
     /**
      * Time: O(n)
      * Space: O(1)
+     *
+     * Using Reversals
      */
     fun rotate(nums: IntArray, k: Int) {
         if (nums.isEmpty()) return
@@ -40,5 +42,41 @@ class OptimalSolution {
         nums.reverse()
         nums.reverseElementsInRange(0 until rotations)
         nums.reverseElementsInRange(rotations until n)
+    }
+}
+
+class OptimalSolution2 {
+    /**
+     * Time: O(n)
+     * Space: O(1)
+     *
+     * Using cyclical replacements
+     */
+    fun rotate(nums: IntArray, k: Int) {
+        if (nums.isEmpty()) return
+
+        val n = nums.size
+        val shift = k % n
+        var replacements = 0
+        var startIndex = 0
+
+        while (replacements < n) {
+            var currentIndex = startIndex
+            var prev = nums[startIndex]
+
+            do {
+                val nextIndex = (currentIndex + shift) % n
+                val temp = nums[nextIndex]
+
+                nums[nextIndex] = prev
+                prev = temp
+                currentIndex = nextIndex
+
+                replacements++
+
+            } while (currentIndex != startIndex)
+
+            startIndex++ // Go to next index if looped back to previous position
+        }
     }
 }

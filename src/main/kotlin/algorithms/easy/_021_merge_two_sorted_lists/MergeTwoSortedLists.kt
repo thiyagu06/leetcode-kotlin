@@ -35,7 +35,7 @@ class Solution {
         }
 
         // add remaining to merged if l1.size != l2.size
-        merged.next = if (left != null) left else right
+        merged.next = left ?: right
 
         return sentinel.next
     }

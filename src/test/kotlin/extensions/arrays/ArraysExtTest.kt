@@ -14,11 +14,11 @@ class ArraysExtTest {
     private val charArray = charArrayOf('1', '2', '3')
     private val emptyCharArray = charArrayOf()
 
-    private val matrix3x4: Matrix = Array(3, { i ->
-        IntArray(4, { j -> (i * 4) + j })
-    })
+    private val matrix3x4: Matrix = Array(3) { i ->
+        IntArray(4) { j -> (i * 4) + j }
+    }
 
-    private val matrix1x3: Matrix = Array(1, { IntArray(3, { i -> i + 1 }) })
+    private val matrix1x3: Matrix = Array(1) { IntArray(3) { i -> i + 1 } }
 
     private val list3x4: List<List<Int>> = listOf(listOf(0, 1, 2, 3), listOf(4, 5, 6, 7), listOf(8, 9, 10, 11))
     private val list1x3: List<List<Int>> = listOf(listOf(1, 2, 3))

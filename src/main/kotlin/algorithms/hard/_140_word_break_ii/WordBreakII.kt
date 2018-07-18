@@ -75,7 +75,7 @@ class Solution {
     private fun combine(list1: List<String>, list2: List<String>): List<String> {
         return list1.fold(arrayListOf()) { acc, el1 ->
             list2.forEach { el2 ->
-                acc.apply { acc.add(el1 + " " + el2) }
+                acc.apply { acc.add("$el1 $el2") }
             }
             acc
         }

@@ -135,7 +135,7 @@ fun ListNode?.middleNode(): ListNode? {
     var tortoise: ListNode? = this
     var hare: ListNode? = this
 
-    while (hare != null && hare.next != null) {
+    while (hare?.next != null) {
         tortoise = tortoise?.next
         hare = hare.next?.next
     }

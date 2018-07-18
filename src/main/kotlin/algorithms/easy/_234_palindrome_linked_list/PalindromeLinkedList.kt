@@ -17,7 +17,7 @@ class Solution {
         var tortoise= head
         var hare = head
 
-        while (hare != null && hare.next != null) {
+        while (hare?.next != null) {
             stack.push(tortoise!!.`val`)
             tortoise = tortoise.next
             hare = hare.next?.next

@@ -39,7 +39,7 @@ class PascalsTriangle2 {
             return emptyList()
 
         /* Create List<IntArray> full of 1s */
-        val triangle = List(numRows + 1, { i -> IntArray(i, { 1 }) })
+        val triangle = List(numRows + 1) { i -> IntArray(i) { 1 } }
 
         (3..numRows).forEach { i ->
             triangle[i].forEachIndexed { j, _ ->

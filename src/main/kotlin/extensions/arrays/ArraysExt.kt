@@ -199,7 +199,7 @@ fun Matrix.toList(): List<List<Int>> = fold(mutableListOf()) { acc, intArr ->
 fun List<List<Int>>.toMatrix(): Matrix = Array(size = size, init = { i -> this[i].toIntArray() })
 
 fun Matrix.transpose(): Matrix {
-    val transposed: Matrix = Array(columns, { IntArray(rows) })
+    val transposed: Matrix = Array(columns) { IntArray(rows) }
     (0..lastRow).forEach { i ->
         (0..lastColumn).forEach { j ->
             transposed[j][i] = this[i][j]

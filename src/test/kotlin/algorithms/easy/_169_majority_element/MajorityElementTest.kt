@@ -8,7 +8,7 @@ class MajorityElementTest {
 
     private val solution = Solution()
     private val imperative = ImperativeSolution()
-    private val bigInput = IntArray(1000, { i -> if (i % 100 == 0) 2 else 1 })
+    private val bigInput = IntArray(1000) { i -> if (i % 100 == 0) 2 else 1 }
 
     @Test
     fun majorityElement() {

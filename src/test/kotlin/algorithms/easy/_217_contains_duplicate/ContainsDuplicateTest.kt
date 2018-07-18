@@ -10,8 +10,8 @@ class ContainsDuplicateTest {
     private val solution1 = Solution()
     private val solution2 = SolutionTwo()
 
-    private val bigInput = IntArray(1000, { i -> i })
-    private val bigInputStartDuplicate = intArrayOf(0) + IntArray(1000, { i -> i })
+    private val bigInput = IntArray(1000) { i -> i }
+    private val bigInputStartDuplicate = intArrayOf(0) + IntArray(1000) { i -> i }
 
     @Test
     fun containsDuplicate() {

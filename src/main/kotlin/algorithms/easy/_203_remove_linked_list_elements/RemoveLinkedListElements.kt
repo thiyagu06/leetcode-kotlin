@@ -14,7 +14,7 @@ class Solution {
         sentinel.next = head
 
         var node: ListNode? = sentinel
-        while (node != null && node.next != null) {
+        while (node?.next != null) {
 
             if (node.next?.`val` == `val`) {
 
