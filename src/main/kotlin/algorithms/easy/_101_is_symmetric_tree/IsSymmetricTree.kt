@@ -6,19 +6,18 @@ import datastructures.tree.TreeNode
  * 101 - https://leetcode.com/problems/symmetric-tree/description/
  */
 class Solution {
-    fun isSymmetric(root: TreeNode?): Boolean {
-        root ?: return true
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
+    fun isSymmetric(root: TreeNode?): Boolean =
+        (root == null) || areMirrorNodes(root.left, root.right)
 
-        return areMirrorNodes(root.left, root.right)
-    }
-
-    private fun areMirrorNodes(leftTree: TreeNode?, rightTree: TreeNode?): Boolean = when {
-        leftTree == null && rightTree == null -> true
-        leftTree != null && rightTree != null -> {
-            leftTree.`val` == rightTree.`val`
-            && areMirrorNodes(leftTree.left, rightTree.right)
-            && areMirrorNodes(leftTree.right, rightTree.left)
-        }
-        else -> false
+    private fun areMirrorNodes(l: TreeNode?, r: TreeNode?): Boolean = when {
+        l == null && r == null -> true
+        (l == null && r != null) || (l != null && r == null) -> false
+        else -> (l?.`val` == r?.`val`)
+                && areMirrorNodes(l?.left, r?.right)
+                && areMirrorNodes(l?.right, r?.left)
     }
 }

@@ -36,8 +36,9 @@ class TreeNode(var `val`: Int = 0, var left: TreeNode? = null, var right: TreeNo
 
 val TreeNode.hasLeft: Boolean get() = left != null
 val TreeNode.hasRight: Boolean get() = right != null
-val TreeNode.hasTwoChildren: Boolean get() = left != null && right != null
 val TreeNode.isLeaf: Boolean get() = left == null && right == null
+val TreeNode.hasSingleChild: Boolean get() = (hasLeft || hasRight) && !(hasLeft && hasRight)
+val TreeNode.hasTwoChildren: Boolean get() = left != null && right != null
 
 val TreeNode.size: Int get() = 1 + (left?.size ?: 0) + (right?.size ?: 0)
 
