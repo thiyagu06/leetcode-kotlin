@@ -275,6 +275,61 @@ class ArraysExtTest {
         )
     }
 
+
+    @Test
+    fun binarySearch() {
+        assertEquals(1, arrayOf(1, 3, 4, 7, 9).binarySearch(3))
+        assertEquals(1, intArrayOf(1, 3, 4, 7, 9).binarySearch(3))
+    }
+
+    @Test
+    fun binarySearch_ShouldReturnMinus1ForAValueNotPresentInTheList() {
+        assertEquals(NOT_FOUND, arrayOf(1.0, 2.0, 3.0, 4.0).binarySearch(5.0))
+        assertEquals(NOT_FOUND, intArrayOf(1, 2, 3, 4).binarySearch(5))
+    }
+
+    @Test
+    fun binarySearch_ListIsEmpty() {
+        assertEquals(NOT_FOUND, emptyArray<Int>().binarySearch(7))
+        assertEquals(NOT_FOUND, emptyIntArray.binarySearch(7))
+    }
+
+    @Test
+    fun binarySearch_ShouldFindTheItemInASingleElementList() {
+        assertEquals(0, arrayOf(3).binarySearch(3))
+        assertEquals(0, intArrayOf(3).binarySearch(3))
+    }
+
+    @Test
+    fun binarySearch_ShouldFindTheFirstItemInATwoElementList() {
+        assertEquals(0, arrayOf(4, 11).binarySearch(4))
+        assertEquals(0, intArrayOf(4, 11).binarySearch(4))
+    }
+
+    @Test
+    fun binarySearch_ShouldFindTheLastItemInATwoElementList() {
+        assertEquals(1, arrayOf(4, 11).binarySearch(11))
+        assertEquals(1, intArrayOf(4, 11).binarySearch(11))
+    }
+
+    @Test
+    fun binarySearch_ShouldFindTheMidItemInAnOddLengthList() {
+        assertEquals(2, arrayOf(4, 4, 7, 9, 11).binarySearch(7))
+        assertEquals(2, intArrayOf(4, 4, 7, 9, 11).binarySearch(7))
+    }
+
+    @Test
+    fun binarySearch_ShouldFindThePreMidItemInAnEvenLengthList() {
+        assertEquals(1, arrayOf(4, 5, 9, 11).binarySearch(5))
+        assertEquals(1, intArrayOf(4, 5, 9, 11).binarySearch(5))
+    }
+
+    @Test
+    fun binarySearch_ShouldFindThePostMidItemInAnEvenLengthList() {
+        assertEquals(2, arrayOf(4, 5, 17, 29).binarySearch(17))
+        assertEquals(2, intArrayOf(4, 5, 17, 29).binarySearch(17))
+    }
+
     // Kotlin 1.2 equivalents
     @Test
     fun sublist() {

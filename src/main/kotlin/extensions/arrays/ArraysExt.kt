@@ -1,16 +1,7 @@
 package extensions.arrays
 
 /**
- * Extensions for:
- * Array<T>
- * BooleanArray
- * ByteArray
- * CharArray
- * DoubleArray
- * FloatArray
- * IntArray
- * LongArray
- * ShortArray
+ * Extensions for Array<T> & the primitive array types (BooleanArray, DoubleArray, etc.)
  */
 
 /* https://github.com/Carleslc/kotlin-extensions/blob/master/src/me/carleslc/kotlin/extensions/arrays/ArrayExtensions.kt */
@@ -172,6 +163,51 @@ fun IntArray.sublist(indexRange: IntRange): List<Int> {
         acc + this[idx]
     }
 }
+
+
+const val NOT_FOUND: Int = -1
+
+/**
+ * Returns the index of the target value, or -1 if not found.
+ *
+ * Time: `O(log n)`
+ * Space: `O(1)`
+ */
+fun <T : Comparable<T>> Array<T>.binarySearch(searchKey: T): Int {
+    var range = 0..lastIndex
+
+    while (!range.isEmpty()) {
+        val mid = (range.start + range.endInclusive) / 2
+        when {
+            searchKey < this[mid] -> range = (range.start..(mid - 1))
+            searchKey > this[mid] -> range = ((mid + 1)..lastIndex)
+            else -> return mid
+        }
+    }
+    return NOT_FOUND
+}
+
+/**
+ * Returns the index of the target value, or -1 if not found.
+ *
+ * Time: `O(log n)`
+ * Space: `O(1)`
+ */
+fun IntArray.binarySearch(searchKey: Int): Int {
+    var range = 0..lastIndex
+
+    while (!range.isEmpty()) {
+        val mid = (range.start + range.endInclusive) / 2
+        when {
+            searchKey < this[mid] -> range = (range.start..(mid - 1))
+            searchKey > this[mid] -> range = ((mid + 1)..lastIndex)
+            else -> return mid
+        }
+    }
+    return NOT_FOUND
+}
+
+
 
 /* Matrices - Array<IntArray> */
 

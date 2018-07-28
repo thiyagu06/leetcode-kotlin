@@ -4,6 +4,28 @@ package extensions.lists
  * List extensions
  */
 
+const val NOT_FOUND: Int = -1
+
+/**
+ * Returns the index of the target value, or -1 if not found.
+ *
+ * Time: `O(log n)`
+ * Space: `O(1)`
+ */
+fun <T : Comparable<T>> List<T>.binarySearch(searchKey: T): Int {
+    var range = 0..lastIndex
+
+    while (!range.isEmpty()) {
+        val mid = (range.start + range.endInclusive) / 2
+        when {
+            searchKey < this[mid] -> range = (range.start..(mid - 1))
+            searchKey > this[mid] -> range = ((mid + 1)..lastIndex)
+            else -> return mid
+        }
+    }
+    return NOT_FOUND
+}
+
 /**
  * Returns views of the first and second halves of the list.
  * If the list is odd-sized, the first half is larger.
