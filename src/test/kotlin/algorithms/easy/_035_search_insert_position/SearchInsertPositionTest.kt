@@ -5,13 +5,24 @@ import org.junit.Test
 import org.junit.Assert.*
 
 class SearchInsertPositionTest {
+
+    private val simpleSolution = SimpleSolution()
+    private val optimalSolution = OptimalSolution()
+
     @Test
-    fun searchInsert() {
-        val solution = Solution()
-        assertEquals(2, solution.searchInsert(intArrayOf(1, 3, 5, 6), 5))
-        assertEquals(1, solution.searchInsert(intArrayOf(1, 3, 5, 6), 2))
-        assertEquals(4, solution.searchInsert(intArrayOf(1, 3, 5, 6), 7))
-        assertEquals(0, solution.searchInsert(intArrayOf(1, 3, 5, 6), 0))
+    fun searchInsertSimple() {
+        assertEquals(2, simpleSolution.searchInsert(intArrayOf(1, 3, 5, 6), 5))
+        assertEquals(1, simpleSolution.searchInsert(intArrayOf(1, 3, 5, 6), 2))
+        assertEquals(4, simpleSolution.searchInsert(intArrayOf(1, 3, 5, 6), 7))
+        assertEquals(0, simpleSolution.searchInsert(intArrayOf(1, 3, 5, 6), 0))
+    }
+
+    @Test
+    fun searchInsertOptimal() {
+        assertEquals(2, optimalSolution.searchInsert(intArrayOf(1, 3, 5, 6), 5))
+        assertEquals(1, optimalSolution.searchInsert(intArrayOf(1, 3, 5, 6), 2))
+        assertEquals(4, optimalSolution.searchInsert(intArrayOf(1, 3, 5, 6), 7))
+        assertEquals(0, optimalSolution.searchInsert(intArrayOf(1, 3, 5, 6), 0))
     }
 
 }
