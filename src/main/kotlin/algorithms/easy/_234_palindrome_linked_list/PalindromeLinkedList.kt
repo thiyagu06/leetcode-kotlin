@@ -2,39 +2,35 @@ package algorithms.easy._234_palindrome_linked_list
 
 import datastructures.list.ListNode
 import datastructures.list.middleNode
-import datastructures.list.size
 import datastructures.stack.ArrayStack
-import extensions.math.isOdd
 
 /**
  * 234 - https://leetcode.com/problems/palindrome-linked-list/description/
  */
 class Solution {
+    /**
+     * Using a Stack
+     *
+     * Time: O(n)
+     * Space: O(n)
+     */
     fun isPalindrome(head: ListNode?): Boolean {
         head ?: return true
 
-        val stack = ArrayStack<Int>()
-        var tortoise= head
-        var hare = head
-
-        while (hare?.next != null) {
-            stack.push(tortoise!!.`val`)
-            tortoise = tortoise.next
-            hare = hare.next?.next
+        val stack = ArrayStack<ListNode>()
+        var node = head
+        while (node != null) {
+            stack.push(node)
+            node = node.next
         }
 
-        // tortoise is now at the middle node (the 2nd middle node if list.size is even)
-        // if list.size is odd, skip middle node.
-        if (hare != null) {
-            tortoise = tortoise?.next
-        }
-
-        while (tortoise != null) {
-            if (stack.pop() != tortoise.`val`) {
+        node = head
+        while (node != null && stack.isNotEmpty() ) {
+            val top = stack.pop()
+            if (top.`val` != node.`val`) {
                 return false
             }
-
-            tortoise = tortoise.next
+            node = node.next
         }
 
         return true
@@ -53,61 +49,42 @@ class FollowUpSolution {
     fun isPalindrome(head: ListNode?): Boolean {
         head ?: return true
 
-        val listSize = head.size
-        val hasOddNumberOfNodes = listSize.isOdd
-        val nodesInFirstHalf = listSize / 2
+        val secondHalf = head.middleNode()
+        val reversedSecondHalf = reverseList(secondHalf)
 
-        var right = head.middleNode()   // Must get middle node before reversing first half.
-        var left = reverseFirstXNodes(head, nodesInFirstHalf)
+        var nodeA = head
+        var nodeB = reversedSecondHalf
 
-        if (hasOddNumberOfNodes)
-            right = right?.next
-
-        while (left != null && right != null) {
-            if (left.`val` != right.`val`) return false
-
-            left = left.next
-            right = right.next
+        while (nodeA != null && nodeB != null) {
+            if (nodeA.`val` != nodeB.`val`) {
+                return false
+            }
+            nodeA = nodeA.next
+            nodeB = nodeB.next
         }
 
-        return left == null && right == null
+        return true
     }
 
     /**
-     * **Mutating**
-     * Reverses the first [x] nodes in the list, returning the new head.
+     * From #206
      *
-     * ```
-     * reverseFirstXNodes(linkedListOf(1, 2, 3, 4, 5), 3)
-     * 1->2->3->4->5
-     * 1<-2<-3
-     * 3->2->1
-     * ```
-     *
-     * See [algorithms.easy._206_reverse_linked_list.Solution.reverseList].
-     *
-     * @throws IllegalArgumentException if [x] is greater than the size of the list.
+     * Time: O(n)
+     * Space: O(1)
      */
-    internal fun reverseFirstXNodes(head: ListNode?, x: Int): ListNode? {
+    private fun reverseList(head: ListNode?): ListNode? {
         head ?: return null
 
-        var nodesReversed = 0
         var previousNode: ListNode? = null
         var currentNode: ListNode? = head
         var nextNode: ListNode?
 
-        while (nodesReversed < x && currentNode != null) {
-            nextNode = currentNode.next    // Store original next, since currentNode's next pointer will change.
+        while (currentNode != null) {
+            nextNode = currentNode.next
             currentNode.next = previousNode
-
-            ++nodesReversed
 
             previousNode = currentNode
             currentNode = nextNode
-        }
-
-        if (nodesReversed < x) {
-            throw IllegalArgumentException("$x is greater than the size of the list!")
         }
 
         return previousNode

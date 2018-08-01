@@ -156,4 +156,13 @@ inline fun ListNode.firstOrNull(predicate: (ListNode) -> Boolean): ListNode? {
 
 inline fun <T> Iterable<T>.find(predicate: (T) -> Boolean): T? = firstOrNull(predicate)
 
+// TODO: test
+fun ListNode?.forEach(action: (ListNode?) -> Unit) {
+    this ?: return
 
+    var node = this
+    while (node != null) {
+        action(node)
+        node = node.next
+    }
+}

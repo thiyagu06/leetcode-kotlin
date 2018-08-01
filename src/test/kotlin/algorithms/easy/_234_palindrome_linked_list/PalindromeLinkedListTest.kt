@@ -1,7 +1,8 @@
 package algorithms.easy._234_palindrome_linked_list
 
 import datastructures.list.linkedListOf
-import org.junit.Assert.*
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class PalindromeLinkedListTest {
@@ -11,6 +12,7 @@ class PalindromeLinkedListTest {
 
     @Test
     fun isPalindrome() {
+        assertTrue(solution.isPalindrome(null))
         assertTrue(solution.isPalindrome(linkedListOf(1)))
         assertTrue(solution.isPalindrome(linkedListOf(1, 1)))
         assertTrue(solution.isPalindrome(linkedListOf(1, 2, 1)))
@@ -22,6 +24,7 @@ class PalindromeLinkedListTest {
 
     @Test
     fun isPalindromeFollowup() {
+        assertTrue(followup.isPalindrome(null))
         assertTrue(followup.isPalindrome(linkedListOf(1)))
         assertTrue(followup.isPalindrome(linkedListOf(1, 1)))
         assertTrue(followup.isPalindrome(linkedListOf(1, 2, 1)))
@@ -31,15 +34,4 @@ class PalindromeLinkedListTest {
         assertFalse(followup.isPalindrome(linkedListOf(1, 2, 2)))
     }
 
-    @Test
-    fun reverseFirstXNodes() {
-        assertEquals(linkedListOf(1), followup.reverseFirstXNodes(linkedListOf(1, 2, 3), 1))
-        assertEquals(linkedListOf(2, 1), followup.reverseFirstXNodes(linkedListOf(1, 2, 3), 2))
-        assertEquals(linkedListOf(3, 2, 1), followup.reverseFirstXNodes(linkedListOf(1, 2, 3), 3))
-    }
-
-    @Test(expected = IllegalArgumentException::class)
-    fun `reverseFirstXNodes throws exception when x is greater than the list's size`() {
-        followup.reverseFirstXNodes(linkedListOf(1, 2, 3), 4)
-    }
 }
