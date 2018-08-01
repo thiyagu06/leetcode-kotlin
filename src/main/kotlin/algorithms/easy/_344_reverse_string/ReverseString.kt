@@ -4,11 +4,13 @@ package algorithms.easy._344_reverse_string
  * 344 - https://leetcode.com/problems/reverse-string/description/
  */
 class Solution {
-    /*
-     The easy way:
-     fun reverseString(s: String): String = s.reversed()
+    /**
+     * The easy way:
+     * `fun reverseString(s: String): String = s.reversed()`
+     *
+     * Time: O(n)
+     * Space: O(1)
      */
-
     fun reverseString(s: String): String {
         val chars = s.toCharArray()
         var (i, j) = (0 to s.lastIndex)

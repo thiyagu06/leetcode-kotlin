@@ -7,11 +7,13 @@ import extensions.arrays.swap
  */
 class Solution {
     /**
+     * TODO: is this the fewest # of operations?
+     *
      * Time: O(n)
      * Space: O(1)
      */
     fun moveZeroes(nums: IntArray) {
-        nums.withIndex().forEach { (i, n) ->
+        nums.forEachIndexed { i, n ->
             if (n == 0) {
                 var j = i + 1
                 while (j <= nums.lastIndex && nums[j] == 0)

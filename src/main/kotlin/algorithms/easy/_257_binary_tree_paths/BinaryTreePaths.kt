@@ -7,6 +7,11 @@ import datastructures.tree.rootToLeafPaths
  * 257 - https://leetcode.com/problems/binary-tree-paths/description/
  */
 class Solution {
+    /**
+     * TODO: Add Tests
+     * Time: O(?)
+     * Space: O(?)
+     */
     fun binaryTreePaths(root: TreeNode?): List<String> {
         val valuePaths = root.rootToLeafPaths()     /* [[1, 2, 5], [1, 3]] */
         return valuePaths.map { path ->

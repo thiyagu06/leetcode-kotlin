@@ -33,9 +33,9 @@ class OptimalSolution {
         while (range.isNotEmpty()) {
             val mid = (range.start + range.endInclusive) / 2
 
-            when {
-                target < nums[mid] -> range = (range.start..(mid - 1))
-                target > nums[mid] -> range = ((mid + 1)..nums.lastIndex)
+            range = when {
+                target < nums[mid] -> (range.start..(mid - 1))
+                target > nums[mid] -> ((mid + 1)..nums.lastIndex)
                 else -> return mid
             }
         }

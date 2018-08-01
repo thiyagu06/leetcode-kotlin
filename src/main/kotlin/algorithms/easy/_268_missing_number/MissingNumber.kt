@@ -14,7 +14,7 @@ class Solution {
      */
     fun missingNumber(nums: IntArray): Int {
         nums.sort()
-        nums.withIndex().forEach { (i, n) ->
+        nums.forEachIndexed { i, n ->
             if (n != i)
                 return i
         }

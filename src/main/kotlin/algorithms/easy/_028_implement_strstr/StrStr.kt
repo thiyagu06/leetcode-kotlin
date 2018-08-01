@@ -5,7 +5,7 @@ package algorithms.easy._028_implement_strstr
  */
 class Solution {
     /**
-     * TODO
+     * TODO: Add Tests
      * Time: O(?)
      * Space: O(?)
      */
@@ -16,7 +16,7 @@ class Solution {
 class SolutionWithoutLibraryMethods {
 
     /**
-     * TODO
+     * TODO: Add Tests
      * Time: O(?)
      * Space: O(?)
      */

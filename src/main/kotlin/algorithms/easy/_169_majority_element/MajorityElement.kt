@@ -60,7 +60,7 @@ class ImperativeSolution {
      */
     fun majorityElement(nums: IntArray): Int {
         val majorityCutoff = (nums.size / 2) + 1
-        var frequencies = hashMapOf<Int, Int>()
+        val frequencies = hashMapOf<Int, Int>()
 
         nums.forEach { n ->
             frequencies[n] = frequencies.getOrDefault(n, 0) + 1

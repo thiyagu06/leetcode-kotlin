@@ -6,6 +6,26 @@ import org.junit.Test
 class TreeNodeTest {
 
     @Test
+    fun childProperties() {
+        assertTrue(tree123.hasLeft)
+        assertTrue(tree123.hasRight)
+        assertTrue(tree123.hasTwoChildren)
+        assertFalse(tree123.hasSingleChild)
+
+        val rootTree = buildTree(1)!!
+        assertFalse(rootTree.hasLeft)
+        assertFalse(rootTree.hasRight)
+        assertFalse(rootTree.hasTwoChildren)
+        assertFalse(rootTree.hasSingleChild)
+
+        val treeWithRightNode = buildTree(1, null, 3)!!
+        assertFalse(treeWithRightNode.hasLeft)
+        assertTrue(treeWithRightNode.hasRight)
+        assertFalse(treeWithRightNode.hasTwoChildren)
+        assertTrue(treeWithRightNode.hasSingleChild)
+    }
+
+    @Test
     fun dfs() {
         val values = arrayListOf<Int>()
         tree123.dfs { values += it.`val` }

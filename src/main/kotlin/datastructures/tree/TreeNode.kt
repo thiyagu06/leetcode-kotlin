@@ -174,11 +174,13 @@ fun TreeNode?.bfs(visit: (TreeNode) -> Unit) {
  *
  * Example usage:
  *
+ * ```
  * var treeLevels = hashMapOf<Int, List<Int>>()     // nodes values by depth (Map of Depth => Values)
  * binarySearchTree.depthAwareBFS() { (node, depth) ->
  *     treeLevels[depth] = (treeLevels[depth] ?: emptyList()) + node.`val`
  * }
  * println(treeLevels)
+ * ```
  */
 fun TreeNode?.depthAwareBFS(visit: (Pair<TreeNode, Int>) -> Unit) {
     this ?: return

@@ -54,7 +54,6 @@ class SolutionAlt {
  */
 class FollowUpSolution {
     /**
-     * TODO
      * Time: O(?)
      * Space: O(?)
      */

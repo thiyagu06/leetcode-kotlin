@@ -17,9 +17,9 @@ fun <T : Comparable<T>> List<T>.binarySearch(searchKey: T): Int {
 
     while (!range.isEmpty()) {
         val mid = (range.start + range.endInclusive) / 2
-        when {
-            searchKey < this[mid] -> range = (range.start..(mid - 1))
-            searchKey > this[mid] -> range = ((mid + 1)..lastIndex)
+        range = when {
+            searchKey < this[mid] -> (range.start..(mid - 1))
+            searchKey > this[mid] -> ((mid + 1)..lastIndex)
             else -> return mid
         }
     }

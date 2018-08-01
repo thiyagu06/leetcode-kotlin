@@ -20,7 +20,6 @@ class ArrayStackTest {
         }
     }
 
-
     @Test
     fun push() {
         assertEquals(3, stack.size)
@@ -72,6 +71,13 @@ class ArrayStackTest {
         assertEquals(0, emptyStack.size)
         assertTrue(stack.isNotEmpty())
         assertEquals(3, stack.size)
+    }
+
+    @Test
+    fun toMutableList() {
+        val mutableList = stack.toMutableList()
+        mutableList.add(2, "Z")
+        assertEquals(mutableListOf("C", "B", "Z", "A"), mutableList)
     }
 
 }

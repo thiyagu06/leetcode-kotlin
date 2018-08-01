@@ -23,7 +23,7 @@ class Solution {
         val frequencies = nums.frequencyMap()
 
         outer@ for (i in 0..nums.lastIndex - 2) {
-            for (j in i + 1..nums.lastIndex - 1) {
+            for (j in i + 1 until nums.lastIndex) {
                 if (nums[i] > 0) {
                     break@outer
                 }
