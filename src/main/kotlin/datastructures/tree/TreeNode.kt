@@ -88,18 +88,25 @@ enum class DFSTraversalOrder { PREORDER, INORDER, POSTORDER; }
 fun TreeNode?.dfs(order: DFSTraversalOrder = INORDER, visit: (TreeNode) -> Unit) {
     this ?: return
 
-    if (order == PREORDER)
-        visit(this)
+    when (order) {
+        PREORDER -> {
+            visit(this)
+            left?.dfs(PREORDER, visit)
+            right?.dfs(PREORDER, visit)
+        }
 
-    left?.dfs(order, visit)
+        INORDER -> {
+            left?.dfs(INORDER, visit)
+            visit(this)
+            right?.dfs(INORDER, visit)
+        }
 
-    if (order == INORDER)
-        visit(this)
-
-    right?.dfs(order, visit)
-
-    if (order == POSTORDER)
-        visit(this)
+        POSTORDER -> {
+            left?.dfs(POSTORDER, visit)
+            right?.dfs(POSTORDER, visit)
+            visit(this)
+        }
+    }
 }
 
 /**

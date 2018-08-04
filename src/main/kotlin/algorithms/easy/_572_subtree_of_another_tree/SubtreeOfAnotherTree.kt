@@ -7,30 +7,27 @@ import datastructures.tree.TreeNode
  */
 class Solution {
     /**
-     * Time: O(m * n) where m & n are the number of nodes in s & t.
+     * Time: O(m * n), where m & n are the number of nodes in s & t.
      * Space: O(n)
      */
     fun isSubtree(s: TreeNode?, t: TreeNode?): Boolean {
         s ?: return false
 
-        if (isSameTree(s, t))
-            return true
-
-        return isSubtree(s.left, t) || isSubtree(s.right, t)
+        return isSameTree(s, t) || isSubtree(s.left, t) || isSubtree(s.right, t)
     }
 
     /**
      * Time: O(n)
      * Space: O(n)
      */
-    private fun isSameTree(s: TreeNode?, t: TreeNode?): Boolean {
-        if (s == null || t == null)
-            return s == t
+    internal fun isSameTree(s: TreeNode?, t: TreeNode?): Boolean =
+        when {
+            s == null && t == null -> true
 
-        if (s.`val` != t.`val`)
-            return false
+            s != null && t != null ->
+                (s.`val` == t.`val`) && isSameTree(s.left, t.left) && isSameTree(s.right, t.right)
 
-        return isSameTree(s.left, t.left) && isSameTree(s.right, t.right)
-    }
+            else -> false
+        }
 }
 

@@ -37,6 +37,21 @@ class TreeNodeTest {
     }
 
     @Test
+    fun dfsWithOrder() {
+        val preorderValues = arrayListOf<Int>()
+        tree1to5.dfs(order = DFSTraversalOrder.PREORDER, visit = { preorderValues += it.`val` })
+        assertEquals(arrayListOf(1, 2, 4, 5, 3), preorderValues)
+
+        val inorderValues = arrayListOf<Int>()
+        tree1to5.dfs(order = DFSTraversalOrder.INORDER, visit = { inorderValues += it.`val` })
+        assertEquals(arrayListOf(4, 2, 5, 1, 3), inorderValues)
+
+        val postorderValues = arrayListOf<Int>()
+        tree1to5.dfs(order = DFSTraversalOrder.POSTORDER, visit = { postorderValues += it.`val` })
+        assertEquals(arrayListOf(4, 5, 2, 3, 1), postorderValues)
+    }
+
+    @Test
     fun bfs() {
         val nodesTree123 = arrayListOf<Int>()
         tree123.bfs { nodesTree123 += it.`val` }
