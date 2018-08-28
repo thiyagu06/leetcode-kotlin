@@ -9,6 +9,26 @@ import datastructures.tree.hasTwoChildren
  * 111 - https://leetcode.com/problems/minimum-depth-of-binary-tree/description/
  */
 class Solution {
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
+    fun minDepth(root: TreeNode?, depth: Int = 1): Int = when {
+        root == null        -> depth - 1
+        root.hasTwoChildren -> minOf(minDepth(root.left, depth + 1), minDepth(root.right, depth + 1))
+        root.hasLeft        -> minDepth(root.left, depth + 1)
+        root.hasRight       -> minDepth(root.right, depth + 1)
+        else /* is leaf */  -> depth
+    }
+}
+
+class AltSolution {
+    /**
+     * Another way to write the solution - same complexity.
+     * 
+     * Time: O(n)
+     * Space: O(n)
+     */
     fun minDepth(root: TreeNode?): Int {
         root ?: return 0
 
