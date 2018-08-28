@@ -1,5 +1,7 @@
 package algorithms.easy._217_contains_duplicate
 
+import extensions.arrays.groupingBy
+
 /**
  * 217 - https://leetcode.com/problems/contains-duplicate/description/
  */
@@ -8,17 +10,11 @@ class Solution {
      * Time: O(n)
      * Space: O(n)
      */
-    fun containsDuplicate(nums: IntArray): Boolean {
-        val distinct = mutableSetOf<Int>()
-        for (x in nums) {
-            if (distinct.contains(x)) {
-                return true
-            }
-            distinct.add(x)
-        }
-        return false
-    }
-
+    fun containsDuplicate(nums: IntArray): Boolean =
+        nums.groupingBy { it }
+            .eachCount()
+            .values
+            .any { it > 1 }
 }
 
 class SolutionTwo {
@@ -26,8 +22,37 @@ class SolutionTwo {
      * Time: O(n)
      * Space: O(n)
      */
-    fun containsDuplicate(nums: IntArray): Boolean = nums.withIndex()
-            .groupBy({ it.value }, { it.index })
-            .filter { (_, occurrences) -> occurrences.size >= 2 }
-            .isNotEmpty()
+    fun containsDuplicate(nums: IntArray): Boolean =
+        nums.groupingBy { it }
+            .fold(0) { freq, _ -> freq + 1 }
+            .values
+            .any { it > 1 }
+}
+
+class SolutionThree {
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
+    fun containsDuplicate(nums: IntArray): Boolean = nums.distinct().size != nums.size
+}
+
+
+class ImperativeSolution {
+    /**
+     * Imperative solution
+     *
+     * Time: O(n)
+     * Space: O(n)
+     */
+    fun containsDuplicate(nums: IntArray): Boolean {
+        val distinctNums = mutableSetOf<Int>()
+        nums.forEach { num ->
+            if (distinctNums.contains(num)) {
+                return true
+            }
+            distinctNums.add(num)
+        }
+        return false
+    }
 }

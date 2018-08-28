@@ -25,7 +25,7 @@ class Solution {
 class AltSolution {
     /**
      * Another way to write the solution - same complexity.
-     * 
+     *
      * Time: O(n)
      * Space: O(n)
      */
