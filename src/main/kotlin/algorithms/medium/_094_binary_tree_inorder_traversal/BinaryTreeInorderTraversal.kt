@@ -8,9 +8,9 @@ import datastructures.tree.TreeNode
 class Solution {
     fun inorderTraversal(root: TreeNode?, values: MutableList<Int> = arrayListOf()): List<Int> =
             root?.let {
-                root.left?.let { inorderTraversal(it, values) }
+                root.left?.let { left -> inorderTraversal(left, values) }
                 values += root.`val`
-                root.right?.let { inorderTraversal(it, values) }
+                root.right?.let { right -> inorderTraversal(right, values) }
             } ?: values
 
 }

@@ -1,6 +1,7 @@
 package algorithms.easy._203_remove_linked_list_elements
 
 import datastructures.list.ListNode
+import datastructures.list.firstOrNull
 
 /**
  * 203 - https://leetcode.com/problems/remove-linked-list-elements/description/
@@ -18,8 +19,8 @@ class Solution {
 
             if (node.next?.`val` == `val`) {
 
-                val newNext = node.next?.let {
-                    it.firstOrNull { it.`val` != `val` }
+                val newNext = node.next?.let { oldNext ->
+                    oldNext.firstOrNull { it.`val` != `val` }
                 }
                 node.next = newNext
 
@@ -31,14 +32,4 @@ class Solution {
         return sentinel.next
     }
 
-    private fun ListNode.firstOrNull(predicate: (ListNode) -> Boolean): ListNode? {
-        var node: ListNode? = this
-        while (node != null) {
-            if (predicate(node)) {
-                return node
-            }
-            node = node.next
-        }
-        return null
-    }
 }

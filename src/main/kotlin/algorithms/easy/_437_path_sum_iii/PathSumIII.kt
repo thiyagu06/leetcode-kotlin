@@ -43,7 +43,7 @@ class SolutionWithPathLists {
 
     internal fun pathsFrom(root: TreeNode?, paths: List<List<Int>> = listOf()): List<List<Int>> =
         root?.let {
-            val pathsToRoot = paths.map { it + root.`val` } + listOf(listOf(root.`val`))
+            val pathsToRoot = paths.map { path -> path + root.`val` } + listOf(listOf(root.`val`))
             return pathsToRoot + pathsFrom(root.left, pathsToRoot) + pathsFrom(root.right, pathsToRoot)
     } ?: emptyList()
 }

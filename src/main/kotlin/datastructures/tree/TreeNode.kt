@@ -268,7 +268,7 @@ fun TreeNode?.allPaths(
     paths: MutableList<List<Int>> = mutableListOf()
 ): List<List<Int>> =
     this?.let {
-        val pathsToRoot = listOf(listOf(`val`)) + pathsToParent.map { it + `val` }
+        val pathsToRoot = listOf(listOf(`val`)) + pathsToParent.map { path -> path + `val` }
         paths += pathsToRoot
 
         left?.allPaths(pathsToParent = pathsToRoot, paths = paths)
