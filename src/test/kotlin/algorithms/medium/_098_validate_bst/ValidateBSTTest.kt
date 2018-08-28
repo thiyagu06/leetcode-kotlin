@@ -19,8 +19,13 @@ class ValidateBSTTest {
         assertFalse(solution.isValidBST(tree123))
         assertTrue(solution.isValidBST(bst3LevelsFull))
         assertTrue(solution.isValidBST(bstWithNulls))
+    }
+
+    @Test
+    fun checkIntOverflow() {
         assertFalse(solution.isValidBST(buildTree(Int.MIN_VALUE, Int.MIN_VALUE)))
         assertFalse(solution.isValidBST(buildTree(Int.MAX_VALUE, Int.MAX_VALUE)))
+        assertFalse(solution.isValidBST(buildTree(Int.MAX_VALUE, null, Int.MAX_VALUE)))
     }
 
 }

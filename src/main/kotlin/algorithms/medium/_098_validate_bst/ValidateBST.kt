@@ -8,22 +8,21 @@ import datastructures.tree.hasRight
  * 98 - https://leetcode.com/problems/validate-binary-search-tree/description/
  */
 class Solution {
-    /**
-     * Time: O(n)
-     * Space: O(n)
-     */
-    fun isValidBST(root: TreeNode?, validRange: IntRange = (Int.MIN_VALUE..Int.MAX_VALUE)): Boolean {
-        root ?: return true
+    fun isValidBST(root: TreeNode?, validRange: IntRange = (Int.MIN_VALUE..Int.MAX_VALUE)): Boolean =
+        when {
+            root == null -> true
 
-        // check for overflow
-        if (root.`val` == Int.MIN_VALUE && root.hasLeft) return false
-        if (root.`val` == Int.MAX_VALUE && root.hasRight) return false
+            // Int Overflow
+            root.`val` == Int.MIN_VALUE && root.hasLeft -> false
+            root.`val` == Int.MAX_VALUE && root.hasRight -> false
 
-        val leftSubtreeRange = validRange.first..(root.`val` - 1)
-        val rightSubtreeRange = (root.`val` + 1)..validRange.last
+            else -> {
+                val leftSubtreeRange = validRange.start until root.`val`
+                val rightSubtreeRange = root.`val` + 1 .. validRange.endInclusive
 
-        return root.`val` in validRange
-            && isValidBST(root.left, leftSubtreeRange)
-            && isValidBST(root.right, rightSubtreeRange)
-    }
+                root.`val` in validRange
+                        && isValidBST(root.left, leftSubtreeRange)
+                        && isValidBST(root.right, rightSubtreeRange)
+            }
+        }
 }
