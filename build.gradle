@@ -41,19 +41,10 @@ test {
         events = ["passed", "failed", "skipped"]
     }
 }
-
-// https://stackoverflow.com/questions/45174989/building-with-intellij-2017-2-out-directory-duplicates-files-in-build-director
-allprojects {
-    apply plugin: 'idea'
-    idea {
-        module {
-            outputDir file('build/classes/main')
-            testOutputDir file('build/classes/test')
-        }
-    }
-    if (project.convention.findPlugin(JavaPluginConvention)) {
-        // Change the output directory for the main and test source sets back to the old path
-        sourceSets.main.output.classesDir = new File(buildDir, "classes/main")
-        sourceSets.test.output.classesDir = new File(buildDir, "classes/test")
+idea {
+    module {
+        inheritOutputDirs = false
+        outputDir = compileJava.destinationDir
+        testOutputDir = compileTestJava.destinationDir
     }
 }
