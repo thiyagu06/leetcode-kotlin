@@ -10,7 +10,7 @@ class ReverseLinkedListTest {
     private val recursiveSolution = RecursiveSolution()
 
     @Test
-    fun reverseList() {
+    fun reverseListIterative() {
         assertNull(iterativeSolution.reverseList(null))
         assertEquals(linkedListOf(1), iterativeSolution.reverseList(linkedListOf(1)))
         assertEquals(linkedListOf(1, 1), iterativeSolution.reverseList(linkedListOf(1, 1)))
@@ -28,4 +28,5 @@ class ReverseLinkedListTest {
         assertEquals(linkedListOf(3, 2, 1), recursiveSolution.reverseList(linkedListOf(1, 2, 3)))
         assertEquals(linkedListOf(3, 3, 2, 2, 1), recursiveSolution.reverseList(linkedListOf(1, 2, 2, 3, 3)))
     }
+
 }

@@ -26,6 +26,7 @@ class RemoveLinkedListElementsTest {
 
     @Test
     fun removeElementsEdgeCases() {
+        // null list
         assertNull(solution.removeElements(null, 7))
 
         // remove first
@@ -42,7 +43,6 @@ class RemoveLinkedListElementsTest {
         assertNull(solution.removeElements(linkedListOf(1), 1))
         // remove the only 2
         assertNull(solution.removeElements(linkedListOf(1, 1), 1))
-
     }
 
 }
