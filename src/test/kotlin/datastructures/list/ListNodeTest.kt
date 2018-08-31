@@ -124,4 +124,30 @@ class ListNodeTest {
         assertNull(linkedListOf(1, 2, 3).firstOrNull { it.`val` < 0 })
         assertEquals(2, linkedListOf(1, 2, 3).firstOrNull { it.`val` >= 2 }?.`val`)
     }
+
+    @Test
+    fun forEach() {
+        var sum = 0
+        linkedListOf(99).forEach { sum += it.`val` }
+        assertEquals(99, sum)
+
+        sum = 0
+        linkedListOf(1, 2, 3, 4).forEach { sum += it.`val` }
+        assertEquals(10, sum)
+
+
+        sum = 0
+        linkedListOf(1, 1, 2, 3, 3, 1, 2, 3).forEach { sum += it.`val` }
+        assertEquals(16, sum)
+
+        val values = arrayListOf<Int>()
+        linkedListOf(1, 2, 3, 4, 5).forEach { values += it.`val` }
+        assertEquals(listOf(1, 2, 3, 4, 5), values)
+    }
+
+    @Test
+    fun toSet() {
+        assertEquals(setOf(1, 2, 3), linkedListOf(1, 1, 2, 3, 3).toSet())
+        assertEquals(setOf(11, 11, 75, 75), linkedListOf(11, 75).toSet())
+    }
 }

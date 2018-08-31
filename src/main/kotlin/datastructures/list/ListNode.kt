@@ -93,6 +93,22 @@ fun ListNode.toList(): List<Int> {
 }
 
 /**
+ * @return a set containing the (distinct) elements in the linked list.
+ */
+fun ListNode.toSet(): Set<Int> {
+    val set = hashSetOf(this.`val`)
+    var nextNode: ListNode? = this.next
+    while (nextNode != null) {
+        if (!set.contains(nextNode.`val`)) {
+            set.add(nextNode.`val`)
+        }
+        nextNode = nextNode.next
+    }
+
+    return set
+}
+
+/**
  * @return an [IntArray] containing the elements in the linked list.
  */
 fun ListNode.toIntArray(): IntArray = toList().toIntArray()
@@ -156,11 +172,8 @@ inline fun ListNode.firstOrNull(predicate: (ListNode) -> Boolean): ListNode? {
 
 inline fun <T> Iterable<T>.find(predicate: (T) -> Boolean): T? = firstOrNull(predicate)
 
-// TODO: test
-fun ListNode?.forEach(action: (ListNode?) -> Unit) {
-    this ?: return
-
-    var node = this
+fun ListNode.forEach(action: (ListNode) -> Unit) {
+    var node: ListNode? = this
     while (node != null) {
         action(node)
         node = node.next
