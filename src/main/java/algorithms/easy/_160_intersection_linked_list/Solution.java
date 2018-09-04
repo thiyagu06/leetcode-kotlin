@@ -10,10 +10,54 @@ import java.util.function.UnaryOperator;
 public class Solution {
 
     /**
-     * Time: O(n)
+     * Time: O(m + n)
      * Space: O(1)
      */
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        final int list1Size = sizeOfList(headA);
+        final int list2Size = sizeOfList(headB);
+        final int sizeDiff = Math.abs(list1Size - list2Size);
+
+        ListNode longerListNode = (list1Size >= list2Size) ? headA : headB;
+        ListNode shorterListNode = (list1Size >= list2Size) ? headB : headA;
+
+        for (int i = 0; i < sizeDiff; i++) {
+            longerListNode = longerListNode.next;
+        }
+
+        while (shorterListNode != null && longerListNode != null) {
+            if (shorterListNode.equals(longerListNode)) {
+                return shorterListNode;
+            }
+
+            shorterListNode = shorterListNode.next;
+            longerListNode = longerListNode.next;
+        }
+
+        return null;
+    }
+
+    private int sizeOfList(ListNode head) {
+        if (head == null) {
+            return 0;
+        }
+
+        int size = 0;
+        ListNode node = head;
+        while (node != null) {
+            size++;
+            node = node.next;
+        }
+
+        return size;
+    }
+
+
+    /**
+     * Time: O(m + n)
+     * Space: O(1)
+     */
+    public ListNode getIntersectionNodeAlt(ListNode headA, ListNode headB) {
         if (headA == null || headB == null) {
             return null;
         }
@@ -64,7 +108,7 @@ public class Solution {
      * Time: O(m + n)
      * Space: O(m) or O(n)
      */
-    public ListNode getIntersectionNodeAlt(ListNode headA, ListNode headB) {
+    public ListNode getIntersectionNodeSuboptimal(ListNode headA, ListNode headB) {
         final Set<ListNode> visited = new HashSet<>();
         ListNode nodeA = headA;
         ListNode nodeB = headB;
