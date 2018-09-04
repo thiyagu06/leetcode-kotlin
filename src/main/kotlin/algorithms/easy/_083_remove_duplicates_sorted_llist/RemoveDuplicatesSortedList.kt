@@ -70,7 +70,7 @@ class AltSolution {
 
         val distinct = hashSetOf<Int>()
         var node: ListNode? = head
-        var sentinel = ListNode(Int.MIN_VALUE)
+        val sentinel = ListNode(Int.MIN_VALUE)
         var result: ListNode? = sentinel
 
         while (node != null) {

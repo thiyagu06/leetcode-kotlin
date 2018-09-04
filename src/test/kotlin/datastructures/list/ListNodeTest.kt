@@ -7,14 +7,11 @@ import org.junit.Test
 
 class ListNodeTest {
 
-    private var listA: ListNode? = null
+    private var listA: ListNode? = linkedListOf(0, 1, 2, 3)
 
     @Before
     fun setUp() {
-        listA = ListNode(0)
-        listA?.next = ListNode(1)
-        listA?.next?.next = ListNode(2)
-        listA?.next?.next?.next = ListNode(3)
+        listA = linkedListOf(0, 1, 2, 3)
     }
 
     @After
@@ -69,6 +66,8 @@ class ListNodeTest {
     fun size() {
         val createdList = ListNode.from(listOf(0, 1, 2, 3))
         assertEquals(4, createdList?.size)
+        val nullList: ListNode? = null
+        assertEquals(0, nullList.size)
     }
 
     @Test

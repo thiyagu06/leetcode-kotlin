@@ -116,7 +116,7 @@ fun ListNode.toIntArray(): IntArray = toList().toIntArray()
 /**
  * @return the number of elements in the linked list from this [ListNode].
  */
-val ListNode.size: Int
+val ListNode?.size: Int
     get() {
         var count = 0
         var node: ListNode? = this
@@ -169,8 +169,6 @@ inline fun ListNode.firstOrNull(predicate: (ListNode) -> Boolean): ListNode? {
     }
     return null
 }
-
-inline fun <T> Iterable<T>.find(predicate: (T) -> Boolean): T? = firstOrNull(predicate)
 
 fun ListNode.forEach(action: (ListNode) -> Unit) {
     var node: ListNode? = this

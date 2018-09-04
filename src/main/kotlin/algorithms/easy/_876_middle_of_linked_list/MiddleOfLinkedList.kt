@@ -11,7 +11,7 @@ class Solution {
         
         while (hare?.next != null) {
             tortoise = tortoise?.next
-            hare = hare?.next?.next
+            hare = hare.next?.next
         }
         
         return tortoise

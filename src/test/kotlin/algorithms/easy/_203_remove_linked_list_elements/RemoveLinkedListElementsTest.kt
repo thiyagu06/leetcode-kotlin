@@ -1,7 +1,6 @@
 package algorithms.easy._203_remove_linked_list_elements
 
 import datastructures.list.linkedListOf
-import datastructures.list.toList
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Test
@@ -20,8 +19,13 @@ class RemoveLinkedListElementsTest {
         assertEquals(linkedListOf(1, 2, 3, 4, 5),
                 solution.removeElements(linkedListOf(1, 2, 6, 6, 6, 6, 3, 4, 5), 6))
 
-        assertEquals(linkedListOf(1, 2, 3, 4, 5).toList(),
-                solution.removeElements(linkedListOf(1, 2, 6, 3, 4, 5), 6)?.toList())
+        assertEquals(linkedListOf(1, 2, 3, 4, 5),
+                solution.removeElements(linkedListOf(1, 2, 6, 3, 4, 5), 6))
+
+        assertEquals(
+            linkedListOf(20, 14, 36, 11, 41),
+            solution.removeElements(linkedListOf(20, 14, 36, 11, 72, 41), 72)
+        )
     }
 
     @Test

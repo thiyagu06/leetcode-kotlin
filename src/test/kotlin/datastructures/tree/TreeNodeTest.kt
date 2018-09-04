@@ -1,6 +1,7 @@
 package datastructures.tree
 
 import org.junit.Assert.*
+import org.junit.Ignore
 import org.junit.Test
 
 class TreeNodeTest {
@@ -70,6 +71,33 @@ class TreeNodeTest {
         assertEquals(listOf(7, 4, 9, 3, 8, 1), nodesBstWithNulls)
     }
 
+    @Ignore
+    @Test
+    fun depthAwareBFS() {
+        // TODO
+    }
+
+    @Test
+    fun levels() {
+        assertEquals(listOf(listOf(1), listOf(2, 3)), tree123.levels())
+        assertEquals(
+            listOf(
+                listOf(1),
+                listOf(2, 3),
+                listOf(4, 5)
+            ),
+            tree1to5.levels()
+        )
+        assertEquals(
+            listOf(
+                listOf(5),
+                listOf(3, 8),
+                listOf(1, 4, 6, 9)
+            ),
+            bst3LevelsFull.levels()
+        )
+    }
+
     @Test
     fun toList() {
         assertEquals(listOf(1, 3, 4, 5, 6, 8, 9), bst3LevelsFull.toList())
@@ -77,15 +105,21 @@ class TreeNodeTest {
 
     @Test
     fun collect() {
-        assertEquals(arrayListOf(2, 1, 3), tree123.collect())
+        assertEquals(listOf(2, 1, 3), tree123.collect())
         assertEquals(listOf(1, 3, 4, 5, 6, 8, 9), bst3LevelsFull.collect())
     }
-
 
     @Test
     fun collectWithTransform() {
         assertEquals(listOf(1, 3, 4, 5, 6, 8, 9).map { it * 2 },
             bst3LevelsFull.collect { it.`val` * 2 })
+    }
+
+    @Test
+    fun collectUnique() {
+        assertEquals(setOf(2, 1, 3), tree123.collectUnique())
+        assertEquals(setOf(1, 3, 4, 5, 6, 8, 9), bst3LevelsFull.collectUnique())
+        assertEquals(setOf(1, 2, 3, 4, 5), buildTree(1, 2, 3, 2, 3, 2, 3, 1, 3, 4, 5).collectUnique())
     }
 
     @Test

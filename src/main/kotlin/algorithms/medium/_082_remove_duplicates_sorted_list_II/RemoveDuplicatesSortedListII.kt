@@ -23,7 +23,7 @@ class Solution {
             frequencies[it.`val`] = frequencies.getOrDefault(it.`val`, 0) + 1
         }
         
-        var sentinel = ListNode(Int.MIN_VALUE)
+        val sentinel = ListNode(Int.MIN_VALUE)
         var result: ListNode? = sentinel 
         
         var node: ListNode? = head

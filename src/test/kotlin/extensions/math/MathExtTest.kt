@@ -225,6 +225,184 @@ class MathExtTest {
         println("average run: ${adjustedTimes.average().roundedToNDecimalPlaces(2)}")
     }
 
+
+    @Test
+    fun permutationsIntArray() {
+        val times = arrayListOf<Long>()
+        val runs = 8
+        (1..runs).forEach {
+            val ms = measureTimeMillis {
+
+                assertEquals(
+                    emptyList<Int>(),
+                    intArrayOf().permutations()
+                )
+
+                assertEquals(
+                    listOf(
+                        listOf(1, 2, 3),
+                        listOf(2, 1, 3),
+                        listOf(2, 3, 1),
+                        listOf(1, 3, 2),
+                        listOf(3, 1, 2),
+                        listOf(3, 2, 1)
+                    ),
+                    intArrayOf(1, 2, 3).permutations()
+                )
+
+                assertEquals(
+                    listOf(
+                        listOf(1, 1, 3),
+                        listOf(1, 3, 1),
+                        listOf(3, 1, 1)
+                    ),
+                    intArrayOf(1, 1, 3).permutations()
+                )
+
+                assertEquals(
+                    listOf(
+                        listOf(1, 1, 3),
+                        listOf(1, 3, 1),
+                        listOf(3, 1, 1)
+                    ),
+                    intArrayOf(1, 1, 3).permutations()
+                )
+
+                assertEquals(
+                    listOf(
+                        listOf(0, 1, 2, 3, 4),
+                        listOf(1, 0, 2, 3, 4),
+                        listOf(1, 2, 0, 3, 4),
+                        listOf(1, 2, 3, 0, 4),
+                        listOf(1, 2, 3, 4, 0),
+                        listOf(0, 2, 1, 3, 4),
+                        listOf(2, 0, 1, 3, 4),
+                        listOf(2, 1, 0, 3, 4),
+                        listOf(2, 1, 3, 0, 4),
+                        listOf(2, 1, 3, 4, 0),
+                        listOf(0, 2, 3, 1, 4),
+                        listOf(2, 0, 3, 1, 4),
+                        listOf(2, 3, 0, 1, 4),
+                        listOf(2, 3, 1, 0, 4),
+                        listOf(2, 3, 1, 4, 0),
+                        listOf(0, 2, 3, 4, 1),
+                        listOf(2, 0, 3, 4, 1),
+                        listOf(2, 3, 0, 4, 1),
+                        listOf(2, 3, 4, 0, 1),
+                        listOf(2, 3, 4, 1, 0),
+                        listOf(0, 1, 3, 2, 4),
+                        listOf(1, 0, 3, 2, 4),
+                        listOf(1, 3, 0, 2, 4),
+                        listOf(1, 3, 2, 0, 4),
+                        listOf(1, 3, 2, 4, 0),
+                        listOf(0, 3, 1, 2, 4),
+                        listOf(3, 0, 1, 2, 4),
+                        listOf(3, 1, 0, 2, 4),
+                        listOf(3, 1, 2, 0, 4),
+                        listOf(3, 1, 2, 4, 0),
+                        listOf(0, 3, 2, 1, 4),
+                        listOf(3, 0, 2, 1, 4),
+                        listOf(3, 2, 0, 1, 4),
+                        listOf(3, 2, 1, 0, 4),
+                        listOf(3, 2, 1, 4, 0),
+                        listOf(0, 3, 2, 4, 1),
+                        listOf(3, 0, 2, 4, 1),
+                        listOf(3, 2, 0, 4, 1),
+                        listOf(3, 2, 4, 0, 1),
+                        listOf(3, 2, 4, 1, 0),
+                        listOf(0, 1, 3, 4, 2),
+                        listOf(1, 0, 3, 4, 2),
+                        listOf(1, 3, 0, 4, 2),
+                        listOf(1, 3, 4, 0, 2),
+                        listOf(1, 3, 4, 2, 0),
+                        listOf(0, 3, 1, 4, 2),
+                        listOf(3, 0, 1, 4, 2),
+                        listOf(3, 1, 0, 4, 2),
+                        listOf(3, 1, 4, 0, 2),
+                        listOf(3, 1, 4, 2, 0),
+                        listOf(0, 3, 4, 1, 2),
+                        listOf(3, 0, 4, 1, 2),
+                        listOf(3, 4, 0, 1, 2),
+                        listOf(3, 4, 1, 0, 2),
+                        listOf(3, 4, 1, 2, 0),
+                        listOf(0, 3, 4, 2, 1),
+                        listOf(3, 0, 4, 2, 1),
+                        listOf(3, 4, 0, 2, 1),
+                        listOf(3, 4, 2, 0, 1),
+                        listOf(3, 4, 2, 1, 0),
+                        listOf(0, 1, 2, 4, 3),
+                        listOf(1, 0, 2, 4, 3),
+                        listOf(1, 2, 0, 4, 3),
+                        listOf(1, 2, 4, 0, 3),
+                        listOf(1, 2, 4, 3, 0),
+                        listOf(0, 2, 1, 4, 3),
+                        listOf(2, 0, 1, 4, 3),
+                        listOf(2, 1, 0, 4, 3),
+                        listOf(2, 1, 4, 0, 3),
+                        listOf(2, 1, 4, 3, 0),
+                        listOf(0, 2, 4, 1, 3),
+                        listOf(2, 0, 4, 1, 3),
+                        listOf(2, 4, 0, 1, 3),
+                        listOf(2, 4, 1, 0, 3),
+                        listOf(2, 4, 1, 3, 0),
+                        listOf(0, 2, 4, 3, 1),
+                        listOf(2, 0, 4, 3, 1),
+                        listOf(2, 4, 0, 3, 1),
+                        listOf(2, 4, 3, 0, 1),
+                        listOf(2, 4, 3, 1, 0),
+                        listOf(0, 1, 4, 2, 3),
+                        listOf(1, 0, 4, 2, 3),
+                        listOf(1, 4, 0, 2, 3),
+                        listOf(1, 4, 2, 0, 3),
+                        listOf(1, 4, 2, 3, 0),
+                        listOf(0, 4, 1, 2, 3),
+                        listOf(4, 0, 1, 2, 3),
+                        listOf(4, 1, 0, 2, 3),
+                        listOf(4, 1, 2, 0, 3),
+                        listOf(4, 1, 2, 3, 0),
+                        listOf(0, 4, 2, 1, 3),
+                        listOf(4, 0, 2, 1, 3),
+                        listOf(4, 2, 0, 1, 3),
+                        listOf(4, 2, 1, 0, 3),
+                        listOf(4, 2, 1, 3, 0),
+                        listOf(0, 4, 2, 3, 1),
+                        listOf(4, 0, 2, 3, 1),
+                        listOf(4, 2, 0, 3, 1),
+                        listOf(4, 2, 3, 0, 1),
+                        listOf(4, 2, 3, 1, 0),
+                        listOf(0, 1, 4, 3, 2),
+                        listOf(1, 0, 4, 3, 2),
+                        listOf(1, 4, 0, 3, 2),
+                        listOf(1, 4, 3, 0, 2),
+                        listOf(1, 4, 3, 2, 0),
+                        listOf(0, 4, 1, 3, 2),
+                        listOf(4, 0, 1, 3, 2),
+                        listOf(4, 1, 0, 3, 2),
+                        listOf(4, 1, 3, 0, 2),
+                        listOf(4, 1, 3, 2, 0),
+                        listOf(0, 4, 3, 1, 2),
+                        listOf(4, 0, 3, 1, 2),
+                        listOf(4, 3, 0, 1, 2),
+                        listOf(4, 3, 1, 0, 2),
+                        listOf(4, 3, 1, 2, 0),
+                        listOf(0, 4, 3, 2, 1),
+                        listOf(4, 0, 3, 2, 1),
+                        listOf(4, 3, 0, 2, 1),
+                        listOf(4, 3, 2, 0, 1),
+                        listOf(4, 3, 2, 1, 0)
+                    ),
+                    intArrayOf(0, 1, 2, 3, 4).permutations()
+                )
+
+                intArrayOf(0, 1, 2, 3, 4, 5, 6, 7).permutations()
+            }
+            times += ms
+        }
+        val adjustedTimes = times.drop(3)   // 1st one or two affected by test startup
+        println("adjustedTimes for permutations: $adjustedTimes")
+        println("average run: ${adjustedTimes.average().roundedToNDecimalPlaces(2)}")
+    }
+
     @Test
     fun choose() {
         assertEquals(BigInteger.ONE, choose(0, 0))

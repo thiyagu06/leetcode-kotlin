@@ -119,7 +119,7 @@ fun IntArray.permutations(): List<List<Int>> = when (size) {
             (0..sublist.size).map { i ->
                 sublist.plusAtIndex(index = i, element = head!!)
             }
-        }
+        }.distinct()
     }
 }
 
