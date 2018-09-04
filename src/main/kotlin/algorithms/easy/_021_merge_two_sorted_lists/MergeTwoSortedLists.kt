@@ -7,38 +7,34 @@ import datastructures.list.ListNode
  */
 class Solution {
     /**
-     * TODO: Add Tests
-     * Time: O(n)
+     * Time: O(m + n) - where m and n are the lengths of l1 and l2
      * Space: O(1)
      */
-    fun mergeTwoLists(l1: ListNode?, l2: ListNode?): ListNode? {
-        if (l1 == null && l2 == null)
-            return null
+    fun mergeTwoLists(l1: ListNode?, l2: ListNode?): ListNode? =
+        when {
+            l1 == null -> l2
+            l2 == null -> l1
+            else -> {
+                val sentinel = ListNode(Int.MIN_VALUE)
+                var merged: ListNode? = sentinel
+                var left: ListNode? = l1
+                var right: ListNode? = l2
 
-        var left: ListNode? = l1
-        var right: ListNode? = l2
-
-        val sentinel = ListNode(Int.MIN_VALUE)
-        var merged: ListNode = sentinel
-
-        while (left != null && right != null) {
-            when {
-                left.`val` <= right.`val` -> {
-                    merged.next = left
-                    left = left.next
+                while (left != null && right != null) {
+                    if (left.`val` <= right.`val`) {
+                        merged?.next = left
+                        left = left.next
+                    } else {
+                        merged?.next = right
+                        right = right.next
+                    }
+                    merged = merged?.next
                 }
-                else -> {
-                    merged.next = right
-                    right = right.next
-                }
+
+                // add remaining to merged if l1.size != l2.size
+                merged?.next = left ?: right
+
+                sentinel.next
             }
-            merged = merged.next!!
         }
-
-        // add remaining to merged if l1.size != l2.size
-        merged.next = left ?: right
-
-        return sentinel.next
-    }
-
 }
