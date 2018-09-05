@@ -149,4 +149,33 @@ class ListNodeTest {
         assertEquals(setOf(1, 2, 3), linkedListOf(1, 1, 2, 3, 3).toSet())
         assertEquals(setOf(11, 11, 75, 75), linkedListOf(11, 75).toSet())
     }
+
+    @Test
+    fun copyOf() {
+        val original = linkedListOf(1, 2, 3, 4, 5)
+        val copy = original.copyOf()
+
+        assertEquals(linkedListOf(1, 2, 3, 4, 5), original)
+        assertEquals(linkedListOf(1, 2, 3, 4, 5), copy)
+
+        copy?.next = null
+
+        assertEquals(linkedListOf(1, 2, 3, 4, 5), original)
+        assertEquals(linkedListOf(1), copy)
+    }
+
+    @Test
+    fun reversed() {
+        val original = linkedListOf(1, 2, 3, 4, 5)
+        val copy = original.copyOf()
+
+        assertEquals(linkedListOf(1, 2, 3, 4, 5), original)
+        assertEquals(linkedListOf(1, 2, 3, 4, 5), copy)
+
+        val reversedCopy = copy?.reversed()
+
+        assertEquals(linkedListOf(1, 2, 3, 4, 5), original)
+        assertEquals(linkedListOf(1, 2, 3, 4, 5), copy)
+        assertEquals(linkedListOf(5, 4, 3, 2, 1), reversedCopy)
+    }
 }

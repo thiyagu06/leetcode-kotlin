@@ -177,3 +177,42 @@ fun ListNode.forEach(action: (ListNode) -> Unit) {
         node = node.next
     }
 }
+
+/**
+ * Returns a new list which is a copy of the original list. Changes to the copy will not affect the original list.
+ */
+fun ListNode.copyOf(): ListNode? {
+    val sentinel = ListNode(Int.MIN_VALUE)
+    var copy: ListNode? = sentinel
+    var node: ListNode? = this
+    while (node != null) {
+        copy?.next = ListNode(node.`val`)
+        node = node.next
+        copy = copy?.next
+    }
+    return sentinel.next
+}
+
+/**
+ * Returns a reversed list. Non-mutating.
+ */
+fun ListNode?.reversed(): ListNode? {
+    this ?: return null
+
+    val copyHead = this.copyOf()
+
+    var prev: ListNode? = null
+    var curr: ListNode? = copyHead
+    var next: ListNode? = copyHead?.next
+
+    while (curr != null) {
+        curr.next = prev
+
+        prev = curr
+        curr = next
+        next = next?.next
+    }
+
+    return prev
+}
+
