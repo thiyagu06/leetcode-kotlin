@@ -7,32 +7,38 @@ import java.math.BigInteger
 /**
  * 2 - https://leetcode.com/problems/add-two-numbers/description/
  */
+
 class Solution {
-    fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? {
-        l1 ?: return l2
-        l2 ?: return l1
+    /**
+     * Time: O(n) - technically O(max(m, n))
+     * Space: O(n) - technically O(max(m, n)) - the length of the new list is at most `max(m, n) + 1`
+     */
+    fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? =
+        when {
+            l1 == null -> l2
+            l2 == null -> l1
+            else -> {
+                val sentinel = ListNode(Int.MIN_VALUE)
+                var sumList: ListNode? = sentinel
+                var node1: ListNode? = l1
+                var node2: ListNode? = l2
+                var carry = 0
 
-        return (valueOf(l1) + valueOf(l2)).toLinkedListOfDigitsReversed()
-    }
+                while (node1 != null || node2 != null) {
+                    val sum = carry + (node1?.`val` ?: 0) + (node2?.`val` ?: 0)
+                    carry = sum / 10
+                    sumList?.next = ListNode(sum % 10)
 
-    fun valueOf(reversedDigitList: ListNode): BigInteger =
-            BigInteger(reversedDigitList.toList().reversed().joinToString(""))
+                    node1 = node1?.next
+                    node2 = node2?.next
+                    sumList = sumList?.next
+                }
 
-    private fun BigInteger.toLinkedListOfDigitsReversed(): ListNode? {
-        if (this == BigInteger.ZERO)
-            return ListNode(0)
+                if (carry == 1) {
+                    sumList?.next = ListNode(1)
+                }
 
-        val sentinel = ListNode(0)
-        var node: ListNode? = sentinel
-        var n = this
-        while (n > BigInteger.ZERO && node != null) {
-            val lastDigit = n % BigInteger.TEN
-            node.next = ListNode(lastDigit.toInt())
-            n /= BigInteger.TEN
-            node = node.next
+                sentinel.next
+            }
         }
-
-        return sentinel.next
-    }
 }
-
