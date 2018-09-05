@@ -1,17 +1,53 @@
 package algorithms.medium._102_binary_tree_level_order_traversal
 
+import datastructures.queue.ListQueue
 import datastructures.tree.TreeNode
 
 /**
  * 102 - https://leetcode.com/problems/binary-tree-level-order-traversal/description/
  */
-class LevelOrderSolution {
+class BFSSolution {
     /**
+     * Uses BFS modified to track the depth (level)
+     *
      * Time: O(n)
      * Space: O(n)
      */
-    fun levelOrder(root: TreeNode?, depth: Int = 0,
-                   values: MutableList<MutableList<Int>> = arrayListOf()): List<List<Int>> {
+    fun levelOrder(root: TreeNode?): List<List<Int>> {
+        root ?: return emptyList()
+
+        val levels = ArrayList<ArrayList<Int>>()
+        val queue = ListQueue<Pair<TreeNode, Int>>()
+
+        queue.enqueue(root to 0)
+
+        while (queue.isNotEmpty()) {
+            val (node, depth) = queue.dequeue() ?: return levels
+            if (levels.lastIndex < depth) {
+                levels.add(arrayListOf(node.`val`))
+            } else {
+                levels[depth].add(node.`val`)
+            }
+            node.left?.let { queue.enqueue(it to depth + 1) }
+            node.right?.let { queue.enqueue(it to depth + 1) }
+        }
+
+        return levels
+    }
+}
+
+class DFSSolution {
+    /**
+     * DFS Solution
+     *
+     * Time: O(n)
+     * Space: O(n)
+     */
+    fun levelOrder(
+        root: TreeNode?,
+        depth: Int = 0,
+        values: MutableList<MutableList<Int>> = arrayListOf()
+    ): List<List<Int>> {
 
         root ?: return values
 

@@ -30,5 +30,19 @@ class SameTreeTest {
                 buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 2)
             )
         )
+
+        assertTrue(
+            solution.isSameTree(
+                buildTree(100, 50, 200, 25, null, 125, 350),
+                buildTree(100, 50, 200, 25, null, 125, 350)
+            )
+        )
+
+        assertFalse(
+            solution.isSameTree(
+                buildTree(100, 50, 200, null, 25, 125, 350),
+                buildTree(100, 50, 200, 25, null, 125, 350)
+            )
+        )
     }
 }

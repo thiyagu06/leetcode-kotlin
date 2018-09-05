@@ -8,6 +8,10 @@ import datastructures.tree.hasRight
  * 98 - https://leetcode.com/problems/validate-binary-search-tree/description/
  */
 class Solution {
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
     fun isValidBST(root: TreeNode?, validRange: IntRange = (Int.MIN_VALUE..Int.MAX_VALUE)): Boolean =
         when {
             root == null -> true

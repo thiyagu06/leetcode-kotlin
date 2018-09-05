@@ -4,7 +4,7 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-class ReverseWordsInAStringTest {
+class ReverseWordsInAStringIIITest {
 
     private val solution = Solution()
 

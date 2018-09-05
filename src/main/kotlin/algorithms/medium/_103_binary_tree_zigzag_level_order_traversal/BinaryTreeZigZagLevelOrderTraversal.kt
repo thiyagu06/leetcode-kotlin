@@ -1,6 +1,6 @@
 package algorithms.medium._103_binary_tree_zigzag_level_order_traversal
 
-import algorithms.medium._102_binary_tree_level_order_traversal.LevelOrderSolution
+import algorithms.medium._102_binary_tree_level_order_traversal.BFSSolution
 import datastructures.queue.ListQueue
 import datastructures.tree.TreeNode
 import extensions.lists.append
@@ -49,7 +49,7 @@ class SimpleSolution1 {
      * Space: O(n)
      */
     fun zigzagLevelOrder(root: TreeNode?): List<List<Int>> =
-            LevelOrderSolution().levelOrder(root)
+            BFSSolution().levelOrder(root)
                     .mapIndexed { depth, values ->
                         if (depth.isOdd) values.reversed() else values
                     }
