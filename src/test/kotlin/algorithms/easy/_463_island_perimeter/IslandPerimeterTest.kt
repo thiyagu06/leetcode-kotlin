@@ -1,6 +1,6 @@
 package algorithms.easy._463_island_perimeter
 
-import extensions.arrays.Matrix
+import extensions.arrays.IntMatrix
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -11,7 +11,7 @@ class IslandPerimeterTest {
     private val solution = Solution()
     private val solution2 = Solution2()
 
-    private lateinit var grid: Matrix
+    private lateinit var grid: IntMatrix
 
     @Before
     fun setup() {

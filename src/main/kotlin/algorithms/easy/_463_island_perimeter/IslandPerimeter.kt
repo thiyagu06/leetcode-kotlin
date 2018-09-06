@@ -1,6 +1,6 @@
 package algorithms.easy._463_island_perimeter
 
-import extensions.arrays.Matrix
+import extensions.arrays.IntMatrix
 import extensions.arrays.lastColumn
 import extensions.arrays.lastRow
 import extensions.arrays.transpose
@@ -9,14 +9,14 @@ import extensions.arrays.transpose
  * 463 - https://leetcode.com/problems/island-perimeter/description/
  */
 class Solution {
-    fun islandPerimeter(grid: Matrix): Int {
+    fun islandPerimeter(grid: IntMatrix): Int {
         var count = grid.countHorizontalPerimeters()
         val transposed = grid.transpose()
         count += transposed.countHorizontalPerimeters()
         return count
     }
 
-    private fun Matrix.countHorizontalPerimeters(): Int {
+    private fun IntMatrix.countHorizontalPerimeters(): Int {
         var count = 0
 
         (0..lastRow).forEach { i ->
@@ -31,20 +31,20 @@ class Solution {
         return count
     }
 
-    private fun Matrix.isWaterAt(i: Int, j: Int): Boolean =
+    private fun IntMatrix.isWaterAt(i: Int, j: Int): Boolean =
             if (i in 0..lastRow && j in 0..lastColumn) this[i][j] == 0
             else false
 }
 
 class Solution2 {
-    fun islandPerimeter(grid: Matrix): Int {
+    fun islandPerimeter(grid: IntMatrix): Int {
         var count = grid.countHorizontalPerimeters()
         val transposed = grid.transpose()
         count += transposed.countHorizontalPerimeters()
         return count
     }
 
-    private fun Matrix.countHorizontalPerimeters(): Int {
+    private fun IntMatrix.countHorizontalPerimeters(): Int {
         val perimeterConditions: List<(Int, Int) -> (Boolean)> = listOf(
                 { i: Int, j: Int -> isLandAt(i, j) && j == 0 },
                 { i: Int, j: Int -> isLandAt(i, j) && j == lastColumn },
@@ -66,11 +66,11 @@ class Solution2 {
         return count
     }
 
-    private fun Matrix.isLandAt(i: Int, j: Int): Boolean =
+    private fun IntMatrix.isLandAt(i: Int, j: Int): Boolean =
         if (i in 0..lastRow && j in 0..lastColumn) this[i][j] == 1
         else false
 
-    private fun Matrix.isWaterAt(i: Int, j: Int): Boolean =
+    private fun IntMatrix.isWaterAt(i: Int, j: Int): Boolean =
         if (i in 0..lastRow && j in 0..lastColumn) this[i][j] == 0
         else false
 }
