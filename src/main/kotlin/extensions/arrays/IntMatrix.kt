@@ -1,5 +1,7 @@
 package extensions.arrays
 
+import datastructures.list.ListNode
+
 /**
  * `IntMatrix` = `Array<IntArray>`
  */
@@ -13,6 +15,38 @@ val IntMatrix.lastColumn: Int get() = if (isEmpty()) -1 else this[0].lastIndex
 
 val IntMatrix.rowRange: IntRange get() = 0..lastIndex
 val IntMatrix.columnRange: IntRange get() = if (isEmpty()) 0..-1 else 0..this[0].lastIndex
+
+/**
+ * Creates an `m x n` IntMatrix full of zeroes.
+ * `m`: The number of rows
+ * `n`: The number of columns
+ */
+fun intMatrixWithSize(m: Int, n: Int): IntMatrix = Array(m) { IntArray(n) { 0 } }
+
+/**
+ * Create an IntMatrix from the provided lists.
+ * @param rows The rows that will be added to the IntMatrix
+ * @throws IllegalArgumentException if [rows] is empty.
+ * @throws IllegalArgumentException if any of the rows differ in length or are empty.
+ */
+fun buildIntMatrix(vararg rows: List<Int>): IntMatrix {
+    require(rows.isNotEmpty()) { "Cannot create IntMatrix with no elements." }
+    require(rows.all { row -> row.size == rows[0].size && row.isNotEmpty() }) {
+        "All rows must have the same length, and cannot be empty"
+    }
+
+    val m = rows.size
+    val n = rows[0].size
+
+    val matrix = intMatrixWithSize(m, n)
+    rows.forEachIndexed { i, row ->
+        row.forEachIndexed { j, value ->
+            matrix[i][j] = value
+        }
+    }
+
+    return matrix
+}
 
 fun IntMatrix.toList(): List<List<Int>> = fold(mutableListOf()) { acc, intArr ->
     acc.apply {

@@ -14,6 +14,37 @@ val BooleanMatrix.lastColumn: Int get() = if (isEmpty()) -1 else this[0].lastInd
 val BooleanMatrix.rowRange: IntRange get() = 0..lastIndex
 val BooleanMatrix.columnRange: IntRange get() = if (isEmpty()) 0..-1 else 0..this[0].lastIndex
 
+/**
+ * Creates an `m x n` BooleanMatrix where all values are `false`.
+ * `m`: The number of rows
+ * `n`: The number of columns
+ */
+fun booleanMatrixWithSize(m: Int, n: Int): BooleanMatrix = Array(m) { BooleanArray(n) { false } }
+
+/**
+ * Create an BooleanMatrix from the provided lists.
+ * @param rows The rows that will be added to the BooleanMatrix
+ * @throws IllegalArgumentException if [rows] is empty.
+ * @throws IllegalArgumentException if any of the rows differ in length, or are empty.
+ */
+fun buildBooleanMatrix(vararg rows: List<Boolean>): BooleanMatrix {
+    require(rows.isNotEmpty()) { "Cannot create BooleanMatrix with no elements." }
+    require(rows.all { row -> row.size == rows[0].size && row.isNotEmpty() }) {
+        "All rows must have the same length, and cannot be empty"
+    }
+    val m = rows.size
+    val n = rows[0].size
+
+    val matrix = booleanMatrixWithSize(m, n)
+    rows.forEachIndexed { i, row ->
+        row.forEachIndexed { j, value ->
+            matrix[i][j] = value
+        }
+    }
+
+    return matrix
+}
+
 fun BooleanMatrix.toList(): List<List<Boolean>> = fold(mutableListOf()) { acc, intArr ->
     acc.apply {
         acc.add(intArr.toList())

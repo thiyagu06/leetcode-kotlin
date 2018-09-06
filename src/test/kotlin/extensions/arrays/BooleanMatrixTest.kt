@@ -45,6 +45,62 @@ class BooleanMatrixTest {
     }
 
     @Test
+    fun booleanMatrixWithSize() {
+        assertArrayEquals(
+            arrayOf(booleanArrayOf(false, false), booleanArrayOf(false, false), booleanArrayOf(false, false)),
+            booleanMatrixWithSize(3, 2)
+        )
+
+        assertArrayEquals(
+            arrayOf(
+                booleanArrayOf(false, false, false),
+                booleanArrayOf(false, false, false),
+                booleanArrayOf(false, false, false)
+            ),
+            booleanMatrixWithSize(3, 3)
+        )
+
+        assertArrayEquals(
+            arrayOf(booleanArrayOf(false, false, false), booleanArrayOf(false, false, false)),
+            booleanMatrixWithSize(2, 3)
+        )
+    }
+
+    @Test
+    fun buildBooleanMatrix() {
+        assertArrayEquals(
+            matrix1x3,
+            buildBooleanMatrix(listOf(false, true, false))
+        )
+
+        assertArrayEquals(
+            matrix3x4,
+            buildBooleanMatrix(
+                listOf(false, true, false, true),
+                listOf(false, true, false, true),
+                listOf(false, true, false, true)
+            )
+        )
+    }
+
+
+    @Test(expected = IllegalArgumentException::class)
+    fun buildBooleanMatrixDifferingRowLengths() {
+        extensions.arrays.buildBooleanMatrix(listOf(true), listOf(true, false))
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun buildBooleanMatrixNoElements() {
+        extensions.arrays.buildBooleanMatrix()
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun buildBooleanMatrixNoElements2() {
+        extensions.arrays.buildBooleanMatrix(emptyList())
+    }
+
+
+    @Test
     fun toList() {
         assertEquals(list3x4, matrix3x4.toList())
         assertEquals(list1x3, matrix1x3.toList())
