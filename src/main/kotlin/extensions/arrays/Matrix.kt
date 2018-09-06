@@ -5,6 +5,9 @@ package extensions.arrays
  */
 typealias Matrix = Array<IntArray>
 
+// TODO: Matrix -> IntMatrix
+// TODO: create BooleanMatrix
+
 val Matrix.rows: Int get() = size
 val Matrix.columns: Int get() = if (isEmpty()) 0 else this[0].size
 
@@ -12,8 +15,7 @@ val Matrix.lastRow: Int get() = lastIndex
 val Matrix.lastColumn: Int get() = if (isEmpty()) -1 else this[0].lastIndex
 
 val Matrix.rowRange: IntRange get() = 0..lastIndex
-val Matrix.columnRange: IntRange get() = if (isEmpty()) 0..0 else 0..this[0].lastIndex
-
+val Matrix.columnRange: IntRange get() = if (isEmpty()) 0..-1 else 0..this[0].lastIndex
 
 fun Matrix.toList(): List<List<Int>> = fold(mutableListOf()) { acc, intArr ->
     acc.apply {
@@ -21,6 +23,17 @@ fun Matrix.toList(): List<List<Int>> = fold(mutableListOf()) { acc, intArr ->
     }
 }
 
+fun Matrix.dfs(
+    visited: Array<BooleanArray> = Array(size) { BooleanArray(this[0].size) },
+    visit: (Int, Int) -> Unit
+) {
+    rowRange.forEach { r ->
+        columnRange.forEach { c ->
+            visited[r][c] = true
+            visit(r, c)
+        }
+    }
+}
 
 /**
  * Create a 2D array from a list of lists.
