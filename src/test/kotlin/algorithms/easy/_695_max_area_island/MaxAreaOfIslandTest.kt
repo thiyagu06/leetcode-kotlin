@@ -8,7 +8,6 @@ class MaxAreaOfIslandTest {
 
     private val recDFSSolution = RecursiveDFSSolution()
     private val recDFSSolution2 = RecursiveDFSSolution2()
-    private val iterDFSSolution = IterativeDFSSolution()
     private val bfsSolution = BFSSolution()
 
     private val grid1 = arrayOf(
@@ -68,18 +67,6 @@ class MaxAreaOfIslandTest {
         assertEquals(6, recDFSSolution2.maxAreaOfIsland(grid6))
         assertEquals(4, recDFSSolution2.maxAreaOfIsland(grid7))
         assertEquals(1, recDFSSolution2.maxAreaOfIsland(grid8))
-    }
-
-    @Test
-    fun maxAreaOfIslandIter() {
-        assertEquals(4, iterDFSSolution.maxAreaOfIsland(grid1))
-        assertEquals(6, iterDFSSolution.maxAreaOfIsland(grid2))
-        assertEquals(0, iterDFSSolution.maxAreaOfIsland(grid3))
-        assertEquals(1, iterDFSSolution.maxAreaOfIsland(grid4))
-        assertEquals(5, iterDFSSolution.maxAreaOfIsland(grid5))
-        assertEquals(6, iterDFSSolution.maxAreaOfIsland(grid6))
-        assertEquals(4, iterDFSSolution.maxAreaOfIsland(grid7))
-        assertEquals(1, iterDFSSolution.maxAreaOfIsland(grid8))
     }
 
     @Test
