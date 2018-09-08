@@ -4,6 +4,8 @@ package extensions.math
  * Binary/Hexadecimal Extensions
  */
 
+const val INT_BITS = 32
+
 /**
  * Convert Int to binary string:
  *
@@ -67,6 +69,50 @@ fun Int.hasKthBitSet(k: Int): Boolean {
  * @param k the kth least significant digit, where k = 0 is the least significant bit.
  */
 fun Int.valueOfKthBit(k: Int): Int = if (hasKthBitSet(k)) 1 else 0
+
+
+/**
+ * See [Integer.bitCount].
+ * @return the number of set (`1`) bits in the [Int].
+ */
+fun Int.numberOfOneBits(): Int = Integer.bitCount(this)
+
+/**
+ * @return the number of unset (`0`) bits in the [Int].
+ */
+fun Int.numberOfZeroBits(): Int = INT_BITS - Integer.bitCount(this)
+
+/**
+ * Shows how to do it manually, instead of using [Integer.bitCount].
+ * @return the number of set (`1`) bits in the [Int].
+ */
+fun Int.numberOfOneBitsAlt(): Int =
+    (0 until 32).fold(0) { acc, k ->
+        if (this and (0b1 shl k) != 0)
+            acc + 1
+        else acc
+    }
+
+/**
+ * Shows how to do it manually, instead of using [Integer.bitCount].
+ * @return the number of unset (`0`) bits in the [Int].
+ */
+fun Int.numberOfZeroBitsAlt(): Int =
+    (0 until 32).fold(0) { acc, k ->
+        if (this and (0b1 shl k) == 0)
+            acc + 1
+        else acc
+    }
+
+/**
+ * See [Integer.reverse]
+ */
+fun Int.reverseBits(): Int = Integer.reverse(this)
+
+/**
+ * See [Integer.reverseBytes]
+ */
+fun Int.reverseBytes(): Int = Integer.reverseBytes(this)
 
 
 // TODO

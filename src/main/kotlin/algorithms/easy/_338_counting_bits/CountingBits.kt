@@ -1,5 +1,6 @@
 package algorithms.easy._338_counting_bits
 
+import extensions.math.numberOfOneBits
 import extensions.math.toBinaryString
 
 /**
@@ -18,14 +19,6 @@ class Solution {
         }
         return result
     }
-
-    // See #191 - Number of 1 Bits
-    private fun Int.numberOfOneBits(): Int =
-        (0 until 32).fold(0) { acc, k ->
-            if (this and (0b1 shl k) != 0)
-                acc + 1
-            else acc
-        }
 }
 
 class SolutionTwo {

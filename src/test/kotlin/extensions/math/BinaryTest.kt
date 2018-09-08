@@ -184,4 +184,102 @@ class BinaryTest {
         assertEquals(1, (-5).valueOfKthBit(1))
         assertEquals(1, (-5).valueOfKthBit(3))
     }
+
+    @Test
+    fun numberOfOneBits() {
+        assertEquals(0, 0.numberOfOneBits())
+        assertEquals(1, 1.numberOfOneBits())
+        assertEquals(1, 2.numberOfOneBits())
+        assertEquals(2, 3.numberOfOneBits())
+        assertEquals(1, 4.numberOfOneBits())
+        assertEquals(3, 7.numberOfOneBits())
+        assertEquals(4, 15.numberOfOneBits())
+
+        assertEquals(INT_BITS -1, Int.MAX_VALUE.numberOfOneBits())
+        assertEquals(1, Int.MIN_VALUE.numberOfOneBits())
+
+        assertEquals(INT_BITS, (-1).numberOfOneBits())
+        assertEquals(INT_BITS - 1, (-2).numberOfOneBits())
+        assertEquals(INT_BITS - 1, (-5).numberOfOneBits())
+        assertEquals(INT_BITS - 2, (-10).numberOfOneBits())
+    }
+
+    @Test
+    fun numberOfZeroBits() {
+        assertEquals(INT_BITS, 0.numberOfZeroBits())
+        assertEquals(INT_BITS - 1, 1.numberOfZeroBits())
+        assertEquals(INT_BITS - 1, 2.numberOfZeroBits())
+        assertEquals(INT_BITS - 2, 3.numberOfZeroBits())
+        assertEquals(INT_BITS - 1, 4.numberOfZeroBits())
+        assertEquals(INT_BITS - 3, 7.numberOfZeroBits())
+        assertEquals(INT_BITS - 4, 15.numberOfZeroBits())
+
+        assertEquals(1, Int.MAX_VALUE.numberOfZeroBits())
+        assertEquals(INT_BITS - 1, Int.MIN_VALUE.numberOfZeroBits())
+
+        assertEquals(0, (-1).numberOfZeroBits())
+        assertEquals(1, (-2).numberOfZeroBits())
+        assertEquals(1, (-5).numberOfZeroBits())
+        assertEquals(2, (-10).numberOfZeroBits())
+    }
+
+    @Test
+    fun numberOfOneBitsAlt() {
+        assertEquals(0, 0.numberOfOneBitsAlt())
+        assertEquals(1, 1.numberOfOneBitsAlt())
+        assertEquals(1, 2.numberOfOneBitsAlt())
+        assertEquals(2, 3.numberOfOneBitsAlt())
+        assertEquals(1, 4.numberOfOneBitsAlt())
+        assertEquals(3, 7.numberOfOneBitsAlt())
+        assertEquals(4, 15.numberOfOneBitsAlt())
+
+        assertEquals(INT_BITS -1, Int.MAX_VALUE.numberOfOneBitsAlt())
+        assertEquals(1, Int.MIN_VALUE.numberOfOneBitsAlt())
+
+        assertEquals(INT_BITS, (-1).numberOfOneBitsAlt())
+        assertEquals(INT_BITS - 1, (-2).numberOfOneBitsAlt())
+        assertEquals(INT_BITS - 1, (-5).numberOfOneBitsAlt())
+        assertEquals(INT_BITS - 2, (-10).numberOfOneBitsAlt())
+    }
+
+    @Test
+    fun numberOfZeroBitsAlt() {
+        assertEquals(INT_BITS, 0.numberOfZeroBitsAlt())
+        assertEquals(INT_BITS - 1, 1.numberOfZeroBitsAlt())
+        assertEquals(INT_BITS - 1, 2.numberOfZeroBitsAlt())
+        assertEquals(INT_BITS - 2, 3.numberOfZeroBitsAlt())
+        assertEquals(INT_BITS - 1, 4.numberOfZeroBitsAlt())
+        assertEquals(INT_BITS - 3, 7.numberOfZeroBitsAlt())
+        assertEquals(INT_BITS - 4, 15.numberOfZeroBitsAlt())
+
+        assertEquals(1, Int.MAX_VALUE.numberOfZeroBitsAlt())
+        assertEquals(INT_BITS - 1, Int.MIN_VALUE.numberOfZeroBitsAlt())
+
+        assertEquals(0, (-1).numberOfZeroBitsAlt())
+        assertEquals(1, (-2).numberOfZeroBitsAlt())
+        assertEquals(1, (-5).numberOfZeroBitsAlt())
+        assertEquals(2, (-10).numberOfZeroBitsAlt())
+    }
+
+    @Test
+    fun reverseBits() {
+        assertEquals(-1, (-1).reverseBits())
+        assertEquals(0, 0.reverseBits())
+        assertEquals(Int.MIN_VALUE, 1.reverseBits())
+        assertEquals(1, Int.MIN_VALUE.reverseBits())
+
+        assertEquals(-2, Int.MAX_VALUE.reverseBits())
+        assertEquals(Int.MAX_VALUE, (-2).reverseBits())
+        assertEquals(-536870912, 7.reverseBits())
+    }
+
+    @Test
+    fun reverseBytes() {
+        assertEquals(-1, (-1).reverseBytes())
+        assertEquals(0, 0.reverseBytes())
+        assertEquals(16777216, 1.reverseBytes())
+
+        assertEquals(128, Int.MIN_VALUE.reverseBytes())
+        assertEquals(-129, Int.MAX_VALUE.reverseBytes())
+    }
 }
