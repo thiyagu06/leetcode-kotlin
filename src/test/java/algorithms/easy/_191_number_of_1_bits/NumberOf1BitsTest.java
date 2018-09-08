@@ -4,9 +4,10 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+@SuppressWarnings("NumericOverflow")
 public class NumberOf1BitsTest {
 
-    private Solution solution = new Solution();
+    private final Solution solution = new Solution();
 
     @Test
     public void hammingWeight() {

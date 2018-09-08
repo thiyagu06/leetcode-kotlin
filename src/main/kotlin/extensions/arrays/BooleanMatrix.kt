@@ -12,7 +12,7 @@ val BooleanMatrix.lastRow: Int get() = lastIndex
 val BooleanMatrix.lastColumn: Int get() = if (isEmpty()) -1 else this[0].lastIndex
 
 val BooleanMatrix.rowRange: IntRange get() = 0..lastIndex
-val BooleanMatrix.columnRange: IntRange get() = if (isEmpty()) 0..-1 else 0..this[0].lastIndex
+val BooleanMatrix.columnRange: IntRange get() = if (isEmpty()) IntRange.EMPTY else 0..this[0].lastIndex
 
 /**
  * Creates an `m x n` BooleanMatrix where all values are `false`.

@@ -5,12 +5,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Solution {
+class Solution {
     public String reverseWords(String s) {
         final String trimmed = s.trim();
         final String[] split = trimmed.split(" ");
         final List<String> words = Arrays.stream(split).filter(word -> !word.isEmpty()).collect(Collectors.toList());
         Collections.reverse(words);
-        return words.stream().collect(Collectors.joining(" "));
+        return String.join(" ", words);
     }
 }

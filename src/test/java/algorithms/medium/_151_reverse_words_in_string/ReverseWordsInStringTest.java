@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class ReverseWordsInStringTest {
 
-    private Solution solution = new Solution();
+    private final Solution solution = new Solution();
     
     @Test
     public void reverseWords() {

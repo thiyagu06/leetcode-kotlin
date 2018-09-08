@@ -12,7 +12,6 @@ class IntRangeExtTest {
         assertTrue((0..1).isNotEmpty())
         assertTrue((0 until 1).isNotEmpty())
         assertTrue((0..0).isNotEmpty())
-        assertFalse((0..-1).isNotEmpty())
         assertFalse(IntRange.EMPTY.isNotEmpty())
     }
 }

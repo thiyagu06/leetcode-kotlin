@@ -1,7 +1,5 @@
 package extensions.arrays
 
-import datastructures.list.ListNode
-
 /**
  * `IntMatrix` = `Array<IntArray>`
  */
@@ -14,7 +12,7 @@ val IntMatrix.lastRow: Int get() = lastIndex
 val IntMatrix.lastColumn: Int get() = if (isEmpty()) -1 else this[0].lastIndex
 
 val IntMatrix.rowRange: IntRange get() = 0..lastIndex
-val IntMatrix.columnRange: IntRange get() = if (isEmpty()) 0..-1 else 0..this[0].lastIndex
+val IntMatrix.columnRange: IntRange get() = if (isEmpty()) IntRange.EMPTY else 0..this[0].lastIndex
 
 /**
  * Creates an `m x n` IntMatrix full of zeroes.

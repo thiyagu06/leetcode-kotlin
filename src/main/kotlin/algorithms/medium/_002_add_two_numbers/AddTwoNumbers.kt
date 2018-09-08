@@ -1,8 +1,6 @@
 package algorithms.medium._002_add_two_numbers
 
 import datastructures.list.ListNode
-import datastructures.list.toList
-import java.math.BigInteger
 
 /**
  * 2 - https://leetcode.com/problems/add-two-numbers/description/

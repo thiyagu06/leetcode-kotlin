@@ -40,8 +40,8 @@ class IntMatrixTest {
         assertEquals(2, matrix1x3.lastColumn)
         assertEquals((0 until 1), matrix1x3.rowRange)
         assertEquals((0 until 3), matrix1x3.columnRange)
-        assertEquals((0..-1), emptyArray<IntArray>().rowRange)
-        assertEquals((0..-1), emptyArray<IntArray>().columnRange)
+        assertEquals(IntRange.EMPTY, emptyArray<IntArray>().rowRange)
+        assertEquals(IntRange.EMPTY, emptyArray<IntArray>().columnRange)
     }
 
     @Test
