@@ -23,11 +23,7 @@ class ListNode(var `val`: Int = 0) {
         return true
     }
 
-    override fun hashCode(): Int {
-        var result = `val`
-        result = 31 * result + (next?.hashCode() ?: 0)
-        return result
-    }
+    override fun hashCode(): Int = `val`
 
 
     companion object {

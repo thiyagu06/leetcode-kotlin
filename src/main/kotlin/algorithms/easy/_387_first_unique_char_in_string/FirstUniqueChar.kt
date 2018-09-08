@@ -5,7 +5,7 @@ package algorithms.easy._387_first_unique_char_in_string
  */
 class Solution {
     /**
-     * TODO: Add Tests
+     * TODO
      * Time: O(?)
      * Space: O(?)
      */

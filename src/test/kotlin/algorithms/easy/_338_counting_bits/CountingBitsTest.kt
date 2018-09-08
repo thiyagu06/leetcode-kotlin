@@ -3,12 +3,14 @@ package algorithms.easy._338_counting_bits
 import org.junit.Test
 
 import org.junit.Assert.*
+import org.junit.Ignore
 
 class CountingBitsTest {
 
     private val solution = Solution()
     private val solutionTwo = SolutionTwo()
     private val solutionThree = SolutionThree()
+    private val followUpSolution = FollowUpSolution()
 
 
     @Test
@@ -92,6 +94,35 @@ class CountingBitsTest {
         assertArrayEquals(
             intArrayOf(0, 1, 1, 2, 1, 2),
             solutionThree.countBits(5)
+        )
+    }
+
+    @Ignore
+    @Test
+    fun countBitsFollowUp() {
+        assertArrayEquals(
+            intArrayOf(0),
+            followUpSolution.countBits(0)
+        )
+
+        assertArrayEquals(
+            intArrayOf(0, 1),
+            followUpSolution.countBits(1)
+        )
+
+        assertArrayEquals(
+            intArrayOf(0, 1, 1),
+            followUpSolution.countBits(2)
+        )
+
+        assertArrayEquals(
+            intArrayOf(0, 1, 1, 2),
+            followUpSolution.countBits(3)
+        )
+
+        assertArrayEquals(
+            intArrayOf(0, 1, 1, 2, 1, 2),
+            followUpSolution.countBits(5)
         )
     }
 }

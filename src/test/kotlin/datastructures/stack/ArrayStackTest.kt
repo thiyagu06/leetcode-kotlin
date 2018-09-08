@@ -80,4 +80,11 @@ class ArrayStackTest {
         assertEquals(mutableListOf("C", "B", "Z", "A"), mutableList)
     }
 
+    @Test
+    fun testToString() {
+        assertEquals(
+            "ArrayStack(elements=[C, B, A])", stack.toString()
+        )
+    }
+
 }

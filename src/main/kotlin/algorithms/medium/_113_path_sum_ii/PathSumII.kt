@@ -8,9 +8,8 @@ import datastructures.tree.rootToLeafPaths
  */
 class Solution {
     /**
-     * TODO: Add Tests
-     * Time: O(n)
-     * Space: O(n)
+     * Time: O(?)
+     * Space: O(?)
      */
     fun pathSum(root: TreeNode?, sum: Int): List<List<Int>> =
             root.rootToLeafPaths().filter { it.sum() == sum }

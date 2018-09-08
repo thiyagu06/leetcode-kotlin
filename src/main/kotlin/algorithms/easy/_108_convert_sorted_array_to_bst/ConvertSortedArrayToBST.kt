@@ -7,7 +7,6 @@ import datastructures.tree.TreeNode
  */
 class Solution {
     /**
-     * TODO: Add Tests
      * Time: O(n) - array copying
      * Space: O(n) - recursion & array copying
      */
@@ -36,9 +35,8 @@ class Solution {
 }
 
 
-class SolutionAlternate {
+class SolutionAlt {
     /**
-     * TODO: Add Tests
      * Use IntRange of indices instead of copying array, compress base cases
      * Time: O(n)
      * Space: O(n) - recursive stack space

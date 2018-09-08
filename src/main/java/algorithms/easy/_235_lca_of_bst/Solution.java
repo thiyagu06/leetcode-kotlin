@@ -1,38 +1,27 @@
 package algorithms.easy._235_lca_of_bst;
 
+import datastructures.tree.TreeNode;
+
 /**
  * 235 - https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/description/
  */
 class Solution {
     /**
-     * Assumes p,q != null
+     * Assumes p, q != null
      */
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null) {
             return null;
-        } else if (p.val > q.val) {
+        } else if (p.getVal() > q.getVal()) {
             return lowestCommonAncestor(root, q, p);
         }
 
-        if (p.val < root.val && q.val < root.val) {
-            return lowestCommonAncestor(root.left, p, q);
-        } else if (p.val > root.val && q.val > root.val) {
-            return lowestCommonAncestor(root.right, p, q);
+        if (p.getVal() < root.getVal() && q.getVal() < root.getVal()) {
+            return lowestCommonAncestor(root.getLeft(), p, q);
+        } else if (p.getVal() > root.getVal() && q.getVal() > root.getVal()) {
+            return lowestCommonAncestor(root.getRight(), p, q);
         }
 
         return root;
-    }
-
-    /**
-     * Definition for a binary tree node.
-     */
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
     }
 }

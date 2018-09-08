@@ -1,5 +1,7 @@
 package algorithms.easy._160_intersection_linked_list;
 
+import datastructures.list.ListNode;
+
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.UnaryOperator;
@@ -22,7 +24,7 @@ public class Solution {
         ListNode shorterListNode = (list1Size >= list2Size) ? headB : headA;
 
         for (int i = 0; i < sizeDiff; i++) {
-            longerListNode = longerListNode.next;
+            longerListNode = longerListNode.getNext();
         }
 
         while (shorterListNode != null && longerListNode != null) {
@@ -30,8 +32,8 @@ public class Solution {
                 return shorterListNode;
             }
 
-            shorterListNode = shorterListNode.next;
-            longerListNode = longerListNode.next;
+            shorterListNode = shorterListNode.getNext();
+            longerListNode = longerListNode.getNext();
         }
 
         return null;
@@ -46,7 +48,7 @@ public class Solution {
         ListNode node = head;
         while (node != null) {
             size++;
-            node = node.next;
+            node = node.getNext();
         }
 
         return size;
@@ -57,7 +59,7 @@ public class Solution {
      * Time: O(m + n)
      * Space: O(1)
      */
-    public ListNode getIntersectionNodeAlt(ListNode headA, ListNode headB) {
+    public ListNode getIntersectionNode2(ListNode headA, ListNode headB) {
         if (headA == null || headB == null) {
             return null;
         }
@@ -69,7 +71,7 @@ public class Solution {
         ListNode lastA = null;
         ListNode lastB = null;
 
-        // Alternate which list to iterate next.
+        // Alternate which list to iterate getNext().
         final UnaryOperator<ListNode> nextList = (currentNextList) ->
                 (currentNextList == headA) ? headB : headA;
 
@@ -80,8 +82,8 @@ public class Solution {
             }
 
             // set next A
-            if (p1.next != null) {
-                p1 = p1.next;
+            if (p1.getNext() != null) {
+                p1 = p1.getNext();
             } else {
                 if (lastA == null) lastA = p1;
 
@@ -90,8 +92,8 @@ public class Solution {
             }
 
             // set next B
-            if (p2.next != null) {
-                p2 = p2.next;
+            if (p2.getNext() != null) {
+                p2 = p2.getNext();
             } else {
                 if (lastB == null) lastB = p2;
 
@@ -108,14 +110,14 @@ public class Solution {
      * Time: O(m + n)
      * Space: O(m) or O(n)
      */
-    public ListNode getIntersectionNodeSuboptimal(ListNode headA, ListNode headB) {
+    public ListNode getIntersectionNode3(ListNode headA, ListNode headB) {
         final Set<ListNode> visited = new HashSet<>();
         ListNode nodeA = headA;
         ListNode nodeB = headB;
         while (nodeA != null) {
             // no cycles, don't need to check
             visited.add(nodeA);
-            nodeA = nodeA.next;
+            nodeA = nodeA.getNext();
         }
 
         while (nodeB != null) {
@@ -124,23 +126,10 @@ public class Solution {
             }
 
             visited.add(nodeB);
-            nodeB = nodeB.next;
+            nodeB = nodeB.getNext();
         }
 
         return null;
-    }
-
-    /**
-     * Definition for singly-linked list.
-     */
-    class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
     }
 
 }

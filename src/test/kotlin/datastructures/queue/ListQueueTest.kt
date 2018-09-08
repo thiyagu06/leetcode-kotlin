@@ -12,6 +12,9 @@ class ListQueueTest {
 
     @Test
     fun test() {
+        assertFalse(q1.isNotEmpty())
+        assertTrue(q2.isNotEmpty())
+
         assertEquals(0, q1.size)
         assertTrue(q1.isEmpty())
         q1.enqueue(1)
@@ -55,4 +58,10 @@ class ListQueueTest {
         q2.clear()
         assertEquals(0, q2.size)
     }
+
+    @Test
+    fun testToString() {
+        assertEquals("ListQueue(elements=[7, 8, 9])", q2.toString())
+    }
+
 }

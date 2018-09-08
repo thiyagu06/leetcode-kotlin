@@ -27,4 +27,10 @@ class FloodFillTest {
             )
         )
     }
+
+    @Test
+    fun pixel() {
+        val pixel = Pixel(x = 2, y = 3, color = 2, visited = false)
+        assertEquals("((2, 3), color=2, visited=false)", pixel.toString())
+    }
 }

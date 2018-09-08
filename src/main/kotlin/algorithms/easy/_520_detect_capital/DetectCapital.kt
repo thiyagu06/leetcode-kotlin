@@ -5,12 +5,11 @@ package algorithms.easy._520_detect_capital
  */
 class Solution {
     /**
-     * TODO: Add Tests
-     * Time: O(?)
-     * Space: O(?)
+     * Time: O(n)
+     * Space: O(1)
      */
     fun detectCapitalUse(word: String): Boolean =
-            word.all { it.isUpperCase() }
-                    || word.all { it.isLowerCase() }
-                    || (word.first().isUpperCase() && word.drop(1).all { it.isLowerCase() })
+        word.all { it.isUpperCase() }
+                || word.all { it.isLowerCase() }
+                || (word.first().isUpperCase() && word.drop(1).all { it.isLowerCase() })
 }

@@ -281,12 +281,11 @@ fun TreeNode?.allPaths(
  * Create a binary tree from the given elements.
  * Insertion order is the same as LeetCode's 'Tree Visualizer'
  * @param elements The values to add to the tree.
- * @return The root of a binary tree containing the [elements], or `null` if
- *         elements is empty.
+ * @return The root of a binary tree containing the [elements]
+ * @throws IllegalArgumentException If [elements] is empty
  */
 fun buildTree(vararg elements: Int?): TreeNode? {
-    if (elements.isEmpty())
-        return null
+    require (elements.isNotEmpty()) { "Cannot build empty tree" }
 
     require(elements[0] != null) { "Root cannot be null" }
 

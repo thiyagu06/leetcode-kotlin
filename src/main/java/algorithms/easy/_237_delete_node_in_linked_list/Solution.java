@@ -1,5 +1,7 @@
 package algorithms.easy._237_delete_node_in_linked_list;
 
+import datastructures.list.ListNode;
+
 /**
  * 237 - https://leetcode.com/problems/delete-node-in-a-linked-list/description/
  */
@@ -9,28 +11,15 @@ class Solution {
             return;
         }
 
-        while (node.next != null) {
-            node.val = node.next.val;
+        while (node.getNext() != null) {
+            node.setVal(node.getNext().getVal());
 
-            if (node.next.next == null) {
-                node.next = null;
+            if (node.getNext().getNext() == null) {
+                node.setNext(null);
                 return;
             }
 
-            node = node.next;
-        }
-    }
-
-    /**
-     * Definition for singly-linked list.
-     */
-    class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
+            node = node.getNext();
         }
     }
 }

@@ -3,10 +3,12 @@ package algorithms.easy._326_power_of_three
 import org.junit.Test
 
 import org.junit.Assert.*
+import org.junit.Ignore
 
 class PowerOfThreeTest {
     private val solution = Solution()
     private val solutionAlt = SolutionAlt()
+    private val followUpSolution = FollowUpSolution()
 
     @Test
     fun isPowerOfThree() {
@@ -52,4 +54,26 @@ class PowerOfThreeTest {
         assertFalse(solutionAlt.isPowerOfThree(Int.MAX_VALUE - 2))
     }
 
+    @Ignore
+    @Test
+    fun isPowerOfThreeFollowup() {
+        assertTrue(followUpSolution.isPowerOfThree(1))
+        assertTrue(followUpSolution.isPowerOfThree(3))
+        assertTrue(followUpSolution.isPowerOfThree(9))
+        assertTrue(followUpSolution.isPowerOfThree(27))
+        assertTrue(followUpSolution.isPowerOfThree(81))
+        assertTrue(followUpSolution.isPowerOfThree(243))
+        assertTrue(followUpSolution.isPowerOfThree(729))
+        assertTrue(followUpSolution.isPowerOfThree(1162261467))
+
+        assertFalse(followUpSolution.isPowerOfThree(0))
+        assertFalse(followUpSolution.isPowerOfThree(2))
+        assertFalse(followUpSolution.isPowerOfThree(4))
+        assertFalse(followUpSolution.isPowerOfThree(10))
+        assertFalse(followUpSolution.isPowerOfThree(100))
+        assertFalse(followUpSolution.isPowerOfThree(730))
+        assertFalse(followUpSolution.isPowerOfThree(Int.MAX_VALUE))
+        assertFalse(followUpSolution.isPowerOfThree(Int.MAX_VALUE - 1))
+        assertFalse(followUpSolution.isPowerOfThree(Int.MAX_VALUE - 2))
+    }
 }

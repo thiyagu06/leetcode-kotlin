@@ -22,11 +22,11 @@ class Solution {
     )
 
     /**
-     * TODO: Add Tests
+     * TODO
      * Time: O(?)
      * Space: O(?)
      */
-    private fun convertToRoman(n: Int, roman: String = ""): String =
+    fun convertToRoman(n: Int, roman: String = ""): String =
             when (n) {
                 0 -> ""
                 in arabicToRoman -> roman + arabicToRoman[n]

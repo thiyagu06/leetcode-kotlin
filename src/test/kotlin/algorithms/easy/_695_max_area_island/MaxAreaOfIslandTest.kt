@@ -3,6 +3,7 @@ package algorithms.easy._695_max_area_island
 import org.junit.Test
 
 import org.junit.Assert.*
+import org.junit.Ignore
 
 class MaxAreaOfIslandTest {
 
@@ -69,15 +70,16 @@ class MaxAreaOfIslandTest {
         assertEquals(1, recDFSSolution2.maxAreaOfIsland(grid8))
     }
 
+    @Ignore
     @Test
     fun maxAreaOfIslandBFS() {
-//        assertEquals(4, bfsSolution.maxAreaOfIsland(grid1))
-//        assertEquals(6, bfsSolution.maxAreaOfIsland(grid2))
-//        assertEquals(0, bfsSolution.maxAreaOfIsland(grid3))
-//        assertEquals(1, bfsSolution.maxAreaOfIsland(grid4))
-//        assertEquals(5, bfsSolution.maxAreaOfIsland(grid5))
-//        assertEquals(6, bfsSolution.maxAreaOfIsland(grid6))
-//        assertEquals(4, bfsSolution.maxAreaOfIsland(grid7))
+        assertEquals(4, bfsSolution.maxAreaOfIsland(grid1))
+        assertEquals(6, bfsSolution.maxAreaOfIsland(grid2))
+        assertEquals(0, bfsSolution.maxAreaOfIsland(grid3))
+        assertEquals(1, bfsSolution.maxAreaOfIsland(grid4))
+        assertEquals(5, bfsSolution.maxAreaOfIsland(grid5))
+        assertEquals(6, bfsSolution.maxAreaOfIsland(grid6))
+        assertEquals(4, bfsSolution.maxAreaOfIsland(grid7))
         assertEquals(1, bfsSolution.maxAreaOfIsland(grid8))
     }
 }
