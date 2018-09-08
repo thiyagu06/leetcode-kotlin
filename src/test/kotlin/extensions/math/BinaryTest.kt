@@ -271,6 +271,9 @@ class BinaryTest {
         assertEquals(-2, Int.MAX_VALUE.reverseBits())
         assertEquals(Int.MAX_VALUE, (-2).reverseBits())
         assertEquals(-536870912, 7.reverseBits())
+
+        assertEquals(964176192, 43261596.reverseBits())
+        assertEquals(43261596, 964176192.reverseBits())
     }
 
     @Test

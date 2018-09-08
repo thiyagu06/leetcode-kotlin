@@ -1,9 +1,8 @@
 package extensions.math
 
 /**
- * Binary/Hexadecimal Extensions
+ * Extensions for Bit Manipulation & handling binary & hexadecimal numbers.
  */
-
 const val INT_BITS = 32
 
 /**
@@ -70,7 +69,6 @@ fun Int.hasKthBitSet(k: Int): Boolean {
  */
 fun Int.valueOfKthBit(k: Int): Int = if (hasKthBitSet(k)) 1 else 0
 
-
 /**
  * See [Integer.bitCount].
  * @return the number of set (`1`) bits in the [Int].
@@ -114,6 +112,7 @@ fun Int.reverseBits(): Int = Integer.reverse(this)
  */
 fun Int.reverseBytes(): Int = Integer.reverseBytes(this)
 
+//fun Int.withKthBitSet(k: Int): Int = this or (1 shl k)
 
 // TODO
 // withKthBit(Set/Unset)
