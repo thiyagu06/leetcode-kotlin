@@ -13,7 +13,6 @@ class NumberExtTest {
         setOf(-9, -3, -1, 1, 3, 7, 21, 101, 127).forEach { assertFalse(it.isEven) }
     }
 
-
     @Test
     fun isOdd() {
         setOf(-9, -3, -1, 1, 3, 7, 21, 101, 127).forEach { assertTrue(it.isOdd) }
