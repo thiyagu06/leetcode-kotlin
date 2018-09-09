@@ -1,7 +1,7 @@
 package algorithms.easy._235_lca_of_bst
 
 import datastructures.tree.buildTree
-import junit.framework.Assert.assertEquals
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class LowestCommonAncestorBSTTest {

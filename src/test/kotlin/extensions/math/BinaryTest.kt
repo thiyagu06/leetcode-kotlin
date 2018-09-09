@@ -363,4 +363,21 @@ class BinaryTest {
         assertEquals(-1, (-2).setRightmost0Bit())
         assertEquals(-1, (-1).setRightmost0Bit())
     }
+
+    @Test
+    fun swapBits() {
+        assertEquals(15, 15.swapBits(0, 0))
+        assertEquals(15, 15.swapBits(0, 1))
+        assertEquals(15, 15.swapBits(0, 2))
+        assertEquals(15, 15.swapBits(0, 3))
+        assertEquals(30, 15.swapBits(0, 4))
+        assertEquals(46, 15.swapBits(0, 5))
+
+        assertEquals(7, 7.swapBits(0, 1))
+        assertEquals(7, 7.swapBits(0, 2))
+        assertEquals(14, 7.swapBits(0, 3))
+        assertEquals(22, 7.swapBits(0, 4))
+
+        assertEquals(9, 3.swapBits(1, 3))
+    }
 }

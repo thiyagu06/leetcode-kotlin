@@ -189,3 +189,15 @@ fun Int.reverseBits(): Int = Integer.reverse(this)
  */
 fun Int.reverseBytes(): Int = Integer.reverseBytes(this)
 
+/**
+ * @return the value produced by swapping the bits at positions [i] and [j]
+ */
+fun Int.swapBits(i: Int, j: Int): Int {
+    val iBit = (this shr i) `&` 1
+    val jBit = (this shr j) `&` 1
+
+    if (iBit `^` jBit == 0)     // both 0 or both 1
+        return this
+
+    return this `^` ((1 shl i) `|` (1 shl j))
+}

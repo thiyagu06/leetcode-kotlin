@@ -95,5 +95,15 @@ public class Binary {
         return ~(-x);
     }
 
+    public static int swapBits(int x, int i, int j) {
+        int iBit = (x >> i) & 1;
+        int jBit = (x >> j) & 1;
+
+        if ((iBit ^ jBit) == 0) {   // Are the same
+            return x;
+        }
+
+        return x ^ ((1 << i) | (1 << j));
+    }
 
 }
