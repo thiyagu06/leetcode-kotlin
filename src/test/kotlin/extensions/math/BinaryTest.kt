@@ -7,6 +7,7 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 import kotlin.math.pow
 
+@SuppressWarnings("NumericOverflow")
 class BinaryTest {
 
     @Test
@@ -89,47 +90,6 @@ class BinaryTest {
     }
 
     @Test
-    fun withLastBitSetTo() {
-        assertEquals(0, 0.withLastBitSetTo(BinaryValue.ZERO))
-        assertEquals(1, 0.withLastBitSetTo(BinaryValue.ONE))
-
-        assertEquals(0, 1.withLastBitSetTo(BinaryValue.ZERO))
-        assertEquals(1, 1.withLastBitSetTo(BinaryValue.ONE))
-
-        assertEquals(10, 10.withLastBitSetTo(BinaryValue.ZERO))
-        assertEquals(11, 10.withLastBitSetTo(BinaryValue.ONE))
-
-        assertEquals(6, 7.withLastBitSetTo(BinaryValue.ZERO))
-        assertEquals(7, 7.withLastBitSetTo(BinaryValue.ONE))
-
-        assertEquals(-2, (-1).withLastBitSetTo(BinaryValue.ZERO))
-        assertEquals(-1, (-1).withLastBitSetTo(BinaryValue.ONE))
-
-        assertEquals(-8, (-7).withLastBitSetTo(BinaryValue.ZERO))
-        assertEquals(-7, (-7).withLastBitSetTo(BinaryValue.ONE))
-    }
-
-    @Test
-    fun withLastBitSet() {
-        assertEquals(1, 0.withLastBitSet())
-        assertEquals(1, 1.withLastBitSet())
-        assertEquals(11, 10.withLastBitSet())
-        assertEquals(7, 7.withLastBitSet())
-        assertEquals(-1, (-1).withLastBitSet())
-        assertEquals(-7, (-7).withLastBitSet())
-    }
-
-    @Test
-    fun withLastBitUnset() {
-        assertEquals(0, 0.withLastBitUnset())
-        assertEquals(0, 1.withLastBitUnset())
-        assertEquals(10, 10.withLastBitUnset())
-        assertEquals(6, 7.withLastBitUnset())
-        assertEquals(-2, (-1).withLastBitUnset())
-        assertEquals(-8, (-7).withLastBitUnset())
-    }
-
-    @Test
     fun hasKthBitSet() {
         (0..3).forEach { k ->
             assertTrue(15.hasKthBitSet(k))
@@ -155,6 +115,27 @@ class BinaryTest {
         assertTrue((-5).hasKthBitSet(0))
         assertTrue((-5).hasKthBitSet(1))
         assertTrue((-5).hasKthBitSet(3))
+    }
+
+    @Test
+    fun positionOfRightmost1Bit() {
+        assertEquals(0, 15.positionOfRightmost1Bit())
+        assertEquals(1, 10.positionOfRightmost1Bit())
+        assertEquals(3, 8.positionOfRightmost1Bit())
+        assertEquals(-1, 0.positionOfRightmost1Bit())
+        assertEquals(0, (-5).positionOfRightmost1Bit())
+        assertEquals(1, 234.positionOfRightmost1Bit())
+    }
+
+
+    @Test
+    fun positionOfRightmost0Bit() {
+        assertEquals(4, 15.positionOfRightmost0Bit())
+        assertEquals(0, 10.positionOfRightmost0Bit())
+        assertEquals(0, 8.positionOfRightmost0Bit())
+        assertEquals(0, 0.positionOfRightmost0Bit())
+        assertEquals(2, (-5).positionOfRightmost0Bit())
+        assertEquals(-1, (-1).positionOfRightmost0Bit())
     }
 
     @Test
@@ -195,7 +176,7 @@ class BinaryTest {
         assertEquals(3, 7.numberOfOneBits())
         assertEquals(4, 15.numberOfOneBits())
 
-        assertEquals(INT_BITS -1, Int.MAX_VALUE.numberOfOneBits())
+        assertEquals(INT_BITS - 1, Int.MAX_VALUE.numberOfOneBits())
         assertEquals(1, Int.MIN_VALUE.numberOfOneBits())
 
         assertEquals(INT_BITS, (-1).numberOfOneBits())
@@ -233,7 +214,7 @@ class BinaryTest {
         assertEquals(3, 7.numberOfOneBitsAlt())
         assertEquals(4, 15.numberOfOneBitsAlt())
 
-        assertEquals(INT_BITS -1, Int.MAX_VALUE.numberOfOneBitsAlt())
+        assertEquals(INT_BITS - 1, Int.MAX_VALUE.numberOfOneBitsAlt())
         assertEquals(1, Int.MIN_VALUE.numberOfOneBitsAlt())
 
         assertEquals(INT_BITS, (-1).numberOfOneBitsAlt())
@@ -284,5 +265,102 @@ class BinaryTest {
 
         assertEquals(128, Int.MIN_VALUE.reverseBytes())
         assertEquals(-129, Int.MAX_VALUE.reverseBytes())
+    }
+
+    @Test
+    fun withKthBitSet() {
+        assertEquals(11, 10.withKthBitSet(0))
+        assertEquals(10, 10.withKthBitSet(1))
+        assertEquals(14, 10.withKthBitSet(2))
+        assertEquals(10, 10.withKthBitSet(3))
+        assertEquals(42, 10.withKthBitSet(5))
+
+        // -99 = 11111111111111111111111110011101
+        assertEquals(-99, (-99).withKthBitSet(0))
+        assertEquals(-97, (-99).withKthBitSet(1))
+        assertEquals(-99, (-99).withKthBitSet(2))
+        assertEquals(-99, (-99).withKthBitSet(3))
+        assertEquals(-99, (-99).withKthBitSet(4))
+        assertEquals(-67, (-99).withKthBitSet(5))
+    }
+
+    @Test
+    fun withKthBitUnset() {
+        var x = -1
+        (0 until INT_BITS).forEach { k ->
+            x = x.withKthBitUnset(k)
+        }
+
+        assertEquals(0, x)
+
+        assertEquals(14, 15.withKthBitUnset(0))
+        assertEquals(13, 15.withKthBitUnset(1))
+        assertEquals(11, 15.withKthBitUnset(2))
+        assertEquals(7, 15.withKthBitUnset(3))
+    }
+
+
+    @Test
+    fun withLastBitSet() {
+        assertEquals(1, 0.withLastBitSet())
+        assertEquals(1, 1.withLastBitSet())
+        assertEquals(11, 10.withLastBitSet())
+        assertEquals(7, 7.withLastBitSet())
+        assertEquals(-1, (-1).withLastBitSet())
+        assertEquals(-7, (-7).withLastBitSet())
+    }
+
+    @Test
+    fun withLastBitUnset() {
+        assertEquals(0, 0.withLastBitUnset())
+        assertEquals(0, 1.withLastBitUnset())
+        assertEquals(10, 10.withLastBitUnset())
+        assertEquals(6, 7.withLastBitUnset())
+        assertEquals(-2, (-1).withLastBitUnset())
+        assertEquals(-8, (-7).withLastBitUnset())
+    }
+
+    @Test
+    fun toggleKthBit() {
+        assertEquals(14, 15.toggleKthBit(0))
+        assertEquals(13, 15.toggleKthBit(1))
+        assertEquals(11, 15.toggleKthBit(2))
+        assertEquals(7, 15.toggleKthBit(3))
+
+        assertEquals(11, 10.toggleKthBit(0))
+        assertEquals(8, 10.toggleKthBit(1))
+        assertEquals(14, 10.toggleKthBit(2))
+        assertEquals(2, 10.toggleKthBit(3))
+
+        assertEquals(0, 1.toggleKthBit(0))
+        assertEquals(1, 0.toggleKthBit(0))
+    }
+
+    @Test
+    fun unsetRightmost1Bit() {
+        assertEquals(14, 15.unsetRightmost1Bit())
+        assertEquals(12, 14.unsetRightmost1Bit())
+        assertEquals(8, 12.unsetRightmost1Bit())
+        assertEquals(0, 8.unsetRightmost1Bit())
+
+        assertEquals(0, 0.unsetRightmost1Bit())
+        assertEquals(0, 1.unsetRightmost1Bit())
+
+        assertEquals(-2, (-1).unsetRightmost1Bit())
+        assertEquals(-4, (-2).unsetRightmost1Bit())
+    }
+
+    @Test
+    fun setRightmost0Bit() {
+        assertEquals(31, 15.setRightmost0Bit())
+        assertEquals(15, 14.setRightmost0Bit())
+        assertEquals(15, 13.setRightmost0Bit())
+        assertEquals(9, 8.setRightmost0Bit())
+
+        assertEquals(1, 0.setRightmost0Bit())
+        assertEquals(3, 1.setRightmost0Bit())
+
+        assertEquals(-1, (-2).setRightmost0Bit())
+        assertEquals(-1, (-1).setRightmost0Bit())
     }
 }
