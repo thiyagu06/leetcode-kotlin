@@ -90,4 +90,12 @@ class NumberExtTest {
         assertEquals(-0.12, (-0.1234).roundedToNDecimalPlaces(2), 0.00001)
     }
 
+    @Test
+    fun minOf() {
+        assertEquals(1, minOf(1, 2, 3, 4))
+        assertEquals(1L, minOf(1L, 2L, 3L, 4L))
+        assertEquals(1f, minOf(1f, 2f, 3f, 4f))
+        assertEquals(1.0, minOf(1.0, 2.0, 3.0, 4.0), 0.00001)
+        assertEquals(1.0001, minOf(1.0001, 1.0002, 3.0, 4.0), 0.00001)
+    }
 }

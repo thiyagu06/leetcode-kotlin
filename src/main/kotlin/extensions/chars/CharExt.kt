@@ -13,7 +13,7 @@ package extensions.chars
  */
 fun Char.numericValue(): Int {
     require(isDigit()) { "Cannot get decimal value of non-digit Char." }
-    return toInt() - '0'.toInt()
+    return toString().toInt()
 }
 
 /**

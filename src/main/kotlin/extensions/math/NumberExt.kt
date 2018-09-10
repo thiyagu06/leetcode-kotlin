@@ -16,6 +16,11 @@ import kotlin.math.pow
 val Int.isEven: Boolean get() = this % 2 == 0
 val Int.isOdd: Boolean get() = this % 2 != 0
 
+fun minOf(vararg numbers: Int): Int {
+    require (numbers.isNotEmpty()) { "Cannot take min of 0 numbers" }
+    return numbers.min()!!
+}
+
 /**
  * Applies Java's [Character.forDigit].
  */
@@ -73,10 +78,36 @@ fun Int.nMostSignificantDigits(n: Int): Int {
     return this / 10.0.pow(totalDigits - n).toInt()
 }
 
+/********************
+ * Long
+ ********************/
+fun minOf(vararg numbers: Long): Long {
+    require (numbers.isNotEmpty()) { "Cannot take min of 0 numbers" }
+    return numbers.min()!!
+}
+
+/********************
+ * Double
+ ********************/
+
+fun minOf(vararg numbers: Double): Double {
+    require (numbers.isNotEmpty()) { "Cannot take min of 0 numbers" }
+    return numbers.min()!!
+}
+
 fun Double.roundedToNDecimalPlaces(n: Int): Double {
     require(n >= 0) { "Invalid # of decimal places: $n" }
     val formatter = DecimalFormat("#.${"#".repeat(n)}")
     return formatter.format(this).toDouble()
+}
+
+/********************
+ * Float
+ ********************/
+
+fun minOf(vararg numbers: Float): Float {
+    require (numbers.isNotEmpty()) { "Cannot take min of 0 numbers" }
+    return numbers.min()!!
 }
 
 /* If using Kotlin < 1.2 (no kotlin.math):

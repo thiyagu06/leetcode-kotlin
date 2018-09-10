@@ -1,7 +1,11 @@
 package extensions.lists
 
+import extensions.iterable.head
+import extensions.iterable.headAndTail
+import extensions.iterable.tail
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -125,20 +129,6 @@ class ListExtTest {
     @Test(expected = IllegalArgumentException::class)
     fun `toTriple throws if size greater than 3`() {
         listOf(1, 2, 3, 4).toTriple()
-    }
-
-    @Test
-    fun headAndTail() {
-        assertEquals(Pair(1, listOf(2, 3, 4)), listOf(1, 2, 3, 4).headAndTail())
-        assertEquals(Pair(1, emptyList<Int>()), listOf(1).headAndTail())
-        assertEquals(Pair(null, emptyList<Int>()), emptyList<Int>().headAndTail())
-    }
-
-    @Test
-    fun headAndTailLists() {
-        assertEquals(Pair(listOf(1), listOf(2, 3, 4)), listOf(1, 2, 3, 4).headAndTailLists())
-        assertEquals(Pair(listOf(1), emptyList<Int>()), listOf(1).headAndTailLists())
-        assertEquals(Pair(emptyList<Int>(), emptyList<Int>()), emptyList<Int>().headAndTailLists())
     }
 
     @Test

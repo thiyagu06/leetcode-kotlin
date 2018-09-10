@@ -114,7 +114,7 @@ fun IntArray.permutations(): List<List<Int>> = when (size) {
     0 -> listOf()
     1 -> listOf(listOf(this[0]))
     else -> {
-        val (head, tail) = headAndTail()
+        val (head, tail) = headAndTail
         tail.permutations().flatMap { sublist ->
             (0..sublist.size).map { i ->
                 sublist.plusAtIndex(index = i, element = head!!)

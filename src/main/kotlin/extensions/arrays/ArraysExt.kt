@@ -4,6 +4,26 @@ package extensions.arrays
  * Extensions for Array<T> & the primitive array types (BooleanArray, DoubleArray, etc.)
  */
 
+val <T> Array<T>.head: T? get() = firstOrNull()
+val <T> Array<T>.tail: Array<T> get() = sliceArray(1 until size)
+val <T> Array<T>.headAndTail: Pair<T?, Array<T>> get() = (head to tail)
+
+val IntArray.head: Int? get() = firstOrNull()
+val IntArray.tail: IntArray get() = sliceArray(1 until size)
+val IntArray.headAndTail: Pair<Int?, IntArray> get() = (head to tail)
+
+val BooleanArray.head: Boolean? get() = firstOrNull()
+val BooleanArray.tail: BooleanArray get() = sliceArray(1 until size)
+val BooleanArray.headAndTail: Pair<Boolean?, BooleanArray> get() = (head to tail)
+
+val CharArray.head: Char? get() = firstOrNull()
+val CharArray.tail: CharArray get() = sliceArray(1 until size)
+val CharArray.headAndTail: Pair<Char?, CharArray> get() = (head to tail)
+
+val DoubleArray.head: Double? get() = firstOrNull()
+val DoubleArray.tail: DoubleArray get() = sliceArray(1 until size)
+val DoubleArray.headAndTail: Pair<Double?, DoubleArray> get() = (head to tail)
+
 /* https://github.com/Carleslc/kotlin-extensions/blob/master/src/me/carleslc/kotlin/extensions/arrays/ArrayExtensions.kt */
 fun <T> Array<T>?.isBlank(): Boolean = this == null || isEmpty()
 
@@ -124,19 +144,6 @@ fun CharArray.reverseElementsInRange(indexRange: IntRange) {
     while (i < j) {
         swap(i++, j--)
     }
-}
-
-/**
- * Return the first element (nullable) and the tail of the list.
- */
-fun IntArray.headAndTail(): Pair<Int?, IntArray> {
-    if (isEmpty()) return (null to intArrayOf())
-    return firstOrNull() to sliceArray(1 until size)
-}
-
-fun IntArray.headAndTailArrays(): Pair<IntArray, IntArray> {
-    if (isEmpty()) return (intArrayOf() to intArrayOf())
-    return sliceArray(0 until 1) to sliceArray(1 until size)
 }
 
 fun <T : Comparable<T>> Array<T>.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }
