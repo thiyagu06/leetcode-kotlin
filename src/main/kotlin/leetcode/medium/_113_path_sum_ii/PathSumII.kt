@@ -1,0 +1,16 @@
+package leetcode.medium._113_path_sum_ii
+
+import datastructures.tree.TreeNode
+import datastructures.tree.rootToLeafPaths
+
+/**
+ * 113 - https://leetcode.com/problems/path-sum-ii/description/
+ */
+class Solution {
+    /**
+     * Time: O(?)
+     * Space: O(?)
+     */
+    fun pathSum(root: TreeNode?, sum: Int): List<List<Int>> =
+            root.rootToLeafPaths().filter { it.sum() == sum }
+}
