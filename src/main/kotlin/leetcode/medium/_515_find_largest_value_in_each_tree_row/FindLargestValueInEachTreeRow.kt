@@ -1,7 +1,7 @@
 package leetcode.medium._515_find_largest_value_in_each_tree_row
 
-import datastructures.queue.ListQueue
 import datastructures.tree.TreeNode
+import java.util.*
 
 /**
  * 515 - https://leetcode.com/problems/find-largest-value-in-each-tree-row/description/
@@ -30,17 +30,17 @@ class Solution {
     private fun bfs(root: TreeNode?, visit: (Pair<TreeNode, Int>) -> Unit) {
         root ?: return
 
-        val queue = ListQueue<Pair<TreeNode, Int>>()
-        queue.enqueue(Pair(root, 0))
+        val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque<Pair<TreeNode, Int>>()
+        queue.add(Pair(root, 0))
 
         while (queue.isNotEmpty()) {
-            val (node, depth) = queue.dequeue()!!
+            val (node, depth) = queue.remove()!!
             visit(node to depth)
             node.left?.let {
-                queue.enqueue(Pair(it, depth + 1))
+                queue.add(Pair(it, depth + 1))
             }
             node.right?.let {
-                queue.enqueue(Pair(it, depth + 1))
+                queue.add(Pair(it, depth + 1))
             }
         }
     }

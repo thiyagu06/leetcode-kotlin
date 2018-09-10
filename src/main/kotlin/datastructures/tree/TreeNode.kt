@@ -1,10 +1,9 @@
 package datastructures.tree
 
-import datastructures.queue.ListQueue
-import datastructures.queue.Queue
 import datastructures.tree.DFSTraversalOrder.INORDER
 import datastructures.tree.DFSTraversalOrder.POSTORDER
 import datastructures.tree.DFSTraversalOrder.PREORDER
+import java.util.*
 
 /**
  * Definition for a binary tree node.
@@ -165,14 +164,14 @@ fun TreeNode?.toList(): List<Int> = collect { it.`val` }.toList()
 fun TreeNode?.bfs(visit: (TreeNode) -> Unit) {
     this ?: return
 
-    val queue = ListQueue<TreeNode>()
+    val queue: Queue<TreeNode> = ArrayDeque<TreeNode>()
     var node: TreeNode = this
-    queue.enqueue(node)
+    queue.add(node)
     while (queue.isNotEmpty()) {
-        node = queue.dequeue() ?: return
+        node = queue.remove() ?: return
         visit(node)
-        node.left?.let { queue.enqueue(it) }
-        node.right?.let { queue.enqueue(it) }
+        node.left?.let { queue.add(it) }
+        node.right?.let { queue.add(it) }
     }
 }
 
@@ -193,17 +192,17 @@ fun TreeNode?.bfs(visit: (TreeNode) -> Unit) {
 fun TreeNode?.depthAwareBFS(visit: (Pair<TreeNode, Int>) -> Unit) {
     this ?: return
 
-    val queue = ListQueue<Pair<TreeNode, Int>>()
-    queue.enqueue(Pair(this, 0))
+    val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque<Pair<TreeNode, Int>>()
+    queue.add(Pair(this, 0))
 
     while (queue.isNotEmpty()) {
-        val (node, depth) = queue.dequeue()!!
+        val (node, depth) = queue.remove()!!
         visit(node to depth)
         node.left?.let {
-            queue.enqueue(Pair(it, depth + 1))
+            queue.add(Pair(it, depth + 1))
         }
         node.right?.let {
-            queue.enqueue(Pair(it, depth + 1))
+            queue.add(Pair(it, depth + 1))
         }
     }
 }
@@ -214,13 +213,13 @@ fun TreeNode?.depthAwareBFS(visit: (Pair<TreeNode, Int>) -> Unit) {
 fun TreeNode?.levels(): List<List<Int>> {
     this ?: return emptyList()
 
-    val queue = ListQueue<Pair<TreeNode, Int>>()
-    queue.enqueue(this to 0)
+    val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque<Pair<TreeNode, Int>>()
+    queue.add(this to 0)
 
     val levels = arrayListOf<MutableList<Int>>()
 
     while (queue.isNotEmpty()) {
-        val (node, depth) = queue.dequeue()!!
+        val (node, depth) = queue.remove()!!
 
         if (depth > levels.lastIndex) {
             levels.add(arrayListOf(node.`val`))
@@ -228,8 +227,8 @@ fun TreeNode?.levels(): List<List<Int>> {
             levels[depth].add(node.`val`)
         }
 
-        node.left?.let { queue.enqueue(it to depth + 1) }
-        node.right?.let { queue.enqueue(it to depth + 1) }
+        node.left?.let { queue.add(it to depth + 1) }
+        node.right?.let { queue.add(it to depth + 1) }
     }
 
     return levels
@@ -292,16 +291,16 @@ fun buildTree(vararg elements: Int?): TreeNode? {
 
     val root = TreeNode(elements.first()!!)
     var parent = root
-    val parentQueue: Queue<TreeNode> = ListQueue()
-    parentQueue.enqueue(parent)
+    val parentQueue: Queue<TreeNode> = ArrayDeque<TreeNode>()
+    parentQueue.add(parent)
     var i = 1
     while (i < elements.size) {
-        parent = parentQueue.dequeue() ?: return root
+        parent = parentQueue.remove() ?: return root
 
         parent.left = if (elements[i] != null) TreeNode(elements[i]!!) else null
         i++
         parent.left?.let {
-            parentQueue.enqueue(it)
+            parentQueue.add(it)
         }
 
         if (i > elements.lastIndex)
@@ -310,7 +309,7 @@ fun buildTree(vararg elements: Int?): TreeNode? {
         parent.right = if (elements[i] != null) TreeNode(elements[i]!!) else null
         i++
         parent.right?.let {
-            parentQueue.enqueue(it)
+            parentQueue.add(it)
         }
     }
 

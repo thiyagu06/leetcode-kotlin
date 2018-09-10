@@ -1,8 +1,8 @@
 package leetcode.easy._733_flood_fill
 
-import datastructures.queue.ListQueue
 import extensions.lists.columnRange
 import extensions.lists.rowRange
+import java.util.*
 
 /**
  * 733 - https://leetcode.com/problems/flood-fill/description/
@@ -24,15 +24,15 @@ class Solution {
             return img
         }
 
-        val pixels = ListQueue<Pixel>()
-        pixels.enqueue(Pixel(sr, sc, img[sr][sc], false))
+        val pixels: Queue<Pixel> = ArrayDeque<Pixel>()
+        pixels.add(Pixel(sr, sc, img[sr][sc], false))
         floodFillNeighbors(pixels, img[sr][sc], newColor)
         return image.toArrayFormat()
     }
 
-    private fun floodFillNeighbors(pixels: ListQueue<Pixel>, originalColor: Int, newColor: Int) {
+    private fun floodFillNeighbors(pixels: Queue<Pixel>, originalColor: Int, newColor: Int) {
         while (pixels.isNotEmpty()) {
-            val currentPixel = pixels.dequeue()!!
+            val currentPixel = pixels.remove()
             changeColorAndMarkVisited(image[currentPixel.x][currentPixel.y], newColor)
 
             val neighbors = getNeighboringPixels(currentPixel)
@@ -40,7 +40,7 @@ class Solution {
             toFill.filterNot {
                 it.visited
             }.forEach {
-                pixels.enqueue(it)
+                pixels.offer(it)
             }
 
             neighbors.forEach { markVisited(it) }

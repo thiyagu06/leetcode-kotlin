@@ -5,7 +5,7 @@ import datastructures.tree.tree123
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class FindLargestValueInEachRowTest {
+class FindLargestValueInEachTreeRowTest {
 
     private val bfsSolution = Solution()
     private val dfsSolution = Solution2()

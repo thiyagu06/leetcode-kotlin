@@ -1,7 +1,7 @@
 package leetcode.medium._102_binary_tree_level_order_traversal
 
-import datastructures.queue.ListQueue
 import datastructures.tree.TreeNode
+import java.util.*
 
 /**
  * 102 - https://leetcode.com/problems/binary-tree-level-order-traversal/description/
@@ -17,19 +17,18 @@ class BFSSolution {
         root ?: return emptyList()
 
         val levels = ArrayList<ArrayList<Int>>()
-        val queue = ListQueue<Pair<TreeNode, Int>>()
-
-        queue.enqueue(root to 0)
+        val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque<Pair<TreeNode, Int>>()
+        queue.add(root to 0)
 
         while (queue.isNotEmpty()) {
-            val (node, depth) = queue.dequeue() ?: return levels
+            val (node, depth) = queue.remove() ?: return levels
             if (levels.lastIndex < depth) {
                 levels.add(arrayListOf(node.`val`))
             } else {
                 levels[depth].add(node.`val`)
             }
-            node.left?.let { queue.enqueue(it to depth + 1) }
-            node.right?.let { queue.enqueue(it to depth + 1) }
+            node.left?.let { queue.add(it to depth + 1) }
+            node.right?.let { queue.add(it to depth + 1) }
         }
 
         return levels

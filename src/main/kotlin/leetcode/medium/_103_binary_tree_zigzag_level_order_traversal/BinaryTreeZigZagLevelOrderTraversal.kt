@@ -1,12 +1,12 @@
 package leetcode.medium._103_binary_tree_zigzag_level_order_traversal
 
-import leetcode.medium._102_binary_tree_level_order_traversal.BFSSolution
-import datastructures.queue.ListQueue
 import datastructures.tree.TreeNode
 import extensions.lists.append
 import extensions.lists.prepend
 import extensions.math.isEven
 import extensions.math.isOdd
+import leetcode.medium._102_binary_tree_level_order_traversal.BFSSolution
+import java.util.*
 
 /**
  * 103 - https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
@@ -22,11 +22,11 @@ class Solution {
 
         root ?: return values
 
-        val queue = ListQueue<Pair<TreeNode, Int>>()    // Pair: TreeNode & its depth (level - 1)
-        queue.enqueue(Pair(root, 0))
+        val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque<Pair<TreeNode, Int>>()
+        queue.add(Pair(root, 0))
 
         while (queue.isNotEmpty()) {
-            val (node, depth) = queue.dequeue()!!
+            val (node, depth) = queue.remove()!!
 
             when {
                 depth > values.lastIndex -> values += arrayListOf(node.`val`)
@@ -34,8 +34,8 @@ class Solution {
                 depth.isEven -> values[depth].append(node.`val`)
             }
 
-            node.left?.let { queue.enqueue(Pair(it, depth + 1)) }
-            node.right?.let { queue.enqueue(Pair(it, depth + 1)) }
+            node.left?.let { queue.add(Pair(it, depth + 1)) }
+            node.right?.let { queue.add(Pair(it, depth + 1)) }
         }
 
         return values
