@@ -1,7 +1,7 @@
 package leetcode.medium._394_decode_string
 
-import datastructures.stack.ArrayStack
 import extensions.chars.numericValue
+import java.util.Stack
 
 /**
  * 394 - https://leetcode.com/problems/decode-string
@@ -18,7 +18,7 @@ class Solution {
     internal fun denestInput(input: String): String {
         var result = ""
         var currentStr = ""
-        val stack = ArrayStack<Char>()
+        val stack = Stack<Char>()
         var k = 1
         var kDigits = ""
 

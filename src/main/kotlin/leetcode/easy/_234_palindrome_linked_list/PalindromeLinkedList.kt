@@ -2,7 +2,7 @@ package leetcode.easy._234_palindrome_linked_list
 
 import datastructures.list.ListNode
 import datastructures.list.middleNode
-import datastructures.stack.ArrayStack
+import java.util.Stack
 
 /**
  * 234 - https://leetcode.com/problems/palindrome-linked-list/description/
@@ -17,7 +17,7 @@ class Solution {
     fun isPalindrome(head: ListNode?): Boolean {
         head ?: return true
 
-        val stack = ArrayStack<ListNode>()
+        val stack = Stack<ListNode>()
         var node = head
         while (node != null) {
             stack.push(node)

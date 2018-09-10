@@ -4,6 +4,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
+import java.util.*
 
 class MyQueueTest {
 
@@ -38,12 +39,12 @@ class MyQueueTest {
         assertTrue(q1.empty())
     }
 
-    @Test(expected = NoSuchElementException::class)
+    @Test(expected = EmptyStackException::class)
     fun testEmptyStackPeek() {
         q1.peek()
     }
 
-    @Test(expected = NoSuchElementException::class)
+    @Test(expected = EmptyStackException::class)
     fun testEmptyStackPop() {
         q1.pop()
     }

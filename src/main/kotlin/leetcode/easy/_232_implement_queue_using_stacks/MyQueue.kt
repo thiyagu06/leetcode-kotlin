@@ -1,6 +1,6 @@
 package leetcode.easy._232_implement_queue_using_stacks
 
-import datastructures.stack.ArrayStack
+import java.util.*
 
 /**
  * 232 - https://leetcode.com/problems/implement-queue-using-stacks/description/
@@ -8,8 +8,8 @@ import datastructures.stack.ArrayStack
 class MyQueue {
 
     /** Initialize your data structure here. */
-    private val stackNewest = ArrayStack<Int>()     // Newest items on top
-    private val stackOldest = ArrayStack<Int>()     // Oldest items on top
+    private val stackNewest = Stack<Int>()     // Newest items on top
+    private val stackOldest = Stack<Int>()     // Oldest items on top
 
     val size: Int get() = stackNewest.size + stackOldest.size
 
