@@ -10,10 +10,14 @@ class ValidParenthesesTest {
 
     @Test
     fun isValid() {
+        assertTrue(solution.isValid(""))
         assertTrue(solution.isValid("()"))
         assertTrue(solution.isValid("()[]{}"))
-        assertFalse(solution.isValid("(]"))
-        assertFalse(solution.isValid("([)]"))
         assertTrue(solution.isValid("{[]}"))
+
+        assertFalse(solution.isValid("([)]"))
+        assertFalse(solution.isValid("(]"))
+        assertFalse(solution.isValid("("))
+        assertFalse(solution.isValid("]"))
     }
 }

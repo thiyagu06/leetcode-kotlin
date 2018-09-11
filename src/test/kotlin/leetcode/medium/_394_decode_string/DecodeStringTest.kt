@@ -7,6 +7,7 @@ class DecodeStringTest {
 
     private val solution = Solution()
     private val solutionTwo = SolutionTwo()
+    private val solutionThree = SolutionThree()
 
     @Test
     fun decodeString() {
@@ -70,5 +71,16 @@ class DecodeStringTest {
         assertEquals("aaaef", solutionTwo.denestInput("3[a]ef"))
         assertEquals("abcabccdcdcdef", solutionTwo.denestInput("2[abc]3[cd]ef"))
         assertEquals("aaab4[F]cb4[F]c", solutionTwo.denestInput("3[a]2[b4[F]c]"))
+    }
+
+    @Test
+    fun decodeString3() {
+        assertEquals("cc", solutionThree.decodeString("2[c]"))
+        assertEquals("aaabcbc", solutionThree.decodeString("3[a]2[bc]"))
+        assertEquals("abcabccdcdcdef", solutionThree.decodeString("2[abc]3[cd]ef"))
+        assertEquals("codecodecodecodecodecodecodecodecodecode", solutionThree.decodeString("10[code]"))
+        assertEquals("accaccacc", solutionThree.decodeString("3[a2[c]]"))
+        assertEquals("aaabFFFFcbFFFFc", solutionThree.decodeString("3[a]2[b4[F]c]"))
+        assertEquals("zzzyypqjkjkefjkjkefjkjkefjkjkefyypqjkjkefjkjkefjkjkefjkjkefef", solutionThree.decodeString("3[z]2[2[y]pq4[2[jk]e1[f]]]ef"))
     }
 }

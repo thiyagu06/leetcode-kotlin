@@ -1,6 +1,8 @@
 package leetcode.medium._394_decode_string
 
 import extensions.chars.numericValue
+import extensions.lists.append
+import java.util.*
 
 /**
  * 394 - https://leetcode.com/problems/decode-string
@@ -157,3 +159,42 @@ class SolutionTwo {
     private fun String.isDecoded(): Boolean = all { it.isLetter() }
 }
 
+
+class SolutionThree {
+    /**
+     * https://leetcode.com/problems/decode-string/discuss/87567/Java-Simple-Recursive-solution
+     */
+    fun decodeString(s: String): String = when {
+        s.isEmpty() -> ""
+        else -> with(StringBuilder()) {
+            var i = 0
+            while (i < s.length) {
+                val c = s[i]
+                when {
+                    c.isDigit() -> {
+                        val kStartIdx = i
+                        while (s[i] != '[') i++
+                        val k = s.substring(kStartIdx, i).toInt()
+                        var count = 1
+                        val strStartIdx = i + 1
+                        i++
+
+                        while (count != 0) {
+                            if (s[i] == '[') count++
+                            else if (s[i] == ']') count--
+                            i++
+                        }
+                        i--
+
+                        val str = decodeString(s.substring(strStartIdx, i))
+                        append(str.repeat(k))
+                    }
+                    else -> append(c)
+                }
+                i++
+            }
+            toString()
+        }
+    }
+
+}

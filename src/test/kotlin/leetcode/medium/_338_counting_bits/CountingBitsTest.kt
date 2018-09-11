@@ -1,4 +1,4 @@
-package leetcode.easy._338_counting_bits
+package leetcode.medium._338_counting_bits
 
 import org.junit.Test
 
