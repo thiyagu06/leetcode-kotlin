@@ -2,6 +2,7 @@ package extensions.math
 
 import extensions.arrays.headAndTail
 import java.math.BigInteger
+import kotlin.math.abs
 import kotlin.math.sqrt
 
 /**
@@ -9,6 +10,10 @@ import kotlin.math.sqrt
  * Permutation/Combinations taken from: https://github.com/MarcinMoskala/KotlinDiscreteMathToolkit
  */
 
+fun log2(x: Double): Double = Math.log10(x) / Math.log10(2.0)
+fun log3(x: Double): Double = Math.log10(x) / Math.log10(3.0)
+
+const val EPSILON = 1e-10
 
 fun Int.isPrime(): Boolean {
     if (this <= 1)

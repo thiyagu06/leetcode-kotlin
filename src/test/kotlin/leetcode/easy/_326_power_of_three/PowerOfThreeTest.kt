@@ -1,13 +1,13 @@
 package leetcode.easy._326_power_of_three
 
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
-
-import org.junit.Assert.*
-import org.junit.Ignore
 
 class PowerOfThreeTest {
     private val solution = Solution()
-    private val solutionAlt = SolutionAlt()
+    private val solutionTwo = SolutionTwo()
+    private val solutionThree = SolutionThree()
     private val followUpSolution = FollowUpSolution()
 
     @Test
@@ -27,34 +27,58 @@ class PowerOfThreeTest {
         assertFalse(solution.isPowerOfThree(10))
         assertFalse(solution.isPowerOfThree(100))
         assertFalse(solution.isPowerOfThree(730))
+        assertFalse(solution.isPowerOfThree(1594322))
         assertFalse(solution.isPowerOfThree(Int.MAX_VALUE))
         assertFalse(solution.isPowerOfThree(Int.MAX_VALUE - 1))
         assertFalse(solution.isPowerOfThree(Int.MAX_VALUE - 2))
     }
 
     @Test
-    fun isPowerOfThreeAlt() {
-        assertTrue(solutionAlt.isPowerOfThree(1))
-        assertTrue(solutionAlt.isPowerOfThree(3))
-        assertTrue(solutionAlt.isPowerOfThree(9))
-        assertTrue(solutionAlt.isPowerOfThree(27))
-        assertTrue(solutionAlt.isPowerOfThree(81))
-        assertTrue(solutionAlt.isPowerOfThree(243))
-        assertTrue(solutionAlt.isPowerOfThree(729))
-        assertTrue(solutionAlt.isPowerOfThree(1162261467))
+    fun isPowerOfThree2() {
+        assertTrue(solutionTwo.isPowerOfThree(1))
+        assertTrue(solutionTwo.isPowerOfThree(3))
+        assertTrue(solutionTwo.isPowerOfThree(9))
+        assertTrue(solutionTwo.isPowerOfThree(27))
+        assertTrue(solutionTwo.isPowerOfThree(81))
+        assertTrue(solutionTwo.isPowerOfThree(243))
+        assertTrue(solutionTwo.isPowerOfThree(729))
+        assertTrue(solutionTwo.isPowerOfThree(1162261467))
 
-        assertFalse(solutionAlt.isPowerOfThree(0))
-        assertFalse(solutionAlt.isPowerOfThree(2))
-        assertFalse(solutionAlt.isPowerOfThree(4))
-        assertFalse(solutionAlt.isPowerOfThree(10))
-        assertFalse(solutionAlt.isPowerOfThree(100))
-        assertFalse(solutionAlt.isPowerOfThree(730))
-        assertFalse(solutionAlt.isPowerOfThree(Int.MAX_VALUE))
-        assertFalse(solutionAlt.isPowerOfThree(Int.MAX_VALUE - 1))
-        assertFalse(solutionAlt.isPowerOfThree(Int.MAX_VALUE - 2))
+        assertFalse(solutionTwo.isPowerOfThree(0))
+        assertFalse(solutionTwo.isPowerOfThree(2))
+        assertFalse(solutionTwo.isPowerOfThree(4))
+        assertFalse(solutionTwo.isPowerOfThree(10))
+        assertFalse(solutionTwo.isPowerOfThree(100))
+        assertFalse(solutionTwo.isPowerOfThree(730))
+        assertFalse(solutionTwo.isPowerOfThree(1594322))
+        assertFalse(solutionTwo.isPowerOfThree(Int.MAX_VALUE))
+        assertFalse(solutionTwo.isPowerOfThree(Int.MAX_VALUE - 1))
+        assertFalse(solutionTwo.isPowerOfThree(Int.MAX_VALUE - 2))
     }
 
-    @Ignore
+    @Test
+    fun isPowerOfThree3() {
+        assertTrue(solutionThree.isPowerOfThree(1))
+        assertTrue(solutionThree.isPowerOfThree(3))
+        assertTrue(solutionThree.isPowerOfThree(9))
+        assertTrue(solutionThree.isPowerOfThree(27))
+        assertTrue(solutionThree.isPowerOfThree(81))
+        assertTrue(solutionThree.isPowerOfThree(243))
+        assertTrue(solutionThree.isPowerOfThree(729))
+        assertTrue(solutionThree.isPowerOfThree(1162261467))
+
+        assertFalse(solutionThree.isPowerOfThree(0))
+        assertFalse(solutionThree.isPowerOfThree(2))
+        assertFalse(solutionThree.isPowerOfThree(4))
+        assertFalse(solutionThree.isPowerOfThree(10))
+        assertFalse(solutionThree.isPowerOfThree(100))
+        assertFalse(solutionThree.isPowerOfThree(730))
+        assertFalse(solutionThree.isPowerOfThree(1594322))
+        assertFalse(solutionThree.isPowerOfThree(Int.MAX_VALUE))
+        assertFalse(solutionThree.isPowerOfThree(Int.MAX_VALUE - 1))
+        assertFalse(solutionThree.isPowerOfThree(Int.MAX_VALUE - 2))
+    }
+
     @Test
     fun isPowerOfThreeFollowup() {
         assertTrue(followUpSolution.isPowerOfThree(1))
@@ -72,6 +96,8 @@ class PowerOfThreeTest {
         assertFalse(followUpSolution.isPowerOfThree(10))
         assertFalse(followUpSolution.isPowerOfThree(100))
         assertFalse(followUpSolution.isPowerOfThree(730))
+        assertFalse(followUpSolution.isPowerOfThree(1594322))
+        assertFalse(followUpSolution.isPowerOfThree(1594324))
         assertFalse(followUpSolution.isPowerOfThree(Int.MAX_VALUE))
         assertFalse(followUpSolution.isPowerOfThree(Int.MAX_VALUE - 1))
         assertFalse(followUpSolution.isPowerOfThree(Int.MAX_VALUE - 2))

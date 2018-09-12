@@ -6,6 +6,7 @@ import org.junit.Test
 
 class PowerOfTwoTest {
     private val solution = Solution()
+    private val solutionTwo = SolutionTwo()
 
     @Test
     fun isPowerOfTwo() {
@@ -20,4 +21,20 @@ class PowerOfTwoTest {
         assertFalse(solution.isPowerOfTwo(-1))
         assertFalse(solution.isPowerOfTwo(3))
     }
+
+    @Test
+    fun isPowerOfTwoAlt() {
+        assertTrue(solutionTwo.isPowerOfTwo(1))
+        assertTrue(solutionTwo.isPowerOfTwo(2))
+        assertTrue(solutionTwo.isPowerOfTwo(4))
+        assertTrue(solutionTwo.isPowerOfTwo(8))
+        assertTrue(solutionTwo.isPowerOfTwo(32))
+        assertTrue(solutionTwo.isPowerOfTwo(128))
+        assertFalse(solutionTwo.isPowerOfTwo(218))
+        assertFalse(solutionTwo.isPowerOfTwo(0))
+        assertFalse(solutionTwo.isPowerOfTwo(-1))
+        assertFalse(solutionTwo.isPowerOfTwo(3))
+    }
+
+
 }

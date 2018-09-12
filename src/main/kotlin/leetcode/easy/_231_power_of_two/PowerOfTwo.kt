@@ -1,21 +1,24 @@
 package leetcode.easy._231_power_of_two
 
 import extensions.math.INT_BITS
+import extensions.math.`&`
 
 class Solution {
     /**
      * Time: O(1)
      * Space: O(1)
      */
-    fun isPowerOfTwo(n: Int): Boolean {
-        if (n <= 0)         // 0 is false positive
-            return false
-
-        (0 until INT_BITS).forEach { k ->
-            if (((1 shl k) and n) == n) {
-                return true
-            }
+    fun isPowerOfTwo(n: Int): Boolean =
+        n > 0 && (0 until INT_BITS).any { k ->
+            (1 shl k) `&` n == n
         }
-        return false
-    }
+}
+
+
+class SolutionTwo {
+    /**
+     * Time: O(1)
+     * Space: O(1)
+     */
+    fun isPowerOfTwo(n: Int): Boolean = (n != 0) && (n `&` (n - 1) == 0)
 }

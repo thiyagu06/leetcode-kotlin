@@ -36,7 +36,7 @@ fun String.parseNonNegativeBinaryString(): Int = Integer.parseInt(this, 2)
 /* CHECKING BIT-BASED PROPERTIES */
 fun Int.isOdd(): Boolean = (this and 1) == 1
 fun Int.isEven(): Boolean = (this and 1) == 0
-val Int.isPowerOfTwo: Boolean get() = this > 0 && (this and (this - 1)) == 0
+val Int.isPowerOfTwo: Boolean get() = this != 0 && (this `&` (this - 1)) == 0
 
 /* CHECKING THE VALUE OF BITS */
 /**
