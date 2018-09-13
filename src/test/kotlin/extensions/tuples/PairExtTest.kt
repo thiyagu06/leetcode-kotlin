@@ -1,5 +1,6 @@
 package extensions.tuples
 
+import extensions.math.EPSILON
 import org.junit.Assert.assertArrayEquals
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -30,7 +31,7 @@ class PairExtTest {
 
     @Test
     fun toFloatArray() {
-        assertArrayEquals(floatArrayOf(123.4f, 567.8f), Pair(123.4f, 567.8f).toFloatArray(), 0.000001f)
+        assertArrayEquals(floatArrayOf(123.4f, 567.8f), Pair(123.4f, 567.8f).toFloatArray(), EPSILON.toFloat())
     }
 
     @Test
@@ -46,21 +47,6 @@ class PairExtTest {
     @Test
     fun toShortArray() {
         assertArrayEquals(shortArrayOf(0, 1), Pair<Short, Short>(0, 1).toShortArray())
-    }
-
-    @Test
-    fun sum() {
-        assertEquals(3, Pair(1, 2).sum())
-    }
-
-    @Test
-    fun product() {
-        assertEquals(-14, Pair(-7, 2).product())
-    }
-
-    @Test
-    fun absDifference() {
-        assertEquals(9, Pair(-7, 2).absDifference())
     }
 
     @Test

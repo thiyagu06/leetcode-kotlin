@@ -4,6 +4,8 @@ package extensions.arrays
  * Extensions for Array<T> & the primitive array types (BooleanArray, DoubleArray, etc.)
  */
 
+const val NOT_FOUND: Int = -1
+
 val <T> Array<T>.head: T? get() = firstOrNull()
 val <T> Array<T>.tail: Array<T> get() = sliceArray(1 until size)
 val <T> Array<T>.headAndTail: Pair<T?, Array<T>> get() = (head to tail)
@@ -170,9 +172,6 @@ fun IntArray.sublist(indexRange: IntRange): List<Int> {
         acc + this[idx]
     }
 }
-
-
-const val NOT_FOUND: Int = -1
 
 /**
  * Returns the index of the target value, or -1 if not found.

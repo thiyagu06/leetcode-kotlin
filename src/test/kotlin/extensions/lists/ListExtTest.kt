@@ -1,11 +1,7 @@
 package extensions.lists
 
-import extensions.iterable.head
-import extensions.iterable.headAndTail
-import extensions.iterable.tail
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
-import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -18,6 +14,20 @@ class ListExtTest {
     )
 
     private val nestedList1x3 = listOf(listOf(1, 2, 3))
+
+    @Test
+    fun dropFirst() {
+        assertEquals(listOf(2, 3, 4), listOf(1, 2, 3, 4).dropFirst())
+        assertEquals(emptyList<Int>(), emptyList<Int>().dropFirst())
+        assertEquals(emptyList<Int>(), listOf(1).dropFirst())
+    }
+
+    @Test
+    fun dropLast() {
+        assertEquals(listOf(1, 2, 3), listOf(1, 2, 3, 4).dropLast())
+        assertEquals(emptyList<Int>(), emptyList<Int>().dropLast())
+        assertEquals(emptyList<Int>(), listOf(1).dropLast())
+    }
 
     @Test
     fun binarySearch() {

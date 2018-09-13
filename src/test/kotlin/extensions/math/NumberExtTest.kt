@@ -91,7 +91,15 @@ class NumberExtTest {
     }
 
     @Test
-    fun minOf() {
+    fun medianTest() {
+        assertEquals(2, median(1, 2, 3))
+        assertEquals(-2, median(-1, -2, -3))
+        assertEquals(3, median(1, 3, 3))
+        assertEquals(3, median(3, 3, 3))
+    }
+
+    @Test
+    fun testMinOf() {
         assertEquals(1, minOf(1, 2, 3, 4))
         assertEquals(1L, minOf(1L, 2L, 3L, 4L))
         assertEquals(1f, minOf(1f, 2f, 3f, 4f))

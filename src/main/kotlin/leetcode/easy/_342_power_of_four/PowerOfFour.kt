@@ -1,16 +1,14 @@
 package leetcode.easy._342_power_of_four
 
 import extensions.math.INT_BITS
-import extensions.math.`&`
-import extensions.math.shiftLeft
 
 /**
  * 342 - https://leetcode.com/problems/power-of-four/description/
  */
 class Solution {
     fun isPowerOfFour(num: Int): Boolean =
-        (num > 1) && (0 until INT_BITS step 2).any { k ->
-            (1 shiftLeft k) `&` num == num
+        num > 0 && (0 until INT_BITS step 2).any { k ->
+            (1 shl k) and num == num
         }
 }
 

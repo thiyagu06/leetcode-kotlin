@@ -7,6 +7,16 @@ package extensions.lists
 const val NOT_FOUND: Int = -1
 
 /**
+ * Returns a list containing all elements except the first element.
+ */
+fun <E> List<E>.dropFirst(): List<E> = drop(1)
+
+/**
+ * Returns a list containing all elements except the last element.
+ */
+fun <E> List<E>.dropLast(): List<E> = dropLast(1)
+
+/**
  * Returns the index of the target value, or -1 if not found.
  *
  * Time: `O(log n)`

@@ -1,8 +1,6 @@
 package leetcode.medium._394_decode_string
 
 import extensions.chars.numericValue
-import extensions.lists.append
-import java.util.*
 
 /**
  * 394 - https://leetcode.com/problems/decode-string

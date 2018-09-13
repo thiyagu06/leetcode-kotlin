@@ -2,7 +2,6 @@ package extensions.math
 
 import extensions.arrays.headAndTail
 import java.math.BigInteger
-import kotlin.math.abs
 import kotlin.math.sqrt
 
 /**

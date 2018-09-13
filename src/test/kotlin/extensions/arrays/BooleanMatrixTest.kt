@@ -68,7 +68,7 @@ class BooleanMatrixTest {
     }
 
     @Test
-    fun buildBooleanMatrix() {
+    fun buildBooleanMatrixTest() {
         assertArrayEquals(
             matrix1x3,
             buildBooleanMatrix(listOf(false, true, false))

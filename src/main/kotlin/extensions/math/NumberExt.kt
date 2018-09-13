@@ -3,6 +3,8 @@ package extensions.math
 import java.text.DecimalFormat
 import kotlin.math.absoluteValue
 import kotlin.math.log10
+import kotlin.math.max
+import kotlin.math.min
 import kotlin.math.pow
 
 /**
@@ -17,7 +19,7 @@ val Int.isEven: Boolean get() = this % 2 == 0
 val Int.isOdd: Boolean get() = this % 2 != 0
 
 fun minOf(vararg numbers: Int): Int {
-    require (numbers.isNotEmpty()) { "Cannot take min of 0 numbers" }
+    require(numbers.isNotEmpty()) { "Cannot take min of 0 numbers" }
     return numbers.min()!!
 }
 
@@ -78,20 +80,23 @@ fun Int.nMostSignificantDigits(n: Int): Int {
     return this / 10.0.pow(totalDigits - n).toInt()
 }
 
+fun median(a: Int, b: Int, c: Int) = max(min(a, b), min(max(a, b), c))
+
 /********************
  * Long
  ********************/
 fun minOf(vararg numbers: Long): Long {
-    require (numbers.isNotEmpty()) { "Cannot take min of 0 numbers" }
+    require(numbers.isNotEmpty()) { "Cannot take min of 0 numbers" }
     return numbers.min()!!
 }
+
 
 /********************
  * Double
  ********************/
 
 fun minOf(vararg numbers: Double): Double {
-    require (numbers.isNotEmpty()) { "Cannot take min of 0 numbers" }
+    require(numbers.isNotEmpty()) { "Cannot take min of 0 numbers" }
     return numbers.min()!!
 }
 
@@ -106,7 +111,7 @@ fun Double.roundedToNDecimalPlaces(n: Int): Double {
  ********************/
 
 fun minOf(vararg numbers: Float): Float {
-    require (numbers.isNotEmpty()) { "Cannot take min of 0 numbers" }
+    require(numbers.isNotEmpty()) { "Cannot take min of 0 numbers" }
     return numbers.min()!!
 }
 

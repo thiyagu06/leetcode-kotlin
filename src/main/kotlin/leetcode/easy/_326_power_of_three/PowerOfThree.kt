@@ -1,9 +1,7 @@
 package leetcode.easy._326_power_of_three
 
 import extensions.math.EPSILON
-import extensions.math.equalsWithinEpsilon
 import extensions.math.log3
-import kotlin.math.abs
 import kotlin.math.log
 import kotlin.math.pow
 
