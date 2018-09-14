@@ -173,46 +173,6 @@ fun IntArray.sublist(indexRange: IntRange): List<Int> {
     }
 }
 
-/**
- * Returns the index of the target value, or -1 if not found.
- *
- * Time: `O(log n)`
- * Space: `O(1)`
- */
-fun <T : Comparable<T>> Array<T>.binarySearch(searchKey: T): Int {
-    var range = 0..lastIndex
-
-    while (!range.isEmpty()) {
-        val mid = (range.start + range.endInclusive) / 2
-        range = when {
-            searchKey < this[mid] -> (range.start..(mid - 1))
-            searchKey > this[mid] -> ((mid + 1)..lastIndex)
-            else -> return mid
-        }
-    }
-    return NOT_FOUND
-}
-
-/**
- * Returns the index of the target value, or -1 if not found.
- *
- * Time: `O(log n)`
- * Space: `O(1)`
- */
-fun IntArray.binarySearch(searchKey: Int): Int {
-    var range = 0..lastIndex
-
-    while (!range.isEmpty()) {
-        val mid = (range.start + range.endInclusive) / 2
-        range = when {
-            searchKey < this[mid] -> (range.start..(mid - 1))
-            searchKey > this[mid] -> ((mid + 1)..lastIndex)
-            else -> return mid
-        }
-    }
-    return NOT_FOUND
-}
-
 fun IntArray.subarrays(): List<IntArray> = foldIndexed(mutableListOf()) { i, acc, _ ->
     (i..lastIndex).forEach { j ->
         acc.apply { acc.add(sliceArray(i..j)) }

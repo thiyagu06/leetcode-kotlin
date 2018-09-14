@@ -17,26 +17,6 @@ fun <E> List<E>.dropFirst(): List<E> = drop(1)
 fun <E> List<E>.dropLast(): List<E> = dropLast(1)
 
 /**
- * Returns the index of the target value, or -1 if not found.
- *
- * Time: `O(log n)`
- * Space: `O(1)`
- */
-fun <T : Comparable<T>> List<T>.binarySearch(searchKey: T): Int {
-    var range = 0..lastIndex
-
-    while (!range.isEmpty()) {
-        val mid = (range.start + range.endInclusive) / 2
-        range = when {
-            searchKey < this[mid] -> (range.start..(mid - 1))
-            searchKey > this[mid] -> ((mid + 1)..lastIndex)
-            else -> return mid
-        }
-    }
-    return NOT_FOUND
-}
-
-/**
  * Returns views of the first and second halves of the list.
  * If the list is odd-sized, the first half is larger.
  */

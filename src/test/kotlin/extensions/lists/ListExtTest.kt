@@ -30,51 +30,6 @@ class ListExtTest {
     }
 
     @Test
-    fun binarySearch() {
-        assertEquals(1, listOf(1, 3, 4, 7, 9).binarySearch(3))
-    }
-
-    @Test
-    fun binarySearch_ShouldReturnMinus1ForAValueNotPresentInTheList() {
-        assertEquals(NOT_FOUND, listOf(1, 2, 3, 4).binarySearch(5))
-    }
-
-    @Test
-    fun binarySearch_ListIsEmpty() {
-        assertEquals(NOT_FOUND, emptyList<Int>().binarySearch(7))
-    }
-
-    @Test
-    fun binarySearch_ShouldFindTheItemInASingleElementList() {
-        assertEquals(0, listOf(3).binarySearch(3))
-    }
-
-    @Test
-    fun binarySearch_ShouldFindTheFirstItemInATwoElementList() {
-        assertEquals(0, listOf(4, 11).binarySearch(4))
-    }
-
-    @Test
-    fun binarySearch_ShouldFindTheLastItemInATwoElementList() {
-        assertEquals(1, listOf(4, 11).binarySearch(11))
-    }
-
-    @Test
-    fun binarySearch_ShouldFindTheMidItemInAnOddLengthList() {
-        assertEquals(2, listOf(4, 4, 7, 9, 11).binarySearch(7))
-    }
-
-    @Test
-    fun binarySearch_ShouldFindThePreMidItemInAnEvenLengthList() {
-        assertEquals(1, listOf(4, 5, 9, 11).binarySearch(5))
-    }
-
-    @Test
-    fun binarySearch_ShouldFindThePostMidItemInAnEvenLengthList() {
-        assertEquals(2, listOf(4, 5, 17, 29).binarySearch(17))
-    }
-
-    @Test
     fun halves() {
         assertEquals(Pair(emptyList<Int>(), emptyList<Int>()), emptyList<Int>().halves)
         assertEquals(Pair(listOf(1), emptyList<Int>()), listOf(1).halves)
