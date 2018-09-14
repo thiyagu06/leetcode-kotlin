@@ -7,6 +7,7 @@ import kotlin.math.log2
  */
 const val INT_BITS = 32
 
+const val ALL_1_BITMASK = 0.inv()
 
 /* BINARY <-> INT */
 
