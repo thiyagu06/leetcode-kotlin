@@ -88,7 +88,13 @@ private tailrec fun <T> powerSet(left: Collection<T>, acc: Set<Set<T>>): Set<Set
  * Generates all permutations (including non-distinct, by default)
  */
 fun <T> List<T>.permutations(distinct: Boolean = false): Set<List<T>> =
-    if (distinct) permutations().distinct().toSet() else permutations()
+    when {
+        distinct -> permutations()
+            .asSequence()
+            .distinct()
+            .toSet()
+        else -> permutations()
+    }
 
 
 private fun <T> List<T>.permutations(): Set<List<T>> = when (size) {

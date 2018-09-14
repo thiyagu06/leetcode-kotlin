@@ -15,7 +15,7 @@ class Solution {
      * Time: O(n) - see https://leetcode.com/problems/linked-list-cycle/solution/
      * Space: O(1)
      */
-    @SuppressWarnings("ConstantConditions")
+    @SuppressWarnings({ "ConstantConditions", "BooleanMethodIsAlwaysInverted" })
     public boolean hasCycle(ListNode head) {
         if (head == null || head.getNext() == null) {
             return false;
@@ -41,6 +41,7 @@ class Solution {
      * Time: O(n) - where m is the length of first linked list and n is the length of second linked list
      * Space: O(n)
      */
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public boolean hasCycle2(ListNode head) {
         if (head == null) {
             return false;
