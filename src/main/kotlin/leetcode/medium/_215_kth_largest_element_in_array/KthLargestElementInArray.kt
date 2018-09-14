@@ -24,7 +24,7 @@ class SolutionTwo {
             maxHeap.add(n)
         }
 
-        (1 until k).forEach {
+        (1 until k).forEach { _ ->
             maxHeap.poll()
         }
 

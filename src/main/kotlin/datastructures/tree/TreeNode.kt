@@ -327,6 +327,7 @@ fun buildTreeFromString(input: String): TreeNode? {
 
     val withoutBraces = input.drop(1).dropLast(1)
     val elements = withoutBraces.split(',')
+        .asSequence()
         .map { it.trim() }
         .map { c ->
             when {
@@ -342,6 +343,7 @@ fun buildTreeFromString(input: String): TreeNode? {
                 else -> throw IllegalArgumentException("Unable to parse input")
             }
         }
+        .toList()
     return buildTree(*elements.toTypedArray())
 }
 

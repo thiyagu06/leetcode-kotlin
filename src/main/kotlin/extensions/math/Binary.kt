@@ -28,6 +28,24 @@ fun Int.toBinaryString(bits: Int = 32): String = when {
 }
 
 /**
+ * TODO - Test
+ * Convert Long to binary string:
+ *
+ * The result is padded to the specified number of bits, or 64 by default.
+ *
+ * ```
+ * 67.toBinaryString()    =>  00000000000000000000000001000011
+ * (-67).toBinaryString() =>  11111111111111111111111110111101
+ * ```
+ *
+ * @param bits The number of bits in the binary string representation (default: 32)
+ */
+fun Long.toBinaryString(bits: Int = 64): String = when {
+    this >= 0L -> java.lang.Long.toBinaryString(this).padStart(bits, '0')
+    else -> java.lang.Long.toBinaryString(this)
+}
+
+/**
  * Converts a non-negative binary string to an integer.
  * @exception  NumberFormatException If the binary string represents a negative number or can't be parsed
  */
@@ -35,6 +53,7 @@ fun String.parseNonNegativeBinaryString(): Int = Integer.parseInt(this, 2)
 
 /* CHECKING BIT-BASED PROPERTIES */
 fun Int.isOdd(): Boolean = (this and 1) == 1
+
 fun Int.isEven(): Boolean = (this and 1) == 0
 val Int.isPowerOfTwo: Boolean get() = this != 0 && (this `&` (this - 1)) == 0
 

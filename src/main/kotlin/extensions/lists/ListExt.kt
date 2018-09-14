@@ -4,8 +4,6 @@ package extensions.lists
  * List extensions
  */
 
-const val NOT_FOUND: Int = -1
-
 /**
  * Returns a list containing all elements except the first element.
  */

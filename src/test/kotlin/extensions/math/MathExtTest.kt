@@ -6,6 +6,7 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.math.BigInteger
 import kotlin.system.measureTimeMillis
+import kotlin.text.Typography.times
 
 class MathExtTest {
 
@@ -51,8 +52,7 @@ class MathExtTest {
     @Test
     fun powerSet() {
         val times = arrayListOf<Long>()
-        val runs = 10
-        (1..runs).forEach {
+        repeat(10) {
             val ms = measureTimeMillis {
                 assertEquals(setOf(emptySet<Int>()), emptySet<Int>().powerSet())
                 assertEquals(setOf(setOf(), setOf(1)), setOf(1).powerSet())
@@ -81,8 +81,7 @@ class MathExtTest {
     @Test
     fun combinations() {
         val times = arrayListOf<Long>()
-        val runs = 15
-        (1..runs).forEach {
+        repeat(15) {
             val ms = measureTimeMillis {
                 assertEquals(
                     setOf(emptySet<Int>()),
@@ -138,8 +137,7 @@ class MathExtTest {
     @Test
     fun permutations() {
         val times = arrayListOf<Long>()
-        val runs = 8
-        (1..runs).forEach {
+        repeat(8) {
             val ms = measureTimeMillis {
 
                 assertEquals(
@@ -229,8 +227,7 @@ class MathExtTest {
     @Test
     fun permutationsIntArray() {
         val times = arrayListOf<Long>()
-        val runs = 8
-        (1..runs).forEach {
+        repeat(8) {
             val ms = measureTimeMillis {
 
                 assertEquals(

@@ -1,10 +1,25 @@
 package extensions.arrays
 
+import extensions.ranges.mid
+
 /**
  * Extensions for Array<T> & the primitive array types (BooleanArray, DoubleArray, etc.)
  */
 
 const val NOT_FOUND: Int = -1
+
+/**
+ * Get the middle index.
+ */
+val <T> Array<T>.midIndex: Int get() = indices.mid
+val IntArray.midIndex: Int get() = indices.mid
+val LongArray.midIndex: Int get() = indices.mid
+val CharArray.midIndex: Int get() = indices.mid
+val BooleanArray.midIndex: Int get() = indices.mid
+val FloatArray.midIndex: Int get() = indices.mid
+val DoubleArray.midIndex: Int get() = indices.mid
+val ByteArray.midIndex: Int get() = indices.mid
+val ShortArray.midIndex: Int get() = indices.mid
 
 val <T> Array<T>.head: T? get() = firstOrNull()
 val <T> Array<T>.tail: Array<T> get() = sliceArray(1 until size)
@@ -33,27 +48,6 @@ fun <T> Array<T?>.anyNull(): Boolean = any { it == null }
 fun <T> Array<T?>.allNull(): Boolean = all { it == null }
 
 fun IntArray?.isBlank(): Boolean = this == null || isEmpty()
-
-/**
- * Return true if the object is either an Array<T> or primitive array type.
- */
-fun Any.isArrayType(): Boolean {
-    if (this is Array<*>)
-        return true
-
-    val primitiveArrayTypes = setOf(
-        BooleanArray::class,
-        ByteArray::class,
-        CharArray::class,
-        DoubleArray::class,
-        FloatArray::class,
-        IntArray::class,
-        LongArray::class,
-        ShortArray::class
-    )
-
-    return this::class in primitiveArrayTypes
-}
 
 /**
  * Source: http://tinyurl.com/y92rp67r

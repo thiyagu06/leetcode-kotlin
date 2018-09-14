@@ -63,9 +63,5 @@ public class BinaryTest {
         assertEquals(22, Binary.swapBits(7, 0, 4));
 
         assertEquals(9, Binary.swapBits(3, 1, 3));
-
-        int x = 3;
-        Binary.swapBits(x, 1, 3);
-        assertEquals(3, x);
     }
 }

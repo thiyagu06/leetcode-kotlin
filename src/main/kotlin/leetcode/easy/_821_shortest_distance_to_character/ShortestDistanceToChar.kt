@@ -15,7 +15,7 @@ class Solution {
         }
 
         return S.mapIndexed { index, _ ->
-            cIndices.map { abs(index - it) }.min() ?: 0
+            cIndices.asSequence().map { abs(index - it) }.min() ?: 0
         }.toIntArray()
     }
 }

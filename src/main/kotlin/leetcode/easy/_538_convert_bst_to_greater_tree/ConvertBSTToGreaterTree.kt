@@ -21,7 +21,7 @@ class Solution {
     private fun convertBST(root: TreeNode?, treeValues: List<Int>): TreeNode? {
         root ?: return null
 
-        val convertedRootValue = treeValues.dropWhile { it < root.`val` }.sum()
+        val convertedRootValue = treeValues.asSequence().dropWhile { it < root.`val` }.sum()
 
         return TreeNode(convertedRootValue).apply {
             left = convertBST(root.left, treeValues)

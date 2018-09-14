@@ -71,6 +71,7 @@ fun <T> Set<T>.combinations(k: Int): Set<Set<T>> = when {
     k == 0 -> setOf(setOf())
     k >= size -> setOf(toSet())
     else -> powerSet()
+        .asSequence()
         .filter { it.size == k }
         .toSet()
 }

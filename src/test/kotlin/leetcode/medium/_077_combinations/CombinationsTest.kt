@@ -12,8 +12,7 @@ class CombinationsTest {
     @Test
     fun combine() {
         val times = arrayListOf<Long>()
-        val runs = 15
-        (1..runs).forEach {
+        repeat(15) {
             val ms = measureTimeMillis {
                 // list = [1, 2, 3]
                 assertEquals(

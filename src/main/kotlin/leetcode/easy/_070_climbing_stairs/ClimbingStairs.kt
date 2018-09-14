@@ -83,7 +83,7 @@ class OptimalSolution {
                 var minus2 = 1  // f(1)
                 var current = minus1 + minus2
 
-                (3..n).forEach {
+                (3..n).forEach { _ ->
                     current = minus1 + minus2
                     minus2 = minus1
                     minus1 = current

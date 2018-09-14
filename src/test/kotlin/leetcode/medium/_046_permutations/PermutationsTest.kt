@@ -13,8 +13,7 @@ class PermutationsTest {
     @Test
     fun permutations() {
         val times = arrayListOf<Long>()
-        val runs = 8
-        (1..runs).forEach {
+        repeat(8) {
             val ms = measureTimeMillis {
                 assertEquals(
                     setOf(

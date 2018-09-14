@@ -1,6 +1,7 @@
 package leetcode.hard._140_word_break_ii
 
 import org.junit.Assert.assertEquals
+import org.junit.Ignore
 import org.junit.Test
 
 class WordBreakIITest {
@@ -41,8 +42,13 @@ class WordBreakIITest {
                 "a a a aa aaa", "aa a aa aaa", "a aa aa aaa", "aaa aa aaa", "a a aaa aaa", "aa aaa aaa", "a aaaa aaa", "a a a a aaaa",
                 "aa a a aaaa", "a aa a aaaa", "aaa a aaaa", "a a aa aaaa", "aa aa aaaa", "a aaa aaaa", "aaaa aaaa").toSet(),
                 solution.wordBreak("aaaaaaaa", listOf("a", "aa", "aaa", "aaaa")).toSet())
-//        assertEquals(emptyList<String>(), solution.wordBreak(
-//                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-//                listOf("a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa")))
+    }
+
+    @Ignore     // TODO: Fix solution
+    @Test
+    fun wordBreakReallyLongRepeating() {
+        assertEquals(emptyList<String>(), solution.wordBreak(
+                "a".repeat(151),
+                listOf("a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa")))
     }
 }

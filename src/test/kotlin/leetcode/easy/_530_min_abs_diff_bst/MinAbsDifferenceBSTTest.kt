@@ -7,7 +7,7 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-class MinAbsDifferenceTest {
+class MinAbsDifferenceBSTTest {
 
     private val solution = Solution()
 

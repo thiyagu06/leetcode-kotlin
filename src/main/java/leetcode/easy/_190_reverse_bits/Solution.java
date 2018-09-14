@@ -10,9 +10,6 @@ class Solution {
     /**
      * Time: O(1)
      * Space: O(1)
-     *
-     * @param n
-     * @return
      */
     public int reverseBits(int n) {
         int reversed = n;
@@ -28,8 +25,8 @@ class Solution {
     }
 
     private int swapBits(int x, int i, int j) {
-        int iBit = (x >> i) & 1;
-        int jBit = (x >> j) & 1;
+        final int iBit = (x >> i) & 1;
+        final int jBit = (x >> j) & 1;
 
         if ((iBit ^ jBit) == 0) {   // both 0 or both 1
             return x;

@@ -6,6 +6,7 @@ package utils;
  * <p>
  * Kth bit = from right (least significant), starting from 0
  */
+@SuppressWarnings("unused")
 public class Binary {
 
     /* CHECKING THE VALUE OF BITS */
@@ -56,7 +57,7 @@ public class Binary {
         return (int) (Math.log2((double) valueOfLowestSetBit));
     }
 
-    public static int extractRightmost0Bit(int x) {
+    private static int extractRightmost0Bit(int x) {
         if (x == -1) {
             return -1;  // otherwise will return 0, but 0th bit not set.
         }
@@ -71,8 +72,7 @@ public class Binary {
         }
 
         final int valueOfLowest0Bit = ~x & (x + 1);
-        final int position = (int) (Math.log2((double) valueOfLowest0Bit));
-        return position;
+        return (int) (Math.log2((double) valueOfLowest0Bit));
     }
 
     public static int unsetRightmost1Bit(int x) {
@@ -82,7 +82,7 @@ public class Binary {
         if (x == -1)
             return -1;
 
-        int valueOfLowest0Bit = extractRightmost0Bit(x);
+        final int valueOfLowest0Bit = extractRightmost0Bit(x);
         return x ^ valueOfLowest0Bit;
     }
 
@@ -96,8 +96,8 @@ public class Binary {
     }
 
     public static int swapBits(int x, int i, int j) {
-        int iBit = (x >> i) & 1;
-        int jBit = (x >> j) & 1;
+        final int iBit = (x >> i) & 1;
+        final int jBit = (x >> j) & 1;
 
         if ((iBit ^ jBit) == 0) {   // Are the same
             return x;

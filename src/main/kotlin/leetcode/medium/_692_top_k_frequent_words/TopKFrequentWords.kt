@@ -13,9 +13,9 @@ class Solution {
 
         val comparator = compareByDescending { (_, freq): Map.Entry<String, Int> -> freq }
                             .thenBy { (word, _) -> word }
-        return frequencies.sortedWith(comparator)
-                .take(k)
-                .map { (word, _) -> word }
+        return frequencies.asSequence().sortedWith(comparator)
+            .take(k)
+            .map { (word, _) -> word }.toList()
     }
 }
 

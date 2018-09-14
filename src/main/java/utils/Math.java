@@ -1,6 +1,6 @@
 package utils;
 
-public class Math {
+class Math {
 
     // TODO - test
     public static double log2(double x) {

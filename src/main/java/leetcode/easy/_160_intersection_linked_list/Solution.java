@@ -9,12 +9,14 @@ import java.util.function.UnaryOperator;
 /**
  * 160 - https://leetcode.com/problems/intersection-of-two-linked-lists/description/
  */
+@SuppressWarnings("UnusedReturnValue")
 public class Solution {
 
     /**
      * Time: O(m + n)
      * Space: O(1)
      */
+    @SuppressWarnings("ConstantConditions")
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         final int list1Size = sizeOfList(headA);
         final int list2Size = sizeOfList(headB);

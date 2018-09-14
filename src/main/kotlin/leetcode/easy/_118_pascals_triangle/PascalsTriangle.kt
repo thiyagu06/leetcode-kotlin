@@ -50,6 +50,9 @@ class PascalsTriangle2 {
         }
 
         /* Convert List<IntArray> -> List<List<Int>> and drop empty 0th row */
-        return triangle.map { it.toList() }.drop(1)
+        return triangle.asSequence()
+            .map { it.toList() }
+            .drop(1)
+            .toList()
     }
 }

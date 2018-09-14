@@ -12,7 +12,7 @@ class Solution {
      * Time: O(n log n)
      * Space: O(n)
      */
-    fun getMinimumDifference(root: TreeNode?, parentValue: Int? = null): Int {
+    fun getMinimumDifference(root: TreeNode?): Int {
         root ?: return 0
 
         val sortedValues = root.collect(arrayListOf()).sorted()

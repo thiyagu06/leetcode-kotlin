@@ -118,21 +118,6 @@ class ArraysExtTest {
     }
 
     @Test
-    fun isArrayType() {
-        assertFalse("foo".isArrayType())
-        assertFalse(7.isArrayType())
-
-        assertTrue(arrayAllNulls.isArrayType())
-        assertTrue(arrayWithNulls.isArrayType())
-        assertTrue(arrayNoNulls.isArrayType())
-
-        assertTrue(emptyIntArray.isArrayType())
-        assertTrue(intArray.isArrayType())
-        assertTrue(charArray.isArrayType())
-        assertTrue(emptyCharArray.isArrayType())
-    }
-
-    @Test
     fun groupingBy() {
         assertEquals(
             mapOf(1 to 2, 7 to 1),

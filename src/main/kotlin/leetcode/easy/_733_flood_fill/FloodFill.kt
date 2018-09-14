@@ -57,11 +57,11 @@ class Solution {
             (pixel.x + 1 to pixel.y),
             (pixel.x to pixel.y - 1),
             (pixel.x to pixel.y + 1)
-        ).filter { (x, y) ->
+        ).asSequence().filter { (x, y) ->
             x in image.rowRange && y in image.columnRange
         }.map { (x, y) ->
             image[x][y]
-        }
+        }.toList()
     }
 
     private fun markVisited(pixel: Pixel) {

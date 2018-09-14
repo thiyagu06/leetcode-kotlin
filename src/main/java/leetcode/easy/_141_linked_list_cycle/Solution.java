@@ -8,12 +8,14 @@ import java.util.Map;
 /**
  * 141 - https://leetcode.com/problems/linked-list-cycle/description/
  */
+@SuppressWarnings("UnusedReturnValue")
 class Solution {
 
     /**
      * Time: O(n) - see https://leetcode.com/problems/linked-list-cycle/solution/
      * Space: O(1)
      */
+    @SuppressWarnings("ConstantConditions")
     public boolean hasCycle(ListNode head) {
         if (head == null || head.getNext() == null) {
             return false;
