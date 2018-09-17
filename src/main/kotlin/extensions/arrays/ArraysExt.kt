@@ -167,23 +167,27 @@ fun IntArray.sublist(indexRange: IntRange): List<Int> {
     }
 }
 
-fun IntArray.subarrays(): List<IntArray> = foldIndexed(mutableListOf()) { i, acc, _ ->
-    (i..lastIndex).forEach { j ->
-        acc.apply { acc.add(sliceArray(i..j)) }
-    }
-    acc
-}
-
-
-fun IntArray.sublists(): List<List<Int>> = foldIndexed(mutableListOf()) { i, acc, _ ->
-    (i..lastIndex).forEach { j ->
-        val sublist = slice(i..j)
-        acc.apply {
-            acc += sublist
+fun IntArray.subarrays(): List<IntArray> =
+    foldIndexed(mutableListOf()) { i, acc, _ ->
+        (i..lastIndex).forEach { j ->
+            acc.apply {
+                acc.add(sliceArray(i..j))
+            }
         }
+        acc
     }
-    acc
-}
+
+
+fun IntArray.sublists(): List<List<Int>> =
+    foldIndexed(mutableListOf()) { i, acc, _ ->
+        (i..lastIndex).forEach { j ->
+            val sublist = slice(i..j)
+            acc.apply {
+                acc += sublist
+            }
+        }
+        acc
+    }
 
 // Kotlin 1.2 equivalent: asIterable().windowed(size = k, partialWindows = false)
 fun IntArray.sublistsOfSize(k: Int): List<List<Int>> {
@@ -202,6 +206,10 @@ fun <T> Array<T>.sublist(indexRange: IntRange): List<T> =
 fun <T> Array<T>.sublistsOfSize(k: Int): List<List<T>> {
     require(k > 0) { "subarray size k must be > 0" }
     return (0..size - k).fold(arrayListOf()) { acc, startIndex ->
-        acc.apply { acc.add(sublist((startIndex until startIndex + k))) }
+        acc.apply {
+            acc.add(
+                sublist(startIndex until startIndex + k)
+            )
+        }
     }
 }

@@ -1,9 +1,53 @@
 package leetcode.easy._053_maximum_subarray
 
+import kotlin.math.max
+
 /**
  * 53 - https://leetcode.com/problems/maximum-subarray/description/
  */
+
 class Solution {
+    /**
+     * Brute-force solution
+     * Time: O(n^2) ?
+     * Space: O(?)
+     */
+    fun maxSubArray(nums: IntArray): Int {
+        var maxSum = Int.MIN_VALUE        // Assume size >= 1
+        (1..nums.size).forEach { k ->
+            (0 until (nums.size - k + 1)).forEach { i ->
+                var subarraySum = 0
+                (i until (i + k)).forEach { j ->
+                    subarraySum += nums[j]
+                }
+                maxSum = max(maxSum, subarraySum)
+            }
+        }
+
+        return maxSum
+    }
+}
+
+class SolutionTwo {
+    /**
+     * Kadane's Algorithm - https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane's_algorithm
+     * Time: O(n)
+     * Space: O(1)
+     */
+    fun maxSubArray(nums: IntArray): Int {
+        var maxSoFar = nums[0]
+        var maxEndingHere = nums[0]
+
+        (1..nums.lastIndex).forEach { i ->
+            maxEndingHere = max(nums[i], maxEndingHere + nums[i])
+            maxSoFar = max(maxSoFar, maxEndingHere)
+        }
+
+        return maxSoFar
+    }
+}
+
+class SolutionThree {
     /**
      * TODO
      * Time: O(?)
@@ -24,7 +68,7 @@ class Solution {
     }
 }
 
-class Solution2 {
+class SolutionFour {
     /**
      * TODO
      * Time: O(?)
