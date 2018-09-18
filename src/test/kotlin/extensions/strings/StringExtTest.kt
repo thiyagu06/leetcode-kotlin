@@ -90,4 +90,12 @@ class StringExtTest {
         assertEquals("\t !$&*14789abc", "1 *&9c7a\t4b!$8".toSortedString())
     }
 
+    @Test
+    fun isAnagramOf() {
+        assertTrue("anagram".isAnagramOf("nagaram"))
+        assertTrue("rac".isAnagramOf("car"))
+        assertFalse("rat".isAnagramOf("car"))
+        assertFalse("aa".isAnagramOf("a"))
+    }
+
 }

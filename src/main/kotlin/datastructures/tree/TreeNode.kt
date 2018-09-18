@@ -47,12 +47,20 @@ val TreeNode.size: Int get() = 1 + (left?.size ?: 0) + (right?.size ?: 0)
  * ```
  * val (l, r) = tree?.children
  * ```
+ *
+ * **Time**: `O(1)`
+ *
+ * **Space**: `O(1)`
  */
 val TreeNode.children: Pair<TreeNode?, TreeNode?>
     get() = Pair(left, right)
 
 /**
  * Height: the number of edges on the longest path between this node and a leaf.
+ *
+ * **Time**: `O(n)`
+ *
+ * **Space**: `O(n)`
  */
 val TreeNode.height: Int
     get() {
@@ -64,8 +72,9 @@ val TreeNode.height: Int
  * Search for a value in the binary tree, returning the node
  * containing the value if it is found, or else null.
  *
- * Time: O(n)
- * Space: O(n)
+ * **Time**: `O(n)`
+ *
+ * **Space**: `O(n)`
  */
 fun TreeNode?.find(searchValue: Int): TreeNode? {
     this ?: return null
@@ -77,12 +86,31 @@ fun TreeNode?.find(searchValue: Int): TreeNode? {
     }
 }
 
-fun TreeNode.contains(value: Int): Boolean = find(value) != null
+/**
+ * Checks whether the specified value is contained in the tree.
+ *
+ * Usage:
+ * ```
+ * val tree: TreeNode = TreeNode(1)
+ * tree.left = TreeNode(2)
+ * tree.right = TreeNode(3)
+ * 2 in tree
+ * ```
+ *
+ * **Time**: `O(n)`
+ *
+ * **Space**: `O(n)`
+ */
+operator fun TreeNode.contains(value: Int): Boolean = find(value) != null
 
 enum class DFSTraversalOrder { PREORDER, INORDER, POSTORDER; }
 
 /**
  * Perform depth-first traversal on the tree, executing [visit] on each node.
+ *
+ * **Time**: `O(n)`
+ *
+ * **Space**: `O(n)`
  */
 fun TreeNode?.dfs(order: DFSTraversalOrder = INORDER, visit: (TreeNode) -> Unit) {
     this ?: return
@@ -112,8 +140,9 @@ fun TreeNode?.dfs(order: DFSTraversalOrder = INORDER, visit: (TreeNode) -> Unit)
  * Traverse the tree (using inorder depth-first search), collecting the values
  * into a [Collection].
  *
- * Time: `O(n)`
- * Space: `O(n)`
+ * **Time**: `O(n)`
+ *
+ * **Space**: `O(n)`
  */
 fun TreeNode?.collect(acc: MutableList<Int> = arrayListOf()): List<Int> =
     this?.let {
@@ -127,8 +156,9 @@ fun TreeNode?.collect(acc: MutableList<Int> = arrayListOf()): List<Int> =
  * applies the [transform] to each [TreeNode], and
  * collect the transform result.
  *
- * Time: `O(n)` - assuming `transform` is `<= O(n)`
- * Space: `O(n)`
+ * **Time**: `O(n)` - assuming `transform` is `<= O(n)`
+ *
+ * **Space**: `O(n)`
  */
 fun <T> TreeNode?.collect(
     traversalOrder: DFSTraversalOrder = INORDER,
@@ -136,13 +166,16 @@ fun <T> TreeNode?.collect(
     transform: (TreeNode) -> T
 ): List<T> {
     this ?: return emptyList()
-
     dfs(order = traversalOrder) { acc += transform(it) }
     return acc
 }
 
 /**
  * Collect the unique values to a Set.
+ *
+ * **Time**: `O(n)`
+ *
+ * **Space**: `O(n)`
  */
 fun TreeNode?.collectUnique(acc: MutableSet<Int> = hashSetOf()): Set<Int> =
     this?.let {
@@ -155,11 +188,18 @@ fun TreeNode?.collectUnique(acc: MutableSet<Int> = hashSetOf()): Set<Int> =
  * Return a list of the values in the tree. For binary search trees, the values
  * will be sorted.
  *
+ * **Time**: `O(n)`
+ *
+ * **Space**: `O(n)`
  */
 fun TreeNode?.toList(): List<Int> = collect { it.`val` }.toList()
 
 /**
  * Execute a breadth-first traversal of the tree.
+ *
+ * **Time**: `O(n)`
+ *
+ * **Space**: `O(n)`
  */
 fun TreeNode?.bfs(visit: (TreeNode) -> Unit) {
     this ?: return
@@ -209,6 +249,10 @@ fun TreeNode?.depthAwareBFS(visit: (Pair<TreeNode, Int>) -> Unit) {
 
 /**
  * Get the values in the tree by depth.
+ *
+ * **Time**: `O(n)`
+ *
+ * **Space**: `O(n)`
  */
 fun TreeNode?.levels(): List<List<Int>> {
     this ?: return emptyList()
@@ -219,13 +263,13 @@ fun TreeNode?.levels(): List<List<Int>> {
     val levels = arrayListOf<MutableList<Int>>()
 
     while (queue.isNotEmpty()) {
-        val (node, depth) = queue.remove()!!
+        val (node, depth) = queue.poll()
 
         if (depth > levels.lastIndex) {
-            levels.add(arrayListOf(node.`val`))
-        } else {
-            levels[depth].add(node.`val`)
+            levels.add(arrayListOf())
         }
+
+        levels[depth].add(node.`val`)
 
         node.left?.let { queue.add(it to depth + 1) }
         node.right?.let { queue.add(it to depth + 1) }
@@ -234,6 +278,13 @@ fun TreeNode?.levels(): List<List<Int>> {
     return levels
 }
 
+/**
+ * Validates that the tree has the properties of a Binary Search Tree.
+ *
+ * **Time**: `O(n)`
+ *
+ * **Space**: `O(n)`
+ */
 fun TreeNode?.isBST(validRange: IntRange = (Int.MIN_VALUE..Int.MAX_VALUE)): Boolean {
     this ?: return true
 
@@ -245,6 +296,10 @@ fun TreeNode?.isBST(validRange: IntRange = (Int.MIN_VALUE..Int.MAX_VALUE)): Bool
 
 /**
  * Returns a list of all root-to-leaf paths.
+ *
+ * **Time**:
+ *
+ * **Space**:
  */
 fun TreeNode?.rootToLeafPaths(
     currentPath: List<Int> = emptyList(),
@@ -314,37 +369,6 @@ fun buildTree(vararg elements: Int?): TreeNode? {
     }
 
     return root
-}
-
-/**
- * Build tree from LeetCode's array representation:
- * buildTreeFromString("[1, 2, 3]") -> buildTree(1, 2, 3)
- */
-fun buildTreeFromString(input: String): TreeNode? {
-    require(input.first() == '[' && input.last() == ']') {
-        "Invalid format: $input"
-    }
-
-    val withoutBraces = input.drop(1).dropLast(1)
-    val elements = withoutBraces.split(',')
-        .asSequence()
-        .map { it.trim() }
-        .map { c ->
-            when {
-                c[0] == '-' -> {
-                    if (!c.drop(1).all { it.isDigit() }) {
-                        throw IllegalArgumentException("Expected digits after negative sign")
-                    } else {
-                        c.toInt()
-                    }
-                }
-                c.all { it.isDigit() } -> c.toInt()
-                c == "null" -> null
-                else -> throw IllegalArgumentException("Unable to parse input")
-            }
-        }
-        .toList()
-    return buildTree(*elements.toTypedArray())
 }
 
 /**

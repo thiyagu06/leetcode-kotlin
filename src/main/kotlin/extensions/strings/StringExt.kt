@@ -50,3 +50,7 @@ fun String.distinctChars(): List<Char> = toCharArray().distinct()
  */
 fun String.toSortedString(): String = toCharArray().sorted().joinToString("")
 
+/**
+ * Returns true if the String is an anagram of [other].
+ */
+fun String.isAnagramOf(other: String): Boolean = toCharArray().sorted() == other.toCharArray().sorted()

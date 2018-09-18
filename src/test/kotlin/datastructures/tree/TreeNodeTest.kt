@@ -3,6 +3,8 @@ package datastructures.tree
 import org.junit.Assert.*
 import org.junit.Ignore
 import org.junit.Test
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class TreeNodeTest {
 
@@ -197,41 +199,6 @@ class TreeNodeTest {
     }
 
     @Test
-    fun buildTreeFromString() {
-        val tree = buildTreeFromString("[1, 2, 3]")
-        assertNotNull(tree)
-        assertEquals(3, tree?.size)
-        assertEquals(1, tree?.`val`)
-        assertEquals(2, tree?.left?.`val`)
-        assertEquals(3, tree?.right?.`val`)
-
-        val tree2 = buildTreeFromString("[5, 3, 8, 1, 4, 6, 9]")
-        assertNotNull(tree2)
-        assertEquals(7, tree2?.size)
-        assertEquals(bst3LevelsFull, tree2)
-
-        assertEquals(
-            buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 2),
-            buildTreeFromString("[1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,2]")
-        )
-
-        assertEquals(
-            buildTree(99, 77, 123),
-            buildTreeFromString("[99, 77, 123]")
-        )
-
-        assertEquals(
-                buildTree(4, -7, -3, null, null, -9, -3, 9, -7, -4, null, 6, null, -6, -6, null, null, 0, 6, 5, null, 9, null, null, -1, -4, null, null, null, -2),
-                buildTreeFromString("[4,-7,-3,null,null,-9,-3,9,-7,-4,null,6,null,-6,-6,null,null,0,6,5,null,9,null,null,-1,-4,null,null,null,-2]")
-        )
-    }
-
-    @Test(expected = IllegalArgumentException::class)
-    fun `buildTreeFromString throws exception when input invalid`() {
-        buildTreeFromString("1, 2, 3")
-    }
-
-    @Test
     fun rootToLeafPaths() {
         assertEquals(listOf(listOf(1, 2), listOf(1, 3)), tree123.rootToLeafPaths())
         assertEquals(
@@ -311,17 +278,23 @@ class TreeNodeTest {
     @Test
     fun contains() {
         (1..9).forEach { i ->
-            if (i in setOf(2, 7))
+            if (i in setOf(2, 7)) {
                 assertFalse(bst3LevelsFull.contains(i))
-            else
+                assertFalse(i in bst3LevelsFull)
+            } else {
                 assertTrue(bst3LevelsFull.contains(i))
+                assertTrue(i in bst3LevelsFull)
+            }
         }
 
         (1..9).forEach { i ->
-            if (i in setOf(2, 5, 6))
+            if (i in setOf(2, 5, 6)) {
                 assertFalse(bstWithNulls.contains(i))
-            else
+                assertFalse(i in bstWithNulls)
+            } else {
                 assertTrue(bstWithNulls.contains(i))
+                assertTrue(i in bstWithNulls)
+            }
         }
     }
 
