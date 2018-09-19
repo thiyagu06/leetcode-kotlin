@@ -22,11 +22,12 @@ class BFSSolution {
 
         while (queue.isNotEmpty()) {
             val (node, depth) = queue.remove() ?: return levels
-            if (levels.lastIndex < depth) {
-                levels.add(arrayListOf(node.`val`))
-            } else {
-                levels[depth].add(node.`val`)
+
+            if (depth > levels.lastIndex) {
+                levels.add(arrayListOf())
             }
+            levels[depth].add(node.`val`)
+
             node.left?.let { queue.add(it to depth + 1) }
             node.right?.let { queue.add(it to depth + 1) }
         }
@@ -47,14 +48,12 @@ class DFSSolution {
         depth: Int = 0,
         values: MutableList<MutableList<Int>> = arrayListOf()
     ): List<List<Int>> {
-
         root ?: return values
 
         if (depth > values.lastIndex) {
-            values += arrayListOf(root.`val`)
-        } else {
-            values[depth].add(root.`val`)
+            values += arrayListOf<Int>()
         }
+        values[depth].add(root.`val`)
 
         levelOrder(root.left, depth + 1, values)
         levelOrder(root.right, depth + 1, values)

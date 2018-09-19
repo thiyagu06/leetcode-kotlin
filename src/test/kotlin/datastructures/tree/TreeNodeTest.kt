@@ -146,6 +146,16 @@ class TreeNodeTest {
         val tree4 = buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 2)
         assertEquals(12, tree4?.size)
         assertEquals(treeUnbalanced2, tree4)
+
+        val tree5 = buildTree(7, null, 8, 9, 10)
+        assertEquals(4, tree5?.size)
+        val expected = TreeNode(7).apply {
+            right = TreeNode(8).apply {
+                left = TreeNode(9)
+                right = TreeNode(10)
+            }
+        }
+        assertEquals(expected, tree5)
     }
 
     @Test

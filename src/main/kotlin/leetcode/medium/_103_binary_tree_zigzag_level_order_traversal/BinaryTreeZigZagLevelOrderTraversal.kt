@@ -1,11 +1,11 @@
 package leetcode.medium._103_binary_tree_zigzag_level_order_traversal
 
 import datastructures.tree.TreeNode
+import datastructures.tree.levels
 import extensions.lists.append
 import extensions.lists.prepend
 import extensions.math.isEven
 import extensions.math.isOdd
-import leetcode.medium._102_binary_tree_level_order_traversal.BFSSolution
 import java.util.*
 
 /**
@@ -17,8 +17,10 @@ class Solution {
      * Time: O(n)
      * Space: O(n)
      */
-    fun zigzagLevelOrder(root: TreeNode?,
-                         values: MutableList<MutableList<Int>> = arrayListOf()): List<List<Int>> {
+    fun zigzagLevelOrder(
+        root: TreeNode?,
+        values: MutableList<MutableList<Int>> = arrayListOf()
+    ): List<List<Int>> {
 
         root ?: return values
 
@@ -42,44 +44,44 @@ class Solution {
     }
 }
 
-class SimpleSolution1 {
+class SolutionTwo {
     /**
      * This solution uses the solution from #102, and then reverses every other level.
      * Time: O(n)
      * Space: O(n)
      */
-    fun zigzagLevelOrder(root: TreeNode?): List<List<Int>> =
-            BFSSolution().levelOrder(root)
-                    .mapIndexed { depth, values ->
-                        if (depth.isOdd) values.reversed() else values
-                    }
+    fun zigzagLevelOrder(root: TreeNode?): List<List<Int>> = root.levels()
+            .mapIndexed { depth, values ->
+                if (depth.isOdd) values.reversed() else values
+            }
 
 }
 
-class SimpleSolution2 {
+class SolutionThree {
     /**
-     * Same as [SimpleSolution1], but uses a bit less space by reversing mutable lists in place.
+     * Same as [SolutionTwo], but uses a bit less space by reversing mutable lists in-place.
      * Time: O(n)
      * Space: O(n)
      */
     fun zigzagLevelOrder(root: TreeNode?): List<List<Int>> = levelOrder(root)
-            .mapIndexed { depth, values ->
-                if (depth.isOdd)
-                    values.reverse()
+        .mapIndexed { depth, values ->
+            if (depth.isOdd)
+                values.reverse()
 
-                values
-            }
+            values
+        }
 
-    private fun levelOrder(root: TreeNode?, depth: Int = 0,
-                           values: MutableList<MutableList<Int>> = arrayListOf()): MutableList<MutableList<Int>> {
+    private fun levelOrder(
+        root: TreeNode?, depth: Int = 0,
+        values: MutableList<MutableList<Int>> = arrayListOf()
+    ): MutableList<MutableList<Int>> {
 
         root ?: return values
 
         if (depth > values.lastIndex) {
-            values += arrayListOf(root.`val`)
-        } else {
-            values[depth].add(root.`val`)
+            values += arrayListOf<Int>()
         }
+        values[depth].add(root.`val`)
 
         levelOrder(root.left, depth + 1, values)
         levelOrder(root.right, depth + 1, values)

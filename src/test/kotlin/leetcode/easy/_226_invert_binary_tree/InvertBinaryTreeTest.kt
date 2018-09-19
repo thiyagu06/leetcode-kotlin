@@ -10,11 +10,12 @@ import org.junit.Test
 
 class InvertBinaryTreeTest {
 
-    private val solution1 = Solution1()
-    private val solution2 = Solution2()
-    private val solution3 = Solution3()
-    private val solution4 = Solution4()
-    private val solution5 = Solution5()
+    private val solution = Solution()
+    private val solution2 = SolutionTwo()
+    private val solution3 = SolutionThree()
+    private val solution4 = SolutionFour()
+    private val solution5 = SolutionFive()
+
     private var tree123: TreeNode? = TreeNode(1).apply {
             left = TreeNode(2)
             right = TreeNode(3)
@@ -36,19 +37,19 @@ class InvertBinaryTreeTest {
 
     @Test
     fun invertTree1() {
-        assertEquals(buildTree(1, 3, 2), solution1.invertTree(tree123))
+        assertEquals(buildTree(1, 3, 2), solution.invertTree(tree123))
         // test if tree123 is modified
         assertEquals(buildTree(1, 2, 3), tree123)
 
-        assertEquals(buildTree(2, 3, 1), solution1.invertTree(buildTree(2, 1, 3)))
-        assertEquals(buildTree(2, null, 3), solution1.invertTree(buildTree(2, 3)))
-        assertEquals(buildTree(2, 3), solution1.invertTree(buildTree(2, null, 3)))
+        assertEquals(buildTree(2, 3, 1), solution.invertTree(buildTree(2, 1, 3)))
+        assertEquals(buildTree(2, null, 3), solution.invertTree(buildTree(2, 3)))
+        assertEquals(buildTree(2, 3), solution.invertTree(buildTree(2, null, 3)))
         assertEquals(buildTree(4, 7, 2, 9, 6, 3, 1),
-                solution1.invertTree(
+                solution.invertTree(
                         buildTree(4, 2, 7, 1, 3, 6, 9)))
         assertEquals(
             buildTree(20, 200, 50, 300, null, 25, 75),
-            solution1.invertTree(buildTree(20, 50, 200, 75, 25, null, 300))
+            solution.invertTree(buildTree(20, 50, 200, 75, 25, null, 300))
         )
     }
 

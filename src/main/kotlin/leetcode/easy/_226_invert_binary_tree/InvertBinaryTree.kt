@@ -6,7 +6,7 @@ import datastructures.tree.children
 /**
  * 226 - https://leetcode.com/problems/invert-binary-tree/description/
  */
-class Solution1 {
+class Solution {
     /**
      * Does not modify input tree.
      *
@@ -24,7 +24,7 @@ class Solution1 {
     }
 }
 
-class Solution2 {
+class SolutionTwo {
     /**
      * Does not modify input tree.
      * Same as Solution1, but uses Kotlin's `apply()` scoping function.
@@ -42,7 +42,7 @@ class Solution2 {
     }
 }
 
-class Solution3 {
+class SolutionThree {
     /**
      * Modifies input tree.
      *
@@ -62,7 +62,7 @@ class Solution3 {
     }
 }
 
-class Solution4 {
+class SolutionFour {
     /**
      * Modifies input tree.
      *
@@ -76,7 +76,7 @@ class Solution4 {
     }
 }
 
-class Solution5 {
+class SolutionFive {
     /**
      * Modifies input tree.
      *
