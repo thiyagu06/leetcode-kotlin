@@ -7,6 +7,27 @@ import org.junit.Test
 class CharExtTest {
 
     @Test
+    fun asciiValue() {
+        assertEquals(48, '0'.asciiValue)
+        assertEquals(56, '8'.asciiValue)
+        assertEquals(58, ':'.asciiValue)
+        assertEquals(65, 'A'.asciiValue)
+        assertEquals(90, 'Z'.asciiValue)
+        assertEquals(97, 'a'.asciiValue)
+        assertEquals(122, 'z'.asciiValue)
+    }
+
+    @Test
+    fun alphaIndex() {
+        assertEquals(0, 'a'.alphaIndex)
+        assertEquals(0, 'A'.alphaIndex)
+        assertEquals(1, 'b'.alphaIndex)
+        assertEquals(1, 'B'.alphaIndex)
+        assertEquals(25, 'z'.alphaIndex)
+        assertEquals(25, 'Z'.alphaIndex)
+    }
+
+    @Test
     fun numericValue() {
         assertEquals(0, '0'.numericValue())
         assertEquals(8, '8'.numericValue())

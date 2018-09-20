@@ -1,6 +1,11 @@
 package leetcode.easy._438_find_all_anagrams
 
-import java.util.*
+import extensions.chars.asciiValue
+import kotlin.collections.ArrayList
+import kotlin.collections.List
+import kotlin.collections.forEach
+import kotlin.collections.mutableMapOf
+import kotlin.collections.set
 
 
 /**
@@ -15,47 +20,41 @@ class Solution {
      * Space: O(n)
      */
     fun findAnagrams(s: String, p: String): List<Int> {
-        val list = ArrayList<Int>()
+        val result = ArrayList<Int>()
         if (s.isNullOrBlank() || p.isNullOrBlank())
-            return list
-        val hash = IntArray(256) //character hash
-        // record each character in p to hash
+            return result
+
+        val hash = IntArray(256)                    // ASCII character hash
+
         for (c in p.toCharArray()) {
-            hash[c.toInt()]++
+            hash[c.asciiValue]++
         }
-        //two points, initialize count to p's length
+
         var left = 0
         var right = 0
         var count = p.length
         while (right < s.length) {
-            // move right every time, if the character exists in p's hash, decrease the count
-            // current hash value >= 1 means the character is existing in p
-//            if (hash[s[right++].toInt()]-- >= 1) count--
-            if (hash[s[right].toInt()] >= 1) {
+            val r = s[right]
+            if (hash[r.asciiValue] >= 1) {
                 count--
             }
-            hash[s[right].toInt()]--
+            hash[s[right].asciiValue]--
             right++
 
-            // when the count is down to 0, means we found the right anagram
-            // then add window's left to result list
             if (count == 0)
-                list.add(left)
+                result.add(left)
 
-            // if we find the window's size equals to p, then we have to move left (narrow the window) to find the new match window
-            // ++ to reset the hash because we kicked out the left
-            // only increase the count if the character is in p
-            // the count >= 0 indicate it was original in the hash, cuz it won't go below 0
+            val l = s[left]
             if (right - left == p.length) {
-                if (hash[s[left].toInt()] >= 0)
+                if (hash[l.asciiValue] >= 0) {
                     count++
-                hash[s[left].toInt()]++
+                }
+                hash[l.asciiValue]++
                 left++
             }
         }
-        return list
+        return result
     }
-
 }
 
 class SolutionTwo {
@@ -73,46 +72,105 @@ class SolutionTwo {
             return result
         }
 
-        val anagramChars = mutableMapOf<Char, Int>()
+        val hash = mutableMapOf<Char, Int>()
         p.forEach { ch ->
-            anagramChars[ch] = (anagramChars[ch] ?: 0) + 1
+            hash[ch] = (hash[ch] ?: 0) + 1
         }
 
-        // two points, initialize count to p's length
-        var left = 0
-        var right = 0
+        var leftIdx = 0
+        var rightIdx = 0
         var count = p.length    // chars in p to find in substring
 
-        while (right < s.length) {
-            // move right every time, if the character exists in p's anagramChars, decrease the count
-            // current anagramChars value >= 1 means the character is existing in p
-            val r = s[right]
-            if (anagramChars[r] ?: 0 >= 1) {
+        while (rightIdx < s.length) {
+
+            val r = s[rightIdx]
+            // move right every time, if s[rightIdx] is in p, decrease the count
+            // current hash value >= 1 means the character exists in p and hasn't been found in current window
+            if (hash.containsKey(r) && hash[r]!! >= 1) {
                 count--
             }
-            anagramChars[r] = (anagramChars[r] ?: 0) - 1
-            right++
+            hash[r] = (hash[r] ?: 0) - 1
+            rightIdx++
 
-            // when the count is down to 0, means we found the right anagram
-            // then add window's left to result
-            if (count == 0)
-                result.add(left)
+            // if the count reaches 0, it means we found an anagram. Add leftIdx to result.
+            if (count == 0) {
+                result.add(leftIdx)
+            }
 
-            // if we find the window's size equals to p, then we have to move left (narrow the window) to find the new match window
-            // ++ to reset the anagramChars because we kicked out the left
+            // if we find the window's size == p.length + 1, then we have to move narrow the window.
+            // hash[l] += 1 no matter what (could be negative)
             // only increase the count if the character is in p
-            // the count >= 0 indicate it was original in the anagramChars, cuz it won't go below 0
-            val l = s[left]
-            if (right - left == p.length) {
-                if (anagramChars[l] ?: 0 >= 0) {
+            // the hash[l] >= 0 indicates it was originally in the hash (otherwise hash[l] would be negative).
+            val l = s[leftIdx]
+            val windowSize = rightIdx - leftIdx + 1
+            if (windowSize > p.length) {
+                if (hash.containsKey(l) && hash[l]!! >= 0) {
                     count++
                 }
-                anagramChars[l] = (anagramChars[l] ?: 0) + 1
-                left++
+                hash[l] = (hash[l] ?: 0) + 1
+                leftIdx++
+            }
+
+        }
+        return result
+    }
+}
+
+class SolutionThree {
+    /**
+     * Sliding Window
+     * Credit: http://tinyurl.com/y9vaz2mf
+     *
+     * Time: O(n)
+     * Space: O(n)
+     */
+    fun findAnagrams(s: String, p: String): List<Int> {
+        val result = ArrayList<Int>()
+
+        if (s.isNullOrBlank() || p.isNullOrBlank())
+            return result
+
+        val hash = IntArray(256)                    // ASCII character hash
+
+        // record each character in p to hash
+        p.toCharArray().forEach { c ->
+            hash[c.asciiValue]++
+        }
+
+        // two pointers; initialize count to p's length
+        var leftIdx = 0
+        var rightIdx = 0
+        var count = p.length
+
+        while (rightIdx < s.length) {
+            // move right every time, if the character exists in p's hash, decrease the count
+            // current hash value >= 1 means the character exists in p
+            val r = s[rightIdx]
+            if (hash[r.asciiValue] >= 1) {
+                count--
+            }
+            hash[r.asciiValue]--
+            rightIdx++
+
+            // if the count reaches 0, it means we found the right anagram.
+            // Add window's leftIdx to result
+            if (count == 0)
+                result.add(leftIdx)
+
+            // if we find the window's size equals to p, then we have to move leftIdx (narrow the window) to find the
+            // new match window.
+            // count++ to reset the hash because we kicked out the s[leftIdx] letter
+            // only increase the count if the character is in p
+            // the count >= 0 indicates it was originally in the hash, cuz it won't go below 0 (?)
+            val l = s[leftIdx]
+            if (rightIdx - leftIdx == p.length) {
+                if (hash[l.asciiValue] >= 0) {
+                    count++
+                }
+                hash[l.asciiValue]++
+                leftIdx++
             }
         }
         return result
     }
-
 }
-
