@@ -22,7 +22,10 @@ fun Int.isPrime(): Boolean {
     return (2..sqrt).all { this % it != 0 }
 }
 
-/** https://brilliant.org/wiki/sum-of-n-n2-or-n3 */
+/**
+ * Returns the sum of the first n positive integers:
+ * Sum of `1..n`: `1 + 2 + 3 + ... + n-1 + n`
+ */
 fun sumOfFirstNPositiveIntegers(n: Int) = ((n * (n + 1)) / 2)
 
 /**

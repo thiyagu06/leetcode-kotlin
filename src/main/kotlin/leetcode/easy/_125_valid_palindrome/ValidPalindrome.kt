@@ -26,3 +26,21 @@ class Solution {
         return true
     }
 }
+
+
+class SolutionTwo {
+    /**
+     * Time: O(n)
+     * Space: O(1)
+     */
+    fun isPalindrome(s: String): Boolean {
+        val stripped = s.filter { it.isLetterOrDigit() }
+        val indices = stripped.indices
+        indices.zip(indices.reversed()).forEach { (i, j) ->
+            if (i >= j) return true
+            if (stripped[i].toLowerCase() != stripped[j].toLowerCase()) return false
+        }
+
+        return true
+    }
+}

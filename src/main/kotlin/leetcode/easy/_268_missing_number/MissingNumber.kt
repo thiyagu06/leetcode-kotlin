@@ -1,14 +1,16 @@
 package leetcode.easy._268_missing_number
 
+import extensions.arrays.frequencyMap
 import extensions.math.sumOfFirstNPositiveIntegers
+import java.lang.IllegalArgumentException
 
 /**
  * 268 - https://leetcode.com/problems/missing-number/description/
  */
 class Solution {
-
     /**
-     * Solution 1 - sort the array, then check
+     * Sort the array, then check
+     *
      * Time: O(n log n)
      * Space: O(1)
      */
@@ -23,37 +25,26 @@ class Solution {
     }
 }
 
-class Solution2 {
+class SolutionTwo {
     /**
-     * Solution 2 - hash the values (use HashSet instead of a map - the values aren't needed)
      * Time: O(n)
      * Space: O(n)
      */
     fun missingNumber(nums: IntArray): Int {
-        val values = nums.fold(hashSetOf<Int>()) { acc, num ->
-            acc += num
-            acc
+        val numbers = nums.distinct()
+        val n = nums.size
+        (0..n).forEach { i ->
+            if (!numbers.contains(i))
+                return i
         }
-
-        (0..nums.size).forEach {
-            if (!values.contains(it))
-                return it
-        }
-
-        return nums.size
+        throw IllegalArgumentException("Input has no missing numbers in range 0..n")
     }
 }
 
-/**
- * Your algorithm should run in linear runtime complexity.
- * Could you implement it using only constant extra space complexity?
- */
 class FollowUpSolution {
     /**
-     * Time: O(n)
+     * Time: O(n) - for nums.sum()
      * Space: O(1)
      */
-    fun missingNumber(nums: IntArray): Int {
-        return sumOfFirstNPositiveIntegers(nums.size) - nums.sum()
-    }
+    fun missingNumber(nums: IntArray): Int = sumOfFirstNPositiveIntegers(nums.size) - nums.sum()
 }

@@ -5,7 +5,7 @@ import org.junit.Test
 
 class MissingNumberTest {
     private val solution = Solution()
-    private val solution2 = Solution2()
+    private val solution2 = SolutionTwo()
     private val followup = FollowUpSolution()
 
     @Test
@@ -27,7 +27,6 @@ class MissingNumberTest {
         assertEquals(2, solution2.missingNumber(intArrayOf(0, 1, 3)))
         assertEquals(3, solution2.missingNumber(intArrayOf(0, 1, 2)))
         assertEquals(8, solution2.missingNumber(intArrayOf(9, 6, 4, 2, 3, 5, 7, 0, 1)))
-
     }
 
     @Test

@@ -42,18 +42,21 @@ class SolutionTwo {
      */
     fun lengthOfLongestSubstring(s: String): Int {
         val n = s.length
-        val windowChars = HashSet<Char>()
         var longest = 0
-        var i = 0
-        var j = 0
+        var l = 0   // left index
+        var r = 0   // right index
+        val substrChars = HashSet<Char>()
 
-        while (i < n && j < n) {
-            // Try to extend the range [i, j]
-            if (!windowChars.contains(s[j])) {
-                windowChars.add(s[j++])
-                longest = max(longest, j - i)
+        while (l < n && r < n) {
+            if (s[r] !in substrChars) {
+                // add to set
+                substrChars += s[r]
+                r++
+                longest = max(longest, substrChars.size)    // or max(longest, r - l), if r already incremented.
             } else {
-                windowChars.remove(s[i++])
+                // Evict leftmost char
+                substrChars -= s[l]
+                l++
             }
         }
 
