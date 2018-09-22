@@ -114,18 +114,3 @@ fun minOf(vararg numbers: Float): Float {
     require(numbers.isNotEmpty()) { "Cannot take min of 0 numbers" }
     return numbers.min()!!
 }
-
-/* If using Kotlin < 1.2 (no kotlin.math):
-fun Int.nRightmostSignificantDigits(n: Int): Int {
-    require(n >= 1) { "invalid argument n: $n. Must be >= 1" }
-    val modOperand = Math.pow(10.0, n.toDouble()).toInt()
-    return this % modOperand
-}
-
-fun Int.nMostSignificantDigits(n: Int): Int {
-    val totalDigits = numberOfDigits()
-    require(n in 1..totalDigits) { "invalid argument n: $n. Must be in range [0, total number of digits]" }
-    val divOperand = Math.pow(10.0, (totalDigits - n).toDouble()).toInt()
-    return this / divOperand
-}
-*/
