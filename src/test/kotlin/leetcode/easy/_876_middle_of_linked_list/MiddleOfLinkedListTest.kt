@@ -2,8 +2,8 @@ package leetcode.easy._876_middle_of_linked_list
 
 import datastructures.list.linkedListOf
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Test
-import kotlin.test.assertNull
 
 class MiddleOfLinkedListTest {
 

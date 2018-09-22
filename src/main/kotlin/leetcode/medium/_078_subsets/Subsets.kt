@@ -76,11 +76,31 @@ class SolutionFour {
 
 class SolutionFive {
     /**
-     * TODO
+     * Backtracking
+     *
      * Time: O(2^n)
      * Space: O(n)
      */
     fun subsets(nums: IntArray): List<List<Int>> {
-        TODO()
+        val powerSet = mutableListOf<List<Int>>()
+        backtrack(nums, 0, mutableListOf(), powerSet)
+        return powerSet
+    }
+
+    private fun backtrack(
+        nums: IntArray,
+        startIdx: Int,
+        sublist: MutableList<Int>,
+        powerSet: MutableList<List<Int>>
+    ) {
+        // We want to add the elements in sublist to the powerSet, but we don't want
+        // to add sublist itself into the powerSet since it is mutable
+        powerSet.add(sublist.toList())
+
+        for (i in (startIdx..nums.lastIndex)) {
+            sublist.add(nums[i])
+            backtrack(nums, i + 1, sublist, powerSet)
+            sublist.removeAt(sublist.lastIndex)
+        }
     }
 }

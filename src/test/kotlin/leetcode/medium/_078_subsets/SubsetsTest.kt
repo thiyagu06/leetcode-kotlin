@@ -1,6 +1,6 @@
 package leetcode.medium._078_subsets
 
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class SubsetsTest {
