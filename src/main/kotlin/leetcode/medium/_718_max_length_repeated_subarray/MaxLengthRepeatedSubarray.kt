@@ -15,5 +15,5 @@ class Solution {
         (A.distinctSubarrays() intersect B.distinctSubarrays())
             .maxBy { it.size }?.size ?: 0
 
-    private fun IntArray.distinctSubarrays(): Set<List<Int>> = sublists().asSequence().distinct().toSet()
+    private fun IntArray.distinctSubarrays(): Set<List<Int>> = sublists().asSequence().toSet()
 }

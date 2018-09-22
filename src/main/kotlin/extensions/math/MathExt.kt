@@ -1,5 +1,6 @@
 package extensions.math
 
+import com.google.common.collect.Sets.powerSet
 import extensions.arrays.headAndTail
 import java.math.BigInteger
 import kotlin.math.sqrt
@@ -79,13 +80,15 @@ fun <T> Set<T>.combinations(k: Int): Set<Set<T>> = when {
         .toSet()
 }
 
-/** http://tinyurl.com/yd526qh2 */
-fun <T> Collection<T>.powerSet(): Set<Set<T>> = powerSet(this, setOf(setOf()))
-
-private tailrec fun <T> powerSet(left: Collection<T>, acc: Set<Set<T>>): Set<Set<T>> =
-    if (left.isEmpty()) acc
-    else powerSet(left.drop(1), acc + acc.map { it + left.first() })
-
+/**
+ * Generates the Power Set of the [Collection].
+ */
+fun <T> Collection<T>.powerSet(): Set<Set<T>> {
+    val powerSet: MutableSet<Set<T>> = hashSetOf(emptySet()) // contains only the null set {{}}
+    for (x in this)
+        powerSet += powerSet.map { it + x }
+    return powerSet
+}
 
 /**
  * Generates all permutations (including non-distinct, by default)

@@ -159,7 +159,7 @@ fun FloatArray.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> th
 fun LongArray.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }
 
 /**
- * Returns all non-empty subarrays
+ * Returns all contiguous, non-empty subarrays
  */
 fun IntArray.subarrays(): List<IntArray> =
     foldIndexed(mutableListOf()) { i, acc, _ ->
@@ -173,7 +173,7 @@ fun IntArray.subarrays(): List<IntArray> =
 
 
 /**
- * Returns all non-empty sublists
+ * Returns all contiguous, non-empty sublists
  */
 fun IntArray.sublists(): List<List<Int>> =
     foldIndexed(mutableListOf()) { i, acc, _ ->
