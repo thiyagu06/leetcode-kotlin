@@ -18,16 +18,6 @@ class CharExtTest {
     }
 
     @Test
-    fun alphaIndex() {
-        assertEquals(0, 'a'.alphaIndex)
-        assertEquals(0, 'A'.alphaIndex)
-        assertEquals(1, 'b'.alphaIndex)
-        assertEquals(1, 'B'.alphaIndex)
-        assertEquals(25, 'z'.alphaIndex)
-        assertEquals(25, 'Z'.alphaIndex)
-    }
-
-    @Test
     fun numericValue() {
         assertEquals(0, '0'.numericValue())
         assertEquals(8, '8'.numericValue())

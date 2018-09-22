@@ -36,6 +36,15 @@ class FindAndReplacePatternTest {
                 pattern = "abb"
             )
         )
+
+        // Casing matters
+        assertEquals(
+            listOf("abc", "deq"),
+            solution.findAndReplacePattern(
+                words = arrayOf("abc","deq","mee","aqq","dkd","ccc"),
+                pattern = "abB"
+            )
+        )
     }
 
     @Test
@@ -127,6 +136,15 @@ class FindAndReplacePatternTest {
             solution2.findAndReplacePattern(
                 words = arrayOf("bba", "bab"),
                 pattern = "abb"
+            )
+        )
+
+        // Casing matters
+        assertEquals(
+            listOf("abc", "deq"),
+            solution2.findAndReplacePattern(
+                words = arrayOf("abc","deq","mee","aqq","dkd","ccc"),
+                pattern = "abB"
             )
         )
     }

@@ -1,7 +1,8 @@
 package leetcode.medium._890_find_and_replace_pattern
 
-import extensions.chars.alphaIndex
-
+/**
+ * 890 - https://leetcode.com/problems/find-and-replace-pattern/description/
+ */
 class Solution {
     /**
      * Time: O(n * k) - where n is words.size, k is pattern.length. 1 <= n <= 50, 1 <= k <= 20
@@ -26,12 +27,8 @@ internal fun String.matchesPattern(pattern: String): Boolean {
     val yxMapping = mutableMapOf<Char, Char>()
 
     this.zip(pattern).forEach { (x, y) ->
-        if (xyMapping.containsKey(x) && xyMapping[x] != y) {
-            return false
-        }
-        if (yxMapping.containsKey(y) && yxMapping[y] != x) {
-            return false
-        }
+        if (xyMapping.containsKey(x) && xyMapping[x] != y) return false
+        if (yxMapping.containsKey(y) && yxMapping[y] != x) return false
         xyMapping[x] = y
         yxMapping[y] = x
     }
@@ -48,7 +45,7 @@ class SolutionTwo {
      * Space: O(n * k)
      */
     fun findAndReplacePattern(words: Array<String>, pattern: String): List<String> = words.filter { word ->
-        word.matchesPattern(pattern)
+        word.matchesPattern2(pattern)
     }
 
 }
@@ -62,12 +59,12 @@ internal fun String.matchesPattern2(pattern: String): Boolean {
         mapping[x] = y
     }
 
-    val usedInCodomain = BooleanArray(26)
+    val usedInCodomain = HashMap<Char, Boolean>()
     mapping.values.forEach { y ->
-        if (usedInCodomain[y.alphaIndex]) {
+        if (usedInCodomain.getOrDefault(y, false)) {
             return false
         }
-        usedInCodomain[y.alphaIndex] = true
+        usedInCodomain[y] = true
     }
 
     return true
