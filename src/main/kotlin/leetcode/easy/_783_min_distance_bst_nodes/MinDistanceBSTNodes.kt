@@ -9,7 +9,9 @@ import kotlin.math.min
  */
 class Solution {
     fun minDiffInBST(root: TreeNode?): Int =
-        root.collect().sorted()
+        root.collect()
+            .asSequence()
+            .sorted()
             .zipWithNext()
             .fold(Int.MAX_VALUE) { acc, (curr,  next) ->
                 min(next - curr, acc)

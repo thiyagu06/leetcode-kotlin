@@ -21,7 +21,7 @@ class Solution {
      */
     fun findAnagrams(s: String, p: String): List<Int> {
         val result = ArrayList<Int>()
-        if (s.isNullOrBlank() || p.isNullOrBlank())
+        if (s.isBlank() || p.isBlank())
             return result
 
         val hash = IntArray(256)                    // ASCII character hash
@@ -68,7 +68,7 @@ class SolutionTwo {
     fun findAnagrams(s: String, p: String): List<Int> {
         val result = ArrayList<Int>()
 
-        if (s.isNullOrBlank() || p.isNullOrBlank()) {
+        if (s.isBlank() || p.isBlank()) {
             return result
         }
 
@@ -127,7 +127,7 @@ class SolutionThree {
     fun findAnagrams(s: String, p: String): List<Int> {
         val result = ArrayList<Int>()
 
-        if (s.isNullOrBlank() || p.isNullOrBlank())
+        if (s.isBlank() || p.isBlank())
             return result
 
         val hash = IntArray(256)                    // ASCII character hash

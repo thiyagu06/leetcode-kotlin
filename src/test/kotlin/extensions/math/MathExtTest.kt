@@ -6,7 +6,6 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.math.BigInteger
 import kotlin.system.measureTimeMillis
-import kotlin.text.Typography.times
 
 class MathExtTest {
 

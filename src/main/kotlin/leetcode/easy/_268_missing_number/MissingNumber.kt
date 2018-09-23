@@ -1,8 +1,6 @@
 package leetcode.easy._268_missing_number
 
-import extensions.arrays.frequencyMap
 import extensions.math.sumOfFirstNPositiveIntegers
-import java.lang.IllegalArgumentException
 
 /**
  * 268 - https://leetcode.com/problems/missing-number/description/

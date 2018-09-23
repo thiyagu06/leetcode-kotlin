@@ -18,7 +18,7 @@ class Solution {
      */
     fun findBottomLeftValue(root: TreeNode?): Int {
         val rows = root!!.nodesByDepth()    // Problem guarantees root is not null
-        return rows.last().first()
+        return rows.asSequence().last().first()
     }
 
     private fun TreeNode.nodesByDepth(): List<List<Int>> {
@@ -48,7 +48,10 @@ class SolutionTwo {
     /**
      * Using the TreeNode extension function
      */
-    fun findBottomLeftValue(root: TreeNode?): Int = root.levels().last().first()
+    fun findBottomLeftValue(root: TreeNode?): Int = root.levels()
+        .asSequence()
+        .last()
+        .first()
 }
 
 class SolutionThree {

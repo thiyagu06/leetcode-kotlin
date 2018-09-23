@@ -1,6 +1,5 @@
 package extensions.math
 
-import com.google.common.collect.Sets.powerSet
 import extensions.arrays.headAndTail
 import java.math.BigInteger
 import kotlin.math.sqrt

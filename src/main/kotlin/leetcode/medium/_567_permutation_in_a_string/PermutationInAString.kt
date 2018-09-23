@@ -10,7 +10,7 @@ class Solution {
     fun checkInclusion(s1: String, s2: String): Boolean {
         var count = s1.length
         val n = s2.length
-        var hash = s1.characterFrequencies().toMutableMap()
+        val hash = s1.characterFrequencies().toMutableMap()
         var leftIdx = 0
         var rightIdx = 0
 
@@ -59,7 +59,7 @@ class SolutionTwo {
     fun checkInclusion(s1: String, s2: String): Boolean {
         var count = s1.length
         val n = s2.length
-        var hash = s1.characterFrequencies().toMutableMap()
+        val hash = s1.characterFrequencies().toMutableMap()
         var leftIdx = 0
         var rightIdx = 0
 
@@ -155,5 +155,5 @@ class SolutionThree {
         return count == 26
     }
 
-    val Char.alphaIndex get() = this - 'a'
+    private val Char.alphaIndex get() = this - 'a'
 }

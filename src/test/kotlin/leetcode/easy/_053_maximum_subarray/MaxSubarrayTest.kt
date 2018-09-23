@@ -1,9 +1,7 @@
 package leetcode.easy._053_maximum_subarray
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
-import kotlin.system.measureTimeMillis
 
 class MaxSubarrayTest {
 
