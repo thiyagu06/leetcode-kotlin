@@ -1,4 +1,4 @@
-package extensions.math
+package extensions.binary
 
 import org.junit.Assert
 import org.junit.Test

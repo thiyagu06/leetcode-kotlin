@@ -15,9 +15,9 @@ val BooleanMatrix.rowRange: IntRange get() = 0..lastIndex
 val BooleanMatrix.columnRange: IntRange get() = if (isEmpty()) IntRange.EMPTY else 0..this[0].lastIndex
 
 /**
- * Creates an `m x n` BooleanMatrix where all values are `false`.
- * `m`: The number of rows
- * `n`: The number of columns
+ * Creates an [m] x [n] [BooleanMatrix] where all values are `false`.
+ * @param m The number of rows
+ * @param n The number of columns
  */
 fun booleanMatrixWithSize(m: Int, n: Int): BooleanMatrix = Array(m) { BooleanArray(n) { false } }
 
@@ -51,6 +51,11 @@ fun BooleanMatrix.toList(): List<List<Boolean>> = fold(mutableListOf()) { acc, i
     }
 }
 
+/**
+ * Create a 2D array from a list of lists.
+ */
+fun List<List<Boolean>>.toMatrix(): BooleanMatrix = Array(size = size, init = { i -> this[i].toBooleanArray() })
+
 fun BooleanMatrix.debugString(): String = with(StringBuilder()) {
     rowRange.forEach { r ->
         append(this@debugString[r].contentToString())
@@ -59,8 +64,3 @@ fun BooleanMatrix.debugString(): String = with(StringBuilder()) {
     }
     toString()
 }
-
-/**
- * Create a 2D array from a list of lists.
- */
-fun List<List<Boolean>>.toMatrix(): BooleanMatrix = Array(size = size, init = { i -> this[i].toBooleanArray() })

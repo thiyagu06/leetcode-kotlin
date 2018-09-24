@@ -1,6 +1,6 @@
 package leetcode.easy._342_power_of_four
 
-import extensions.math.INT_BITS
+import extensions.binary.INT_BITS
 
 /**
  * 342 - https://leetcode.com/problems/power-of-four/description/

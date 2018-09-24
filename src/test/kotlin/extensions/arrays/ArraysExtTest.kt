@@ -92,32 +92,6 @@ class ArraysExtTest {
     }
 
     @Test
-    fun isBlank() {
-        // Array
-        assertTrue(nullRefArray.isBlank())
-        assertTrue(arrayOf<Int>().isBlank())
-        assertFalse(arrayOf("foo").isBlank())
-
-        // IntArray
-        val nullIntArray: IntArray? = null
-        assertTrue(nullIntArray.isBlank())
-    }
-
-    @Test
-    fun anyNull() {
-        assertTrue(arrayWithNulls.anyNull())
-        assertTrue(arrayAllNulls.anyNull())
-        assertFalse(arrayNoNulls.anyNull())
-    }
-
-    @Test
-    fun allNull() {
-        assertFalse(arrayWithNulls.allNull())
-        assertTrue(arrayAllNulls.allNull())
-        assertFalse(arrayNoNulls.allNull())
-    }
-
-    @Test
     fun groupingBy() {
         assertEquals(
             mapOf(1 to 2, 7 to 1),

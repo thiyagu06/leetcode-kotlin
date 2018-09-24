@@ -2,7 +2,7 @@ package leetcode.medium._015_three_sum
 
 import extensions.arrays.frequencyMap
 import extensions.arrays.valueToIndicesMap
-import extensions.lists.frequencyMap
+import extensions.iterable.frequencyMap
 import extensions.lists.toTriple
 
 /**

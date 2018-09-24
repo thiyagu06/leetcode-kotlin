@@ -1,8 +1,8 @@
 package leetcode.easy._461_hamming_distance
 
-import extensions.math.INT_BITS
-import extensions.math.hasKthBitSet
-import extensions.math.valueOfKthBit
+import extensions.binary.INT_BITS
+import extensions.binary.hasKthBitSet
+import extensions.binary.valueOfKthBit
 
 /**
  * 461 - https://leetcode.com/problems/hamming-distance/description/

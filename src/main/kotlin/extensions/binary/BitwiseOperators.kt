@@ -1,4 +1,5 @@
-package extensions.math
+@file:JvmName("BitwiseOperators")
+package extensions.binary
 
 /*
  * Bitwise Operators:

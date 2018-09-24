@@ -1,6 +1,6 @@
 package leetcode.easy._371_sum_of_two_integers
 
-import extensions.math.INT_BITS
+import extensions.binary.INT_BITS
 
 /**
  * 371 - https://leetcode.com/problems/sum-of-two-integers/description/

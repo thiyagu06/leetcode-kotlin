@@ -14,6 +14,11 @@ fun log3(x: Double): Double = Math.log10(x) / Math.log10(3.0)
 
 const val EPSILON = 1e-10
 
+/**
+ * **Time**: `O(n)`
+ *
+ * **Space**: `O(1)`
+ */
 fun Int.isPrime(): Boolean {
     if (this <= 1)
         return false
@@ -81,6 +86,10 @@ fun <T> Set<T>.combinations(k: Int): Set<Set<T>> = when {
 
 /**
  * Generates the Power Set of the [Collection].
+ *
+ * **Time**: `O(2^n)`
+ *
+ * **Space**: `O(n)`
  */
 fun <T> Collection<T>.powerSet(): Set<Set<T>> {
     val powerSet: MutableSet<Set<T>> = hashSetOf(emptySet()) // contains only the null set {{}}

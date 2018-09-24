@@ -1,9 +1,7 @@
 package leetcode.easy._136_single_number
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
-import org.junit.Ignore
 
 class SingleNumberTest {
 

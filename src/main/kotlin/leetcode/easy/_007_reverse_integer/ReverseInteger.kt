@@ -15,7 +15,7 @@ class Solution {
         val digitsReversed: List<Int> = x.toLong().toString()
                 .dropWhile { it == '-' }        // remove -, if present
                 .reversed()
-                .map { it.numericValue() }
+                .map { it.numericValue }
                 .dropWhile { it == 0 }          // remove leading zeroes
         val asString = digitsReversed.joinToString("")
         val result = try {

@@ -19,19 +19,19 @@ class CharExtTest {
 
     @Test
     fun numericValue() {
-        assertEquals(0, '0'.numericValue())
-        assertEquals(8, '8'.numericValue())
+        assertEquals(0, '0'.numericValue)
+        assertEquals(8, '8'.numericValue)
     }
 
     @Test(expected = IllegalArgumentException::class)
     fun `numericValue when not digit`() {
-        'C'.numericValue()
+        'C'.numericValue
     }
 
     @Test
     fun isVowel() {
-        setOf('a', 'e', 'i', 'o', 'u').forEach {
-            assertTrue(it.isVowel())
+        setOf('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U').forEach {
+            assertTrue(it.isVowel)
         }
 
     }

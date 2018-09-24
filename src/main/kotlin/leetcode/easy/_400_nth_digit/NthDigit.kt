@@ -33,7 +33,7 @@ class Solution {
         return 1
     }
 
-    private fun Int.digitAt(index: Int): Int = toString()[index].numericValue()
+    private fun Int.digitAt(index: Int): Int = toString()[index].numericValue
 
     private fun rangeForDigitSize(size: Int): IntRange = (10.0.pow(size - 1).toInt()..(10.0.pow(size) - 1).toInt())
 

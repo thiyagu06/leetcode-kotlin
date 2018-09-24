@@ -1,7 +1,7 @@
 package leetcode.medium._338_counting_bits
 
-import extensions.math.numberOfOneBits
-import extensions.math.toBinaryString
+import extensions.binary.numberOfOneBits
+import extensions.binary.toBinaryString
 
 /**
  * 338 - https://leetcode.com/problems/counting-bits/description/

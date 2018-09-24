@@ -1,61 +1,17 @@
-package extensions.math
+@file:JvmName("Binary")
+package extensions.binary
 
 import kotlin.math.log2
 
 /**
- * Extensions for Bit Manipulation & handling binary & hexadecimal numbers.
+ * Extensions for Bit Manipulation & handling binary numbers.
  */
 const val INT_BITS = 32
-
 const val ALL_1_BITMASK = 0.inv()
 
-/* BINARY <-> INT */
-
-/**
- * Convert Int to binary string:
- *
- * The result is padded to the specified number of bits, or 32 by default.
- *
- * ```
- * 67.toBinaryString()    =>  00000000000000000000000001000011
- * (-67).toBinaryString() =>  11111111111111111111111110111101
- * ```
- *
- * @param bits The number of bits in the binary string representation (default: 32)
- */
-fun Int.toBinaryString(bits: Int = 32): String = when {
-    this >= 0 -> Integer.toBinaryString(this).padStart(bits, '0')
-    else -> Integer.toBinaryString(this)
-}
-
-/**
- * TODO - Test
- * Convert Long to binary string:
- *
- * The result is padded to the specified number of bits, or 64 by default.
- *
- * ```
- * 67.toBinaryString()    =>  00000000000000000000000001000011
- * (-67).toBinaryString() =>  11111111111111111111111110111101
- * ```
- *
- * @param bits The number of bits in the binary string representation (default: 32)
- */
-fun Long.toBinaryString(bits: Int = 64): String = when {
-    this >= 0L -> java.lang.Long.toBinaryString(this).padStart(bits, '0')
-    else -> java.lang.Long.toBinaryString(this)
-}
-
-/**
- * Converts a non-negative binary string to an integer.
- * @exception  NumberFormatException If the binary string represents a negative number or can't be parsed
- */
-fun String.parseNonNegativeBinaryString(): Int = Integer.parseInt(this, 2)
-
 /* CHECKING BIT-BASED PROPERTIES */
-fun Int.isOdd(): Boolean = (this and 1) == 1
-
-fun Int.isEven(): Boolean = (this and 1) == 0
+val Int.isOddNumber: Boolean get() = (this and 1) == 1
+val Int.isEvenNumber: Boolean get() = (this and 1) == 0
 val Int.isPowerOfTwo: Boolean get() = this != 0 && (this `&` (this - 1)) == 0
 
 /* CHECKING THE VALUE OF BITS */
@@ -221,3 +177,44 @@ fun Int.swapBits(i: Int, j: Int): Int {
 
     return this `^` ((1 shl i) `|` (1 shl j))
 }
+
+/* BINARY <-> INT HELPER FUNCTIONS */
+/**
+ * Convert an [Int] to binary string:
+ *
+ * The result is padded to the specified number of bits, or 32 by default.
+ *
+ * ```
+ * 67.toBinaryString()    =>  00000000000000000000000001000011
+ * (-67).toBinaryString() =>  11111111111111111111111110111101
+ * ```
+ *
+ * @param bits The number of bits in the binary string representation (default: 32)
+ */
+fun Int.toBinaryString(bits: Int = 32): String = when {
+    this >= 0 -> Integer.toBinaryString(this).padStart(bits, '0')
+    else -> Integer.toBinaryString(this)
+}
+
+/**
+ * Convert a [Long] to binary string:
+ *
+ * The result is padded to the specified number of bits, or 64 by default.
+ *
+ * ```
+ * 67.toBinaryString()    =>  00000000000000000000000001000011
+ * (-67).toBinaryString() =>  11111111111111111111111110111101
+ * ```
+ *
+ * @param bits The number of bits in the binary string representation (default: 32)
+ */
+fun Long.toBinaryString(bits: Int = 64): String = when {
+    this >= 0L -> java.lang.Long.toBinaryString(this).padStart(bits, '0')
+    else -> java.lang.Long.toBinaryString(this)
+}
+
+/**
+ * Converts a _non-negative_ binary string to an integer.
+ * @exception  NumberFormatException If the binary string represents a negative number or can't be parsed
+ */
+fun String.parseNonNegativeBinaryString(): Int = Integer.parseInt(this, 2)

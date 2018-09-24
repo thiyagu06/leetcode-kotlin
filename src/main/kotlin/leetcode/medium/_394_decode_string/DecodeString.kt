@@ -140,7 +140,7 @@ class SolutionTwo {
                 }
 
                 c.isDigit() && count == 0 -> {
-                    kDigits += c.numericValue()
+                    kDigits += c.numericValue
                     k = kDigits.toInt()
                 }
 

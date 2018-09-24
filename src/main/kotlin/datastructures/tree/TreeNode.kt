@@ -39,21 +39,15 @@ val TreeNode.isLeaf: Boolean get() = left == null && right == null
 val TreeNode.hasSingleChild: Boolean get() = (hasLeft || hasRight) && !(hasLeft && hasRight)
 val TreeNode.hasTwoChildren: Boolean get() = left != null && right != null
 
-val TreeNode.size: Int get() = 1 + (left?.size ?: 0) + (right?.size ?: 0)
-
 /**
- * Can't implement component1/component2, since the types can't be nullable.
- * But this can be used for destructuring (among other uses):
- * ```
- * val (l, r) = tree?.children
- * ```
+ * Returns the number of nodes in the tree.
  *
- * **Time**: `O(1)`
+ * **Time**: `O(n)`
  *
- * **Space**: `O(1)`
+ * **Space**: `O(n)` (recursive stack space)
  */
-val TreeNode.children: Pair<TreeNode?, TreeNode?>
-    get() = Pair(left, right)
+val TreeNode.size: Int
+    get() = 1 + (left?.size ?: 0) + (right?.size ?: 0)
 
 /**
  * Height: the number of edges on the longest path between this node and a leaf.
@@ -67,6 +61,19 @@ val TreeNode.height: Int
         if (isLeaf) return 0
         return 1 + maxOf(left?.height ?: 0, right?.height ?: 0)
     }
+
+/**
+ * Returns the left and right children of this node as a [Pair] of nullable TreeNodes.
+ * ```
+ * val (l, r) = tree?.children
+ * ```
+ *
+ * **Time**: `O(1)`
+ *
+ * **Space**: `O(1)`
+ */
+val TreeNode.children: Pair<TreeNode?, TreeNode?>
+    get() = Pair(left, right)
 
 /**
  * Search for a value in the binary tree, returning the node
@@ -183,16 +190,6 @@ fun TreeNode?.collectUnique(acc: MutableSet<Int> = hashSetOf()): Set<Int> =
         acc += `val`
         right?.collectUnique(acc)
     } ?: acc
-
-/**
- * Return a list of the values in the tree. For binary search trees, the values
- * will be sorted.
- *
- * **Time**: `O(n)`
- *
- * **Space**: `O(n)`
- */
-fun TreeNode?.toList(): List<Int> = collect { it.`val` }.toList()
 
 /**
  * Execute a breadth-first traversal of the tree.
@@ -340,7 +337,7 @@ fun TreeNode?.allPaths(
  * @throws IllegalArgumentException If [elements] is empty
  */
 fun buildTree(vararg elements: Int?): TreeNode? {
-    require (elements.isNotEmpty()) { "Cannot build empty tree" }
+    require(elements.isNotEmpty()) { "Cannot build empty tree" }
 
     require(elements[0] != null) { "Root cannot be null" }
 
@@ -386,3 +383,13 @@ fun buildBST(vararg elements: Int?): TreeNode? {
     require(tree.isBST()) { "The elements in the order provided violate the BST property." }
     return tree
 }
+
+/**
+ * Return a list of the values in the tree. For binary search trees, the values
+ * will be sorted.
+ *
+ * **Time**: `O(n)`
+ *
+ * **Space**: `O(n)`
+ */
+fun TreeNode?.toList(): List<Int> = collect { it.`val` }.toList()

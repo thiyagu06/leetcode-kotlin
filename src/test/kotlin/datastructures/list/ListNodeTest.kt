@@ -30,16 +30,25 @@ class ListNodeTest {
     }
 
     @Test
-    fun testLinkedListOf() {
-        assertEquals(listOf(1), linkedListOf(1).toList())
-        assertEquals(listOf(1, 2), linkedListOf(1, 2).toList())
-        assertEquals(listOf(1, 2, 3), linkedListOf(1, 2, 3).toList())
-        assertEquals(listOf(1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1), linkedListOf(1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1).toList())
+    fun size() {
+        val createdList = ListNode.from(listOf(0, 1, 2, 3))
+        assertEquals(4, createdList?.size)
+        val nullList: ListNode? = null
+        assertEquals(0, nullList.size)
     }
 
-    @Test(expected = IllegalArgumentException::class)
-    fun linkedListOfException() {
-        linkedListOf()
+    @Test
+    fun tail() {
+        assertNull(null.tail)
+
+        val singleList = linkedListOf(1)
+        assertNull(singleList.tail)
+
+        val list12 = linkedListOf(1, 2)
+        assertEquals(linkedListOf(2), list12.tail)
+
+        val list123 = linkedListOf(1, 2, 3)
+        assertEquals(linkedListOf(2, 3), list123.tail)
     }
 
     @Test
@@ -63,29 +72,6 @@ class ListNodeTest {
     }
 
     @Test
-    fun size() {
-        val createdList = ListNode.from(listOf(0, 1, 2, 3))
-        assertEquals(4, createdList?.size)
-        val nullList: ListNode? = null
-        assertEquals(0, nullList.size)
-    }
-
-    @Test
-    fun toIntArray() {
-        val linkedList = ListNode.from(listOf(0, 1, 2, 3))
-        val array = IntArray(4) { i -> i }
-        val arrFromLL = linkedList?.toIntArray()
-        assertEquals(4, arrFromLL?.size)
-        assertEquals(array.contentToString(), arrFromLL?.contentToString())
-    }
-
-    @Test
-    fun contentToString() {
-        val linkedList = ListNode.from(listOf(0, 1, 2, 3))
-        assertEquals("(0)->(1)->(2)->(3)", linkedList?.contentToString())
-    }
-
-    @Test
     fun middleNode() {
         val expected = mapOf(
             null to null,
@@ -98,22 +84,8 @@ class ListNodeTest {
         )
 
         expected.forEach { list, middleValue ->
-            assertEquals(middleValue, list.middleNode()?.`val`)
+            assertEquals(middleValue, list.middleNode?.`val`)
         }
-    }
-
-    @Test
-    fun tail() {
-        assertNull(null.tail)
-
-        val singleList = linkedListOf(1)
-        assertNull(singleList.tail)
-
-        val list12 = linkedListOf(1, 2)
-        assertEquals(linkedListOf(2), list12.tail)
-
-        val list123 = linkedListOf(1, 2, 3)
-        assertEquals(linkedListOf(2, 3), list123.tail)
     }
 
     @Test
@@ -145,9 +117,18 @@ class ListNodeTest {
     }
 
     @Test
-    fun toSet() {
-        assertEquals(setOf(1, 2, 3), linkedListOf(1, 1, 2, 3, 3).toSet())
-        assertEquals(setOf(11, 11, 75, 75), linkedListOf(11, 75).toSet())
+    fun reversed() {
+        val original = linkedListOf(1, 2, 3, 4, 5)
+        val copy = original.copyOf()
+
+        assertEquals(linkedListOf(1, 2, 3, 4, 5), original)
+        assertEquals(linkedListOf(1, 2, 3, 4, 5), copy)
+
+        val reversedCopy = copy?.reversed()
+
+        assertEquals(linkedListOf(1, 2, 3, 4, 5), original)
+        assertEquals(linkedListOf(1, 2, 3, 4, 5), copy)
+        assertEquals(linkedListOf(5, 4, 3, 2, 1), reversedCopy)
     }
 
     @Test
@@ -165,17 +146,37 @@ class ListNodeTest {
     }
 
     @Test
-    fun reversed() {
-        val original = linkedListOf(1, 2, 3, 4, 5)
-        val copy = original.copyOf()
-
-        assertEquals(linkedListOf(1, 2, 3, 4, 5), original)
-        assertEquals(linkedListOf(1, 2, 3, 4, 5), copy)
-
-        val reversedCopy = copy?.reversed()
-
-        assertEquals(linkedListOf(1, 2, 3, 4, 5), original)
-        assertEquals(linkedListOf(1, 2, 3, 4, 5), copy)
-        assertEquals(linkedListOf(5, 4, 3, 2, 1), reversedCopy)
+    fun testLinkedListOf() {
+        assertEquals(listOf(1), linkedListOf(1).toList())
+        assertEquals(listOf(1, 2), linkedListOf(1, 2).toList())
+        assertEquals(listOf(1, 2, 3), linkedListOf(1, 2, 3).toList())
+        assertEquals(listOf(1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1), linkedListOf(1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1).toList())
     }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun linkedListOfException() {
+        linkedListOf()
+    }
+
+    @Test
+    fun toSet() {
+        assertEquals(setOf(1, 2, 3), linkedListOf(1, 1, 2, 3, 3).toSet())
+        assertEquals(setOf(11, 11, 75, 75), linkedListOf(11, 75).toSet())
+    }
+
+    @Test
+    fun toIntArray() {
+        val linkedList = ListNode.from(listOf(0, 1, 2, 3))
+        val array = IntArray(4) { i -> i }
+        val arrFromLL = linkedList?.toIntArray()
+        assertEquals(4, arrFromLL?.size)
+        assertEquals(array.contentToString(), arrFromLL?.contentToString())
+    }
+
+    @Test
+    fun contentToString() {
+        val linkedList = ListNode.from(listOf(0, 1, 2, 3))
+        assertEquals("(0)->(1)->(2)->(3)", linkedList?.contentToString())
+    }
+
 }

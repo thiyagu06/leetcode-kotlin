@@ -98,4 +98,25 @@ class StringExtTest {
         assertFalse("aa".isAnagramOf("a"))
     }
 
+    @Test
+    fun substrings() {
+        assertEquals(
+            listOf("", "a", "ab", "abc", "b", "bc", "c"),
+            "abc".substrings()
+        )
+
+        assertEquals(
+            listOf(
+                "",
+                "f", "fo", "foo", "foob", "fooba", "foobar",
+                "o", "oo", "oob", "ooba", "oobar",
+                "o", "ob", "oba", "obar",
+                "b", "ba", "bar",
+                "a", "ar",
+                "r"
+            ),
+            "foobar".substrings()
+        )
+    }
+
 }

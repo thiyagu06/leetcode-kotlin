@@ -13,8 +13,8 @@ class Solution {
         var j = s.lastIndex
         while (i < j) {
             when {
-                !chars[i].isVowel() -> i++
-                !chars[j].isVowel() -> j--
+                !chars[i].isVowel -> i++
+                !chars[j].isVowel -> j--
                 else -> {
                     chars.swap(i, j)
                     i++

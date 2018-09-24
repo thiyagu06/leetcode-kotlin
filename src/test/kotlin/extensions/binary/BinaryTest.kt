@@ -1,4 +1,4 @@
-package extensions.math
+package extensions.binary
 
 import org.junit.Assert
 import org.junit.Assert.assertEquals
@@ -11,15 +11,15 @@ import kotlin.math.pow
 class BinaryTest {
 
     @Test
-    fun isEven() {
-        setOf(-10, -4, 0, 2, 4, 6, 20, 100, 128).forEach { Assert.assertTrue(it.isEven()) }
-        setOf(-9, -3, -1, 1, 3, 7, 21, 101, 127).forEach { Assert.assertFalse(it.isEven()) }
+    fun isEvenNumber() {
+        setOf(-10, -4, 0, 2, 4, 6, 20, 100, 128).forEach { Assert.assertTrue(it.isEvenNumber) }
+        setOf(-9, -3, -1, 1, 3, 7, 21, 101, 127).forEach { Assert.assertFalse(it.isEvenNumber) }
     }
 
     @Test
-    fun isOdd() {
-        setOf(-9, -3, -1, 1, 3, 7, 21, 101, 127).forEach { Assert.assertTrue(it.isOdd()) }
-        setOf(-10, -4, 0, 2, 4, 6, 20, 100, 128).forEach { Assert.assertFalse(it.isOdd()) }
+    fun isOddNumber() {
+        setOf(-9, -3, -1, 1, 3, 7, 21, 101, 127).forEach { Assert.assertTrue(it.isOddNumber) }
+        setOf(-10, -4, 0, 2, 4, 6, 20, 100, 128).forEach { Assert.assertFalse(it.isOddNumber) }
     }
 
     @Test
@@ -38,55 +38,6 @@ class BinaryTest {
 
         assertFalse((-1).isPowerOfTwo)
         assertFalse((-8).isPowerOfTwo)
-    }
-
-    @Test
-    fun toBinaryString() {
-        assertEquals("00000000000000000000000000000000", 0.toBinaryString())
-        assertEquals("0000000000000000", 0.toBinaryString(16))
-        assertEquals("00000000", 0.toBinaryString(8))
-
-        assertEquals("00000000000000000000000000000001", 1.toBinaryString())
-        assertEquals("00000000000000000000000000000010", 2.toBinaryString())
-        assertEquals("00000000000000000000000000001010", 10.toBinaryString())
-
-        assertEquals("00000000000000000000000001100001", 97.toBinaryString())
-
-        assertEquals("00000000000000000000000001000011", 67.toBinaryString())
-        assertEquals("11111111111111111111111110111101", (-67).toBinaryString())
-
-        assertEquals("11111111111111111111111111111111", (-1).toBinaryString())
-        assertEquals("11111111111111111111111111111110", (-2).toBinaryString())
-
-        assertEquals("01111111111111111111111111111110", (Int.MAX_VALUE - 1).toBinaryString())
-        assertEquals("01111111111111111111111111111111", Int.MAX_VALUE.toBinaryString())        // 2147483647
-
-        assertEquals("10000000000000000000000000000001", (Int.MIN_VALUE + 1).toBinaryString())
-        assertEquals("10000000000000000000000000000000", Int.MIN_VALUE.toBinaryString())        // -2147483648
-
-        // Overflow
-        assertEquals(Int.MIN_VALUE.toBinaryString(), (Int.MAX_VALUE + 1).toBinaryString())
-        assertEquals(Int.MAX_VALUE.toBinaryString(), (Int.MIN_VALUE - 1).toBinaryString())
-    }
-
-    @Test
-    fun parseNonNegativeBinaryString() {
-        assertEquals(0, "0".parseNonNegativeBinaryString())
-        assertEquals(1, "1".parseNonNegativeBinaryString())
-        assertEquals(1, "0001".parseNonNegativeBinaryString())
-        assertEquals(1, "00000000000000000000000000000001".parseNonNegativeBinaryString())
-        assertEquals(974321, "00000000000011101101110111110001".parseNonNegativeBinaryString())
-        assertEquals(Int.MAX_VALUE, "01111111111111111111111111111111".parseNonNegativeBinaryString())
-    }
-
-    @Test(expected = NumberFormatException::class)
-    fun `parseNonNegativeBinaryString throws exception when called on negative Int MIN_VALUE`() {
-        "10000000000000000000000000000001".parseNonNegativeBinaryString()
-    }
-
-    @Test(expected = NumberFormatException::class)
-    fun `parseNonNegativeBinaryString throws exception when called on -1`() {
-        "11111111111111111111111111111111".parseNonNegativeBinaryString()
     }
 
     @Test
@@ -379,5 +330,63 @@ class BinaryTest {
         assertEquals(22, 7.swapBits(0, 4))
 
         assertEquals(9, 3.swapBits(1, 3))
+    }
+
+
+    @Test
+    fun `Int toBinaryString`() {
+        assertEquals("00000000000000000000000000000000", 0.toBinaryString())
+        assertEquals("0000000000000000", 0.toBinaryString(16))
+        assertEquals("00000000", 0.toBinaryString(8))
+
+        assertEquals("00000000000000000000000000000001", 1.toBinaryString())
+        assertEquals("00000000000000000000000000000010", 2.toBinaryString())
+        assertEquals("00000000000000000000000000001010", 10.toBinaryString())
+
+        assertEquals("00000000000000000000000001100001", 97.toBinaryString())
+
+        assertEquals("00000000000000000000000001000011", 67.toBinaryString())
+        assertEquals("11111111111111111111111110111101", (-67).toBinaryString())
+
+        assertEquals("11111111111111111111111111111111", (-1).toBinaryString())
+        assertEquals("11111111111111111111111111111110", (-2).toBinaryString())
+
+        assertEquals("01111111111111111111111111111110", (Int.MAX_VALUE - 1).toBinaryString())
+        assertEquals("01111111111111111111111111111111", Int.MAX_VALUE.toBinaryString())        // 2147483647
+
+        assertEquals("10000000000000000000000000000001", (Int.MIN_VALUE + 1).toBinaryString())
+        assertEquals("10000000000000000000000000000000", Int.MIN_VALUE.toBinaryString())        // -2147483648
+
+        // Overflow
+        assertEquals(Int.MIN_VALUE.toBinaryString(), (Int.MAX_VALUE + 1).toBinaryString())
+        assertEquals(Int.MAX_VALUE.toBinaryString(), (Int.MIN_VALUE - 1).toBinaryString())
+    }
+
+    @Test
+    fun `Long toBinaryString`() {
+        assertEquals("0111111111111111111111111111111111111111111111111111111111111111", Long.MAX_VALUE.toBinaryString())
+        assertEquals("0000000000000000000000000000000000000000000000000000000000000000", 0L.toBinaryString())
+        assertEquals("0000000000000000", 0L.toBinaryString(16))
+        assertEquals("00000000", 0L.toBinaryString(8))
+    }
+
+    @Test
+    fun parseNonNegativeBinaryString() {
+        assertEquals(0, "0".parseNonNegativeBinaryString())
+        assertEquals(1, "1".parseNonNegativeBinaryString())
+        assertEquals(1, "0001".parseNonNegativeBinaryString())
+        assertEquals(1, "00000000000000000000000000000001".parseNonNegativeBinaryString())
+        assertEquals(974321, "00000000000011101101110111110001".parseNonNegativeBinaryString())
+        assertEquals(Int.MAX_VALUE, "01111111111111111111111111111111".parseNonNegativeBinaryString())
+    }
+
+    @Test(expected = NumberFormatException::class)
+    fun `parseNonNegativeBinaryString throws exception when called on negative Int MIN_VALUE`() {
+        "10000000000000000000000000000001".parseNonNegativeBinaryString()
+    }
+
+    @Test(expected = NumberFormatException::class)
+    fun `parseNonNegativeBinaryString throws exception when called on -1`() {
+        "11111111111111111111111111111111".parseNonNegativeBinaryString()
     }
 }

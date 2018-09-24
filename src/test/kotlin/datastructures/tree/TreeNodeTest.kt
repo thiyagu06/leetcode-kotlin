@@ -7,6 +7,11 @@ import org.junit.Test
 class TreeNodeTest {
 
     @Test
+    fun testToString() {
+        assertEquals("(1)", tree123.toString())
+    }
+
+    @Test
     fun childProperties() {
         assertTrue(tree123.hasLeft)
         assertTrue(tree123.hasRight)
@@ -24,6 +29,62 @@ class TreeNodeTest {
         assertTrue(treeWithRightNode.hasRight)
         assertFalse(treeWithRightNode.hasTwoChildren)
         assertTrue(treeWithRightNode.hasSingleChild)
+    }
+
+    @Test
+    fun height() {
+        assertEquals(1, tree123.height)
+        assertEquals(2, tree1to5.height)
+        assertEquals(2, bst3LevelsFull.height)
+        assertEquals(3, bstWithNulls.height)
+    }
+
+
+    @Test
+    fun children() {
+        val (one, four) = bst3LevelsFull.left!!.children
+        assertEquals(1, one?.`val`)
+        assertEquals(4, four?.`val`)
+    }
+
+    @Test
+    fun find() {
+        (1..9).forEach { i ->
+            if (i in setOf(2, 7))
+                assertNull(bst3LevelsFull.find(i))
+            else
+                assertEquals(i, bst3LevelsFull.find(i)?.`val`)
+        }
+
+        (1..9).forEach { i ->
+            if (i in setOf(2, 5, 6))
+                assertNull(bstWithNulls.find(i))
+            else
+                assertEquals(i, bstWithNulls.find(i)?.`val`)
+        }
+    }
+
+    @Test
+    fun contains() {
+        (1..9).forEach { i ->
+            if (i in setOf(2, 7)) {
+                assertFalse(bst3LevelsFull.contains(i))
+                assertFalse(i in bst3LevelsFull)
+            } else {
+                assertTrue(bst3LevelsFull.contains(i))
+                assertTrue(i in bst3LevelsFull)
+            }
+        }
+
+        (1..9).forEach { i ->
+            if (i in setOf(2, 5, 6)) {
+                assertFalse(bstWithNulls.contains(i))
+                assertFalse(i in bstWithNulls)
+            } else {
+                assertTrue(bstWithNulls.contains(i))
+                assertTrue(i in bstWithNulls)
+            }
+        }
     }
 
     @Test
@@ -99,11 +160,6 @@ class TreeNodeTest {
     }
 
     @Test
-    fun toList() {
-        assertEquals(listOf(1, 3, 4, 5, 6, 8, 9), bst3LevelsFull.toList())
-    }
-
-    @Test
     fun collect() {
         assertEquals(listOf(2, 1, 3), tree123.collect())
         assertEquals(listOf(1, 3, 4, 5, 6, 8, 9), bst3LevelsFull.collect())
@@ -120,6 +176,66 @@ class TreeNodeTest {
         assertEquals(setOf(2, 1, 3), tree123.collectUnique())
         assertEquals(setOf(1, 3, 4, 5, 6, 8, 9), bst3LevelsFull.collectUnique())
         assertEquals(setOf(1, 2, 3, 4, 5), buildTree(1, 2, 3, 2, 3, 2, 3, 1, 3, 4, 5).collectUnique())
+    }
+
+    @Test
+    fun rootToLeafPaths() {
+        assertEquals(listOf(listOf(1, 2), listOf(1, 3)), tree123.rootToLeafPaths())
+        assertEquals(
+            listOf(listOf(5, 3, 1), listOf(5, 3, 4), listOf(5, 8, 6), listOf(5, 8, 9)),
+            bst3LevelsFull.rootToLeafPaths()
+        )
+        assertEquals(listOf(listOf(7, 4, 3, 1), listOf(7, 9, 8)), bstWithNulls.rootToLeafPaths())
+    }
+
+    @Test
+    fun allPaths() {
+        val nullTree: TreeNode? = null
+        assertEquals(emptyList<List<Int>>(), nullTree.allPaths())
+
+        assertEquals(listOf(listOf(1), listOf(2), listOf(1, 2), listOf(3), listOf(1, 3)), tree123.allPaths())
+
+        assertEquals(
+            listOf(
+                listOf(5),
+                listOf(3),
+                listOf(5, 3),
+                listOf(1),
+                listOf(3, 1),
+                listOf(5, 3, 1),
+                listOf(4),
+                listOf(3, 4),
+                listOf(5, 3, 4),
+                listOf(8),
+                listOf(5, 8),
+                listOf(6),
+                listOf(8, 6),
+                listOf(5, 8, 6),
+                listOf(9),
+                listOf(8, 9),
+                listOf(5, 8, 9)
+            ), bst3LevelsFull.allPaths()
+        )
+
+        assertEquals(
+            listOf(
+                listOf(7),
+                listOf(4),
+                listOf(7, 4),
+                listOf(3),
+                listOf(4, 3),
+                listOf(7, 4, 3),
+                listOf(1),
+                listOf(3, 1),
+                listOf(4, 3, 1),
+                listOf(7, 4, 3, 1),
+                listOf(9),
+                listOf(7, 9),
+                listOf(8),
+                listOf(9, 8),
+                listOf(7, 9, 8)
+            ), bstWithNulls.allPaths()
+        )
     }
 
     @Test
@@ -207,122 +323,7 @@ class TreeNodeTest {
     }
 
     @Test
-    fun rootToLeafPaths() {
-        assertEquals(listOf(listOf(1, 2), listOf(1, 3)), tree123.rootToLeafPaths())
-        assertEquals(
-            listOf(listOf(5, 3, 1), listOf(5, 3, 4), listOf(5, 8, 6), listOf(5, 8, 9)),
-            bst3LevelsFull.rootToLeafPaths()
-        )
-        assertEquals(listOf(listOf(7, 4, 3, 1), listOf(7, 9, 8)), bstWithNulls.rootToLeafPaths())
-    }
-
-    @Test
-    fun allPaths() {
-        val nullTree: TreeNode? = null
-        assertEquals(emptyList<List<Int>>(), nullTree.allPaths())
-
-        assertEquals(listOf(listOf(1), listOf(2), listOf(1, 2), listOf(3), listOf(1, 3)), tree123.allPaths())
-
-        assertEquals(
-            listOf(
-                listOf(5),
-                listOf(3),
-                listOf(5, 3),
-                listOf(1),
-                listOf(3, 1),
-                listOf(5, 3, 1),
-                listOf(4),
-                listOf(3, 4),
-                listOf(5, 3, 4),
-                listOf(8),
-                listOf(5, 8),
-                listOf(6),
-                listOf(8, 6),
-                listOf(5, 8, 6),
-                listOf(9),
-                listOf(8, 9),
-                listOf(5, 8, 9)
-            ), bst3LevelsFull.allPaths()
-        )
-
-        assertEquals(
-            listOf(
-                listOf(7),
-                listOf(4),
-                listOf(7, 4),
-                listOf(3),
-                listOf(4, 3),
-                listOf(7, 4, 3),
-                listOf(1),
-                listOf(3, 1),
-                listOf(4, 3, 1),
-                listOf(7, 4, 3, 1),
-                listOf(9),
-                listOf(7, 9),
-                listOf(8),
-                listOf(9, 8),
-                listOf(7, 9, 8)
-            ), bstWithNulls.allPaths()
-        )
-    }
-
-    @Test
-    fun find() {
-        (1..9).forEach { i ->
-            if (i in setOf(2, 7))
-                assertNull(bst3LevelsFull.find(i))
-            else
-                assertEquals(i, bst3LevelsFull.find(i)?.`val`)
-        }
-
-        (1..9).forEach { i ->
-            if (i in setOf(2, 5, 6))
-                assertNull(bstWithNulls.find(i))
-            else
-                assertEquals(i, bstWithNulls.find(i)?.`val`)
-        }
-    }
-
-    @Test
-    fun contains() {
-        (1..9).forEach { i ->
-            if (i in setOf(2, 7)) {
-                assertFalse(bst3LevelsFull.contains(i))
-                assertFalse(i in bst3LevelsFull)
-            } else {
-                assertTrue(bst3LevelsFull.contains(i))
-                assertTrue(i in bst3LevelsFull)
-            }
-        }
-
-        (1..9).forEach { i ->
-            if (i in setOf(2, 5, 6)) {
-                assertFalse(bstWithNulls.contains(i))
-                assertFalse(i in bstWithNulls)
-            } else {
-                assertTrue(bstWithNulls.contains(i))
-                assertTrue(i in bstWithNulls)
-            }
-        }
-    }
-
-    @Test
-    fun children() {
-        val (one, four) = bst3LevelsFull.left!!.children
-        assertEquals(1, one?.`val`)
-        assertEquals(4, four?.`val`)
-    }
-
-    @Test
-    fun height() {
-        assertEquals(1, tree123.height)
-        assertEquals(2, tree1to5.height)
-        assertEquals(2, bst3LevelsFull.height)
-        assertEquals(3, bstWithNulls.height)
-    }
-
-    @Test
-    fun testToString() {
-        assertEquals("(1)", tree123.toString())
+    fun toList() {
+        assertEquals(listOf(1, 3, 4, 5, 6, 8, 9), bst3LevelsFull.toList())
     }
 }

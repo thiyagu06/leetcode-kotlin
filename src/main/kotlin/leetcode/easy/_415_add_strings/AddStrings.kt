@@ -16,7 +16,7 @@ class Solution {
 
         // Iterate through length of shorter
         rNum1.zip(rNum2).forEach { (a, b) ->
-            val (nextCarry, currentDigit) = sumDigitsWithCarry(a.numericValue(), b.numericValue(), prevCarry)
+            val (nextCarry, currentDigit) = sumDigitsWithCarry(a.numericValue, b.numericValue, prevCarry)
             result += currentDigit
             prevCarry = nextCarry
         }
@@ -25,7 +25,7 @@ class Solution {
 
         // Iterate remaining chars in longer string
         (shorter.length..longer.lastIndex).forEach { index ->
-            val (nextCarry, currentDigit) = sumDigitsWithCarry(a = longer[index].numericValue(), b = 0, carriedValue = prevCarry)
+            val (nextCarry, currentDigit) = sumDigitsWithCarry(a = longer[index].numericValue, b = 0, carriedValue = prevCarry)
             result += currentDigit
             prevCarry = nextCarry
          }

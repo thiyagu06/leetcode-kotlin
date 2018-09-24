@@ -3,7 +3,7 @@ package extensions.arrays
 import extensions.ranges.mid
 
 /**
- * Extensions for Array<T> & the primitive array types (BooleanArray, DoubleArray, etc.)
+ * Extensions for [Array] & the primitive array types ([IntArray], [BooleanArray], etc.)
  */
 
 const val NOT_FOUND: Int = -1
@@ -41,14 +41,6 @@ val DoubleArray.head: Double? get() = firstOrNull()
 val DoubleArray.tail: DoubleArray get() = sliceArray(1 until size)
 val DoubleArray.headAndTail: Pair<Double?, DoubleArray> get() = (head to tail)
 
-/* https://github.com/Carleslc/kotlin-extensions/blob/master/src/me/carleslc/kotlin/extensions/arrays/ArrayExtensions.kt */
-fun <T> Array<T>?.isBlank(): Boolean = this == null || isEmpty()
-
-fun <T> Array<T?>.anyNull(): Boolean = any { it == null }
-fun <T> Array<T?>.allNull(): Boolean = all { it == null }
-
-fun IntArray?.isBlank(): Boolean = this == null || isEmpty()
-
 /**
  * Source: http://tinyurl.com/y92rp67r
  */
@@ -58,23 +50,27 @@ inline fun <K> IntArray.groupingBy(crossinline keySelector: (Int) -> K): Groupin
 }
 
 /**
- * Return a map where the entries are (element -> # of occurrences)
+ * Return a map where for each entry, the key is an [Int] in the array, and
+ * its value is the number of occurrences of the key in the array.
  */
 fun IntArray.frequencyMap(): Map<Int, Int> = groupingBy { it }.eachCount()
 
 /**
- * Return a map where the entries are (element -> # of occurrences)
+ * Return a map where for each entry, the key is an element in the array, and
+ * its value is the number of occurrences of the element in the array.
  */
 fun <T> Array<T>.frequencyMap(): Map<T, Int> = groupingBy { it }.eachCount()
 
 /**
- * Return a map where the entries are (element -> List of indices containing element)
+ * Return a map where for each entry, the key is an [Int] in the array, and
+ * its value is a list of the indices at which the key is found in the array.
  */
 fun IntArray.valueToIndicesMap(): Map<Int, List<Int>> = withIndex()
     .groupBy(keySelector = { it.value }, valueTransform = { it.index })
 
 /**
- * Return a map where the entries are (element -> List of indices containing element)
+ * Return a map where for each entry, the key is an element in the array, and
+ * its value is a list of the indices at which the element is found in the array.
  */
 fun <T> Array<T>.valueToIndicesMap(): Map<T, List<Int>> = withIndex()
     .groupBy(keySelector = { it.value }, valueTransform = { it.index })
@@ -142,6 +138,9 @@ fun CharArray.reverseElementsInRange(indexRange: IntRange) {
     }
 }
 
+/**
+ * Check if all elements in the [Array] are sorted (in increasing order).
+ */
 fun <T : Comparable<T>> Array<T>.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }
 fun IntArray.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }
 fun CharArray.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }
@@ -150,6 +149,9 @@ fun ShortArray.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= t
 fun DoubleArray.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }
 fun FloatArray.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }
 
+/**
+ * Check if all elements in the [Array] are sorted in _descending_ order.
+ */
 fun <T : Comparable<T>> Array<T>.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }
 fun IntArray.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }
 fun CharArray.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }
@@ -160,6 +162,10 @@ fun LongArray.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> thi
 
 /**
  * Returns all contiguous, non-empty subarrays
+ *
+ * **Time**: `O(n^2)`
+ *
+ * **Space**: `O(n)`
  */
 fun IntArray.subarrays(): List<IntArray> =
     foldIndexed(mutableListOf()) { i, acc, _ ->
@@ -174,6 +180,10 @@ fun IntArray.subarrays(): List<IntArray> =
 
 /**
  * Returns all contiguous, non-empty sublists
+ *
+ * **Time**: `O(n^2)`
+ *
+ * **Space**: `O(n)`
  */
 fun IntArray.sublists(): List<List<Int>> =
     foldIndexed(mutableListOf()) { i, acc, _ ->

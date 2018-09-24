@@ -52,7 +52,7 @@ class RecursiveDFSSolution2 {
     private lateinit var seen: Array<BooleanArray>
 
     /**
-     * Uses the generalized `Matrix.dfs()` extension function.
+     * Uses the generalized [extensions.arrays.dfs] extension function.
      *
      * Time: O(R * C) - where R is the # of rows, C is the # of cols. Each square is visited once.
      * Space: O(R * C)

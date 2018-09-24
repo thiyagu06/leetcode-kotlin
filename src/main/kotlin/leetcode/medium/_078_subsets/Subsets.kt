@@ -71,7 +71,7 @@ class SolutionFour {
     private fun <T> powerSet(set: Set<T>): Set<Set<T>> = when {
         set.isEmpty() -> setOf(setOf())
         else -> {
-            val tailPowerSet = powerSet(set.drop(1).toSet())
+            val tailPowerSet = powerSet(set.asSequence().drop(1).toSet())
             tailPowerSet + tailPowerSet.map { setOf(set.first()) + it }
         }
     }

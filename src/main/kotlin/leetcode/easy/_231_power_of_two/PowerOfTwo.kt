@@ -1,7 +1,7 @@
 package leetcode.easy._231_power_of_two
 
-import extensions.math.INT_BITS
-import extensions.math.`&`
+import extensions.binary.INT_BITS
+import extensions.binary.`&`
 
 class Solution {
     /**

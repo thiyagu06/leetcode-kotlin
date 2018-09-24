@@ -4,7 +4,6 @@ package extensions.tuples
  * [Triple] extensions
  */
 
-
 fun Triple<Boolean, Boolean, Boolean>.toBooleanArray(): BooleanArray = booleanArrayOf(first, second, third)
 fun Triple<Byte, Byte, Byte>.toByteArray(): ByteArray = byteArrayOf(first, second, third)
 fun Triple<Char, Char, Char>.toCharArray(): CharArray = charArrayOf(first, second, third)
