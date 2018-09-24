@@ -14,7 +14,7 @@ class Solution {
         powerSet.add(emptyList())  // add null set
         var lastIterationSubsets: List<List<Int>> = arrayListOf()
 
-        for (i in (0..nums.lastIndex)) {
+        for (i in nums.indices) {
             lastIterationSubsets = if (i > 0 && nums[i] == nums[i - 1]) {
                 lastIterationSubsets.map { it + nums[i] }
             } else {
@@ -39,3 +39,30 @@ class SolutionTwo {
         TODO()
     }
 }
+/*
+import java.util.*
+
+class Solution {
+    fun subsetsWithDup(nums: IntArray): List<List<Int>> {
+        Arrays.sort(nums)
+        val result = mutableListOf<List<Int>>()
+        val book = BooleanArray(nums.size)
+        dfs(nums, 0, book, result, mutableListOf())
+        return result
+    }
+
+    fun dfs(nums: IntArray, pos: Int, book: BooleanArray, result: MutableList<List<Int>>, solution: MutableList<Int>) {
+        result.add(ArrayList<Int>(solution))
+        for (i in pos until nums.size) {
+            if (i > 0 && nums[i] == nums[i - 1] && !book[i - 1]) {
+                continue
+            }
+            book[i] = true
+            solution.add(nums[i])
+            dfs(nums, i + 1, book, result, solution)
+            solution.removeAt(solution.lastIndex)
+            book[i] = false
+        }
+    }
+}
+ */

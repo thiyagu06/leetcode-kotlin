@@ -46,3 +46,31 @@ class FollowUpSolution {
      */
     fun missingNumber(nums: IntArray): Int = sumOfFirstNPositiveIntegers(nums.size) - nums.sum()
 }
+
+class FollowUpSolution2 {
+    /**
+     * Bit Manipulation
+     * Time: O(n)
+     * Space: O(1)
+     */
+    fun missingNumber(nums: IntArray): Int {
+        var missing = nums.size
+        for ((i, n) in nums.withIndex()) {
+            missing = missing xor n
+            missing = missing xor i
+        }
+        return missing
+    }
+}
+
+class FollowUpSolution3 {
+    /**
+     * Bit Manipulation
+     * Time: O(n)
+     * Space: O(1)
+     */
+    fun missingNumber(nums: IntArray): Int =
+        nums.foldIndexed(nums.size) { index, acc, n ->
+            acc xor (index xor n)
+        }
+}

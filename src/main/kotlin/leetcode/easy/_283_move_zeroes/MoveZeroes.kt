@@ -11,7 +11,7 @@ class Solution {
      * Space: O(1)
      */
     fun moveZeroes(nums: IntArray) {
-        (0..nums.lastIndex).forEach { i ->
+        nums.indices.forEach { i ->
             if (nums[i] == 0) {
                 var j = i + 1
                 while (j <= nums.lastIndex && nums[j] == 0)
@@ -57,7 +57,7 @@ class SolutionThree {
      */
     fun moveZeroes(nums: IntArray) {
         var swapIdx = 0
-        (0..nums.lastIndex).forEach { i ->
+        nums.indices.forEach { i ->
             if (nums[i] != 0) {
                 if (i == swapIdx) swapIdx++
                 else nums.swap(swapIdx++, i)

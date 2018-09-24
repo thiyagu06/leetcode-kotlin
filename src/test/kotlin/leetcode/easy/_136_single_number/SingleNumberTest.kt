@@ -8,7 +8,7 @@ import org.junit.Ignore
 class SingleNumberTest {
 
     private val solution = Solution()
-    private val solution2 = Solution2()
+    private val solution2 = SolutionTwo()
 
     @Test
     fun singleNumber() {
@@ -17,8 +17,6 @@ class SingleNumberTest {
         assertEquals(1, solution.singleNumber(intArrayOf(3, 1, 3, 2, 2)))
     }
 
-    // TODO
-    @Ignore
     @Test
     fun singleNumber2() {
         assertEquals(1, solution2.singleNumber(intArrayOf(1)))

@@ -9,16 +9,49 @@ class Solution {
      * Space: O(1)
      */
     fun removeDuplicates(nums: IntArray): Int {
-        if (nums.isEmpty()) return 0
+        if (nums.size < 2) return nums.size
 
-        var comparisonIdx = 0
-        nums.forEachIndexed { i, n ->
-            if (i == 0 || n == nums[comparisonIdx]) {
-                return@forEachIndexed
+        var insertIndex = 0
+        for (i in nums.indices) {
+            if (i > 0 && nums[i] != nums[insertIndex]) {
+                nums[++insertIndex] = nums[i]
             }
-
-            nums[++comparisonIdx] = n
         }
-        return comparisonIdx + 1
+        return insertIndex + 1
+    }
+}
+
+class SolutionTwo {
+    /**
+     * Time: O(n)
+     * Space: O(1)
+     */
+    fun removeDuplicates(nums: IntArray): Int {
+        if (nums.size < 2) return nums.size
+
+        var insertIndex = 1
+        (1..nums.lastIndex).forEach { i ->
+            if (nums[i] != nums[i - 1]) {
+                nums[insertIndex++] = nums[i]
+            }
+        }
+        return insertIndex
+    }
+}
+
+class SolutionThree {
+    /**
+     * Time: O(n)
+     * Space: O(1)
+     */
+    fun removeDuplicates(nums: IntArray): Int {
+        var insertIndex = if (nums.isNotEmpty()) 1 else 0
+
+        for (i in nums.indices) {
+            if (nums[i] > nums[insertIndex - 1]) {
+                nums[insertIndex++] = nums[i]
+            }
+        }
+        return insertIndex
     }
 }

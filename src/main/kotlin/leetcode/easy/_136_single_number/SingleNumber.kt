@@ -1,5 +1,7 @@
 package leetcode.easy._136_single_number
 
+import extensions.arrays.groupingBy
+
 /**
  * 136 - https://leetcode.com/problems/single-number/description/
  */
@@ -8,21 +10,23 @@ class Solution {
      * Time: O(n)
      * Space: O(n)
      */
-    fun singleNumber(nums: IntArray): Int = nums.groupBy { it }
-            .map { (key, values) -> key to values.count() }
-            .single { (_, count) -> count == 1 }
-            .first
-
+    fun singleNumber(nums: IntArray): Int = nums.groupingBy { it }
+        .eachCount()
+        .entries
+        .single { (_, freq) -> freq == 1 }
+        .key
 }
 
-class Solution2 {
+class SolutionTwo {
     /**
+     * Approach: Use Math.
+     * (2 * (a + b + c)) - (a + a + b + b + c) = c
+     * (2 * sum of distinct elements) - (sum of all elements) = c
+     *
      * Time: O(n)
-     * Space: O(1)
+     * Space: O(n)
      */
-    fun singleNumber(nums: IntArray): Int {
-        // TODO - Bit Manipulation
-        TODO()
-    }
-
+    fun singleNumber(nums: IntArray): Int = (2 * nums.toSet().sum()) - nums.sum()
 }
+
+
