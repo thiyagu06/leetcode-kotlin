@@ -1,4 +1,3 @@
-@file:JvmName("BitwiseOperators")
 package extensions.binary
 
 /*

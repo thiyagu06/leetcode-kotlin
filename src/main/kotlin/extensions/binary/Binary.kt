@@ -1,4 +1,3 @@
-@file:JvmName("Binary")
 package extensions.binary
 
 import kotlin.math.log2
