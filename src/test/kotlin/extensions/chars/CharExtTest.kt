@@ -33,6 +33,13 @@ class CharExtTest {
         setOf('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U').forEach {
             assertTrue(it.isVowel)
         }
+    }
 
+    @Test
+    fun invertCase() {
+        assertEquals('A', 'a'.invertCase())
+        assertEquals('a', 'A'.invertCase())
+        assertEquals('!', '!'.invertCase())
+        assertEquals('7', '7'.invertCase())
     }
 }

@@ -28,3 +28,9 @@ val Char.numericValue: Int
  * Note: 'y' isn't not considered a vowel here.
  */
 val Char.isVowel: Boolean get() = toLowerCase() in "aeiou"
+
+/**
+ * Returns the Char with its case inverted.
+ * If not a letter, behavior undefined (but will likely return the same Char)
+ */
+fun Char.invertCase(): Char = if (isLowerCase()) toUpperCase() else toLowerCase()

@@ -24,6 +24,27 @@ class StringExtTest {
     }
 
     @Test
+    fun headAndTail() {
+        assertEquals(('f' to "oobar"), "foobar".headAndTail)
+        assertEquals(('f' to ""), "f".headAndTail)
+        assertEquals((null to ""), "".headAndTail)
+    }
+
+    @Test
+    fun dropFirst() {
+        assertEquals("oobar", "foobar".dropFirst())
+        assertEquals("", "".dropFirst())
+        assertEquals("", "f".dropFirst())
+    }
+
+    @Test
+    fun dropLast() {
+        assertEquals("fooba", "foobar".dropLast())
+        assertEquals("", "".dropLast())
+        assertEquals("", "f".dropLast())
+    }
+
+    @Test
     fun reverseCharsInRange() {
         assertEquals("hlleo", "hello".reverseCharsInRange(1..3))
         assertEquals("niltok", "kotlin".reverseCharsInRange(0..5))

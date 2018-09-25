@@ -133,7 +133,6 @@ private fun <T> List<T>.plusAtIndex(index: Int, element: T): List<T> {
     }
 }
 
-
 // Returns List<List<Int>> due to signature of LeetCode Problems 46-47
 fun IntArray.permutations(): List<List<Int>> = when (size) {
     0 -> listOf()

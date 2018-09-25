@@ -10,6 +10,28 @@ val String.isAllCaps: Boolean get() = all { it.isUpperCase() }
 /** True if every character in the String is a lowercase letter. */
 val String.isAllLowercase: Boolean get() = all { it.isLowerCase() }
 
+val String.head: Char? get() = firstOrNull()
+val String.tail: String get() = drop(1)
+val String.headAndTail: Pair<Char?, String> get() = (head to tail)
+
+/**
+ * Returns a String containing all characters except the first element.
+ *
+ * **Time**: `O(n)`
+ *
+ * **Space**: `O(n)`
+ */
+fun String.dropFirst(): String = drop(1)
+
+/**
+ * Returns a String containing all characters except the last element.
+ *
+ * **Time**: `O(n)`
+ *
+ * **Space**: `O(n)`
+ */
+fun String.dropLast(): String = dropLast(1)
+
 /**
  * Return a String with the elements in the specified range reversed.
  * @throws StringIndexOutOfBoundsException if [indexRange] not in `0..lastIndex`

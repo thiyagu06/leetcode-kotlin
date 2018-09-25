@@ -49,22 +49,23 @@ class FollowUpSolution {
     fun isPalindrome(head: ListNode?): Boolean {
         head ?: return true
 
-        val secondHalf = head.middleNode()
+        val secondHalf = head.middleNode
         val reversedSecondHalf = reverseList(secondHalf)
 
-        var nodeA = head
-        var nodeB = reversedSecondHalf
+        var left = head
+        var right = reversedSecondHalf
 
-        while (nodeA != null && nodeB != null) {
-            if (nodeA.`val` != nodeB.`val`) {
+        while (left != null && right != null) {
+            if (left.`val` != right.`val`) {
                 return false
             }
-            nodeA = nodeA.next
-            nodeB = nodeB.next
+            left = left.next
+            right = right.next
         }
 
         return true
     }
+
 
     /**
      * From #206
