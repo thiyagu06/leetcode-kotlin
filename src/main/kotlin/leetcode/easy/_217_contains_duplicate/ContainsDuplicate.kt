@@ -7,26 +7,33 @@ import extensions.arrays.groupingBy
  */
 class Solution {
     /**
+     * Declarative
+     *
      * Time: O(n)
      * Space: O(n)
      */
-    fun containsDuplicate(nums: IntArray): Boolean =
-        nums.groupingBy { it }
-            .eachCount()
-            .values
-            .any { it > 1 }
+    fun containsDuplicate(nums: IntArray): Boolean = nums.groupingBy { it }
+        .eachCount()
+        .any { (_, count) -> count > 1 }
 }
 
 class SolutionTwo {
     /**
+     * Imperative
+     *
      * Time: O(n)
      * Space: O(n)
      */
-    fun containsDuplicate(nums: IntArray): Boolean =
-        nums.groupingBy { it }
-            .fold(0) { freq, _ -> freq + 1 }
-            .values
-            .any { it > 1 }
+    fun containsDuplicate(nums: IntArray): Boolean {
+        val distinct = hashSetOf<Int>()
+        for (n in nums) {
+            if (distinct.contains(n)) {
+                return true
+            }
+            distinct.add(n)
+        }
+        return false
+    }
 }
 
 class SolutionThree {
@@ -35,24 +42,4 @@ class SolutionThree {
      * Space: O(n)
      */
     fun containsDuplicate(nums: IntArray): Boolean = nums.distinct().size != nums.size
-}
-
-
-class ImperativeSolution {
-    /**
-     * Imperative solution
-     *
-     * Time: O(n)
-     * Space: O(n)
-     */
-    fun containsDuplicate(nums: IntArray): Boolean {
-        val distinctNums = mutableSetOf<Int>()
-        nums.forEach { num ->
-            if (distinctNums.contains(num)) {
-                return true
-            }
-            distinctNums.add(num)
-        }
-        return false
-    }
 }

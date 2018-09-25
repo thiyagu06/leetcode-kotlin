@@ -6,6 +6,7 @@ import org.junit.Assert.*
 
 class ContainsDuplicatesIITest {
     private val solution = Solution()
+    private val solution2 = SolutionTwo()
 
     @Test
     fun containsNearbyDuplicate() {
@@ -15,6 +16,15 @@ class ContainsDuplicatesIITest {
         assertTrue(solution.containsNearbyDuplicate(arr, 2))
 
         assertTrue(solution.containsNearbyDuplicate(intArrayOf(-1, -1), 1))
+    }
+
+    @Test
+    fun containsNearbyDuplicate2() {
+        val arr = intArrayOf(3, 1, 3)
+        assertFalse(solution2.containsNearbyDuplicate(arr, 0))
+        assertFalse(solution2.containsNearbyDuplicate(arr, 1))
+        assertTrue(solution2.containsNearbyDuplicate(arr, 2))
+        assertTrue(solution2.containsNearbyDuplicate(intArrayOf(-1, -1), 1))
     }
 
 }
