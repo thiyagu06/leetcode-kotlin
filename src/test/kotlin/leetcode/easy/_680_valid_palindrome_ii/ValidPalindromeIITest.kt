@@ -7,7 +7,7 @@ import org.junit.Test
 class ValidPalindromeIITest {
 
     private val solution = Solution()
-    private val solution2 = Solution2()
+    private val solution2 = SolutionTwo()
 
     @Test
     fun validPalindrome() {
