@@ -3,6 +3,9 @@ package leetcode.easy._784_letter_case_permutation
 import extensions.chars.invertCase
 import java.util.*
 
+/**
+ * 784 - https://leetcode.com/problems/find-pivot-index
+ */
 class Solution {
     /**
      * Backtracking

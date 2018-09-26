@@ -2,6 +2,9 @@ package leetcode.medium._567_permutation_in_a_string
 
 import extensions.strings.characterFrequencies
 
+/**
+ * 567 - https://leetcode.com/problems/permutation-in-string
+ */
 class Solution {
     /**
      * Time: O(?)

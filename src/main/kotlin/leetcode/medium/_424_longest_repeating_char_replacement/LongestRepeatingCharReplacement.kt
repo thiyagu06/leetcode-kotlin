@@ -2,6 +2,9 @@ package leetcode.medium._424_longest_repeating_char_replacement
 
 import kotlin.math.max
 
+/**
+ * 424 - https://leetcode.com/problems/longest-repeating-character-replacement
+ */
 class Solution {
     fun characterReplacement(s: String, k: Int): Int {
         val count = HashMap<Char, Int>()

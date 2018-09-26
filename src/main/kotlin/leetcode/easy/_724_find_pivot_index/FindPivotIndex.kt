@@ -1,5 +1,8 @@
 package leetcode.easy._724_find_pivot_index
 
+/**
+ * 724 - https://leetcode.com/problems/find-pivot-index
+ */
 class Solution {
     /**
      * Brute Force

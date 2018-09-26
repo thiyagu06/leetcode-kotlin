@@ -2,6 +2,9 @@ package leetcode.easy._867_transpose_matrix
 
 import extensions.arrays.transpose
 
+/**
+ * 867 - https://leetcode.com/problems/transpose-matrix/
+ */
 class Solution {
     /**
      * Time: O(m * n)

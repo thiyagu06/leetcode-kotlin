@@ -2,6 +2,9 @@ package leetcode.easy._820_lemonade_change
 
 const val LEMONADE_PRICE = 5
 
+/**
+ * 820 - https://leetcode.com/problems/lemonade-change/description/
+ */
 class Solution {
     /**
      * Time: O(n)

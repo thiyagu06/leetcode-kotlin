@@ -3,6 +3,9 @@ package leetcode.easy._231_power_of_two
 import extensions.binary.INT_BITS
 import extensions.binary.`&`
 
+/**
+ * 231 - https://leetcode.com/problems/power-of-two/
+ */
 class Solution {
     /**
      * Time: O(1)

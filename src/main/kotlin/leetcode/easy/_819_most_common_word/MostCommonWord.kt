@@ -1,5 +1,8 @@
 package leetcode.easy._819_most_common_word
 
+/**
+ * 819 - https://leetcode.com/problems/most-common-word/
+ */
 class Solution {
     fun mostCommonWord(paragraph: String, banned: Array<String>): String =
         paragraph.split(" ", ".", ",", "!", "?", ";", "'")

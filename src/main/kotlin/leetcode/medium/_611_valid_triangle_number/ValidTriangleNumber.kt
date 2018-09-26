@@ -1,7 +1,6 @@
 package leetcode.medium._611_valid_triangle_number
 
 /**
- * TODO review
  * 611 - https://leetcode.com/problems/valid-triangle-number/description/
  */
 class Solution {

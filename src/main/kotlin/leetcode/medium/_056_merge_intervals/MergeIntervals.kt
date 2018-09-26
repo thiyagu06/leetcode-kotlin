@@ -5,6 +5,9 @@ import datastructures.interval.mergeWith
 import datastructures.interval.overlapsWith
 import java.util.*
 
+/**
+ * 56 - https://leetcode.com/problems/merge-intervals
+ */
 class Solution {
     /**
      * Time: O(n log(n))
