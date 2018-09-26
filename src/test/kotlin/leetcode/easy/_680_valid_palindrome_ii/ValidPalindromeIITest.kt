@@ -7,7 +7,6 @@ import org.junit.Test
 class ValidPalindromeIITest {
 
     private val solution = Solution()
-    private val solution2 = SolutionTwo()
 
     @Test
     fun validPalindrome() {
@@ -25,22 +24,4 @@ class ValidPalindromeIITest {
         assertFalse(solution.validPalindrome("adccad"))
         assertFalse(solution.validPalindrome("daccda"))
     }
-
-    @Test
-    fun validPalindrome2() {
-        assertTrue(solution2.validPalindrome("aba"))
-        assertTrue(solution2.validPalindrome("abba"))
-        assertTrue(solution2.validPalindrome("abbba"))
-        assertTrue(solution2.validPalindrome("zaba"))
-        assertTrue(solution2.validPalindrome("azba"))
-        assertTrue(solution2.validPalindrome("abza"))
-        assertTrue(solution2.validPalindrome("abaz"))
-
-        assertTrue(solution2.validPalindrome("abbbaa"))
-        assertTrue(solution2.validPalindrome("aaabbbaa"))
-        assertTrue(solution2.validPalindrome("abcdcdba"))
-        assertFalse(solution2.validPalindrome("adccad"))
-        assertFalse(solution2.validPalindrome("daccda"))
-    }
-
 }

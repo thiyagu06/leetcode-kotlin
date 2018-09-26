@@ -1,4 +1,4 @@
-package leetcode.medium._34_find_first_and_last_pos
+package leetcode.medium._034_find_first_and_last_pos
 
 import org.junit.Test
 
