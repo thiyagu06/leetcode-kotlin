@@ -3,7 +3,7 @@ package leetcode.easy._104_max_depth_binary_tree
 import datastructures.tree.TreeNode
 
 /**
- * 104 - https://leetcode.com/problems/maximum-depth-of-binary-tree/description/
+ * 104 - https://leetcode.com/problems/maximum-depth-of-binary-tree/
  */
 class Solution {
     /**

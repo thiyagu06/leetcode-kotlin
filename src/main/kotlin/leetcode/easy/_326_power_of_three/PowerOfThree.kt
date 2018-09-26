@@ -6,7 +6,7 @@ import kotlin.math.log
 import kotlin.math.pow
 
 /**
- * 326 - https://leetcode.com/problems/power-of-three/description/
+ * 326 - https://leetcode.com/problems/power-of-three/
  */
 class Solution {
     /**

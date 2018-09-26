@@ -1,7 +1,7 @@
 package leetcode.medium._078_subsets
 
 /**
- * 78 - https://leetcode.com/problems/subsets/description/
+ * 78 - https://leetcode.com/problems/subsets/
  */
 class Solution {
     /**

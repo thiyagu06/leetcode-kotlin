@@ -6,7 +6,7 @@ import datastructures.tree.isLeaf
 import extensions.tuples.neitherNull
 
 /**
- * 671 - https://leetcode.com/problems/second-minimum-node-in-a-binary-tree/description/
+ * 671 - https://leetcode.com/problems/second-minimum-node-in-a-binary-tree/
  */
 class Solution {
     /**

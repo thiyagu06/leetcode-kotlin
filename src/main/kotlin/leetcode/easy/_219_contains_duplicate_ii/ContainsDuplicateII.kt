@@ -3,7 +3,7 @@ package leetcode.easy._219_contains_duplicate_ii
 import kotlin.math.abs
 
 /**
- * 219 - https://leetcode.com/problems/contains-duplicate-ii/description/
+ * 219 - https://leetcode.com/problems/contains-duplicate-ii/
  */
 class Solution {
     /**

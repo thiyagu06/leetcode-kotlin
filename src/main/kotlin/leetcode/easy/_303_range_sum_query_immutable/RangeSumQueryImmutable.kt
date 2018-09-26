@@ -1,7 +1,7 @@
 package leetcode.easy._303_range_sum_query_immutable
 
 /**
- * 303 - https://leetcode.com/problems/range-sum-query-immutable/description/
+ * 303 - https://leetcode.com/problems/range-sum-query-immutable/
  */
 class NumArray(nums: IntArray) {
 

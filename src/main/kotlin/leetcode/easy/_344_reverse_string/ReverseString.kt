@@ -1,7 +1,7 @@
 package leetcode.easy._344_reverse_string
 
 /**
- * 344 - https://leetcode.com/problems/reverse-string/description/
+ * 344 - https://leetcode.com/problems/reverse-string/
  */
 class Solution {
     /**

@@ -3,7 +3,7 @@ package leetcode.easy._437_path_sum_iii
 import datastructures.tree.TreeNode
 
 /**
- * 437 - https://leetcode.com/problems/path-sum-iii/description/
+ * 437 - https://leetcode.com/problems/path-sum-iii/
  */
 class Solution {
     fun pathSum(root: TreeNode?, sum: Int, pathStarted: Boolean = false): Int {

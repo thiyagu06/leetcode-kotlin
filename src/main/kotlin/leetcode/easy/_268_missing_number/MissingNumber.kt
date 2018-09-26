@@ -3,7 +3,7 @@ package leetcode.easy._268_missing_number
 import extensions.math.sumOfFirstNPositiveIntegers
 
 /**
- * 268 - https://leetcode.com/problems/missing-number/description/
+ * 268 - https://leetcode.com/problems/missing-number/
  */
 class Solution {
     /**

@@ -1,7 +1,7 @@
 package leetcode.easy._599_min_index_sum
 
 /**
- * 599 - https://leetcode.com/problems/minimum-index-sum-of-two-lists/description/
+ * 599 - https://leetcode.com/problems/minimum-index-sum-of-two-lists/
  */
 class Solution {
     /**

@@ -5,7 +5,7 @@ import datastructures.tree.TreeNode
 import datastructures.tree.collect
 
 /**
- * 144 - https://leetcode.com/problems/binary-tree-preorder-traversal/description/
+ * 144 - https://leetcode.com/problems/binary-tree-preorder-traversal/
  */
 class Solution {
     /**

@@ -1,7 +1,7 @@
 package leetcode.easy._541_reverse_string_ii
 
 /**
- * 541 - https://leetcode.com/problems/reverse-string-ii/description/
+ * 541 - https://leetcode.com/problems/reverse-string-ii/
  */
 class Solution {
     fun reverseStr(s: String, k: Int): String =

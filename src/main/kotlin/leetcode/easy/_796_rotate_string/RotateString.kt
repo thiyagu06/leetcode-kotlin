@@ -1,7 +1,7 @@
 package leetcode.easy._796_rotate_string
 
 /**
- * 796 - https://leetcode.com/problems/rotate-string/description/
+ * 796 - https://leetcode.com/problems/rotate-string/
  */
 class Solution {
     fun rotateString(A: String, B: String): Boolean =

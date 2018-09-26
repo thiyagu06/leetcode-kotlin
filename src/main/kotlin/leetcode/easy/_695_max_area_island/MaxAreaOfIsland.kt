@@ -8,7 +8,7 @@ import extensions.arrays.rows
 import kotlin.math.max
 
 /**
- * 695 - https://leetcode.com/problems/max-area-of-island/description/
+ * 695 - https://leetcode.com/problems/max-area-of-island/
  */
 class RecursiveDFSSolution {
     private lateinit var grid: Array<IntArray>

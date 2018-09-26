@@ -3,7 +3,7 @@ package leetcode.easy._747_largest_num_twice_others
 import extensions.arrays.NOT_FOUND
 
 /**
- * 747 - https://leetcode.com/problems/largest-number-greater-than-twice-of-others/description/
+ * 747 - https://leetcode.com/problems/largest-number-greater-than-twice-of-others/
  */
 class Solution {
     /**

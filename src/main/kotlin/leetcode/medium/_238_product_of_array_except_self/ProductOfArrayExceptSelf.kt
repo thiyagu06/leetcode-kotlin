@@ -1,7 +1,7 @@
 package leetcode.medium._238_product_of_array_except_self
 
 /**
- * 238 - https://leetcode.com/problems/product-of-array-except-self/description/
+ * 238 - https://leetcode.com/problems/product-of-array-except-self/
  */
 class Solution {
     /**

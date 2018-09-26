@@ -1,7 +1,7 @@
 package leetcode.easy._434_number_of_segments_string
 
 /**
- * 434 - https://leetcode.com/problems/number-of-segments-in-a-string/description/
+ * 434 - https://leetcode.com/problems/number-of-segments-in-a-string/
  */
 class Solution {
     /**

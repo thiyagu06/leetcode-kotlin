@@ -4,7 +4,7 @@ import datastructures.tree.TreeNode
 import datastructures.tree.rootToLeafPaths
 
 /**
- * 113 - https://leetcode.com/problems/path-sum-ii/description/
+ * 113 - https://leetcode.com/problems/path-sum-ii/
  */
 class Solution {
     /**

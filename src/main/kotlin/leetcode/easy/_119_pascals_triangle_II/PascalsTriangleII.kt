@@ -4,7 +4,7 @@ import leetcode.easy._118_pascals_triangle.PascalsTriangle
 import extensions.math.choose
 
 /**
- * 119 - https://leetcode.com/problems/pascals-triangle-ii/description/
+ * 119 - https://leetcode.com/problems/pascals-triangle-ii/
  */
 class Solution {
     fun getRow(rowIndex: Int): List<Int> =

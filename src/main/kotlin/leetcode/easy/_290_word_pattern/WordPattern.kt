@@ -3,7 +3,7 @@ package leetcode.easy._290_word_pattern
 import com.google.common.collect.HashBiMap
 
 /**
- * 290 - https://leetcode.com/problems/word-pattern/description/
+ * 290 - https://leetcode.com/problems/word-pattern/
  */
 class Solution {
     /**

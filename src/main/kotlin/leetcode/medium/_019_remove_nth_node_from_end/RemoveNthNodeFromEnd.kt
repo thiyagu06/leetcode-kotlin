@@ -3,7 +3,7 @@ package leetcode.medium._019_remove_nth_node_from_end
 import datastructures.list.ListNode
 
 /**
- * 19 - https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
+ * 19 - https://leetcode.com/problems/remove-nth-node-from-end-of-list/
  */
 class Solution {
     fun removeNthFromEnd(head: ListNode?, n: Int): ListNode? {

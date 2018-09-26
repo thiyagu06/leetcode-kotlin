@@ -4,7 +4,7 @@ import extensions.binary.numberOfOneBits
 import extensions.binary.toBinaryString
 
 /**
- * 338 - https://leetcode.com/problems/counting-bits/description/
+ * 338 - https://leetcode.com/problems/counting-bits/
  */
 class Solution {
     /**

@@ -3,7 +3,7 @@ package leetcode.easy._617_merge_two_binary_trees
 import datastructures.tree.TreeNode
 
 /**
- * 617 - https://leetcode.com/problems/merge-two-binary-trees/description/
+ * 617 - https://leetcode.com/problems/merge-two-binary-trees/
  */
 class Solution {
     /**

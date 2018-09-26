@@ -4,7 +4,7 @@ import datastructures.tree.TreeNode
 import datastructures.tree.children
 
 /**
- * 226 - https://leetcode.com/problems/invert-binary-tree/description/
+ * 226 - https://leetcode.com/problems/invert-binary-tree/
  */
 class Solution {
     /**

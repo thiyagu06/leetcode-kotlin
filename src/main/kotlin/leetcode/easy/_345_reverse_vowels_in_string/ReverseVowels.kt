@@ -4,7 +4,7 @@ import extensions.chars.isVowel
 import extensions.arrays.swap
 
 /**
- * 345 - https://leetcode.com/problems/reverse-vowels-of-a-string/description/
+ * 345 - https://leetcode.com/problems/reverse-vowels-of-a-string/
  */
 class Solution {
     fun reverseVowels(s: String): String {

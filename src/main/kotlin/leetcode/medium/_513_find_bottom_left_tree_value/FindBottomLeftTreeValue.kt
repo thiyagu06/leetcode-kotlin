@@ -7,7 +7,7 @@ import java.util.ArrayDeque
 import java.util.Queue
 
 /**
- * 513 - https://leetcode.com/problems/find-bottom-left-tree-value/description/
+ * 513 - https://leetcode.com/problems/find-bottom-left-tree-value/
  */
 class Solution {
     /**

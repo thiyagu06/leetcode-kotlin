@@ -4,7 +4,7 @@ import extensions.arrays.groupingBy
 import java.util.*
 
 /**
- * 347 - https://leetcode.com/problems/top-k-frequent-elements/description/
+ * 347 - https://leetcode.com/problems/top-k-frequent-elements/
  */
 data class ElementWithFrequency(val element: Int, private val frequency: Int): Comparable<ElementWithFrequency> {
     override fun compareTo(other: ElementWithFrequency): Int = other.frequency - this.frequency

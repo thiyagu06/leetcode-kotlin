@@ -3,7 +3,7 @@ package leetcode.medium._022_generate_parentheses
 import extensions.debug.printlnWithIndent
 
 /**
- * 22 - https://leetcode.com/problems/generate-parentheses/description/
+ * 22 - https://leetcode.com/problems/generate-parentheses/
  */
 class Solution {
     /**

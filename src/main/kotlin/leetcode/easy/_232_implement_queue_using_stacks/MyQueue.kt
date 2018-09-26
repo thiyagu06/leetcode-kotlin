@@ -3,7 +3,7 @@ package leetcode.easy._232_implement_queue_using_stacks
 import java.util.*
 
 /**
- * 232 - https://leetcode.com/problems/implement-queue-using-stacks/description/
+ * 232 - https://leetcode.com/problems/implement-queue-using-stacks/
  */
 class MyQueue {
 

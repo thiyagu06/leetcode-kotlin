@@ -3,7 +3,7 @@ package leetcode.hard._124_binary_tree_max_path_sum
 import datastructures.tree.TreeNode
 
 /**
- * 124 - https://leetcode.com/problems/binary-tree-maximum-path-sum/description/
+ * 124 - https://leetcode.com/problems/binary-tree-maximum-path-sum/
  * TODO - Tree
  */
 class Solution {

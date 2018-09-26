@@ -1,7 +1,7 @@
 package leetcode.medium._890_find_and_replace_pattern
 
 /**
- * 890 - https://leetcode.com/problems/find-and-replace-pattern/description/
+ * 890 - https://leetcode.com/problems/find-and-replace-pattern/
  */
 class Solution {
     /**

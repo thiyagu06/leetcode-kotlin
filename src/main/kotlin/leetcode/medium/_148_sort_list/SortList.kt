@@ -3,7 +3,7 @@ package leetcode.medium._148_sort_list
 import datastructures.list.ListNode
 
 /**
- * 148 - https://leetcode.com/problems/sort-list/description/
+ * 148 - https://leetcode.com/problems/sort-list/
  */
 class Solution {
     /**

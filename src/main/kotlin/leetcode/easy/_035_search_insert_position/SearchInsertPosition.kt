@@ -3,7 +3,7 @@ package leetcode.easy._035_search_insert_position
 import extensions.ranges.isNotEmpty
 
 /**
- * 35 - https://leetcode.com/problems/search-insert-position/description/
+ * 35 - https://leetcode.com/problems/search-insert-position/
  */
 class SimpleSolution {
     /**

@@ -3,7 +3,7 @@ package leetcode.easy._283_move_zeroes
 import extensions.arrays.swap
 
 /**
- * 283 - https://leetcode.com/problems/move-zeroes/description/
+ * 283 - https://leetcode.com/problems/move-zeroes/
  */
 class Solution {
     /**

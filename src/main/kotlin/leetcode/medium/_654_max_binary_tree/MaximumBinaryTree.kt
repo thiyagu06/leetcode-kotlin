@@ -3,7 +3,7 @@ package leetcode.medium._654_max_binary_tree
 import datastructures.tree.TreeNode
 
 /**
- * 654 - https://leetcode.com/problems/maximum-binary-tree/description/
+ * 654 - https://leetcode.com/problems/maximum-binary-tree/
  */
 class Solution {
     /**

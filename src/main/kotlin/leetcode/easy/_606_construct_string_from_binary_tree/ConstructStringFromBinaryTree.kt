@@ -6,7 +6,7 @@ import datastructures.tree.hasRight
 import datastructures.tree.hasTwoChildren
 
 /**
- * 606 - https://leetcode.com/problems/construct-string-from-binary-tree/description/
+ * 606 - https://leetcode.com/problems/construct-string-from-binary-tree/
  */
 class Solution {
     /**

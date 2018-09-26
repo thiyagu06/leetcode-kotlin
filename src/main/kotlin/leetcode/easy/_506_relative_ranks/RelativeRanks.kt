@@ -1,7 +1,7 @@
 package leetcode.easy._506_relative_ranks
 
 /**
- * 506 - https://leetcode.com/problems/relative-ranks/description/
+ * 506 - https://leetcode.com/problems/relative-ranks/
  *
  * Note:
  * N is a positive integer and won't exceed 10,000.

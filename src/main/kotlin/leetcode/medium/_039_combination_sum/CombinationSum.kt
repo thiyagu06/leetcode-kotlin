@@ -1,7 +1,7 @@
 package leetcode.medium._039_combination_sum
 
 /**
- * 39 - https://leetcode.com/problems/combination-sum/description/
+ * 39 - https://leetcode.com/problems/combination-sum/
  */
 class Solution {
     fun combinationSum(candidates: IntArray, target: Int): List<List<Int>> {

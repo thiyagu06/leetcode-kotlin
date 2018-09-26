@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 141 - https://leetcode.com/problems/linked-list-cycle/description/
+ * 141 - https://leetcode.com/problems/linked-list-cycle/
  */
 @SuppressWarnings("UnusedReturnValue")
 class Solution {

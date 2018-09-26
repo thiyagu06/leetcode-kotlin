@@ -1,7 +1,7 @@
 package leetcode.easy._191_number_of_1_bits;
 
 /**
- * 191 - https://leetcode.com/problems/number-of-1-bits/description/
+ * 191 - https://leetcode.com/problems/number-of-1-bits/
  */
 class Solution {
 

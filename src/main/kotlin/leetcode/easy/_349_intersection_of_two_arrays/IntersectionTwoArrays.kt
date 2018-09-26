@@ -1,7 +1,7 @@
 package leetcode.easy._349_intersection_of_two_arrays
 
 /**
- * 349 - https://leetcode.com/problems/intersection-of-two-arrays/description/
+ * 349 - https://leetcode.com/problems/intersection-of-two-arrays/
  */
 class Solution {
     /**

@@ -3,7 +3,7 @@ package leetcode.easy._342_power_of_four
 import extensions.binary.INT_BITS
 
 /**
- * 342 - https://leetcode.com/problems/power-of-four/description/
+ * 342 - https://leetcode.com/problems/power-of-four/
  */
 class Solution {
     fun isPowerOfFour(num: Int): Boolean =

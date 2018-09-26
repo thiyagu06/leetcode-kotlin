@@ -4,7 +4,7 @@ import datastructures.tree.TreeNode
 import datastructures.tree.collect
 
 /**
- * 501 - https://leetcode.com/problems/find-mode-in-binary-search-tree/description/
+ * 501 - https://leetcode.com/problems/find-mode-in-binary-search-tree/
  */
 class Solution {
     /**

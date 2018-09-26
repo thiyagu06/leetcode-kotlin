@@ -1,7 +1,7 @@
 package leetcode.easy._155_min_stack
 
 /**
- * 155 - https://leetcode.com/problems/min-stack/description/
+ * 155 - https://leetcode.com/problems/min-stack/
  */
 data class MinStackNode(val value: Int, val minStackValue: Int)
 

@@ -3,7 +3,7 @@ package leetcode.easy._389_find_the_difference
 import extensions.strings.characterFrequencies
 
 /**
- * 389 - https://leetcode.com/problems/find-the-difference/description/
+ * 389 - https://leetcode.com/problems/find-the-difference/
  */
 class Solution {
     /**

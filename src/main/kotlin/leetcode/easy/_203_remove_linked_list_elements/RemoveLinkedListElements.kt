@@ -3,7 +3,7 @@ package leetcode.easy._203_remove_linked_list_elements
 import datastructures.list.ListNode
 
 /**
- * 203 - https://leetcode.com/problems/remove-linked-list-elements/description/
+ * 203 - https://leetcode.com/problems/remove-linked-list-elements/
  */
 class Solution {
     fun removeElements(head: ListNode?, `val`: Int): ListNode? {

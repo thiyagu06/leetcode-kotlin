@@ -1,7 +1,7 @@
 package leetcode.easy._292_nim_game
 
 /**
- * 292 - https://leetcode.com/problems/nim-game/description/
+ * 292 - https://leetcode.com/problems/nim-game/
  */
 class BruteForceSolution {
     /**

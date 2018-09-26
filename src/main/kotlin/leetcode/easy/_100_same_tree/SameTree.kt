@@ -3,7 +3,7 @@ package leetcode.easy._100_same_tree
 import datastructures.tree.TreeNode
 
 /**
- * 100 - https://leetcode.com/problems/same-tree/description/
+ * 100 - https://leetcode.com/problems/same-tree/
  */
 class Solution {
     /**

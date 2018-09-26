@@ -5,7 +5,7 @@ import datastructures.tree.collect
 import kotlin.math.min
 
 /**
- * 783 - https://leetcode.com/problems/minimum-distance-between-bst-nodes/description/
+ * 783 - https://leetcode.com/problems/minimum-distance-between-bst-nodes/
  */
 class Solution {
     fun minDiffInBST(root: TreeNode?): Int =

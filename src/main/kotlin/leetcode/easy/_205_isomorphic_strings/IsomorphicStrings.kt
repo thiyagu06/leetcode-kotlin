@@ -1,7 +1,7 @@
 package leetcode.easy._205_isomorphic_strings
 
 /**
- * 205 - https://leetcode.com/problems/isomorphic-strings/description/
+ * 205 - https://leetcode.com/problems/isomorphic-strings/
  */
 class Solution {
     fun isIsomorphic(s: String, t: String): Boolean {

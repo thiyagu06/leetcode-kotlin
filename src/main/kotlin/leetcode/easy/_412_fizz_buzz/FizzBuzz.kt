@@ -1,7 +1,7 @@
 package leetcode.easy._412_fizz_buzz
 
 /**
- * 412 - https://leetcode.com/problems/fizz-buzz/description/
+ * 412 - https://leetcode.com/problems/fizz-buzz/
  */
 class Solution {
     fun fizzBuzz(n: Int): List<String> =

@@ -3,7 +3,7 @@ package leetcode.easy._383_ransom_note
 import extensions.strings.characterFrequencies
 
 /**
- * 383 - https://leetcode.com/problems/ransom-note/description/
+ * 383 - https://leetcode.com/problems/ransom-note/
  */
 class Solution {
     /**

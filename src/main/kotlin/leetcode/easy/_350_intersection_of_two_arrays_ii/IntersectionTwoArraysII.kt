@@ -4,7 +4,7 @@ import extensions.arrays.groupingBy
 import extensions.java.repeated
 
 /**
- * 350 - https://leetcode.com/problems/intersection-of-two-arrays-ii/description/
+ * 350 - https://leetcode.com/problems/intersection-of-two-arrays-ii/
  */
 class Solution {
     fun intersect(nums1: IntArray, nums2: IntArray): IntArray {

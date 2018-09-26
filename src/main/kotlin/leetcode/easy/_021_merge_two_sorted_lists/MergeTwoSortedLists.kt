@@ -3,7 +3,7 @@ package leetcode.easy._021_merge_two_sorted_lists
 import datastructures.list.ListNode
 
 /**
- * 21 - https://leetcode.com/problems/merge-two-sorted-lists/description/
+ * 21 - https://leetcode.com/problems/merge-two-sorted-lists/
  */
 class Solution {
     /**

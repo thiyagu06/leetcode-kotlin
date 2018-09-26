@@ -1,7 +1,7 @@
 package leetcode.easy._026_remove_duplicates_sorted_array
 
 /**
- * 26 - https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
+ * 26 - https://leetcode.com/problems/remove-duplicates-from-sorted-array/
  */
 class Solution {
     /**

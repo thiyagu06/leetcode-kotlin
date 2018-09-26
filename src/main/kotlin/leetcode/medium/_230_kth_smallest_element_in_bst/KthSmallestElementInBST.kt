@@ -4,7 +4,7 @@ import datastructures.tree.TreeNode
 import datastructures.tree.collect
 
 /**
- * 230 - https://leetcode.com/problems/kth-smallest-element-in-a-bst/description/
+ * 230 - https://leetcode.com/problems/kth-smallest-element-in-a-bst/
  *
  * Note: You may assume k is always valid, 1 ≤ k ≤ BST's total elements.
  */

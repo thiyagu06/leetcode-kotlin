@@ -4,7 +4,7 @@ import extensions.arrays.groupingBy
 import kotlin.math.abs
 
 /**
- * 645 - https://leetcode.com/problems/set-mismatch/description/
+ * 645 - https://leetcode.com/problems/set-mismatch/
  */
 class Solution {
     /**

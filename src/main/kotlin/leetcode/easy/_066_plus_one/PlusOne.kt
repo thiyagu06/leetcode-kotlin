@@ -1,7 +1,7 @@
 package leetcode.easy._066_plus_one
 
 /**
- * 66 - https://leetcode.com/problems/plus-one/description/
+ * 66 - https://leetcode.com/problems/plus-one/
  */
 class Solution {
     /**

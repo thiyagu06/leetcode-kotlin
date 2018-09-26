@@ -3,7 +3,7 @@ package leetcode.easy._001_two_sum
 import extensions.arrays.valueToIndicesMap
 
 /**
- * 1 - https://leetcode.com/problems/two-sum/description/
+ * 1 - https://leetcode.com/problems/two-sum/
  */
 class Solution {
     /**

@@ -4,7 +4,7 @@ import datastructures.tree.TreeNode
 import java.util.*
 
 /**
- * 102 - https://leetcode.com/problems/binary-tree-level-order-traversal/description/
+ * 102 - https://leetcode.com/problems/binary-tree-level-order-traversal/
  */
 class BFSSolution {
     /**

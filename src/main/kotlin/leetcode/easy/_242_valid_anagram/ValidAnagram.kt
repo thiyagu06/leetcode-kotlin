@@ -5,7 +5,7 @@ import extensions.strings.characterFrequencies
 const val NUMBER_OF_LETTERS = 26
 
 /**
- * 242 - https://leetcode.com/problems/valid-anagram/description/
+ * 242 - https://leetcode.com/problems/valid-anagram/
  *
  * Note: You may assume the string contains only lowercase alphabets.
  */

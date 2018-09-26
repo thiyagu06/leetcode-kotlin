@@ -1,7 +1,7 @@
 package leetcode.easy._697_degree_of_an_array
 
 /**
- * 697 - https://leetcode.com/problems/degree-of-an-array/description/
+ * 697 - https://leetcode.com/problems/degree-of-an-array/
  */
 class Solution {
     fun findShortestSubArray(nums: IntArray): Int {

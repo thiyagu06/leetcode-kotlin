@@ -6,7 +6,7 @@ import datastructures.tree.hasRight
 import datastructures.tree.hasTwoChildren
 
 /**
- * 111 - https://leetcode.com/problems/minimum-depth-of-binary-tree/description/
+ * 111 - https://leetcode.com/problems/minimum-depth-of-binary-tree/
  */
 class Solution {
     /**

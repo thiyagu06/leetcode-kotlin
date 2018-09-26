@@ -4,7 +4,7 @@ import datastructures.tree.TreeNode
 import datastructures.tree.levels
 
 /**
- * 107 - https://leetcode.com/problems/binary-tree-level-order-traversal-ii/description/
+ * 107 - https://leetcode.com/problems/binary-tree-level-order-traversal-ii/
  */
 class Solution {
     /**

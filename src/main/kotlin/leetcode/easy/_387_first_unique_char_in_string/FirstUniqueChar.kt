@@ -4,7 +4,7 @@ import extensions.arrays.NOT_FOUND
 import extensions.strings.characterFrequencies
 
 /**
- * 387 - https://leetcode.com/problems/first-unique-character-in-a-string/description/
+ * 387 - https://leetcode.com/problems/first-unique-character-in-a-string/
  */
 class Solution {
     /**

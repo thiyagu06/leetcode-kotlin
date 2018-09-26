@@ -6,7 +6,7 @@ import datastructures.tree.TreeNode
  * TODO - REVIEW
  * Avoid global var or repetition w/ lambda: http://tinyurl.com/y8b7qd4z
  *
- * 687 - https://leetcode.com/problems/longest-univalue-path/description/
+ * 687 - https://leetcode.com/problems/longest-univalue-path/
  */
 class Solution {
     fun longestUnivaluePath(root: TreeNode?): Int =

@@ -3,7 +3,7 @@ package leetcode.medium._046_permutations
 import extensions.math.permutations
 
 /**
- * 46 - https://leetcode.com/problems/permutations/description/
+ * 46 - https://leetcode.com/problems/permutations/
  */
 class Solution {
     /**

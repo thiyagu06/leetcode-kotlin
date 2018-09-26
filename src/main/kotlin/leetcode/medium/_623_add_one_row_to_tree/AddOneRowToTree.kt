@@ -3,7 +3,7 @@ package leetcode.medium._623_add_one_row_to_tree
 import datastructures.tree.TreeNode
 
 /**
- * 623 - https://leetcode.com/problems/add-one-row-to-tree/description/
+ * 623 - https://leetcode.com/problems/add-one-row-to-tree/
  */
 class Solution {
     /**

@@ -4,7 +4,7 @@ import extensions.arrays.valueToIndicesMap
 import kotlin.math.abs
 
 /**
- * 448 - https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/description/
+ * 448 - https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
  */
 class Solution {
     /**

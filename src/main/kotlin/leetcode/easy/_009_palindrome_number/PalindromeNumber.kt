@@ -6,7 +6,7 @@ import extensions.math.numberOfDigits
 import kotlin.math.pow
 
 /**
- * 9 - https://leetcode.com/problems/palindrome-number/description/
+ * 9 - https://leetcode.com/problems/palindrome-number/
  *
  * Note: Negative numbers not considered palindromes.
  */

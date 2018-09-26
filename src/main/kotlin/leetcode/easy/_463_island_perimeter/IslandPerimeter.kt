@@ -6,7 +6,7 @@ import extensions.arrays.lastRow
 import extensions.arrays.transpose
 
 /**
- * 463 - https://leetcode.com/problems/island-perimeter/description/
+ * 463 - https://leetcode.com/problems/island-perimeter/
  */
 class Solution {
     fun islandPerimeter(grid: IntMatrix): Int {

@@ -4,7 +4,7 @@ import datastructures.tree.TreeNode
 import datastructures.tree.rootToLeafPaths
 
 /**
- * 257 - https://leetcode.com/problems/binary-tree-paths/description/
+ * 257 - https://leetcode.com/problems/binary-tree-paths/
  */
 class Solution {
     /**

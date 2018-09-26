@@ -3,7 +3,7 @@ package leetcode.medium._094_binary_tree_inorder_traversal
 import datastructures.tree.TreeNode
 
 /**
- * 94 - https://leetcode.com/problems/binary-tree-inorder-traversal/description/
+ * 94 - https://leetcode.com/problems/binary-tree-inorder-traversal/
  */
 class Solution {
     fun inorderTraversal(root: TreeNode?, values: MutableList<Int> = arrayListOf()): List<Int> =

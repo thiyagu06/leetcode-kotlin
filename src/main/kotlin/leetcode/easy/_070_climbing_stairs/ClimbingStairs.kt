@@ -1,7 +1,7 @@
 package leetcode.easy._070_climbing_stairs
 
 /**
- * 70 - https://leetcode.com/problems/climbing-stairs/description/
+ * 70 - https://leetcode.com/problems/climbing-stairs/
  */
 class NaiveSolution {
 

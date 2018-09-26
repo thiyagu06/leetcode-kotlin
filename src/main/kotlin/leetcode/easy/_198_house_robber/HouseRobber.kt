@@ -1,7 +1,7 @@
 package leetcode.easy._198_house_robber
 
 /**
- * 198 - https://leetcode.com/problems/house-robber/description/
+ * 198 - https://leetcode.com/problems/house-robber/
  */
 class Solution {
 

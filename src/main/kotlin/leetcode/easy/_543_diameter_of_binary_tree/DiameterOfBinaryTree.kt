@@ -4,7 +4,7 @@ import datastructures.tree.TreeNode
 import kotlin.math.max
 
 /**
- * 543 - https://leetcode.com/problems/diameter-of-binary-tree/description/
+ * 543 - https://leetcode.com/problems/diameter-of-binary-tree/
  */
 class Solution {
     /**

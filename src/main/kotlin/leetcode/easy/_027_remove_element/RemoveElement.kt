@@ -1,7 +1,7 @@
 package leetcode.easy._027_remove_element
 
 /**
- * 27 - https://leetcode.com/problems/remove-element/description/
+ * 27 - https://leetcode.com/problems/remove-element/
  */
 class Solution {
 

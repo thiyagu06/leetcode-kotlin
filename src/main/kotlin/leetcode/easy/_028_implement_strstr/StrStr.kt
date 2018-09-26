@@ -1,7 +1,7 @@
 package leetcode.easy._028_implement_strstr
 
 /**
- * 28 - https://leetcode.com/problems/implement-strstr/description/
+ * 28 - https://leetcode.com/problems/implement-strstr/
  */
 class Solution {
     /**

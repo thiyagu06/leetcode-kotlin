@@ -3,7 +3,7 @@ package leetcode.easy._206_reverse_linked_list
 import datastructures.list.ListNode
 
 /**
- * 206 - https://leetcode.com/problems/reverse-linked-list/description/
+ * 206 - https://leetcode.com/problems/reverse-linked-list/
  */
 class IterativeSolution {
     /**

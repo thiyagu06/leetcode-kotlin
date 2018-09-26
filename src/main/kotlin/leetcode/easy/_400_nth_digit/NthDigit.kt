@@ -4,7 +4,7 @@ import extensions.chars.numericValue
 import kotlin.math.pow
 
 /**
- * 400 - https://leetcode.com/problems/nth-digit/description/
+ * 400 - https://leetcode.com/problems/nth-digit/
  */
 class Solution {
     /**

@@ -3,7 +3,7 @@ package leetcode.easy._020_valid_parentheses
 import java.util.*
 
 /**
- * 20 - https://leetcode.com/problems/valid-parentheses/description/
+ * 20 - https://leetcode.com/problems/valid-parentheses/
  */
 class Solution {
     /**

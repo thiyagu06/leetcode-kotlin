@@ -5,7 +5,7 @@ import extensions.binary.hasKthBitSet
 import extensions.binary.valueOfKthBit
 
 /**
- * 461 - https://leetcode.com/problems/hamming-distance/description/
+ * 461 - https://leetcode.com/problems/hamming-distance/
  */
 class Solution {
     /**

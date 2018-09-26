@@ -5,7 +5,7 @@ import datastructures.list.middleNode
 import java.util.Stack
 
 /**
- * 234 - https://leetcode.com/problems/palindrome-linked-list/description/
+ * 234 - https://leetcode.com/problems/palindrome-linked-list/
  */
 class Solution {
     /**

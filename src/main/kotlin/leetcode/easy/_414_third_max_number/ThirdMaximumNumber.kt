@@ -1,7 +1,7 @@
 package leetcode.easy._414_third_max_number
 
 /**
- * 414 - https://leetcode.com/problems/third-maximum-number/description/
+ * 414 - https://leetcode.com/problems/third-maximum-number/
  */
 class Solution {
     /**

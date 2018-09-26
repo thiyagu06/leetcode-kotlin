@@ -3,7 +3,7 @@ package leetcode.medium._451_sort_characters_by_freq
 import extensions.java.repeated
 
 /**
- * 451 - https://leetcode.com/problems/sort-characters-by-frequency/description/
+ * 451 - https://leetcode.com/problems/sort-characters-by-frequency/
  */
 class Solution {
     /**

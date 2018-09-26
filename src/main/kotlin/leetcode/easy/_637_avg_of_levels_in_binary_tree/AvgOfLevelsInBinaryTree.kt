@@ -4,7 +4,7 @@ import datastructures.tree.TreeNode
 import datastructures.tree.levels
 
 /**
- * 637 - https://leetcode.com/problems/average-of-levels-in-binary-tree/description/
+ * 637 - https://leetcode.com/problems/average-of-levels-in-binary-tree/
  */
 class SolutionDFS {
     /**

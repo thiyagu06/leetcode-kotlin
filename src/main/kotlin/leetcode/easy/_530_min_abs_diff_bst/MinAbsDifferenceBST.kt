@@ -5,7 +5,7 @@ import datastructures.tree.collect
 import kotlin.math.abs
 
 /**
- * 530 - https://leetcode.com/problems/minimum-absolute-difference-in-bst/description/
+ * 530 - https://leetcode.com/problems/minimum-absolute-difference-in-bst/
  */
 class Solution {
     /**

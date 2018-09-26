@@ -4,7 +4,7 @@ import datastructures.tree.TreeNode
 import java.util.*
 
 /**
- * 515 - https://leetcode.com/problems/find-largest-value-in-each-tree-row/description/
+ * 515 - https://leetcode.com/problems/find-largest-value-in-each-tree-row/
  */
 class Solution {
     /**

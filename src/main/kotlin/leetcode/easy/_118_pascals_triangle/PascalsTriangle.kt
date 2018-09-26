@@ -1,7 +1,7 @@
 package leetcode.easy._118_pascals_triangle
 
 /**
- * 118 - https://leetcode.com/problems/pascals-triangle/description/
+ * 118 - https://leetcode.com/problems/pascals-triangle/
  */
 class PascalsTriangle {
     /**

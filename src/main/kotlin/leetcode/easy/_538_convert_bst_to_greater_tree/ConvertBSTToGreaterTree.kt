@@ -4,7 +4,7 @@ import datastructures.tree.TreeNode
 import datastructures.tree.collect
 
 /**
- * 538 - https://leetcode.com/problems/convert-bst-to-greater-tree/description/
+ * 538 - https://leetcode.com/problems/convert-bst-to-greater-tree/
  */
 class Solution {
     /**

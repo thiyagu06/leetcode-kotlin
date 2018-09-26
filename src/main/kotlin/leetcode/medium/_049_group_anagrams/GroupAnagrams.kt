@@ -1,7 +1,7 @@
 package leetcode.medium._049_group_anagrams
 
 /**
- * 49 - https://leetcode.com/problems/group-anagrams/description/
+ * 49 - https://leetcode.com/problems/group-anagrams/
  */
 class Solution {
     /**

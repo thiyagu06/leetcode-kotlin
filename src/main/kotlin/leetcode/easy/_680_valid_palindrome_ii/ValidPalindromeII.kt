@@ -1,7 +1,7 @@
 package leetcode.easy._680_valid_palindrome_ii
 
 /**
- * 680 - https://leetcode.com/problems/valid-palindrome-ii/description/
+ * 680 - https://leetcode.com/problems/valid-palindrome-ii/
  */
 class Solution {
     fun validPalindrome(s: String): Boolean = isValidPalindrome(s, s.indices)

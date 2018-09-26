@@ -4,7 +4,7 @@ import datastructures.list.ListNode
 import datastructures.list.forEach
 
 /**
- * 82 - https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/description/
+ * 82 - https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/
  */
 class Solution {
     /**

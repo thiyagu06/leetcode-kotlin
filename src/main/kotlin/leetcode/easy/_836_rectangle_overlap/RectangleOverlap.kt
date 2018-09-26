@@ -1,7 +1,7 @@
 package leetcode.easy._836_rectangle_overlap
 
 /**
- * 836 - https://leetcode.com/problems/rectangle-overlap/description/
+ * 836 - https://leetcode.com/problems/rectangle-overlap/
  */
 class Solution {
     /**

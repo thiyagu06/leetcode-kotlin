@@ -1,7 +1,7 @@
 package leetcode.hard._076_min_window_substring
 
 /**
- * 76 - https://leetcode.com/problems/minimum-window-substring/description/
+ * 76 - https://leetcode.com/problems/minimum-window-substring/
  */
 class Solution {
     /**

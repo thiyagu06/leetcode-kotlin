@@ -3,7 +3,7 @@ package leetcode.medium._692_top_k_frequent_words
 import extensions.arrays.frequencyMap
 
 /**
- * 692 - https://leetcode.com/problems/top-k-frequent-words/description/
+ * 692 - https://leetcode.com/problems/top-k-frequent-words/
  */
 class Solution {
     /**

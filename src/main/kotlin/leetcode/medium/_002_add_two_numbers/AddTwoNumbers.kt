@@ -3,7 +3,7 @@ package leetcode.medium._002_add_two_numbers
 import datastructures.list.ListNode
 
 /**
- * 2 - https://leetcode.com/problems/add-two-numbers/description/
+ * 2 - https://leetcode.com/problems/add-two-numbers/
  */
 class Solution {
     /**

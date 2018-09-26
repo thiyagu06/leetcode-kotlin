@@ -3,7 +3,7 @@ package leetcode.easy._235_lca_of_bst;
 import datastructures.tree.TreeNode;
 
 /**
- * 235 - https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/description/
+ * 235 - https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
  */
 class Solution {
     /**

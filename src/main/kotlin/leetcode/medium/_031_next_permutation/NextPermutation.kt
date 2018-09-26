@@ -4,7 +4,7 @@ import extensions.arrays.isSortedDescending
 import extensions.arrays.swap
 
 /**
- * 31 - https://leetcode.com/problems/next-permutation/description/
+ * 31 - https://leetcode.com/problems/next-permutation/
  */
 class Solution {
     /**

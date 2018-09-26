@@ -3,7 +3,7 @@ package leetcode.easy._202_happy_number
 import extensions.math.digits
 
 /**
- * 202 - https://leetcode.com/problems/happy-number/description/
+ * 202 - https://leetcode.com/problems/happy-number/
  */
 class Solution {
     /**

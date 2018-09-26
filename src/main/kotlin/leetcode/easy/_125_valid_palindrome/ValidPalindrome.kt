@@ -1,7 +1,7 @@
 package leetcode.easy._125_valid_palindrome
 
 /**
- * 125 - https://leetcode.com/problems/valid-palindrome/description/
+ * 125 - https://leetcode.com/problems/valid-palindrome/
  */
 class Solution {
     /**

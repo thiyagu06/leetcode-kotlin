@@ -4,7 +4,7 @@ import extensions.math.isEven
 import kotlin.math.sqrt
 
 /**
- * 204 - https://leetcode.com/problems/count-primes/description/
+ * 204 - https://leetcode.com/problems/count-primes/
  */
 class Solution {
     /**

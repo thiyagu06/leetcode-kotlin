@@ -1,7 +1,7 @@
 package leetcode.medium._077_combinations
 
 /**
- * 77 - https://leetcode.com/problems/combinations/description/
+ * 77 - https://leetcode.com/problems/combinations/
  */
 class Solution {
     fun combine(n: Int, k: Int): List<List<Int>> {

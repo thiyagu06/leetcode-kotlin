@@ -3,7 +3,7 @@ package leetcode.medium._508_most_freq_subtree_sum
 import datastructures.tree.TreeNode
 
 /**
- * 508 - https://leetcode.com/problems/most-frequent-subtree-sum/description/
+ * 508 - https://leetcode.com/problems/most-frequent-subtree-sum/
  */
 class Solution {
     fun findFrequentTreeSum(root: TreeNode?): IntArray {

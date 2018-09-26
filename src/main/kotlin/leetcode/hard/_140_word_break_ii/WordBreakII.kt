@@ -1,7 +1,7 @@
 package leetcode.hard._140_word_break_ii
 
 /**
- * 140 - https://leetcode.com/problems/word-break-ii/description/
+ * 140 - https://leetcode.com/problems/word-break-ii/
  */
 class Solution {
     /**

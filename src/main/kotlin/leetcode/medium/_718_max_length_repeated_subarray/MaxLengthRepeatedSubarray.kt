@@ -3,7 +3,7 @@ package leetcode.medium._718_max_length_repeated_subarray
 import extensions.arrays.sublists
 
 /**
- * 718 - https://leetcode.com/problems/maximum-length-of-repeated-subarray/description/
+ * 718 - https://leetcode.com/problems/maximum-length-of-repeated-subarray/
  */
 class Solution {
 

@@ -5,7 +5,7 @@ import java.util.LinkedList
 import java.util.Queue
 
 /**
- * 101 - https://leetcode.com/problems/symmetric-tree/description/
+ * 101 - https://leetcode.com/problems/symmetric-tree/
  */
 class Solution {
     /**

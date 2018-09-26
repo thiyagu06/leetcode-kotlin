@@ -6,7 +6,7 @@ import extensions.iterable.frequencyMap
 import extensions.lists.toTriple
 
 /**
- * 15 - https://leetcode.com/problems/3sum/description/
+ * 15 - https://leetcode.com/problems/3sum/
  */
 class Solution {
 

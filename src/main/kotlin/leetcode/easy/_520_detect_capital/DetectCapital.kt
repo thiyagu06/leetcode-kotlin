@@ -1,7 +1,7 @@
 package leetcode.easy._520_detect_capital
 
 /**
- * 520 - https://leetcode.com/problems/detect-capital/description/
+ * 520 - https://leetcode.com/problems/detect-capital/
  */
 class Solution {
     /**

@@ -3,7 +3,7 @@ package leetcode.easy._169_majority_element
 import extensions.arrays.groupingBy
 
 /**
- * 169 - https://leetcode.com/problems/majority-element/description/
+ * 169 - https://leetcode.com/problems/majority-element/
  */
 
 class Solution {

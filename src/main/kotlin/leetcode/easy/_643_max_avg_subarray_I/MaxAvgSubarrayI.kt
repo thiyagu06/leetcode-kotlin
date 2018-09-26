@@ -1,7 +1,7 @@
 package leetcode.easy._643_max_avg_subarray_I
 
 /**
- * 643 - https://leetcode.com/problems/maximum-average-subarray-i/description/
+ * 643 - https://leetcode.com/problems/maximum-average-subarray-i/
  */
 class Solution {
     /**

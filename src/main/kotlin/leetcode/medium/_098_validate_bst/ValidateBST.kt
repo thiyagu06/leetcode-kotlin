@@ -5,7 +5,7 @@ import datastructures.tree.hasLeft
 import datastructures.tree.hasRight
 
 /**
- * 98 - https://leetcode.com/problems/validate-binary-search-tree/description/
+ * 98 - https://leetcode.com/problems/validate-binary-search-tree/
  */
 class Solution {
     /**

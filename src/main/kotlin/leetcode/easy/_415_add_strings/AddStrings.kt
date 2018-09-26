@@ -4,7 +4,7 @@ import extensions.chars.numericValue
 import extensions.tuples.shorterAndLonger
 
 /**
- * 415 - https://leetcode.com/problems/add-strings/description/
+ * 415 - https://leetcode.com/problems/add-strings/
  */
 class Solution {
     fun addStrings(num1: String, num2: String): String {

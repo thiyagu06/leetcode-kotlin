@@ -3,7 +3,7 @@ package leetcode.easy._884_uncommon_words
 import extensions.iterable.frequencyMap
 
 /**
- * 884 - https://leetcode.com/problems/uncommon-words-from-two-sentences/description/
+ * 884 - https://leetcode.com/problems/uncommon-words-from-two-sentences/
  */
 class Solution {
     /**

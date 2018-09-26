@@ -3,7 +3,7 @@ package leetcode.easy._136_single_number
 import extensions.arrays.groupingBy
 
 /**
- * 136 - https://leetcode.com/problems/single-number/description/
+ * 136 - https://leetcode.com/problems/single-number/
  */
 class Solution {
     /**

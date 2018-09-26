@@ -5,7 +5,7 @@ import extensions.lists.rowRange
 import java.util.*
 
 /**
- * 733 - https://leetcode.com/problems/flood-fill/description/
+ * 733 - https://leetcode.com/problems/flood-fill/
  */
 
 typealias Image = MutableList<MutableList<Pixel>>

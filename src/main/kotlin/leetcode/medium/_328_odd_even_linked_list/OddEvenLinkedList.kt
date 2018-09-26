@@ -4,7 +4,7 @@ import datastructures.list.ListNode
 import extensions.math.isOdd
 
 /**
- * 328 - https://leetcode.com/problems/odd-even-linked-list/description/
+ * 328 - https://leetcode.com/problems/odd-even-linked-list/
  */
 class Solution {
     /**

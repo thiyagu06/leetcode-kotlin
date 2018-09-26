@@ -1,7 +1,7 @@
 package leetcode.medium._611_valid_triangle_number
 
 /**
- * 611 - https://leetcode.com/problems/valid-triangle-number/description/
+ * 611 - https://leetcode.com/problems/valid-triangle-number/
  */
 class Solution {
     fun triangleNumber(nums: IntArray): Int {

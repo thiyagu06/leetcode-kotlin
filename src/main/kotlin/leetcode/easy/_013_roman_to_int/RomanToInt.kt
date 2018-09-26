@@ -1,7 +1,7 @@
 package leetcode.easy._013_roman_to_int
 
 /**
- * 13 - https://leetcode.com/problems/roman-to-integer/description/
+ * 13 - https://leetcode.com/problems/roman-to-integer/
  */
 class Solution {
 

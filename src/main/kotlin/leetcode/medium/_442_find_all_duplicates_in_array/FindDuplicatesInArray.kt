@@ -4,7 +4,7 @@ import extensions.arrays.frequencyMap
 import kotlin.math.abs
 
 /**
- * 442 - https://leetcode.com/problems/find-all-duplicates-in-an-array/description/
+ * 442 - https://leetcode.com/problems/find-all-duplicates-in-an-array/
  */
 class Solution {
     /**

@@ -1,7 +1,7 @@
 package leetcode.easy._485_max_consecutive_ones
 
 /**
- * 485 - https://leetcode.com/problems/max-consecutive-ones/description/
+ * 485 - https://leetcode.com/problems/max-consecutive-ones/
  */
 class Solution {
     /**

@@ -3,7 +3,7 @@ package leetcode.easy._669_trim_bst
 import datastructures.tree.TreeNode
 
 /**
- * 669 - https://leetcode.com/problems/trim-a-binary-search-tree/description/
+ * 669 - https://leetcode.com/problems/trim-a-binary-search-tree/
  */
 class Solution {
     fun trimBST(root: TreeNode?, L: Int, R: Int): TreeNode? {

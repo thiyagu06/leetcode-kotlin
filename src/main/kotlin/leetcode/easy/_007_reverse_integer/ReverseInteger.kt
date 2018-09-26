@@ -3,7 +3,7 @@ package leetcode.easy._007_reverse_integer
 import extensions.chars.numericValue
 
 /**
- * 7 - https://leetcode.com/problems/reverse-integer/description/
+ * 7 - https://leetcode.com/problems/reverse-integer/
  */
 class Solution {
     /**

@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.function.UnaryOperator;
 
 /**
- * 160 - https://leetcode.com/problems/intersection-of-two-linked-lists/description/
+ * 160 - https://leetcode.com/problems/intersection-of-two-linked-lists/
  */
 @SuppressWarnings("UnusedReturnValue")
 public class Solution {

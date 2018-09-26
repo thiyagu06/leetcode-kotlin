@@ -1,7 +1,7 @@
 package leetcode.medium._139_word_break
 
 /**
- * 139 - https://leetcode.com/problems/word-break/description/
+ * 139 - https://leetcode.com/problems/word-break/
  */
 class Solution {
     fun wordBreak(s: String, wordDict: List<String>): Boolean {

@@ -3,7 +3,7 @@ package leetcode.easy._258_add_digits
 import extensions.math.digits
 
 /**
- * 258 - https://leetcode.com/problems/add-digits/description/
+ * 258 - https://leetcode.com/problems/add-digits/
  *
  */
 class Solution {

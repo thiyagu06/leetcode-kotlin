@@ -3,7 +3,7 @@ package leetcode.easy._876_middle_of_linked_list
 import datastructures.list.ListNode
 
 /**
- * 876 - https://leetcode.com/problems/middle-of-the-linked-list/description/
+ * 876 - https://leetcode.com/problems/middle-of-the-linked-list/
  */
 class Solution {
     /**

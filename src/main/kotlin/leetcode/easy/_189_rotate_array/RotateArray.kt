@@ -3,7 +3,7 @@ package leetcode.easy._189_rotate_array
 import extensions.arrays.reverseElementsInRange
 
 /**
- * 189 - https://leetcode.com/problems/rotate-array/description/
+ * 189 - https://leetcode.com/problems/rotate-array/
  */
 class Solution {
     /**

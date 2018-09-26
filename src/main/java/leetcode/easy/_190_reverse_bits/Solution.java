@@ -3,7 +3,7 @@ package leetcode.easy._190_reverse_bits;
 import static extensions.binary.BinaryKt.INT_BITS;
 
 /**
- * 190 - https://leetcode.com/problems/reverse-bits/description/
+ * 190 - https://leetcode.com/problems/reverse-bits/
  * Note: treat n as an unsigned value
  */
 class Solution {
