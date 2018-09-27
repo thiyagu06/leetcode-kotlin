@@ -9,7 +9,7 @@ import kotlin.math.max
 class Solution {
     /**
      * Brute-force solution
-     * Time: O(n^2) ?
+     * Time: O(n^3) ?
      * Space: O(?)
      */
     fun maxSubArray(nums: IntArray): Int {
@@ -49,6 +49,45 @@ class SolutionTwo {
 
 class SolutionThree {
     /**
+     * Sliding Window
+     * Time: O(n^2)
+     * Space: O(1)
+     */
+    fun maxSubArray(nums: IntArray): Int {
+        var maxSum = Int.MIN_VALUE
+        (1..nums.size).forEach { k ->
+            val maxSumK = nums.maxSubarraySumOfSize(k)
+            maxSum = max(maxSum, maxSumK)
+        }
+        return maxSum
+    }
+
+    /**
+     * Time: O(n)
+     * Space: O(1)
+     */
+    private fun IntArray.maxSubarraySumOfSize(k: Int): Int {
+        var maxSum: Int
+
+        /* Calculate sum of 1st window */
+        var windowSum = 0
+        (0 until k).forEach { i ->
+            windowSum += this[i]
+        }
+        maxSum = windowSum
+
+        /* Slide window from start to end in array. Here i is the last element in the current window. */
+        (k until size).forEach { i ->
+            windowSum += this[i] - this[i - k]
+            maxSum = max(maxSum, windowSum)
+        }
+
+        return maxSum
+    }
+}
+
+class SolutionFour {
+    /**
      * TODO
      * Time: O(?)
      * Space: O(?)
@@ -66,20 +105,6 @@ class SolutionThree {
 
         return max
     }
-}
-
-class SolutionFour {
-    /**
-     * TODO
-     * Time: O(?)
-     * Space: O(?)
-     */
-    fun maxSubArray(nums: IntArray): Int =
-            (0 until nums.size).fold(emptyList<Int>()) { sums, i ->
-                sums + (i until nums.size).map { j ->
-                    (i..j).sumBy { index -> nums[index] }
-                }
-            }.max()!!
 }
 
 class DPSolution {
