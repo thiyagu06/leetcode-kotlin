@@ -45,7 +45,7 @@ class SolutionTwo {
         for (i in S.indices) {
             if (S[i].isDigit()) continue
 
-            (0 until queue.size).forEach {
+            (0 until queue.size).forEach { _ ->
                 val current = queue.poll()
                 val chars = current.toCharArray()
 
@@ -69,7 +69,7 @@ class SolutionThree {
      * Space: O(n)
      */
     fun letterCasePermutation(S: String): List<String> {
-        var permutations: MutableList<String> = arrayListOf(S)
+        val permutations: MutableList<String> = arrayListOf(S)
 
         for ((i, ch) in S.withIndex()) {
             if (ch.isLetter()) {

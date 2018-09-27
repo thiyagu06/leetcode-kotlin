@@ -8,6 +8,10 @@ import java.math.BigInteger
  * 8 - https://leetcode.com/problems/string-to-integer-atoi
  */
 class Solution {
+    /**
+     * Time: O(n)
+     * Space: O(n) - copy of [str] made since in Kotlin parameters can't be modified.
+     */
     fun myAtoi(str: String): Int {
         var s = str
         var isNegative = false
@@ -49,6 +53,10 @@ class Solution {
 }
 
 class SolutionTwo {
+    /**
+     * Time: O(n)
+     * Space: O(n) - copy of [str] made since in Kotlin parameters can't be modified.
+     */
     fun myAtoi(str: String): Int {
         var s = str
 

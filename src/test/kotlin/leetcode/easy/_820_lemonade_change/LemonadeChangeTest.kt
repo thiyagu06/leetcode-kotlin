@@ -1,8 +1,7 @@
 package leetcode.easy._820_lemonade_change
 
-import org.junit.Assert.*
+import org.junit.Assert.assertFalse
 import org.junit.Test
-import kotlin.test.assert
 import kotlin.test.assertTrue
 
 class LemonadeChangeTest {
