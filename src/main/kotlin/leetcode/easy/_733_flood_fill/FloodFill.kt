@@ -1,5 +1,6 @@
 package leetcode.easy._733_flood_fill
 
+import extensions.arrays.IntMatrix
 import extensions.lists.columnRange
 import extensions.lists.rowRange
 import java.util.*
@@ -73,7 +74,7 @@ class Solution {
     }
 
 
-    private fun Array<IntArray>.toPixelMatrix(): Image = foldIndexed(mutableListOf()) { rowIndex, acc, row ->
+    private fun IntMatrix.toPixelMatrix(): Image = foldIndexed(mutableListOf()) { rowIndex, acc, row ->
         acc.apply {
             val pixelRow = row.mapIndexed { columnIndex, color ->
                 Pixel(x = rowIndex, y = columnIndex, color = color, visited = false)

@@ -1,8 +1,8 @@
 package leetcode.easy._463_island_perimeter
 
 import extensions.arrays.IntMatrix
-import extensions.arrays.lastColumn
-import extensions.arrays.lastRow
+import extensions.arrays.lastColumnIndex
+import extensions.arrays.lastRowIndex
 import extensions.arrays.transpose
 
 /**
@@ -19,10 +19,10 @@ class Solution {
     private fun IntMatrix.countHorizontalPerimeters(): Int {
         var count = 0
 
-        (0..lastRow).forEach { i ->
-            (0..lastColumn).forEach { j ->
+        (0..lastRowIndex).forEach { i ->
+            (0..lastColumnIndex).forEach { j ->
                 if (this[i][j] == 1 && j == 0) count++
-                if (this[i][j] == 1 && j == lastColumn) count++
+                if (this[i][j] == 1 && j == lastColumnIndex) count++
                 if (this[i][j] == 1 && isWaterAt(i, j - 1)) count++
                 if (this[i][j] == 1 && isWaterAt(i, j + 1)) count++
             }
@@ -32,7 +32,7 @@ class Solution {
     }
 
     private fun IntMatrix.isWaterAt(i: Int, j: Int): Boolean =
-            if (i in 0..lastRow && j in 0..lastColumn) this[i][j] == 0
+            if (i in 0..lastRowIndex && j in 0..lastColumnIndex) this[i][j] == 0
             else false
 }
 
@@ -47,14 +47,14 @@ class Solution2 {
     private fun IntMatrix.countHorizontalPerimeters(): Int {
         val perimeterConditions: List<(Int, Int) -> (Boolean)> = listOf(
                 { i: Int, j: Int -> isLandAt(i, j) && j == 0 },
-                { i: Int, j: Int -> isLandAt(i, j) && j == lastColumn },
+                { i: Int, j: Int -> isLandAt(i, j) && j == lastColumnIndex },
                 { i: Int, j: Int -> isLandAt(i, j) && isWaterAt(i, j - 1) },
                 { i: Int, j: Int -> isLandAt(i, j) && isWaterAt(i, j + 1) }
         )
 
         var count = 0
-        (0..lastRow).forEach { i ->
-            (0..lastColumn).forEach { j ->
+        (0..lastRowIndex).forEach { i ->
+            (0..lastColumnIndex).forEach { j ->
                 perimeterConditions.forEach { condition ->
                     if (condition(i, j)) {
                         count++
@@ -67,11 +67,11 @@ class Solution2 {
     }
 
     private fun IntMatrix.isLandAt(i: Int, j: Int): Boolean =
-        if (i in 0..lastRow && j in 0..lastColumn) this[i][j] == 1
+        if (i in 0..lastRowIndex && j in 0..lastColumnIndex) this[i][j] == 1
         else false
 
     private fun IntMatrix.isWaterAt(i: Int, j: Int): Boolean =
-        if (i in 0..lastRow && j in 0..lastColumn) this[i][j] == 0
+        if (i in 0..lastRowIndex && j in 0..lastColumnIndex) this[i][j] == 0
         else false
 }
 
