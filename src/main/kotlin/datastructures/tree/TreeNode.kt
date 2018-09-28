@@ -110,7 +110,11 @@ fun TreeNode?.find(searchValue: Int): TreeNode? {
  */
 operator fun TreeNode.contains(value: Int): Boolean = find(value) != null
 
-enum class DFSTraversalOrder { PREORDER, INORDER, POSTORDER; }
+sealed class DFSTraversalOrder {
+    object PREORDER : DFSTraversalOrder()
+    object INORDER : DFSTraversalOrder()
+    object POSTORDER : DFSTraversalOrder()
+}
 
 /**
  * Perform depth-first traversal on the tree, executing [visit] on each node.

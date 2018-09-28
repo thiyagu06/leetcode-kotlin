@@ -10,6 +10,7 @@ import datastructures.tree.collect
  */
 class Solution {
     /**
+     * Suboptimal - always traverses entire tree.
      * Time: O(n)
      * Space: O(n)
      */
@@ -24,29 +25,32 @@ class FollowUpSolution {
      * Time: O(n)
      * Space: O(n)
      */
-    fun kthSmallest(root: TreeNode?, k: Int, traversed: Int = 0): Int {
-        val kth = traverseFirstK(root, k)
-        return kth!!
+    fun kthSmallest(root: TreeNode?, k: Int): Int {
+        return traverseFirstK(root, k) ?: throw IllegalArgumentException("Invalid Input - no kth smallest")
     }
 
-    private fun traverseFirstK(root: TreeNode?, k: Int, traversed: MutableList<Int> = arrayListOf()): Int? {
-        if (k <= 0 || root == null) {
-            return null
+    /**
+     * Traverse only the first K elements using inorder DFS.
+     */
+    private fun traverseFirstK(
+        node: TreeNode?,
+        k: Int,
+        visited: MutableList<Int> = arrayListOf()
+    ): Int? {
+        when {
+            node == null -> return null
+            visited.size == k -> return visited[k - 1]
+            else -> {
+                val leftResult = traverseFirstK(node.left, k, visited)
+                if (leftResult != null) return leftResult
+
+                visited += node.`val`
+
+                val rightResult = traverseFirstK(node.right, k, visited)
+                if (rightResult != null) return rightResult
+
+                return null
+            }
         }
-
-        val leftResult = traverseFirstK(root.left, k, traversed)
-        if (leftResult != null)
-            return leftResult
-
-        traversed += root.`val`
-        if (traversed.size == k) {
-            return traversed.last()
-        }
-
-        val rightResult = traverseFirstK(root.right, k, traversed)
-        if (rightResult != null)
-            return rightResult
-
-        return null
     }
 }
