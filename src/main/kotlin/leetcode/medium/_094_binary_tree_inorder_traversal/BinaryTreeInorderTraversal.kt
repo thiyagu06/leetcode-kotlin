@@ -1,7 +1,6 @@
 package leetcode.medium._094_binary_tree_inorder_traversal
 
 import datastructures.tree.TreeNode
-import datastructures.tree.hasLeft
 import java.util.*
 
 /**

@@ -87,6 +87,7 @@ class SolutionThree {
         s.replace("01", "0 1")
             .replace("10", "1 0")
             .split(" ")                         // List of contiguous 0 or 1 segments
+            .asSequence()
             .map { it.length }                  // The lengths of each segment
             .zipWithNext()                      // Take in pairs [(0, 1), (1, 2), (2, 3), ...]
             .sumBy { (segment1, segment2) ->    // for any possible substrings with 1 and 0 grouped consecutively,

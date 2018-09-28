@@ -31,8 +31,8 @@ class Solution {
             return
         }
 
-        findMinPathSum(grid, cell.rightCell, pathSum + cell.valueIn(grid), minPaths)
-        findMinPathSum(grid, cell.downCell, pathSum + cell.valueIn(grid), minPaths)
+        findMinPathSum(grid, cell.rightCell, pathSum + cell.valueIn(grid), minPaths)    // right
+        findMinPathSum(grid, cell.downCell, pathSum + cell.valueIn(grid), minPaths)     // down
     }
 
     companion object {
@@ -81,6 +81,6 @@ class SolutionTwo {
         }
 
         findMinPathSum(grid, i, j + 1, pathSum + grid[i][j], minPaths) // right
-        findMinPathSum(grid, i + 1, j, pathSum + grid[i][j], minPaths)
+        findMinPathSum(grid, i + 1, j, pathSum + grid[i][j], minPaths) // down
     }
 }

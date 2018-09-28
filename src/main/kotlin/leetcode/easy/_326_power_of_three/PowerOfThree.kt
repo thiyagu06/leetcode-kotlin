@@ -1,7 +1,6 @@
 package leetcode.easy._326_power_of_three
 
 import extensions.math.EPSILON
-import extensions.math.log3
 import kotlin.math.log
 import kotlin.math.pow
 
@@ -87,8 +86,10 @@ class FollowUpSolution {
     fun isPowerOfThree(n: Int): Boolean = when {
         n <= 0 -> false
         else -> {
-            val log3N = log3(n.toDouble())
+            val log3N = log(x = n.toDouble(), base = 3.0)
             (log3N - log3N.toInt()) < EPSILON
         }
     }
+
+
 }
