@@ -5,7 +5,6 @@ import kotlin.math.max
 /**
  * 53 - https://leetcode.com/problems/maximum-subarray/
  */
-
 class Solution {
     /**
      * Brute-force solution

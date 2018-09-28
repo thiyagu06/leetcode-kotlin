@@ -4,6 +4,9 @@ import extensions.math.minOf
 import kotlin.math.max
 import kotlin.math.min
 
+/**
+ * 152 - https://leetcode.com/problems/maximum-product-subarray/
+ */
 class Solution {
     /**
      * Time: O(n^2)
