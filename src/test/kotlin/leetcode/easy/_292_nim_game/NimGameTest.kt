@@ -2,6 +2,7 @@ package leetcode.easy._292_nim_game
 
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
+import org.junit.Ignore
 import org.junit.Test
 import kotlin.system.measureTimeMillis
 
@@ -12,6 +13,7 @@ class NimGameTest {
     private val tabulated = SolutionTabulation()
     private val optimal = SolutionOptimal()
 
+    @Ignore
     @Test
     fun canWinNimBruteForce() {
         val ms = measureTimeMillis {

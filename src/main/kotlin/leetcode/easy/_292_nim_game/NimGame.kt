@@ -8,60 +8,54 @@ class BruteForceSolution {
      * Time: O(n!)
      * Space: O(n)
      */
-    fun canWinNim(n: Int): Boolean {
-        require(n >= 0) { "n must be >= 0 but was $n"}
-        return when (n) {
-            0 -> false
-            in 1..3 -> true
-            4 -> false
-            else -> !canWinNim(n - 1) || !canWinNim(n - 2) || !canWinNim(n - 3)
-        }
+    fun canWinNim(n: Int): Boolean = when (n) {
+        0 -> false
+        in 1..3 -> true
+        else -> !canWinNim(n - 1) || !canWinNim(n - 2) || !canWinNim(n - 3)
     }
 }
 
 class SolutionMemo {
     /**
+     * Memoization
      * Time: O(n)
      * Space: O(n)
      */
-    fun canWinNim(n: Int,
-                  cache: MutableMap<Int, Boolean> = mutableMapOf(
-                          0 to false, 1 to true, 2 to true, 3 to true, 4 to false
-                  )): Boolean {
-
-        require(n >= 0) { "n must be >= 0 but was $n"}
-        return when (n) {
-            in 0..4 -> cache[n]!!
-            else -> {
-                val takeXWillWin: (Int) -> Boolean = { x -> cache.getOrPut(x) { canWinNim(x) } }
-                return !takeXWillWin(n - 3) || !takeXWillWin(n - 2) || !takeXWillWin(n - 1)
-            }
+    fun canWinNim(
+        n: Int,
+        memo: MutableMap<Int, Boolean> = hashMapOf(
+            0 to false, 1 to true, 2 to true, 3 to true
+        )
+    ): Boolean {
+        if (n !in memo) {
+            memo[n] = !canWinNim(n - 3) || !canWinNim(n - 2) || !canWinNim(n - 1)
         }
+        return memo[n]!!
     }
 }
 
 class SolutionTabulation {
     /**
      * Time: O(n)
-     * Space: O(n) - could be done in constant space because you only ever need the last 3 results.
+     * Space: O(1)
      */
     fun canWinNim(n: Int): Boolean {
-        require(n >= 0) { "n must be >= 0 but was $n"}
-        val outcomes = mutableMapOf(
-                0 to false,
-                1 to true,
-                2 to true,
-                3 to true,
-                4 to false
-        )
+        if (n == 0) return false
+        if (n in 1..3) return true
 
-        outcomes[n]?.let { return it }
+        var minus3 = true    // canWinNim(1)
+        var minus2 = true    // canWinNim(2)
+        var minus1 = true    // canWinNim(3)
+        var canWinN = false  // canWinNim(4)
 
-        (5..n).forEach { i ->
-            outcomes[i] = !(outcomes[i - 3]!!) || !(outcomes[i - 2]!!) || !(outcomes[i - 1]!!)
+        for (i in (4..n)) {
+            canWinN = !minus1 || !minus2 || !minus3
+            minus1 = minus2
+            minus2 = minus3
+            minus3 = canWinN
         }
 
-        return outcomes[n]!!
+        return canWinN
     }
 }
 
