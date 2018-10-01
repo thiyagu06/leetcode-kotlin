@@ -86,10 +86,10 @@ class FollowUpSolution {
     fun isPowerOfThree(n: Int): Boolean = when {
         n <= 0 -> false
         else -> {
-            val log3N = log(x = n.toDouble(), base = 3.0)
+            val log3N = log3(n.toDouble())
             (log3N - log3N.toInt()) < EPSILON
         }
     }
 
-
+    private fun log3(x: Double): Double = Math.log10(x) / Math.log10(3.0)
 }
