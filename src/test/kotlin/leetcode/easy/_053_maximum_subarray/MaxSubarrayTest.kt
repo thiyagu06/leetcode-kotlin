@@ -9,6 +9,7 @@ class MaxSubarrayTest {
     private val solution2 = SolutionTwo()
     private val solution3 = SolutionThree()
     private val solutionDP = DPSolution()
+    private val solutionOptimizedDP = DPSolutionOptimized()
 
     @Test
     fun maxSubArray() {
@@ -44,5 +45,14 @@ class MaxSubarrayTest {
         assertEquals(19, solutionDP.maxSubArray(intArrayOf(0, 1, 2, 4, 5, 7)))
         assertEquals(Int.MIN_VALUE, solutionDP.maxSubArray(intArrayOf(Int.MIN_VALUE)))
         assertEquals(6, solutionDP.maxSubArray(intArrayOf(-2, 1, -3, 4, -1, 2, 1, -5, 4)))
+    }
+
+    @Test
+    fun maxSubArrayDPOptimized() {
+        assertEquals(-1, solutionOptimizedDP.maxSubArray(intArrayOf(-1)))
+        assertEquals(-1, solutionOptimizedDP.maxSubArray(intArrayOf(-1, -2, -3)))
+        assertEquals(19, solutionOptimizedDP.maxSubArray(intArrayOf(0, 1, 2, 4, 5, 7)))
+        assertEquals(Int.MIN_VALUE, solutionOptimizedDP.maxSubArray(intArrayOf(Int.MIN_VALUE)))
+        assertEquals(6, solutionOptimizedDP.maxSubArray(intArrayOf(-2, 1, -3, 4, -1, 2, 1, -5, 4)))
     }
 }

@@ -29,7 +29,7 @@ class Solution {
 
 class SolutionTwo {
     /**
-     * Kadane's Algorithm - https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane's_algorithm
+     * [Kadane's Algorithm](https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane's_algorithm)
      * Time: O(n)
      * Space: O(1)
      */
@@ -92,16 +92,35 @@ class DPSolution {
      * Using Dynamic Programming.
      *
      * Time: O(n)
-     * Space: O(n)
+     * Space: O(1)
      */
     fun maxSubArray(nums: IntArray): Int {
-        val maxes = IntArray(nums.size)     // The local maxes - the max sum of a subarray ending at i
-        maxes[0] = nums[0]
+            var iMax = nums[0]
         var globalMax = nums[0]
 
         for (i in 1..nums.lastIndex) {
-            maxes[i] = max(maxes[i - 1] + nums[i], nums[i])
-            globalMax = max(globalMax, maxes[i])
+            iMax = max(iMax + nums[i], nums[i])
+            globalMax = max(globalMax, iMax)
+        }
+
+        return globalMax
+    }
+}
+
+class DPSolutionOptimized {
+    /**
+     * Using Dynamic Programming.
+     *
+     * Time: O(n)
+     * Space: O(1)
+     */
+    fun maxSubArray(nums: IntArray): Int {
+        var iMax = nums[0]
+        var globalMax = nums[0]
+
+        for (i in 1..nums.lastIndex) {
+            iMax = max(iMax + nums[i], nums[i])
+            globalMax = max(globalMax, iMax)
         }
 
         return globalMax

@@ -23,8 +23,7 @@ class Solution {
         substring: String,
         openBraces: Int,
         closeBraces: Int,
-        result: MutableList<String>,
-        depth: Int = 0
+        result: MutableList<String>
     ) {
         // Opening braces should be added to the substring first, so if the # of openBraces > # of closeBraces,
         // there is a problem.
@@ -36,9 +35,9 @@ class Solution {
             result.add(substring)
         }
 
-        if (openBraces > 0) generateOneByOne("$substring(", openBraces - 1, closeBraces, result, depth + 1)
+        if (openBraces > 0) generateOneByOne("$substring(", openBraces - 1, closeBraces, result)
 
-        if (closeBraces > 0) generateOneByOne("$substring)", openBraces, closeBraces - 1, result, depth + 1)
+        if (closeBraces > 0) generateOneByOne("$substring)", openBraces, closeBraces - 1, result)
     }
 }
 
