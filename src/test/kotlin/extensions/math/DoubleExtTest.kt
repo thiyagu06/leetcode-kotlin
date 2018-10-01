@@ -27,6 +27,15 @@ class DoubleExtTest {
     }
 
     @Test
+    fun formatToNDecimalPlaces() {
+        assertEquals("1235", (1234.5678).formatToNDecimalPlaces(0))
+        assertEquals("1234.6", (1234.5678).formatToNDecimalPlaces(1))
+        assertEquals("1234.57", (1234.5678).formatToNDecimalPlaces(2))
+        assertEquals("1234.568", (1234.5678).formatToNDecimalPlaces(3))
+        assertEquals("1234.5678", (1234.5678).formatToNDecimalPlaces(4))
+    }
+
+    @Test
     fun coerceToIntRange() {
         assertEquals(0, 0.0.coerceToIntRange())
         assertEquals(-999, (-999.0).coerceToIntRange())
@@ -34,14 +43,5 @@ class DoubleExtTest {
         assertEquals(Int.MAX_VALUE, (Int.MAX_VALUE).toDouble().coerceToIntRange())
         assertEquals(Int.MAX_VALUE, 2147483648.0.toLong().coerceToIntRange())
         assertEquals(Int.MIN_VALUE, (-91283472332.0).coerceToIntRange())
-    }
-
-    @Test
-    fun formatToNDecimalPlaces() {
-        assertEquals("1235", (1234.5678).formatToNDecimalPlaces(0))
-        assertEquals("1234.6", (1234.5678).formatToNDecimalPlaces(1))
-        assertEquals("1234.57", (1234.5678).formatToNDecimalPlaces(2))
-        assertEquals("1234.568", (1234.5678).formatToNDecimalPlaces(3))
-        assertEquals("1234.5678", (1234.5678).formatToNDecimalPlaces(4))
     }
 }

@@ -80,7 +80,7 @@ class SolutionFour {
 
 class SolutionFive {
     /**
-     * Backtracking (1 of 2)
+     * Backtracking
      *
      * Time: O(2^n)
      * Space: O(n)
@@ -123,15 +123,14 @@ class SolutionSix {
         nums: List<Int>,
         startIdx: Int,
         sublist: MutableList<Int>,
-        powerSet: MutableList<List<Int>>,
-        depth: Int = 0
+        powerSet: MutableList<List<Int>>
     ) {
         // We want to add the elements in sublist to the powerSet, but we don't want
         // to add sublist itself into the powerSet since it is mutable
         powerSet.add(sublist.toList())
 
         for (i in (startIdx..nums.lastIndex)) {
-            backtrack(nums, i + 1, (sublist + nums[i]).toMutableList(), powerSet, depth + 1)
+            backtrack(nums, i + 1, (sublist + nums[i]).toMutableList(), powerSet)
         }
     }
 }
@@ -172,8 +171,7 @@ class SolutionSeven {
 
 class SolutionEight {
     /**
-     * Backtracking - same as prev., but without `startIdx` param
-     * (uses more space, but more readable)
+     * Backtracking - DFS
      *
      * Time: O(2^n)
      * Space: O(n)
@@ -198,9 +196,9 @@ class SolutionEight {
         /* Don't include the number */
         dfs(nums, index + 1, sublist, powerSet)
 
-        /* Include the number */
+        /* Include the number, then backtrack */
         sublist.add(nums[index])
         dfs(nums, index + 1, sublist, powerSet)
-        sublist.removeAt(sublist.lastIndex) // undo
+        sublist.removeAt(sublist.lastIndex)
     }
 }
