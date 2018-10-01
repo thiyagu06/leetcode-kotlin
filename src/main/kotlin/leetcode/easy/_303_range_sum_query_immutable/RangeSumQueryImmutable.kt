@@ -7,6 +7,7 @@ class NumArray(nums: IntArray) {
 
     private val _nums = nums
 
+    // No caching (accepted)
     fun sumRange(i: Int, j: Int): Int = (i..j).fold(0) { acc, index -> acc + _nums[index] }
 }
 
@@ -16,21 +17,53 @@ class NumArray(nums: IntArray) {
  * var param_1 = obj.sumRange(i,j)
  */
 
-/* The caching approach actually exceeds the Time Limit in Kotlin. The uncached version doesn't...
-class NumArray(nums: IntArray) {
+/**
+ * Add to cache the first time computed.
+ * If [i, j] or [i, j) is cached, use cached values,
+ * otherwise compute the range.
+ *
+ * Time: O(?)
+ * Space: O(?)
+ */
+class NumArray2(nums: IntArray) {
 
     private val cache: MutableMap<IntRange, Int> = mutableMapOf()
+    private val _nums: IntArray = nums
 
-    /* Cache all possible i -> j ranges */
+    fun sumRange(i: Int, j: Int): Int {
+        return if (i..j in cache) {
+            cache[i..j]!!
+        } else if (j >= 1 && (i until j) in cache) {
+            cache[i until j]!! + _nums[j]
+        } else {
+            sumIndexRange(i..j)
+        }
+    }
+
+    private fun sumIndexRange(indexRange: IntRange): Int =
+            indexRange.fold(0) { sum, index ->
+                sum + _nums[index]
+            }
+}
+
+/**
+ * This exceeds time limit in Kotlin despite being an accepted solution:
+ * https://leetcode.com/problems/range-sum-query-immutable/solution/
+ */
+class NumArray3(nums: IntArray) {
+
+    private val cache: MutableMap<IntRange, Int> = mutableMapOf()
+    private val _nums: IntArray = nums
+
     init {
-        for (i in (0..nums.lastIndex)) {
+        for (i in nums.indices) {
             var sum = 0
-            for (j in (i .. nums.lastIndex)) {
+            for (j in (i..nums.lastIndex)) {
                 sum += nums[j]
-                cache[(i..j)] = sum
+                cache[i..j] = sum
             }
         }
     }
-    fun sumRange(i: Int, j: Int): Int = cache[(i..j)]!!
+
+    fun sumRange(i: Int, j: Int): Int = cache[i..j]!!
 }
-*/
