@@ -1,11 +1,16 @@
 package leetcode.easy._437_path_sum_iii
 
 import datastructures.tree.TreeNode
+import datastructures.tree.allDownwardPaths
 
 /**
  * 437 - https://leetcode.com/problems/path-sum-iii/
  */
 class Solution {
+    /**
+     * Time: O(?)
+     * Space: O(?)
+     */
     fun pathSum(root: TreeNode?, sum: Int, pathStarted: Boolean = false): Int {
         root ?: return 0
 
@@ -25,25 +30,54 @@ class Solution {
     }
 }
 
-class SolutionWithPathSums {
-    fun pathSum(root: TreeNode?, sum: Int): Int =
-        pathSums(root, sum).count { it == sum }
+class SolutionTwo {
+    /**
+     * Exceeds Memory Limit.
+     * Using [TreeNode.allDownwardPaths].
+     * Time: O(?)
+     * Space: O(?)
+     */
+    fun pathSum(root: TreeNode?, sum: Int): Int {
+        root ?: return 0
 
-    private fun pathSums(root: TreeNode?, sum: Int, sums: List<Int> = emptyList()): List<Int> {
-        root ?: return emptyList()
-
-        val pathsToRootSums = sums.map { it + root.`val`} + root.`val`
-
-        return pathsToRootSums + pathSums(root.left, sum, pathsToRootSums) + pathSums(root.right, sum, pathsToRootSums)
+        val allPaths = root.allDownwardPaths()
+        return allPaths.asSequence()
+            .map { it.sum() }
+            .count { it == sum }
     }
 }
 
-class SolutionWithPathLists {
+class SolutionThree {
+    /**
+     * Collects all path sums.
+     * Time: O(?)
+     * Space: O(?)
+     */
+    fun pathSum(root: TreeNode?, sum: Int): Int = collectAllPathSums(root).count { it == sum }
+
+    private fun collectAllPathSums(root: TreeNode?, pathSums: List<Int> = emptyList()): List<Int> {
+        root ?: return emptyList()
+
+        val pathsToRootSums = pathSums.map { it + root.`val` } + root.`val`
+
+        return (pathsToRootSums
+            + collectAllPathSums(root.left, pathsToRootSums)
+            + collectAllPathSums(root.right, pathsToRootSums))
+    }
+}
+
+class SolutionFour {
+    /**
+     * Collects all paths from the root node.
+     * Time: O(?)
+     * Space: O(?)
+     */
     fun pathSum(root: TreeNode?, sum: Int): Int = pathsFrom(root).count { it.sum() == sum }
 
-    internal fun pathsFrom(root: TreeNode?, paths: List<List<Int>> = listOf()): List<List<Int>> =
-        root?.let {
-            val pathsToRoot = paths.map { path -> path + root.`val` } + listOf(listOf(root.`val`))
-            return pathsToRoot + pathsFrom(root.left, pathsToRoot) + pathsFrom(root.right, pathsToRoot)
-    } ?: emptyList()
+    internal fun pathsFrom(root: TreeNode?, paths: List<List<Int>> = listOf()): List<List<Int>> {
+        root ?: return emptyList()
+        val pathsToRoot = paths.map { path -> path + root.`val` } + listOf(listOf(root.`val`))
+        return pathsToRoot + pathsFrom(root.left, pathsToRoot) + pathsFrom(root.right, pathsToRoot)
+    }
 }
+

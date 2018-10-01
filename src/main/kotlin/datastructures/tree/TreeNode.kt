@@ -298,40 +298,50 @@ fun TreeNode?.isBST(validRange: IntRange = (Int.MIN_VALUE..Int.MAX_VALUE)): Bool
 /**
  * Returns a list of all root-to-leaf paths.
  *
- * **Time**:
+ * **Time**: `O(n)`
  *
- * **Space**:
+ * **Space**: `O(n)`
  */
 fun TreeNode?.rootToLeafPaths(
     currentPath: List<Int> = emptyList(),
     paths: MutableList<List<Int>> = mutableListOf()
-): List<List<Int>> =
-    this?.let {
-        left?.rootToLeafPaths(currentPath = currentPath + `val`, paths = paths)
-        right?.rootToLeafPaths(currentPath = currentPath + `val`, paths = paths)
+): List<List<Int>> {
+    this ?: return paths
 
-        if (isLeaf)
-            paths += (currentPath + `val`)
-        paths
-    } ?: paths
+    left?.rootToLeafPaths(currentPath = currentPath + `val`, paths = paths)
+    right?.rootToLeafPaths(currentPath = currentPath + `val`, paths = paths)
+
+    if (isLeaf) {
+        paths += (currentPath + `val`)
+    }
+    return paths
+}
 
 /**
- * Returns a list of all (downward) paths. A path is defined as any sequence of nodes (length >= 1).
+ * Returns a list of all (downward) allPaths. A path is defined as any sequence of nodes (length >= 1).
  * Sequences where a descendant precedes an ancestor are not permitted.
+ *
+ * @param pathsToParent List containing all paths that end with the parent of the current node.
+ * @param allPaths List containing all downward paths.
+ *
+ * **Time**: `O(?)`
+ *
+ * **Space**: `O(?)`
  */
-fun TreeNode?.allPaths(
+fun TreeNode?.allDownwardPaths(
     pathsToParent: List<List<Int>> = emptyList(),
-    paths: MutableList<List<Int>> = mutableListOf()
-): List<List<Int>> =
-    this?.let {
-        val pathsToRoot = listOf(listOf(`val`)) + pathsToParent.map { path -> path + `val` }
-        paths += pathsToRoot
+    allPaths: MutableList<List<Int>> = mutableListOf()
+): List<List<Int>> {
+    this ?: return allPaths
 
-        left?.allPaths(pathsToParent = pathsToRoot, paths = paths)
-        right?.allPaths(pathsToParent = pathsToRoot, paths = paths)
+    val pathsToRoot = pathsToParent.map { it + `val` } + listOf(listOf(`val`))
+    allPaths += pathsToRoot
 
-        paths
-    } ?: paths
+    left?.allDownwardPaths(pathsToParent = pathsToRoot, allPaths = allPaths)
+    right?.allDownwardPaths(pathsToParent = pathsToRoot, allPaths = allPaths)
+
+    return allPaths
+}
 
 /**
  * Create a binary tree from the given elements.

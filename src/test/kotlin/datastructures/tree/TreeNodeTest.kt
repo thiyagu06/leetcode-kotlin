@@ -189,53 +189,58 @@ class TreeNodeTest {
     }
 
     @Test
-    fun allPaths() {
+    fun allDownwardPaths() {
         val nullTree: TreeNode? = null
-        assertEquals(emptyList<List<Int>>(), nullTree.allPaths())
+        assertEquals(emptyList<List<Int>>(), nullTree.allDownwardPaths())
 
-        assertEquals(listOf(listOf(1), listOf(2), listOf(1, 2), listOf(3), listOf(1, 3)), tree123.allPaths())
+        val expected123 = listOf(listOf(1), listOf(2), listOf(1, 2), listOf(3), listOf(1, 3))
+        val actual123 = tree123.allDownwardPaths()
+        assertEquals(expected123.size, actual123.size)
+        assertEquals(expected123.toSet(), actual123.toSet())
 
-        assertEquals(
-            listOf(
-                listOf(5),
-                listOf(3),
-                listOf(5, 3),
-                listOf(1),
-                listOf(3, 1),
-                listOf(5, 3, 1),
-                listOf(4),
-                listOf(3, 4),
-                listOf(5, 3, 4),
-                listOf(8),
-                listOf(5, 8),
-                listOf(6),
-                listOf(8, 6),
-                listOf(5, 8, 6),
-                listOf(9),
-                listOf(8, 9),
-                listOf(5, 8, 9)
-            ), bst3LevelsFull.allPaths()
+        val expectedBST = listOf(
+            listOf(5),
+            listOf(3),
+            listOf(5, 3),
+            listOf(1),
+            listOf(3, 1),
+            listOf(5, 3, 1),
+            listOf(4),
+            listOf(3, 4),
+            listOf(5, 3, 4),
+            listOf(8),
+            listOf(5, 8),
+            listOf(6),
+            listOf(8, 6),
+            listOf(5, 8, 6),
+            listOf(9),
+            listOf(8, 9),
+            listOf(5, 8, 9)
         )
+        val actualBST = bst3LevelsFull.allDownwardPaths()
+        assertEquals(expectedBST.size, actualBST.size)
+        assertEquals(expectedBST.toSet(), actualBST.toSet())
 
-        assertEquals(
-            listOf(
-                listOf(7),
-                listOf(4),
-                listOf(7, 4),
-                listOf(3),
-                listOf(4, 3),
-                listOf(7, 4, 3),
-                listOf(1),
-                listOf(3, 1),
-                listOf(4, 3, 1),
-                listOf(7, 4, 3, 1),
-                listOf(9),
-                listOf(7, 9),
-                listOf(8),
-                listOf(9, 8),
-                listOf(7, 9, 8)
-            ), bstWithNulls.allPaths()
+        val expectedBSTWithNulls = listOf(
+            listOf(7),
+            listOf(4),
+            listOf(7, 4),
+            listOf(3),
+            listOf(4, 3),
+            listOf(7, 4, 3),
+            listOf(1),
+            listOf(3, 1),
+            listOf(4, 3, 1),
+            listOf(7, 4, 3, 1),
+            listOf(9),
+            listOf(7, 9),
+            listOf(8),
+            listOf(9, 8),
+            listOf(7, 9, 8)
         )
+        val actualBSTWithNulls = bstWithNulls.allDownwardPaths()
+        assertEquals(expectedBSTWithNulls.size, actualBSTWithNulls.size)
+        assertEquals(expectedBSTWithNulls.toSet(), actualBSTWithNulls.toSet())
     }
 
     @Test

@@ -14,11 +14,22 @@ class Solution {
     fun hasPathSum(root: TreeNode?, sum: Int): Boolean {
         root ?: return false
 
-        val value = root.`val`
-        if (sum - value == 0 && root.isLeaf) {
-            return true
-        }
+        if (root.`val` == sum && root.isLeaf) return true
 
-        return hasPathSum(root.left, sum - value) || hasPathSum(root.right, sum - value)
+        return hasPathSum(root.left, sum - root.`val`) || hasPathSum(root.right, sum - root.`val`)
     }
+}
+
+class SolutionTwo {
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
+    fun hasPathSum(root: TreeNode?, sum: Int, currentPathSum: Int = 0): Boolean =
+        when {
+            root == null -> false
+            (currentPathSum + root.`val`) == sum && root.isLeaf -> true
+            else -> hasPathSum(root.left, sum, currentPathSum + root.`val`)
+                    || hasPathSum(root.right, sum, currentPathSum + root.`val`)
+        }
 }
