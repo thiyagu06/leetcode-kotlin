@@ -76,9 +76,33 @@ fun <T> Array<T>.valueToIndicesMap(): Map<T, List<Int>> = withIndex()
     .groupBy(keySelector = { it.value }, valueTransform = { it.index })
 
 
+/**
+ * Returns a list of pairs of each two adjacent elements in this collection.
+ * The returned list is empty if this collection contains less than two elements.
+ *
+ * ```
+ * val letters = arrayOf('a', 'b', 'c', 'd', 'e', 'f')
+ * val pairs = letters.zipWithNext()
+ *
+ * println(letters) // [a, b, c, d, e, f]
+ * println(pairs)   // [(a, b), (b, c), (c, d), (d, e), (e, f)]
+ * ```
+ */
 fun <T> Array<T>.zipWithNext(): List<Pair<T, T>> = zip(drop(1))
-fun IntArray.zipWithNext(): List<Pair<Int, Int>> = zip(drop(1))
 
+/**
+ * Returns a list of pairs of each two adjacent elements in this collection.
+ * The returned list is empty if this collection contains less than two elements.
+ *
+ * ```
+ * val nums = intArrayOf(0, 1, 2, 3, 4, 5)
+ * val pairs = nums.zipWithNext()
+ *
+ * println(nums.contentToString())  // [0, 1, 2, 3, 4, 5]
+ * println(pairs)                   // [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5)]
+ * ```
+ */
+fun IntArray.zipWithNext(): List<Pair<Int, Int>> = zip(drop(1))
 
 /**
  * **Mutating** - Swap the elements at indices [i] and [j].
