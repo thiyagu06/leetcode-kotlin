@@ -48,7 +48,8 @@ class SolutionTwo {
 
 class SolutionThree {
     /**
-     * Sliding Window
+     * Using the Sliding Window Technique.
+     *
      * Time: O(n^2)
      * Space: O(1)
      */
@@ -62,6 +63,7 @@ class SolutionThree {
     }
 
     /**
+     * Calculates the max subarray sum for subarrays of size [k].
      * Time: O(n)
      * Space: O(1)
      */
@@ -85,44 +87,23 @@ class SolutionThree {
     }
 }
 
-class SolutionFour {
-    /**
-     * TODO
-     * Time: O(?)
-     * Space: O(?)
-     */
-    fun maxSubArray(nums: IntArray): Int {
-        val maxSub = IntArray(nums.size)
-        maxSub[0] = nums[0]
-        var max = maxSub[0]
-
-        /* Sum all possible subarrays */
-        (1..nums.lastIndex).forEach { i ->
-            maxSub[i] = (if (maxSub[i - 1] > 0) maxSub[i - 1] else 0) + nums[i]
-            max = maxOf(max, maxSub[i])
-        }
-
-        return max
-    }
-}
-
 class DPSolution {
     /**
-     * TODO
-     * Time: O(?)
-     * Space: O(?)
+     * Using Dynamic Programming.
+     *
+     * Time: O(n)
+     * Space: O(n)
      */
     fun maxSubArray(nums: IntArray): Int {
-        val n = nums.size
-        val maxSub = IntArray(n)
-        maxSub[0] = nums[0]
-        var max = maxSub[0]
+        val maxes = IntArray(nums.size)     // The local maxes - the max sum of a subarray ending at i
+        maxes[0] = nums[0]
+        var globalMax = nums[0]
 
         for (i in 1..nums.lastIndex) {
-            maxSub[i] = (if (maxSub[i - 1] > 0) maxSub[i - 1] else 0) + nums[i]
-            max = maxOf(max, maxSub[i])
+            maxes[i] = max(maxes[i - 1] + nums[i], nums[i])
+            globalMax = max(globalMax, maxes[i])
         }
 
-        return max
+        return globalMax
     }
 }
