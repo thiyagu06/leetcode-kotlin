@@ -2,6 +2,8 @@ package extensions.math
 
 import extensions.arrays.headAndTail
 import java.math.BigInteger
+import kotlin.math.max
+import kotlin.math.min
 import kotlin.math.sqrt
 
 /**
@@ -9,6 +11,11 @@ import kotlin.math.sqrt
  * Permutation/Combinations taken from: https://github.com/MarcinMoskala/KotlinDiscreteMathToolkit
  */
 const val EPSILON = 1e-10
+
+/**
+ * Returns the median (middle value) of three [Int].
+ */
+fun median(a: Int, b: Int, c: Int) = max(min(a, b), min(max(a, b), c))
 
 /**
  * **Time**: `O(n)`

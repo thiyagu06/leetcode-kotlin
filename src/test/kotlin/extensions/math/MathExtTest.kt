@@ -27,6 +27,14 @@ class MathExtTest {
     }
 
     @Test
+    fun medianTest() {
+        assertEquals(2, median(1, 2, 3))
+        assertEquals(-2, median(-1, -2, -3))
+        assertEquals(3, median(1, 3, 3))
+        assertEquals(3, median(3, 3, 3))
+    }
+
+    @Test
     fun sumOfFirstNPositiveIntegers() {
         assertEquals(1, sumOfFirstNPositiveIntegers(1))
         assertEquals(3, sumOfFirstNPositiveIntegers(2))
