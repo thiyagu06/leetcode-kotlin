@@ -238,11 +238,15 @@ fun ListNode.toIntArray(): IntArray = toList().toIntArray()
  *
  * @return a [String] representation of the List.
  */
-fun ListNode.contentToString(): String = buildString {
-    var node: ListNode? = this@contentToString
-    while (node != null) {
-        append(node)
-        node = node.next
-    }
-    toString()
-}.replace(")(", ")->(")
+fun ListNode?.contentToString(): String {
+    this ?: return "(null)"
+
+    return buildString {
+        var node: ListNode? = this@contentToString
+        while (node != null) {
+            append(node)
+            node = node.next
+        }
+        toString()
+    }.replace(")(", ")->(")
+}

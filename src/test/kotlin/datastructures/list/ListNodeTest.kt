@@ -175,6 +175,8 @@ class ListNodeTest {
 
     @Test
     fun contentToString() {
+        val nullList: ListNode? = null
+        assertEquals("(null)", nullList.contentToString())
         val linkedList = ListNode.from(listOf(0, 1, 2, 3))
         assertEquals("(0)->(1)->(2)->(3)", linkedList?.contentToString())
     }
