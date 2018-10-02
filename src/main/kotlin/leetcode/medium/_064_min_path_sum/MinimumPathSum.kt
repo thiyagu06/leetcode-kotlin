@@ -7,7 +7,7 @@ import extensions.arrays.lastRowIndex
 import extensions.arrays.rowIndices
 
 /**
- * 64 - https://leetcode.com/problems/minimum-path-sum/description/
+ * 64 - https://leetcode.com/problems/minimum-path-sum
  */
 class Solution {
     fun minPathSum(grid: Array<IntArray>): Int {
