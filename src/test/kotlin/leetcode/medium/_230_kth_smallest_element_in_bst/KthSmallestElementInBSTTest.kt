@@ -15,25 +15,19 @@ class KthSmallestElementInBSTTest {
 
     @Test
     fun kthSmallest() {
-        val ms = measureTimeMillis {
-//            assertEquals(1, solution.kthSmallest(buildBST(1), 1))
-//            assertEquals(1, solution.kthSmallest(bst3LevelsFull, 1))
-            assertEquals(5, solution.kthSmallest(bst3LevelsFull, 4))
-//            assertEquals(9, solution.kthSmallest(bst3LevelsFull, 7))
-//            assertEquals(4, solution.kthSmallest(bstWithNulls, 3))
-        }
-        println("$ms ms")
+        assertEquals(1, solution.kthSmallest(buildBST(1), 1))
+        assertEquals(1, solution.kthSmallest(bst3LevelsFull, 1))
+        assertEquals(5, solution.kthSmallest(bst3LevelsFull, 4))
+        assertEquals(9, solution.kthSmallest(bst3LevelsFull, 7))
+        assertEquals(4, solution.kthSmallest(bstWithNulls, 3))
     }
 
     @Test
     fun kthSmallestFollowup() {
-        val ms = measureTimeMillis {
-            assertEquals(1, followup.kthSmallest(buildBST(1), 1))
-            assertEquals(1, followup.kthSmallest(bst3LevelsFull, 1))
-            assertEquals(5, followup.kthSmallest(bst3LevelsFull, 4))
-            assertEquals(9, followup.kthSmallest(bst3LevelsFull, 7))
-            assertEquals(4, followup.kthSmallest(bstWithNulls, 3))
-        }
-        println("$ms ms")
+        assertEquals(1, followup.kthSmallest(buildBST(1), 1))
+        assertEquals(1, followup.kthSmallest(bst3LevelsFull, 1))
+        assertEquals(5, followup.kthSmallest(bst3LevelsFull, 4))
+        assertEquals(9, followup.kthSmallest(bst3LevelsFull, 7))
+        assertEquals(4, followup.kthSmallest(bstWithNulls, 3))
     }
 }

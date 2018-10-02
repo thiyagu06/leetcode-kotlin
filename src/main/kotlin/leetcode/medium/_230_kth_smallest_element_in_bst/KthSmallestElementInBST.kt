@@ -26,29 +26,29 @@ class FollowUpSolution {
      * Space: O(n)
      */
     fun kthSmallest(root: TreeNode?, k: Int): Int {
-        return traverseFirstK(root, k) ?: throw IllegalArgumentException("Invalid Input - no kth smallest")
+        return dfs(root, k) ?: throw IllegalArgumentException("Invalid Input - no kth smallest")
     }
 
-    /**
-     * Traverse only the first K elements using inorder DFS.
-     */
-    private fun traverseFirstK(
+    private fun dfs(
         node: TreeNode?,
         k: Int,
         visited: MutableList<Int> = arrayListOf()
     ): Int? {
         when {
-            node == null -> return null
             visited.size == k -> return visited[k - 1]
+            node == null -> return null
             else -> {
-                val leftResult = traverseFirstK(node.left, k, visited)
-                if (leftResult != null) return leftResult
+                val leftResult = dfs(node.left, k, visited)
+                if (leftResult != null) {
+                    return leftResult
+                }
 
                 visited += node.`val`
 
-                val rightResult = traverseFirstK(node.right, k, visited)
-                if (rightResult != null) return rightResult
-
+                val rightResult = dfs(node.right, k, visited)
+                if (rightResult != null) {
+                    return rightResult
+                }
                 return null
             }
         }
