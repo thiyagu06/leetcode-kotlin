@@ -1,14 +1,11 @@
 package extensions.math
 
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class IntExtTest {
-
-    @Test
-    fun testMinOf() {
-        assertEquals(1, minOf(1, 2, 3, 4))
-    }
 
     @Test
     fun isEven() {

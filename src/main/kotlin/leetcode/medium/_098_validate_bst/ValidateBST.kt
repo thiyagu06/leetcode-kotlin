@@ -22,7 +22,7 @@ class Solution {
 
             else -> {
                 val leftSubtreeRange = validRange.start until root.`val`
-                val rightSubtreeRange = root.`val` + 1 .. validRange.endInclusive
+                val rightSubtreeRange = root.`val` + 1..validRange.endInclusive
 
                 root.`val` in validRange
                         && isValidBST(root.left, leftSubtreeRange)

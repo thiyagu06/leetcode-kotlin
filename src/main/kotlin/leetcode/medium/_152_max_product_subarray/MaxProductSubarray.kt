@@ -1,6 +1,5 @@
 package leetcode.medium._152_max_product_subarray
 
-import extensions.math.minOf
 import kotlin.math.max
 import kotlin.math.min
 

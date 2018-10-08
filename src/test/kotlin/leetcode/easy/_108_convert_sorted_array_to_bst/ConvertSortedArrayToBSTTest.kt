@@ -8,18 +8,23 @@ import org.junit.Assert.*
 class ConvertSortedArrayToBSTTest {
 
     private val solution = Solution()
-    private val solutionAlt = SolutionAlt()
 
     @Test
     fun sortedArrayToBST() {
         assertEquals(
-            buildTree(0, -3, 9, -10, null, 5),
+            buildTree(2, 1, 3, null, null, null, 4),
+            solution.sortedArrayToBST(intArrayOf(1, 2, 3, 4))
+        )
+
+        assertEquals(
+            buildTree(0, -10, 5, null, -3, null, 9),
             solution.sortedArrayToBST(intArrayOf(-10, -3, 0, 5, 9))
         )
 
         assertEquals(
-            buildTree(0, -3, 9, -10, null, 5),
-            solutionAlt.sortedArrayToBST(intArrayOf(-10, -3, 0, 5, 9))
+            buildTree(0, -3, 3, -10, -2, 1, 5, null, null, null, null, null, null, null, 9),
+            solution.sortedArrayToBST(intArrayOf(-10, -3, -2, 0, 1, 3, 5, 9))
         )
     }
+
 }

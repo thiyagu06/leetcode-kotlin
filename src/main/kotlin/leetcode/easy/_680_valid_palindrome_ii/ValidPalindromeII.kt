@@ -6,6 +6,10 @@ package leetcode.easy._680_valid_palindrome_ii
 class Solution {
     fun validPalindrome(s: String): Boolean = isValidPalindrome(s, s.indices)
 
+    /**
+     * Time: O(n)
+     * Space: O(1)
+     */
     private fun isValidPalindrome(s: String, indexRange: IntRange, tolerance: Int = 1): Boolean {
         if (indexRange.isEmpty())
             return true

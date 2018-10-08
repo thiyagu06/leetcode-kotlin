@@ -6,11 +6,6 @@ import org.junit.Test
 class LongExtTest {
 
     @Test
-    fun testMinOf() {
-        assertEquals(1L, minOf(1L, 2L, 3L, 4L))
-    }
-
-    @Test
     fun coerceToIntRange() {
         assertEquals(0, 0L.coerceToIntRange())
         assertEquals(-999, (-999L).coerceToIntRange())

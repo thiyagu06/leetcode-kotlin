@@ -6,11 +6,6 @@ import java.text.DecimalFormat
  * Extensions for Double.
  */
 
-fun minOf(vararg numbers: Double): Double {
-    require(numbers.isNotEmpty()) { "Cannot take min of 0 numbers" }
-    return numbers.min()!!
-}
-
 fun Double.roundedToNDecimalPlaces(n: Int): Double {
     require(n >= 0) { "Invalid # of decimal places: $n" }
     val formatter = DecimalFormat("#.${"#".repeat(n)}")

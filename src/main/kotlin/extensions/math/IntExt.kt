@@ -13,14 +13,6 @@ val Int.isEven: Boolean get() = this % 2 == 0
 val Int.isOdd: Boolean get() = this % 2 != 0
 
 /**
- * Return the number with the smallest value of the specified numbers.
- */
-fun minOf(vararg numbers: Int): Int {
-    require(numbers.isNotEmpty()) { "Cannot take min of 0 numbers" }
-    return numbers.min()!!
-}
-
-/**
  * Applies Java's [Character.forDigit].
  */
 fun Int.charForDigit(): Char = Character.forDigit(this, 10)

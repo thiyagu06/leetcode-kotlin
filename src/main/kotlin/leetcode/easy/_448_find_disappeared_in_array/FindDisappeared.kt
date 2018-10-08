@@ -7,10 +7,6 @@ import kotlin.math.abs
  * 448 - https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
  */
 class Solution {
-    /**
-     * Time: O(n)
-     * Space: O(n)
-     */
     fun findDisappearedNumbers(nums: IntArray): List<Int> {
         val valueToIndices = nums.valueToIndicesMap()
 
@@ -27,24 +23,19 @@ class Solution {
 class FollowUpSolution {
     /**
      * Time: O(n)
-     * Space: O(1)
-     *
-     * See https://discuss.leetcode.com/topic/65738/java-accepted-simple-solution
+     * Space: O(1) - "You may assume the returned list does not count as extra space"
      */
     fun findDisappearedNumbers(nums: IntArray): List<Int> {
-        nums.forEach { n ->
-            val mappedIndex = abs(n) - 1
+        nums.forEach { num ->
+            val mappedIndex = abs(num) - 1
             if (nums[mappedIndex] > 0) {
-                nums[mappedIndex] = -(nums[mappedIndex])
+                nums[mappedIndex] *= -1
             }
         }
 
-        return nums.withIndex().fold(emptyList()) { acc, (index, n) ->
-            if (n > 0) {
-                acc + (index + 1)
-            } else {
-                acc
-            }
+        return nums.foldIndexed(emptyList()) { index, acc, num ->
+            if (num > 0) acc + (index + 1)
+            else acc
         }
     }
 }

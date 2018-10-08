@@ -1,15 +1,9 @@
 package extensions.math
 
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class DoubleExtTest {
-
-    @Test
-    fun testMinOf() {
-        assertEquals(1.0, minOf(1.0, 2.0, 3.0, 4.0), 0.00001)
-        assertEquals(1.0001, minOf(1.0001, 1.0002, 3.0, 4.0), 0.00001)
-    }
 
     @Test
     fun roundedToNDecimalPlaces() {
