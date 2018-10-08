@@ -95,12 +95,13 @@ class DPSolution {
      * Space: O(1)
      */
     fun maxSubArray(nums: IntArray): Int {
-            var iMax = nums[0]
+        val maxes = IntArray(nums.size)     // The local maxes - the max sum of a subarray ending at i
+        maxes[0] = nums[0]
         var globalMax = nums[0]
 
         for (i in 1..nums.lastIndex) {
-            iMax = max(iMax + nums[i], nums[i])
-            globalMax = max(globalMax, iMax)
+            maxes[i] = max(maxes[i - 1] + nums[i], nums[i])
+            globalMax = max(globalMax, maxes[i])
         }
 
         return globalMax
@@ -109,7 +110,7 @@ class DPSolution {
 
 class DPSolutionOptimized {
     /**
-     * Using Dynamic Programming.
+     * Dynamic Programming optimized to use constant space.
      *
      * Time: O(n)
      * Space: O(1)
