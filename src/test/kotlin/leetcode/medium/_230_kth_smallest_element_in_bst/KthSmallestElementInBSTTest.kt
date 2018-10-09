@@ -6,7 +6,6 @@ import datastructures.tree.buildBST
 import org.junit.Test
 
 import org.junit.Assert.*
-import kotlin.system.measureTimeMillis
 
 class KthSmallestElementInBSTTest {
 
