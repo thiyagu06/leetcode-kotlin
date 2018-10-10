@@ -1,7 +1,6 @@
 package leetcode.medium._082_remove_duplicates_sorted_list_II
 
 import datastructures.list.ListNode
-import datastructures.list.forEach
 
 /**
  * 82 - https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/
@@ -20,7 +19,7 @@ class Solution {
         // Iterate through and get the # of occurrences of each value
         val frequencies = hashMapOf<Int, Int>()
         head.forEach { 
-            frequencies[it.`val`] = frequencies.getOrDefault(it.`val`, 0) + 1
+            frequencies[it] = frequencies.getOrDefault(it, 0) + 1
         }
         
         val sentinel = ListNode(Int.MIN_VALUE)

@@ -8,7 +8,7 @@ import java.util.*
 /**
  * Definition for a binary tree node.
  */
-class TreeNode(var `val`: Int = 0, var left: TreeNode? = null, var right: TreeNode? = null) {
+class TreeNode(var `val`: Int = 0, var left: TreeNode? = null, var right: TreeNode? = null) : Iterable<Int> {
 
     override fun toString(): String = "($`val`)"
 
@@ -31,13 +31,18 @@ class TreeNode(var `val`: Int = 0, var left: TreeNode? = null, var right: TreeNo
         result = 31 * result + (right?.hashCode() ?: 0)
         return result
     }
+
+    /**
+     * Returns an iterator over the elements of this object.
+     */
+    override fun iterator(): Iterator<Int> = toList().iterator()
 }
 
 val TreeNode.hasLeft: Boolean get() = left != null
 val TreeNode.hasRight: Boolean get() = right != null
 val TreeNode.isLeaf: Boolean get() = left == null && right == null
-val TreeNode.hasSingleChild: Boolean get() = (hasLeft || hasRight) && !(hasLeft && hasRight)
-val TreeNode.hasTwoChildren: Boolean get() = left != null && right != null
+val TreeNode.hasSingleChild: Boolean get() = hasLeft xor hasRight
+val TreeNode.hasTwoChildren: Boolean get() = hasLeft && hasRight
 
 /**
  * Returns the number of nodes in the tree.
@@ -149,7 +154,7 @@ fun TreeNode?.dfs(order: DFSTraversalOrder = INORDER, visit: (TreeNode) -> Unit)
 
 /**
  * Traverse the tree (using inorder depth-first search), collecting the values
- * into a [Collection].
+ * into a list.
  *
  * **Time**: `O(n)`
  *

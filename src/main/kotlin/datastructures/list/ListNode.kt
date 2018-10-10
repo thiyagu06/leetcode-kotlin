@@ -5,7 +5,7 @@ package datastructures.list
  * Note: although `val` is declared with a default argument, LeetCode
  * won't compile if you try to create a node without passing an argument.
  */
-class ListNode(var `val`: Int = 0) {
+class ListNode(var `val`: Int = 0) : Iterable<Int> {
 
     var next: ListNode? = null
 
@@ -25,6 +25,10 @@ class ListNode(var `val`: Int = 0) {
 
     override fun hashCode(): Int = `val`
 
+    /**
+     * Returns an iterator over the elements of this object.
+     */
+    override fun iterator(): Iterator<Int> = toList().iterator()
 
     companion object {
         /**
@@ -100,35 +104,6 @@ val ListNode?.middleNode: ListNode?
  * Return the list of all nodes except the first.
  */
 val ListNode?.tail: ListNode? get() = this?.next
-
-/**
- * Returns the first element matching the given [predicate], or null if element was not found.
- *
- * **Time**: `O(n)`
- *
- * **Space**: `O(1)`
- */
-inline fun ListNode.firstOrNull(predicate: (ListNode) -> Boolean): ListNode? {
-    var node: ListNode? = this
-    while (node != null) {
-        if (predicate(node)) {
-            return node
-        }
-        node = node.next
-    }
-    return null
-}
-
-/**
- * Performs the given [action] on each node.
- */
-fun ListNode.forEach(action: (ListNode) -> Unit) {
-    var node: ListNode? = this
-    while (node != null) {
-        action(node)
-        node = node.next
-    }
-}
 
 /**
  * Returns a new [ListNode] in reverse order.

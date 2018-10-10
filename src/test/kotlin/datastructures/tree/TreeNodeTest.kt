@@ -1,5 +1,6 @@
 package datastructures.tree
 
+import datastructures.list.toList
 import org.junit.Assert.*
 import org.junit.Ignore
 import org.junit.Test
@@ -330,5 +331,13 @@ class TreeNodeTest {
     @Test
     fun toList() {
         assertEquals(listOf(1, 3, 4, 5, 6, 8, 9), bst3LevelsFull.toList())
+    }
+
+    @Test
+    fun iterator() {
+        val tree1to5Values = listOf(4, 2, 5, 1, 3)
+        tree1to5.forEachIndexed { i, value ->
+            assertEquals(value, tree1to5Values[i])
+        }
     }
 }
