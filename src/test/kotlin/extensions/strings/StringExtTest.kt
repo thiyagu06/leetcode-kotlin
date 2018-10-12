@@ -157,4 +157,29 @@ class StringExtTest {
         assertEquals("(()())()abcxyz", "(()())()abcxyz".replaceLast(oldValue = "ABC", newValue = "CBA", ignoreCase = false))
         assertEquals("(()())()abcxyz", "(()())()abcxyz".replaceLast(oldValue = "abcxyz", newValue = "zyxcba", startIndex = 4))
     }
+
+
+    @Test
+    fun longestCommonSubstring() {
+        kotlin.test.assertEquals("", longestCommonSubstring("", ""))
+        kotlin.test.assertEquals("", longestCommonSubstring("A", ""))
+        kotlin.test.assertEquals("", longestCommonSubstring("", "A"))
+        kotlin.test.assertEquals("A", longestCommonSubstring("A", "A"))
+        kotlin.test.assertEquals("A", longestCommonSubstring("ABC", "A"))
+        kotlin.test.assertEquals("AB", longestCommonSubstring("ABC", "BABA"))
+        kotlin.test.assertEquals("ABCABC", longestCommonSubstring("ABCABCA", "CABCABC"))
+        kotlin.test.assertEquals("ABCABC", longestCommonSubstring("CABCABC", "ABCABCA"))
+        kotlin.test.assertEquals("abcd", longestCommonSubstring("abcdxyz", "xyzabcd"))
+        kotlin.test.assertEquals("abcdez", longestCommonSubstring("zxabcdezy", "yzabcdezx"))
+        kotlin.test.assertEquals("ABC", longestCommonSubstring("ABC", "ABCD"))
+        kotlin.test.assertTrue(longestCommonSubstring("ABAB", "BABA") in setOf("ABA", "BAB"))
+    }
+
+    @Test
+    fun lcs() {
+        kotlin.test.assertTrue(lcs("ABCBDAB", "BDCABA") in setOf("BCBA", "BDAB"))
+        kotlin.test.assertTrue(lcs("GTTCCTAATA", "CGATAATTGAGA") in setOf("GTTTAA", "CTAATA"))
+        assertEquals("MJAU", lcs("XMJYAUZ", "MZJAWXU"))
+        assertEquals("BBCDA", lcs("ABABCDA", "BBCDAXY"))
+    }
 }

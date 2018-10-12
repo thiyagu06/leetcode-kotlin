@@ -133,3 +133,60 @@ fun String.replaceLast(
     val index = lastIndexOf(string = oldValue, startIndex = startIndex, ignoreCase = ignoreCase)
     return if (index < 0) this else this.replaceRange(index, index + oldValue.length, newValue)
 }
+
+
+/**
+ * Returns the [Longest Common Substring](https://en.wikipedia.org/wiki/Longest_common_substring_problem) of
+ * [a] and [b].
+ *
+ * **Note**: there may be multiple substrings with the same length - this returns *one* of the longest substrings from
+ * the solution set
+ * @return longest common substring
+ * @see lcs
+ */
+fun longestCommonSubstring(a: String, b: String): String {
+    val dp = Array(a.length + 1) { IntArray(b.length + 1) }
+    var maxLength = 0
+    var endIndex = 0
+
+    (1..a.length).forEach { i ->
+        (1..b.length).forEach { j ->
+            if (a[i - 1] == b[j - 1]) {
+                dp[i][j] = 1 + dp[i - 1][j - 1]
+
+                if (dp[i][j] > maxLength) {
+                    maxLength = dp[i][j]
+                    endIndex = i
+                }
+            }
+        }
+    }
+
+    return a.substring((endIndex - maxLength) until endIndex)
+}
+
+
+/**
+ * Returns the [Longest Common Subsequence (LCS)](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem) of
+ * [a] and [b].
+ *
+ * **Note**: there may be multiple LCS solutions. This returns *one* of the longest subsequences from
+ * the solution set.
+ * @return longest common subsequence (LCS)
+ * @see longestCommonSubstring
+ */
+fun lcs(a: String, b: String): String {
+    val dp: Array<Array<String>> = Array(a.length + 1) { Array(b.length + 1) { "" } }
+
+    (1..a.length).forEach { i ->
+        (1..b.length).forEach { j ->
+            if (a[i - 1] == b[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1] + a[i - 1]
+            } else {
+                dp[i][j] = setOf(dp[i][j - 1], dp[i - 1][j]).maxBy { it.length }!!
+            }
+        }
+    }
+
+    return dp[a.length][b.length]
+}
