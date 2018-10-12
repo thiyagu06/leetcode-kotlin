@@ -124,6 +124,9 @@ sealed class DFSTraversalOrder {
 /**
  * Perform depth-first traversal on the tree, executing [visit] on each node.
  *
+ * @param order The traversal order (preorder, inorder, or postorder)
+ * @param visit Action to perform on each node
+ *
  * **Time**: `O(n)`
  *
  * **Space**: `O(n)`

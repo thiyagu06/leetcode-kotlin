@@ -5,7 +5,7 @@ package leetcode.easy._014_longest_common_prefix
  */
 class Solution {
     /**
-     * Time: O(S), where S is the sum of all chars in S
+     * Time: O(S), where S is the sum of all chars in strs
      * Space: O(1) - if zip() weren't used for convenience/cleanness
      */
     fun longestCommonPrefix(strs: Array<String>): String =

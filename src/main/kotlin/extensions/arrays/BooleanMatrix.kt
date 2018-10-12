@@ -25,7 +25,7 @@ val BooleanMatrix.lastColumnIndex: Int get() = if (isEmpty()) -1 else this[0].la
  * @param m The number of rows
  * @param n The number of columns
  */
-fun booleanMatrixWithSize(m: Int, n: Int): BooleanMatrix = Array(m) { BooleanArray(n) { false } }
+fun booleanMatrixWithSize(m: Int, n: Int): BooleanMatrix = Array(m) { BooleanArray(n) }
 
 /**
  * Create an BooleanMatrix from the provided lists.

@@ -55,7 +55,7 @@ fun IntMatrix.dfs(
  * @param m The number of rows
  * @param n The number of columns
  */
-fun intMatrixWithSize(m: Int, n: Int): IntMatrix = Array(m) { IntArray(n) { 0 } }
+fun intMatrixWithSize(m: Int, n: Int): IntMatrix = Array(m) { IntArray(n) }
 
 /**
  * Create an [IntMatrix] from the provided lists.
