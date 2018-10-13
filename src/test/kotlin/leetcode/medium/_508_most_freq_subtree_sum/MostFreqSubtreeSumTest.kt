@@ -18,4 +18,15 @@ class MostFreqSubtreeSumTest {
         assertArrayEquals(intArrayOf(2, -3, 4, 5), solution.findFrequentTreeSum(buildTree(1, null, 5, 2, -3)))
     }
 
+    @Test
+    fun testFindAllSubtreeSums() {
+        val subtreeSums = arrayListOf<Int>()
+        solution.findAllSubtreeSums(buildTree(1, 6, 8, null, null, null, 10), subtreeSums)
+        assertEquals(listOf(6, 10, 18, 25), subtreeSums)
+
+        val sums2 = arrayListOf<Int>()
+        solution.findAllSubtreeSums(buildTree(5, 2, -3), sums2)
+        assertEquals(listOf(2, -3, 4), sums2)
+    }
+
 }

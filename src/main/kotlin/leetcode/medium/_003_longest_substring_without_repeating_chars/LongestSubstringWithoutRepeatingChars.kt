@@ -44,25 +44,22 @@ class SolutionTwo {
      * Space: O(min(n, m)) - O(k) needed for windowChars, where n is s.length, m is the size of charset/alphabet
      */
     fun lengthOfLongestSubstring(s: String): Int {
-        val n = s.length
-        var longest = 0
-        var l = 0   // left index
-        var r = 0   // right index
-        val substrChars = HashSet<Char>()
+        var l = 0
+        var r = 0
+        var maxLength = 0
+        val substrChars = hashSetOf<Char>()
 
-        while (l < n && r < n) {
+        while (r <= s.lastIndex) {
             if (s[r] !in substrChars) {
-                // add to set
-                substrChars += s[r]
-                r++
-                longest = max(longest, substrChars.size)    // or max(longest, r - l), if r already incremented.
+                /* Expand window */
+                substrChars += s[r++]
+                maxLength = max(maxLength, substrChars.size)
             } else {
-                // Evict leftmost char
-                substrChars -= s[l]
-                l++
+                /* Evict first char in window */
+                substrChars -= s[l++]
             }
         }
 
-        return longest
+        return maxLength
     }
 }
