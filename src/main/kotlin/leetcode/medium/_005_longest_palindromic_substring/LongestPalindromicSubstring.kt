@@ -22,7 +22,7 @@ class Solution {
         val dp = booleanMatrixWithSize(n, n)
         for (substrLen in 1..n) {
             (0..(n - substrLen)).forEach { i ->
-                var j = i + substrLen - 1
+                val j = i + substrLen - 1
                 if (isPalindrome(s, i, j, dp)) {
                     indicesOfLongest = i..j
                 }

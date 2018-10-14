@@ -34,7 +34,7 @@ class SolutionTwo {
         if (prices.size < 2) return 0
 
         /* maxProfits[i] = the max profit for prices[0..i] */
-        var maxProfits = IntArray(prices.size)
+        val maxProfits = IntArray(prices.size)
         maxProfits[0] = 0
         maxProfits[1] = max(prices[1] - prices[0], maxProfits[0])
         var minBuyPrice = prices[0]

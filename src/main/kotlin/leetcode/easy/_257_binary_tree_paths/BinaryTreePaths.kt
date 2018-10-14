@@ -8,13 +8,14 @@ import datastructures.tree.rootToLeafPaths
  */
 class Solution {
     /**
-     * Time: O(?)
-     * Space: O(?)
+     * Using the [rootToLeafPaths] extension.
+     * Time: O(n)
+     * Space: O(n)
      */
-    fun binaryTreePaths(root: TreeNode?): List<String> {
-        val valuePaths = root.rootToLeafPaths()     /* [[1, 2, 5], [1, 3]] */
-        return valuePaths.map { path ->
-            path.joinToString("->")
-        }
+    fun binaryTreePaths(root: TreeNode?): List<String> =
+        root?.let {
+            it.rootToLeafPaths().map { path ->
+                path.joinToString("->")
+            }
+        } ?: emptyList()
     }
-}

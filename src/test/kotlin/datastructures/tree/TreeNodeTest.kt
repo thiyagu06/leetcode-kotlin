@@ -1,8 +1,6 @@
 package datastructures.tree
 
-import datastructures.list.toList
 import org.junit.Assert.*
-import org.junit.Ignore
 import org.junit.Test
 
 class TreeNodeTest {
@@ -199,7 +197,6 @@ class TreeNodeTest {
 
     @Test
     fun allDownwardPaths() {
-        val nullTree: TreeNode? = null
         assertEquals(emptyList<List<Int>>(), nullTree.allDownwardPaths())
 
         val expected123 = listOf(listOf(1), listOf(2), listOf(1, 2), listOf(3), listOf(1, 3))
@@ -347,5 +344,19 @@ class TreeNodeTest {
         tree1to5.forEachIndexed { i, value ->
             assertEquals(value, tree1to5Values[i])
         }
+    }
+
+    @Test
+    fun stringRepresentation() {
+        assertEquals("", nullTree.stringRepresentation())
+        assertEquals("1", buildTree(1).stringRepresentation())
+        assertEquals("1(2)", buildTree(1, 2).stringRepresentation())
+        assertEquals("1()(3)", buildTree(1, null, 3).stringRepresentation())
+        assertEquals("1(2)(3)", buildTree(1, 2, 3).stringRepresentation())
+        assertEquals("1(2(4))(3)", buildTree(1, 2, 3, 4).stringRepresentation())
+        assertEquals("1(2()(4))(3)", buildTree(1, 2, 3, null, 4).stringRepresentation())
+        assertEquals("1(2(4)(5))(3(6)(7))", buildTree(1, 2, 3, 4, 5, 6, 7).stringRepresentation())
+        assertEquals("1(2(4(8)(9))(5(10)(11)))(3(6(12)(13))(7(14)(15)))",
+            buildTree(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15).stringRepresentation())
     }
 }

@@ -304,7 +304,7 @@ fun TreeNode?.isBST(validRange: IntRange = (Int.MIN_VALUE..Int.MAX_VALUE)): Bool
 }
 
 /**
- * Returns a list of all root-to-leaf paths.
+ * Returns a list of all root-to-leaf allPaths.
  *
  * **Time**: `O(n)`
  *
@@ -312,17 +312,18 @@ fun TreeNode?.isBST(validRange: IntRange = (Int.MIN_VALUE..Int.MAX_VALUE)): Bool
  */
 fun TreeNode?.rootToLeafPaths(
     currentPath: List<Int> = emptyList(),
-    paths: MutableList<List<Int>> = mutableListOf()
-): List<List<Int>> {
-    this ?: return paths
-
-    left?.rootToLeafPaths(currentPath = currentPath + `val`, paths = paths)
-    right?.rootToLeafPaths(currentPath = currentPath + `val`, paths = paths)
-
-    if (isLeaf) {
-        paths += (currentPath + `val`)
+    allPaths: MutableList<List<Int>> = mutableListOf()
+): List<List<Int>> = when {
+    this == null -> allPaths
+    isLeaf -> {
+        allPaths += (currentPath + `val`)
+        allPaths
     }
-    return paths
+    else -> {
+        left?.rootToLeafPaths(currentPath = currentPath + `val`, allPaths = allPaths)
+        right?.rootToLeafPaths(currentPath = currentPath + `val`, allPaths = allPaths)
+        allPaths
+    }
 }
 
 /**
@@ -415,3 +416,26 @@ fun buildBST(vararg elements: Int?): TreeNode? {
  * **Space**: `O(n)`
  */
 fun TreeNode?.toList(): List<Int> = collect { it.`val` }.toList()
+
+
+/**
+ * Returns a string representation of the tree.
+ *
+ * Example:
+ * ```
+ *    1
+ *  /   \
+ * 2     3
+ *  \
+ *   4
+ * ```
+ * is converted to `"1(2()(4))(3)"`
+ *
+ */
+fun TreeNode?.stringRepresentation(): String = when {
+        this == null -> ""
+        isLeaf -> "$`val`"
+        hasLeft && !hasRight -> "$`val`(${left.stringRepresentation()})"
+        !hasLeft && hasRight -> "$`val`()(${right.stringRepresentation()})"
+        else -> "$`val`(${left.stringRepresentation()})(${right.stringRepresentation()})"
+    }

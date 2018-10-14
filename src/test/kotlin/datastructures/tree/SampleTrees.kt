@@ -5,6 +5,9 @@ package datastructures.tree
  */
 
 
+/** A null tree */
+val nullTree: TreeNode? = null
+
 /**
  * ```
  *         (1)

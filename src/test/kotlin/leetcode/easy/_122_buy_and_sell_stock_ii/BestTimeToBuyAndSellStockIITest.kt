@@ -1,7 +1,6 @@
 package leetcode.easy._122_buy_and_sell_stock_ii
 
-import org.junit.Assert.*
-import org.junit.Ignore
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class BestTimeToBuyAndSellStockIITest {
