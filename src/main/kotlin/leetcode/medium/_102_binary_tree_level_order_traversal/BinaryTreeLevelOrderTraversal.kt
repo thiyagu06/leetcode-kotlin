@@ -17,7 +17,7 @@ class BFSSolution {
         root ?: return emptyList()
 
         val levels = ArrayList<ArrayList<Int>>()
-        val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque<Pair<TreeNode, Int>>()
+        val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque()
         queue.add(root to 0)
 
         while (queue.isNotEmpty()) {

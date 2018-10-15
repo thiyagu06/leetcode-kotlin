@@ -24,7 +24,7 @@ class Solution {
 
         root ?: return values
 
-        val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque<Pair<TreeNode, Int>>()
+        val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque()
         queue.add(Pair(root, 0))
 
         while (queue.isNotEmpty()) {

@@ -25,7 +25,7 @@ class Solution {
             return img
         }
 
-        val pixels: Queue<Pixel> = ArrayDeque<Pixel>()
+        val pixels: Queue<Pixel> = ArrayDeque()
         pixels.add(Pixel(sr, sc, img[sr][sc], false))
         floodFillNeighbors(pixels, img[sr][sc], newColor)
         return image.toArrayFormat()

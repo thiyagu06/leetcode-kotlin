@@ -24,7 +24,7 @@ class Solution {
     private fun TreeNode.nodesByDepth(): List<List<Int>> {
         val rows: MutableList<MutableList<Int>> = arrayListOf()
 
-        val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque<Pair<TreeNode, Int>>()
+        val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque()
         queue.add(this to 0)
 
         while (queue.isNotEmpty()) {
@@ -66,7 +66,7 @@ class SolutionThree {
         var maxDepth = 0
         var bottomLeft = root!!.`val`   // Guaranteed to not be null
 
-        val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque<Pair<TreeNode, Int>>()
+        val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque()
         queue.add(root to 0)
 
         while (queue.isNotEmpty()) {

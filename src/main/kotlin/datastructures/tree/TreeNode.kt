@@ -213,7 +213,7 @@ fun TreeNode?.collectUnique(acc: MutableSet<Int> = hashSetOf()): Set<Int> =
 fun TreeNode?.bfs(visit: (TreeNode) -> Unit) {
     this ?: return
 
-    val queue: Queue<TreeNode> = ArrayDeque<TreeNode>()
+    val queue: Queue<TreeNode> = ArrayDeque()
     var node: TreeNode = this
     queue.add(node)
     while (queue.isNotEmpty()) {
@@ -241,7 +241,7 @@ fun TreeNode?.bfs(visit: (TreeNode) -> Unit) {
 fun TreeNode?.depthAwareBFS(visit: (Pair<TreeNode, Int>) -> Unit) {
     this ?: return
 
-    val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque<Pair<TreeNode, Int>>()
+    val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque()
     queue.add(Pair(this, 0))
 
     while (queue.isNotEmpty()) {
@@ -266,7 +266,7 @@ fun TreeNode?.depthAwareBFS(visit: (Pair<TreeNode, Int>) -> Unit) {
 fun TreeNode?.levels(): List<List<Int>> {
     this ?: return emptyList()
 
-    val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque<Pair<TreeNode, Int>>()
+    val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque()
     queue.add(this to 0)
 
     val levels = arrayListOf<MutableList<Int>>()
@@ -366,7 +366,7 @@ fun buildTree(vararg elements: Int?): TreeNode? {
 
     val root = TreeNode(elements.first()!!)
     var parent = root
-    val parentQueue: Queue<TreeNode> = ArrayDeque<TreeNode>()
+    val parentQueue: Queue<TreeNode> = ArrayDeque()
     parentQueue.add(parent)
     var i = 1
     while (i < elements.size) {

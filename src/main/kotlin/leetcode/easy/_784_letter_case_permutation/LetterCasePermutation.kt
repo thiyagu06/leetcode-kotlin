@@ -39,7 +39,7 @@ class SolutionTwo {
      * Space: O(n)
      */
     fun letterCasePermutation(S: String): List<String> {
-        val queue: Queue<String> = LinkedList<String>()
+        val queue: Queue<String> = LinkedList()
         queue.offer(S)
 
         for (i in S.indices) {

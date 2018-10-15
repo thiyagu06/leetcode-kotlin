@@ -30,7 +30,7 @@ class IterativeSolution {
     fun isSymmetric(root: TreeNode?): Boolean {
         root ?: return true
 
-        val queue: Queue<TreeNode> = LinkedList<TreeNode>()
+        val queue: Queue<TreeNode> = LinkedList()
         queue.add(root.left)
         queue.add(root.right)
 
