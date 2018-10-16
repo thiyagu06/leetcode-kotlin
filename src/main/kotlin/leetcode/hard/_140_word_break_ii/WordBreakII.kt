@@ -5,81 +5,39 @@ package leetcode.hard._140_word_break_ii
  */
 class Solution {
     /**
-     * TODO - exceeds time limit for long (repeating only?) input
+     * http://tinyurl.com/ybwqtkw5
      * Time: O(?)
      * Space: O(?)
      */
-    fun wordBreak(s: String, wordDict: List<String>): List<String> {
-        if (wordDict.isEmpty()) return emptyList()
-
-        /* Prefill cache with words from dictionary */
-        val cache = mutableMapOf<String, MutableList<List<String>>>()
-        wordDict.forEach { word ->
-            cache.getOrPut(key = word, defaultValue = { mutableListOf() })
-            cache[word]!!.add(listOf(word))
-        }
-
-        val solutions = wordBreak(
-            matched = "",
-            unmatched = s,
-            wordDict = wordDict.toSet(),
-            cache = cache
-        )[s] ?: emptyList()
-
-        return solutions.map { it.joinToString(" ") }
-    }
+    fun wordBreak(s: String, wordDict: List<String>): List<String> = wordBreak(s, wordDict, hashMapOf()).toList()
 
     private fun wordBreak(
-            matched: String,
-            unmatched: String,
-            wordDict: Set<String>,
-            cache: MutableMap<String, MutableList<List<String>>>,
-            selectedWords: MutableList<String> = arrayListOf()
-    ): Map<String, List<List<String>>> {
+        s: String,
+        wordDict: List<String>,
+        memo: MutableMap<String, Set<String>>
+    ): Set<String> =
+        when {
+            s in memo -> memo[s]!!
+            s.isEmpty() -> emptySet()
+            else -> {
+                val results = hashSetOf<String>()
+                val matchingPrefixes = wordDict.filter { s.startsWith(it) }
 
-        if (unmatched.isRepeatingChar()) {
-            (1 until unmatched.length / 2).forEach { i ->
-                val j = unmatched.length - i
-                val a = unmatched.substring(0 until i)
-                val b = unmatched.substring(j until unmatched.length)
-                if (a.isRepeatingChar() && b.isRepeatingChar() && cache.contains(a) && cache.contains(b)) {
-                    cache.getOrPut(key = a + b, defaultValue = { mutableListOf() })
-                    cache[a + b]!!.add(
-                            combine(cache[a]!!.first(), cache[b]!!.first()) + combine(cache[b]!!.first(), cache[a]!!.first()).distinct()
-                    )
+                for (prefix in matchingPrefixes) {
+                    if (s.length == prefix.length) {    // Last word
+                        results.add(prefix)
+                    } else {
+                        val restOfString = s.drop(prefix.length)
+                        val restOfStringResult = wordBreak(restOfString, wordDict, memo)
+                        val newResults = restOfStringResult.map {
+                            "$prefix $it"
+                        }
+                        results.addAll(newResults)
+                    }
                 }
+
+                memo[s] = results
+                results
             }
         }
-
-        val matchingPrefixes = wordDict.filter { unmatched.startsWith(it) }
-        matchingPrefixes.forEach { prefix ->
-
-            val prefixSolution: List<String> = selectedWords + prefix
-            cache.getOrPut(key = matched + prefix, defaultValue = { mutableListOf() })
-            if (!cache[matched + prefix]!!.contains(prefixSolution)) {
-                cache[matched + prefix]!!.add(prefixSolution)
-            }
-
-            wordBreak(
-                    matched = if (matched.isEmpty()) prefix else matched + prefix,
-                    unmatched = unmatched.drop(prefix.length),
-                    wordDict = wordDict,
-                    cache = cache,
-                    selectedWords = (selectedWords + prefix).toMutableList()
-            )
-
-        }
-        return cache
-    }
-
-    private fun combine(list1: List<String>, list2: List<String>): List<String> {
-        return list1.fold(arrayListOf()) { acc, el1 ->
-            list2.forEach { el2 ->
-                acc.apply { acc.add("$el1 $el2") }
-            }
-            acc
-        }
-    }
-
-    private fun String.isRepeatingChar() = all { it == first() }
 }
