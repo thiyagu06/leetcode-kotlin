@@ -70,6 +70,8 @@ val bst3LevelsFull =
  *   ┌───┴
  *  (1)
  * ```
+ *
+ * Equivalent of `buildTree(7, 4, 9, 3, null, 8, null, 1)`.
  */
 val bstWithNulls =
     TreeNode(7).apply {
