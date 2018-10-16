@@ -7,7 +7,7 @@ import extensions.math.permutations
  */
 class Solution {
     /**
-     * Time: O(?)
+     * Time: O(n!)
      * Space: O(?)
      */
     fun permute(nums: IntArray): List<List<Int>> = nums.permutations()
@@ -15,21 +15,18 @@ class Solution {
 
 class SolutionTwo {
     /**
-     * Time: O(?)
-     * Space: O(?)
+     * Time: O(n!)
+     * Space: O(n)
      */
     fun permute(nums: IntArray): List<List<Int>> = when (nums.size) {
         0 -> listOf(emptyList())
         1 -> listOf(listOf(nums[0]))
-        else -> {
-            val permutations: MutableList<List<Int>> = arrayListOf()
-            (0..nums.lastIndex).forEach { i ->
-                val others = (nums.take(i) + nums.drop(i + 1)).toIntArray() // All elements except nums[i]
-                permutations += permute(others).map {
-                    listOf(nums[i]) + it
-                }
+        2 -> listOf(nums.toList(), listOf(nums[1], nums[0]))
+        else -> nums.fold(listOf()) { acc, num ->
+            val otherElements = nums.filter { it != num }.toIntArray()
+            acc + permute(otherElements).map {
+                it + num
             }
-            permutations
         }
     }
 }

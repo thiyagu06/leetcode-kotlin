@@ -115,37 +115,21 @@ fun <T> List<T>.permutations(distinct: Boolean = false): Set<List<T>> =
 
 
 private fun <T> List<T>.permutations(): Set<List<T>> = when (size) {
-    0 -> setOf()
+    0 -> setOf(emptyList())
     1 -> setOf(listOf(first()))
-    else ->
-        drop(1).permutations()
-            .flatMap { sublist ->
-                (0..sublist.size).map { i ->
-                    sublist.plusAtIndex(index = i, element = first())
-                }
-            }.toSet()
-}
-
-/** http://tinyurl.com/y9kzqfmp */
-private fun <T> List<T>.plusAtIndex(index: Int, element: T): List<T> {
-    require(index in 0..size) { "Invalid index: $index (size: $size)" }
-    return when (index) {
-        0 -> listOf(element) + this
-        size -> this + element
-        else -> dropLast(size - index) + element + drop(index)
+    2 -> setOf(this, listOf(this[1], this[0]))
+    else -> {
+        val permutations: MutableSet<List<T>> = hashSetOf()
+        for (i in indices) {
+            val otherElements = filterIndexed { index, _ -> index != i }
+            val newPermutations = otherElements.permutations().map {
+                it + this[i]
+            }
+            permutations.addAll(newPermutations)
+        }
+        permutations
     }
 }
 
 // Returns List<List<Int>> due to signature of LeetCode Problems 46-47
-fun IntArray.permutations(): List<List<Int>> = when (size) {
-    0 -> listOf()
-    1 -> listOf(listOf(this[0]))
-    else -> {
-        val (head, tail) = headAndTail
-        tail.permutations().flatMap { sublist ->
-            (0..sublist.size).map { i ->
-                sublist.plusAtIndex(index = i, element = head!!)
-            }
-        }.distinct()
-    }
-}
+fun IntArray.permutations(): List<List<Int>> = toList().permutations().toList()
