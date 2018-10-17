@@ -3,7 +3,7 @@ package leetcode.medium._300_longest_increasing_subsequence
 import kotlin.math.max
 
 /**
- * 300 - https://leetcode.com/problems/longest-increasing-subsequence/description/
+ * 300 - https://leetcode.com/problems/longest-increasing-subsequence
  */
 class Solution {
     /**

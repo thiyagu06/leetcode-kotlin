@@ -1,6 +1,5 @@
 package extensions.math
 
-import extensions.arrays.headAndTail
 import java.math.BigInteger
 import kotlin.math.max
 import kotlin.math.min
@@ -76,6 +75,7 @@ fun choose(n: Int, k: Int): BigInteger {
 
 /**
  * Generates all combinations of size [k].
+ * See [leetcode.medium._077_combinations.Solution.combine] for an alternative algorithm.
  */
 fun <T> Set<T>.combinations(k: Int): Set<Set<T>> = when {
     k < 0 -> throw Error("k cannot be smaller then 0, but was $k")
@@ -101,20 +101,8 @@ fun <T> Collection<T>.powerSet(): Set<Set<T>> {
     return powerSet
 }
 
-/**
- * Generates all permutations (including non-distinct, by default)
- */
-fun <T> List<T>.permutations(distinct: Boolean = false): Set<List<T>> =
-    when {
-        distinct -> permutations()
-            .asSequence()
-            .distinct()
-            .toSet()
-        else -> permutations()
-    }
 
-
-private fun <T> List<T>.permutations(): Set<List<T>> = when (size) {
+fun <T> List<T>.permutations(): Set<List<T>> = when (size) {
     0 -> setOf(emptyList())
     1 -> setOf(listOf(first()))
     2 -> setOf(this, listOf(this[1], this[0]))

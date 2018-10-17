@@ -6,7 +6,7 @@ import datastructures.tree.hasRight
 import datastructures.tree.isLeaf
 
 /**
- * 652 - https://leetcode.com/problems/find-duplicate-subtrees/description/
+ * 652 - https://leetcode.com/problems/find-duplicate-subtrees
  */
 class Solution {
     /**

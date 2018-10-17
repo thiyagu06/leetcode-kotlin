@@ -5,7 +5,7 @@ import datastructures.tree.isLeaf
 import datastructures.tree.rootToLeafPaths
 
 /**
- * 129 - https://leetcode.com/problems/sum-root-to-leaf-numbers/description/
+ * 129 - https://leetcode.com/problems/sum-root-to-leaf-numbers
  */
 class Solution {
     /**

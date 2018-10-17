@@ -137,7 +137,7 @@ class MathExtTest {
             times += ms
         }
         val adjustedTimes = times.drop(3)
-        println("adjustedTimes for combinationsSet: $adjustedTimes")
+        println("adjustedTimes for combinations (power set): $adjustedTimes")
         println("average run: ${adjustedTimes.average().roundedToNDecimalPlaces(2)}")
     }
 
@@ -146,7 +146,6 @@ class MathExtTest {
         val times = arrayListOf<Long>()
         repeat(10) {
             val ms = measureTimeMillis {
-
                 assertEquals(
                     setOf(emptyList<Int>()),
                     emptyList<Int>().permutations()
@@ -166,23 +165,11 @@ class MathExtTest {
 
                 assertEquals(
                     setOf(
-                        listOf(1, 1, 3),
-                        listOf(1, 1, 3),
-                        listOf(1, 3, 1),
-                        listOf(1, 3, 1),
-                        listOf(3, 1, 1),
-                        listOf(3, 1, 1)
+                        listOf(1, 1, 2),
+                        listOf(1, 2, 1),
+                        listOf(2, 1, 1)
                     ),
-                    listOf(1, 1, 3).permutations(distinct = false)
-                )
-
-                assertEquals(
-                    setOf(
-                        listOf(1, 1, 3),
-                        listOf(1, 3, 1),
-                        listOf(3, 1, 1)
-                    ),
-                    listOf(1, 1, 3).permutations(distinct = true)
+                    listOf(1, 1, 2).permutations()
                 )
 
                 assertEquals(

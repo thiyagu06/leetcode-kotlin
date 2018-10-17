@@ -3,7 +3,7 @@ package leetcode.medium._525_contiguous_array
 import kotlin.math.max
 
 /**
- * 525 - https://leetcode.com/problems/contiguous-array/description/
+ * 525 - https://leetcode.com/problems/contiguous-array
  */
 class Solution {
     /**

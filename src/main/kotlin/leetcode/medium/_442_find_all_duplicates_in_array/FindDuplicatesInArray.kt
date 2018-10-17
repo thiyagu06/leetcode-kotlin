@@ -50,14 +50,13 @@ class FollowUpSolution {
      * Space: O(1)
      */
     fun findDuplicates(nums: IntArray): List<Int> =
-            nums.fold(mutableListOf()) { acc, n ->
-                val mappedIndex = abs(n) - 1
-                if (nums[mappedIndex] < 0) {
-                    acc.add(mappedIndex + 1)
-                }
-                nums[mappedIndex] = nums[mappedIndex] * -1
-
-                acc
+        nums.fold(mutableListOf()) { acc, n ->
+            val mappedIndex = abs(n) - 1
+            if (nums[mappedIndex] < 0) {
+                acc.add(mappedIndex + 1)
             }
-}
+            nums[mappedIndex] = nums[mappedIndex] * -1
 
+            acc
+        }
+}

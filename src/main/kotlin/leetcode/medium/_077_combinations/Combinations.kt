@@ -32,27 +32,25 @@ class SolutionTwo {
      */
     fun combine(n: Int, k: Int): List<List<Int>> = combine(1..n, n, k)
 
-    private fun combine(range: IntRange, n: Int, k: Int): List<List<Int>> {
-        return when {
-            k == 0 || k > n -> listOf(emptyList())
+    private fun combine(range: IntRange, n: Int, k: Int): List<List<Int>> = when {
+        k == 0 || k > n -> listOf(emptyList())
 
-            // n choose k
-            k == n -> listOf((1..n).toList())
+        // k == n: n choose n
+        k == n -> listOf((1..n).toList())
 
-            // k = 1: Return single-element lists
-            k == 1 -> range.fold(arrayListOf()) { acc, num ->
-                acc.apply { acc.add(listOf(num)) }
+        // k = 1: Return single-element lists
+        k == 1 -> range.fold(arrayListOf()) { acc, num ->
+            acc.apply { acc.add(listOf(num)) }
+        }
+
+        else -> {
+            val combinations = mutableListOf<List<Int>>()
+            for (i in range) {
+                val tailCombinations = combine(i + 1..n, n, k - 1)
+                val newCombinations = tailCombinations.map { listOf(i) + it }
+                combinations.addAll(newCombinations)
             }
-
-            else -> {
-                val combinations = mutableListOf<List<Int>>()
-                for (i in range) {
-                    val tailCombinations = combine(i + 1..n, n, k - 1)
-                    val newCombinations = tailCombinations.map { listOf(i) + it }
-                    combinations.addAll(newCombinations)
-                }
-                combinations
-            }
+            combinations
         }
     }
 }

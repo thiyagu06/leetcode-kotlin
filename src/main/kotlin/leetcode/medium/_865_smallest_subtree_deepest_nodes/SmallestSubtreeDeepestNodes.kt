@@ -1,15 +1,10 @@
 package leetcode.medium._865_smallest_subtree_deepest_nodes
 
 import datastructures.tree.TreeNode
-import datastructures.tree.hasLeft
-import datastructures.tree.hasSingleChild
-import datastructures.tree.hasTwoChildren
-import datastructures.tree.isLeaf
-import java.util.*
 import kotlin.math.max
 
 /**
- * 865 - https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/description/
+ * 865 - https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/
  */
 class Solution {
     /**

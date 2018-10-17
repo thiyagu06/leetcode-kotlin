@@ -6,6 +6,9 @@ import java.text.DecimalFormat
  * Extensions for Double.
  */
 
+/**
+ * Rounds the Double to [n] decimal places.
+ */
 fun Double.roundedToNDecimalPlaces(n: Int): Double {
     require(n >= 0) { "Invalid # of decimal places: $n" }
     val formatter = DecimalFormat("#.${"#".repeat(n)}")
