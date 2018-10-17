@@ -19,5 +19,7 @@ class MaxLengthRepeatedSubarrayTest {
         assertEquals(3, solution.findLength(intArrayOf(7, 7, 7, 7, 7), intArrayOf(7, 7, 7, 4, 7)))
         assertEquals(0, solution.findLength(intArrayOf(1, 2, 3), intArrayOf(4, 5, 6)))
         assertEquals(4, solution.findLength(intArrayOf(0, 0, 0, 0, 1), intArrayOf(1, 0, 0, 0, 0)))
+        assertEquals(2, solution.findLength(intArrayOf(1, 2, 4, 3), intArrayOf(1, 2, 3, 4)))
     }
+
 }
