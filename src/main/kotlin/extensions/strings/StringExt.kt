@@ -51,7 +51,7 @@ fun String.swappingCharsAt(i: Int, j: Int): String =
  * If `caseSensitive`, all keys will be lowercase.
  */
 fun String.characterFrequencies(caseSensitive: Boolean = true): Map<Char, Int> =
-    groupingBy { if (caseSensitive) it.toLowerCase() else it }.eachCount()
+    groupingBy { if (caseSensitive) it else it.toLowerCase() }.eachCount()
 
 /**
  * Return a map where the entries are (Char -> List of indices containing Char)

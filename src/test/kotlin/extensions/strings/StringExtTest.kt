@@ -73,7 +73,10 @@ class StringExtTest {
             "kotlin".characterFrequencies()
         )
         assertEquals(mapOf('f' to 1, 'o' to 2), "foo".characterFrequencies())
-        assertEquals(mapOf('f' to 1, 'o' to 2), "FOo".characterFrequencies())
+        assertEquals(mapOf('f' to 1, 'o' to 2), "FOo".characterFrequencies(caseSensitive = false))
+        assertEquals(mapOf('F' to 1, 'o' to 1, 'O' to 1), "FOo".characterFrequencies())
+        assertEquals(mapOf('F' to 1, 'o' to 1, 'O' to 1), "FOo".characterFrequencies(caseSensitive = true))
+
     }
 
     @Test
