@@ -1,5 +1,6 @@
 package extensions.arrays
 
+import extensions.lists.valueToIndexMap
 import org.junit.Assert.*
 import org.junit.Test
 
@@ -146,6 +147,29 @@ class ArraysExtTest {
     }
 
     @Test
+    fun valueToIndexMap() {
+        // No duplicates
+        assertEquals(
+            mapOf(4 to 0, 3 to 1, 1 to 2, 2 to 3),
+            arrayOf(4, 3, 1, 2).valueToIndexMap()
+        )
+        assertEquals(
+            mapOf(4 to 0, 3 to 1, 1 to 2, 2 to 3),
+            intArrayOf(4, 3, 1, 2).valueToIndexMap()
+        )
+
+        // With duplicates
+        assertEquals(
+            mapOf(4 to 4, 3 to 1, 1 to 2, 2 to 3),
+            arrayOf(4, 3, 1, 2, 4).valueToIndexMap()
+        )
+        assertEquals(
+            mapOf(4 to 4, 3 to 1, 1 to 2, 2 to 3),
+            intArrayOf(4, 3, 1, 2, 4).valueToIndexMap()
+        )
+    }
+
+    @Test
     fun swap() {
         val strArr = arrayOf("foo", "bar", "foo", "baz")
         strArr.swap(0, 2)
@@ -177,16 +201,6 @@ class ArraysExtTest {
         val strArr = arrayOf("foo", "bar", "foo", "baz")
         strArr.reverseElementsInRange(2..4)
     }
-
-//    @Test
-//    fun headAndTailArrays() {
-//        assertArrayEquals(intArrayOf(1), intArrayOf(1, 2, 3, 4).headAndTailArrays().first)
-//        assertArrayEquals(intArrayOf(2, 3, 4), intArrayOf(1, 2, 3, 4).headAndTailArrays().second)
-//        assertArrayEquals(intArrayOf(1), intArrayOf(1).headAndTailArrays().first)
-//        assertArrayEquals(intArrayOf(), intArrayOf(1).headAndTailArrays().second)
-//        assertArrayEquals(intArrayOf(), intArrayOf().headAndTailArrays().first)
-//        assertArrayEquals(intArrayOf(), intArrayOf().headAndTailArrays().second)
-//    }
 
     @Test
     fun isSorted() {

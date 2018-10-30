@@ -16,4 +16,3 @@ fun <T> Iterable<T>.frequencyMap(): Map<T, Int> = groupingBy { it }.eachCount()
  */
 fun <T> Iterable<T>.valueToIndicesMap(): Map<T, List<Int>> = withIndex()
     .groupBy(keySelector = { it.value }, valueTransform = { it.index })
-

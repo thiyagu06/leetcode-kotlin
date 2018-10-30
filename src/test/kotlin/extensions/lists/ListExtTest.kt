@@ -106,4 +106,20 @@ class ListExtTest {
         assertEquals((0 until 1), nestedList1x3.rowRange)
         assertEquals((0 until 3), nestedList1x3.columnRange)
     }
+
+    @Test
+    fun valueToIndexMap() {
+        // No duplicates
+        assertEquals(
+            mapOf(4 to 0, 3 to 1, 1 to 2, 2 to 3),
+            listOf(4, 3, 1, 2).valueToIndexMap()
+        )
+
+        // With duplicates
+        assertEquals(
+            mapOf(4 to 4, 3 to 1, 1 to 2, 2 to 3),
+            listOf(4, 3, 1, 2, 4).valueToIndexMap()
+        )
+    }
+
 }

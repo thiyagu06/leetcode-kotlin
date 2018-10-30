@@ -1,5 +1,7 @@
 package extensions.lists
 
+import java.util.Collections
+
 /**
  * MutableList extensions
  */
@@ -31,8 +33,4 @@ fun <E> MutableList<E>.appendAll(elements: Collection<E>): Boolean = addAll(elem
 /**
  * **Mutating** - Swap the elements at indices [i] and [j].
  */
-fun <T> MutableList<T>.swap(i: Int, j: Int) {
-    val temp = this[i]
-    this[i] = this[j]
-    this[j] = temp
-}
+fun <T> MutableList<T>.swap(i: Int, j: Int) = Collections.swap(this, i, j)

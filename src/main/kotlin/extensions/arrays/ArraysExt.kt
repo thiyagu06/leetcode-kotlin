@@ -1,5 +1,6 @@
 package extensions.arrays
 
+import extensions.iterable.valueToIndicesMap
 import extensions.ranges.mid
 
 /**
@@ -103,6 +104,33 @@ fun <T> Array<T>.zipWithNext(): List<Pair<T, T>> = zip(drop(1))
  * ```
  */
 fun IntArray.zipWithNext(): List<Pair<Int, Int>> = zip(drop(1))
+
+/**
+ * Return a map where for each entry the key is the `element: T` and
+ * its value is the index at which it was found.
+ *
+ * **Warning**: This is intended for arrays that do not contain duplicates.
+ * If the array contains duplicates, use [valueToIndicesMap] instead.
+ * If there are duplicates, the value for the element will be the last
+ * index at which the key appears.
+ */
+fun <T> Array<T>.valueToIndexMap(): Map<T, Int> = withIndex()
+    .groupingBy { it.value }
+    .fold(0) { _, el -> el.index }
+
+/**
+ * Return a map where for each entry the key is the `element: T` and
+ * its value is the index at which it was found.
+ *
+ * **Warning**: This is intended for arrays that do not contain duplicates.
+ * If the array contains duplicates, use [valueToIndicesMap] instead.
+ * If there are duplicates, the value for the element will be the last
+ * index at which the key appears.
+ */
+fun IntArray.valueToIndexMap(): Map<Int, Int> = withIndex()
+    .groupingBy { it.value }
+    .fold(0) { _, el -> el.index }
+
 
 /**
  * **Mutating** - Swap the elements at indices [i] and [j].
