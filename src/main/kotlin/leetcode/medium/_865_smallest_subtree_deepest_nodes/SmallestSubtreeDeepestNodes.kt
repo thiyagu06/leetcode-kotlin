@@ -22,7 +22,7 @@ class Solution {
         val (deepestLeftNode, depthL) = findDeepest(root.left)
         val (deepestRightNode, depthR) = findDeepest(root.right)
 
-        var deepestNode: TreeNode? = when {
+        val deepestNode: TreeNode? = when {
                 depthL == depthR -> root
                 depthL > depthR -> deepestLeftNode
                 else -> deepestRightNode

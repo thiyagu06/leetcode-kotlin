@@ -1,6 +1,5 @@
 package extensions.arrays
 
-import extensions.lists.valueToIndexMap
 import org.junit.Assert.*
 import org.junit.Test
 

@@ -70,7 +70,7 @@ class SolutionThree {
         var maxLength = 0
         var balance = 0
         // Stores the longest subarray length for a given balance
-        var map: MutableMap<Int, Int> = hashMapOf()
+        val map: MutableMap<Int, Int> = hashMapOf()
         map[0] = -1
 
         nums.indices.forEach { i ->
