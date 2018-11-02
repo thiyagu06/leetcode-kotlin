@@ -11,6 +11,7 @@ import org.junit.Test
 class ValidateBSTTest {
 
     private val solution = Solution()
+    private val solution2 = SolutionTwo()
 
     @Test
     fun isValidBST() {
@@ -26,6 +27,22 @@ class ValidateBSTTest {
         assertFalse(solution.isValidBST(buildTree(Int.MIN_VALUE, Int.MIN_VALUE)))
         assertFalse(solution.isValidBST(buildTree(Int.MAX_VALUE, Int.MAX_VALUE)))
         assertFalse(solution.isValidBST(buildTree(Int.MAX_VALUE, null, Int.MAX_VALUE)))
+    }
+
+    @Test
+    fun isValidBST2() {
+        assertTrue(solution2.isValidBST(null))
+        assertTrue(solution2.isValidBST(buildTree(2, 1, 3)))
+        assertFalse(solution2.isValidBST(tree123))
+        assertTrue(solution2.isValidBST(bst3LevelsFull))
+        assertTrue(solution2.isValidBST(bstWithNulls))
+    }
+
+    @Test
+    fun checkIntOverflow2() {
+        assertFalse(solution2.isValidBST(buildTree(Int.MIN_VALUE, Int.MIN_VALUE)))
+        assertFalse(solution2.isValidBST(buildTree(Int.MAX_VALUE, Int.MAX_VALUE)))
+        assertFalse(solution2.isValidBST(buildTree(Int.MAX_VALUE, null, Int.MAX_VALUE)))
     }
 
 }

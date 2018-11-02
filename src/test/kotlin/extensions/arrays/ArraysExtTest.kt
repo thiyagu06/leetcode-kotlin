@@ -126,26 +126,6 @@ class ArraysExtTest {
     }
 
     @Test
-    fun zipWithNext() {
-        assertEquals(
-            listOf("foo", "bar", "baz", "omega", "theta").zipWithNext(),
-            arrayOf("foo", "bar", "baz", "omega", "theta").zipWithNext()
-        )
-        assertEquals(
-            listOf(1, 2, 3, 4, 5, 6).zipWithNext(),
-            intArrayOf(1, 2, 3, 4, 5, 6).zipWithNext()
-        )
-        assertEquals(
-            listOf(1).zipWithNext(),
-            intArrayOf(1).zipWithNext()
-        )
-        assertEquals(
-            listOf<Int>().zipWithNext(),
-            intArrayOf().zipWithNext()
-        )
-    }
-
-    @Test
     fun valueToIndexMap() {
         // No duplicates
         assertEquals(
@@ -165,6 +145,26 @@ class ArraysExtTest {
         assertEquals(
             mapOf(4 to 4, 3 to 1, 1 to 2, 2 to 3),
             intArrayOf(4, 3, 1, 2, 4).valueToIndexMap()
+        )
+    }
+
+    @Test
+    fun zipWithNext() {
+        assertEquals(
+            listOf("foo", "bar", "baz", "omega", "theta").zipWithNext(),
+            arrayOf("foo", "bar", "baz", "omega", "theta").zipWithNext()
+        )
+        assertEquals(
+            listOf(1, 2, 3, 4, 5, 6).zipWithNext(),
+            intArrayOf(1, 2, 3, 4, 5, 6).zipWithNext()
+        )
+        assertEquals(
+            listOf(1).zipWithNext(),
+            intArrayOf(1).zipWithNext()
+        )
+        assertEquals(
+            listOf<Int>().zipWithNext(),
+            intArrayOf().zipWithNext()
         )
     }
 

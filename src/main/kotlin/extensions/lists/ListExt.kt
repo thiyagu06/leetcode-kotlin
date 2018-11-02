@@ -44,8 +44,7 @@ val <T> List<T>.halves: Pair<List<T>, List<T>>
  * index at which the key appears.
  */
 fun <T> List<T>.valueToIndexMap(): Map<T, Int> = withIndex()
-    .groupingBy { it.value }
-    .fold(0) { _, el -> el.index }
+    .associateBy(keySelector = { it.value }, valueTransform = { it.index })
 
 
 fun <T : Comparable<T>> List<T>.isSorted(): Boolean = zipWithNext().all { (a, b) -> b >= a }

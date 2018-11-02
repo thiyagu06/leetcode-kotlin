@@ -30,3 +30,16 @@ class Solution {
             }
         }
 }
+
+class SolutionTwo {
+    fun isValidBST(
+        root: TreeNode?,
+        validRange: LongRange = Long.MIN_VALUE..Long.MAX_VALUE
+    ): Boolean {
+        root ?: return true
+
+        return root.`val` in validRange &&
+                isValidBST(root.left, validRange.start until root.`val`) &&
+                isValidBST(root.right, (root.`val` + 1L)..validRange.endInclusive)
+    }
+}

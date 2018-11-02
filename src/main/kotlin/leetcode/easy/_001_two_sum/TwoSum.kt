@@ -1,44 +1,37 @@
 package leetcode.easy._001_two_sum
 
-import extensions.arrays.valueToIndicesMap
-
 /**
  * 1 - https://leetcode.com/problems/two-sum/
  */
 class Solution {
     /**
+     * Using HashMap
      * Time: O(n)
      * Space: O(n)
-     *
-     * Uses a map of Value => List of Indices
      */
     fun twoSum(nums: IntArray, target: Int): IntArray {
-        val numToIndicesMap = nums.valueToIndicesMap()
+        val valueToIndicesMap = nums.withIndex()
+            .groupBy(keySelector = { it.value }, valueTransform = { it.index })
 
-        nums.forEachIndexed { index, n ->
-            val complement = target - n
-            val complementIndices = numToIndicesMap[complement]
-            complementIndices ?: return@forEachIndexed
-
-            if (complement != n && complementIndices.isNotEmpty()) {
-                return intArrayOf(index, complementIndices.first())
-            } else if (complement == n && complementIndices.size >= 2) {
-                // must be distinct number
-                return intArrayOf(index, complementIndices[1])
+        nums.forEachIndexed { i, value ->
+            val complement = target - value
+            if (complement in valueToIndicesMap) {
+                val complementIndices = valueToIndicesMap[complement]!!
+                val uniqueComplementIndex = complementIndices.firstOrNull { it != i }
+                if (uniqueComplementIndex != null) {
+                    return intArrayOf(i, uniqueComplementIndex)
+                }
             }
         }
 
-        throw IllegalArgumentException("no 2 values sum to the target ($target)")
+        throw IllegalArgumentException("No pair of numbers in input sum to target")
     }
 }
 
-
-class AltSolution {
+class SolutionTwo {
     /**
      * Time: O(n)
      * Space: O(n)
-     *
-     * Uses a map of Value => last index of Value
      */
     fun twoSum(nums: IntArray, target: Int): IntArray {
         val map = nums.withIndex().associateBy({ it.value }, { it.index })

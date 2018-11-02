@@ -76,6 +76,29 @@ fun IntArray.valueToIndicesMap(): Map<Int, List<Int>> = withIndex()
 fun <T> Array<T>.valueToIndicesMap(): Map<T, List<Int>> = withIndex()
     .groupBy(keySelector = { it.value }, valueTransform = { it.index })
 
+/**
+ * Return a map where for each entry the key is the `element: T` and
+ * its value is the index at which it was found.
+ *
+ * **Warning**: This is intended for arrays that do not contain duplicates.
+ * If the array contains duplicates, use [valueToIndicesMap] instead.
+ * If there are duplicates, the value for the element will be the last
+ * index at which the key appears.
+ */
+fun <T> Array<T>.valueToIndexMap(): Map<T, Int> = withIndex()
+    .associateBy(keySelector = { it.value }, valueTransform = { it.index })
+
+/**
+ * Return a map where for each entry the key is the `element: T` and
+ * its value is the index at which it was found.
+ *
+ * **Warning**: This is intended for arrays that do not contain duplicates.
+ * If the array contains duplicates, use [valueToIndicesMap] instead.
+ * If there are duplicates, the value for the element will be the last
+ * index at which the key appears.
+ */
+fun IntArray.valueToIndexMap(): Map<Int, Int> = withIndex()
+    .associateBy(keySelector = { it.value }, valueTransform = { it.index })
 
 /**
  * Returns a list of pairs of each two adjacent elements in this collection.
@@ -104,33 +127,6 @@ fun <T> Array<T>.zipWithNext(): List<Pair<T, T>> = zip(drop(1))
  * ```
  */
 fun IntArray.zipWithNext(): List<Pair<Int, Int>> = zip(drop(1))
-
-/**
- * Return a map where for each entry the key is the `element: T` and
- * its value is the index at which it was found.
- *
- * **Warning**: This is intended for arrays that do not contain duplicates.
- * If the array contains duplicates, use [valueToIndicesMap] instead.
- * If there are duplicates, the value for the element will be the last
- * index at which the key appears.
- */
-fun <T> Array<T>.valueToIndexMap(): Map<T, Int> = withIndex()
-    .groupingBy { it.value }
-    .fold(0) { _, el -> el.index }
-
-/**
- * Return a map where for each entry the key is the `element: T` and
- * its value is the index at which it was found.
- *
- * **Warning**: This is intended for arrays that do not contain duplicates.
- * If the array contains duplicates, use [valueToIndicesMap] instead.
- * If there are duplicates, the value for the element will be the last
- * index at which the key appears.
- */
-fun IntArray.valueToIndexMap(): Map<Int, Int> = withIndex()
-    .groupingBy { it.value }
-    .fold(0) { _, el -> el.index }
-
 
 /**
  * **Mutating** - Swap the elements at indices [i] and [j].
@@ -199,6 +195,7 @@ fun CharArray.reverseElementsInRange(indexRange: IntRange) {
  * Check if all elements in the [Array] are sorted (in increasing order).
  */
 fun <T : Comparable<T>> Array<T>.isSorted(): Boolean = zipWithNext().all { (a, b) -> b >= a }
+
 fun IntArray.isSorted(): Boolean = zipWithNext().all { (a, b) -> b >= a }
 fun CharArray.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }
 fun LongArray.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= this[i + 1] }
@@ -210,6 +207,7 @@ fun FloatArray.isSorted(): Boolean = (0 until lastIndex).all { i -> this[i] <= t
  * Check if all elements in the [Array] are sorted in _descending_ order.
  */
 fun <T : Comparable<T>> Array<T>.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }
+
 fun IntArray.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }
 fun CharArray.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }
 fun ShortArray.isSortedDescending(): Boolean = (0 until lastIndex).all { i -> this[i] >= this[i + 1] }
