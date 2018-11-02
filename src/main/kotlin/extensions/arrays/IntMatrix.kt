@@ -20,6 +20,9 @@ val IntMatrix.lastRowIndex: Int get() = lastIndex
 /** Returns the index of the last column in the matrix or -1 if the matrix is empty. */
 val IntMatrix.lastColumnIndex: Int get() = if (isEmpty()) -1 else this[0].lastIndex
 
+/** Return `true` if i & j represent valid row & column indices in the matrix */
+fun IntMatrix.isValidPosition(i: Int, j: Int): Boolean = isNotEmpty() && i in indices && j in this[0].indices
+
 /**
  * Returns the transpose of the Matrix.
  */
@@ -98,12 +101,6 @@ fun List<List<Int>>.toMatrix(): IntMatrix = Array(size = size, init = { i -> thi
 
 /**
  * Returns a string representation of the contents of the IntMatrix as if it were a List<List<Int>>.
+ * Since Kotlin 1.3, can use contentDeepToString()
  */
-fun IntMatrix.contentToString(): String = with(StringBuilder()) {
-    rowIndices.forEach { r ->
-        append(this@contentToString[r].contentToString())
-        if (r < this@contentToString.lastIndex)
-            append("\n")
-    }
-    toString()
-}
+fun IntMatrix.contentToString(): String = contentDeepToString()

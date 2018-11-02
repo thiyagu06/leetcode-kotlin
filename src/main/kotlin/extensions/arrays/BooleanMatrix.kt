@@ -20,6 +20,9 @@ val BooleanMatrix.lastRowIndex: Int get() = lastIndex
 /** Returns the index of the last column in the matrix or -1 if the matrix is empty. */
 val BooleanMatrix.lastColumnIndex: Int get() = if (isEmpty()) -1 else this[0].lastIndex
 
+/** Return `true` if i & j represent valid row & column indices in the matrix */
+fun BooleanMatrix.isValidPosition(i: Int, j: Int): Boolean = isNotEmpty() && i in indices && j in this[0].indices
+
 /**
  * Creates an [m] x [n] [BooleanMatrix] where all values are `false`.
  * @param m The number of rows
@@ -65,14 +68,3 @@ fun BooleanMatrix.toList(): List<List<Boolean>> = fold(mutableListOf()) { acc, i
  */
 fun List<List<Boolean>>.toMatrix(): BooleanMatrix = Array(size = size, init = { i -> this[i].toBooleanArray() })
 
-/**
- * Returns a string representation of the contents of the BooleanMatrix as if it were a List<List<Int>>.
- */
-fun BooleanMatrix.contentToString(): String = with(StringBuilder()) {
-    rowIndices.forEach { r ->
-        append(this@contentToString[r].contentToString())
-        if (r < this@contentToString.lastIndex)
-            append("\n")
-    }
-    toString()
-}

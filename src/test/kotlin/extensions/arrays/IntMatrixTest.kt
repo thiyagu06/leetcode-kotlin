@@ -3,6 +3,8 @@ package extensions.arrays
 
 import org.junit.Assert.assertArrayEquals
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class IntMatrixTest {
@@ -42,6 +44,26 @@ class IntMatrixTest {
         assertEquals((0 until 3), matrix1x3.columnIndices)
         assertEquals(IntRange.EMPTY, emptyArray<IntArray>().rowIndices)
         assertEquals(IntRange.EMPTY, emptyArray<IntArray>().columnIndices)
+    }
+
+    @Test
+    fun isValidPosition() {
+        assertTrue(matrix3x4.isValidPosition(0, 0))
+        assertTrue(matrix3x4.isValidPosition(0, 1))
+        assertTrue(matrix3x4.isValidPosition(0, 2))
+        assertTrue(matrix3x4.isValidPosition(0, 3))
+        assertFalse(matrix3x4.isValidPosition(0, 4))
+        assertTrue(matrix3x4.isValidPosition(1, 0))
+        assertTrue(matrix3x4.isValidPosition(1, 1))
+        assertTrue(matrix3x4.isValidPosition(1, 2))
+        assertTrue(matrix3x4.isValidPosition(1, 3))
+        assertFalse(matrix3x4.isValidPosition(1, 4))
+        assertTrue(matrix3x4.isValidPosition(2, 0))
+        assertTrue(matrix3x4.isValidPosition(2, 1))
+        assertTrue(matrix3x4.isValidPosition(2, 2))
+        assertTrue(matrix3x4.isValidPosition(2, 3))
+        assertFalse(matrix3x4.isValidPosition(2, 4))
+        assertFalse(matrix3x4.isValidPosition(3, 0))
     }
 
     @Test
@@ -119,10 +141,5 @@ class IntMatrixTest {
             arrayOf(intArrayOf(1, 2, 3), intArrayOf(4, 5, 6)),
             arrayOf(intArrayOf(1, 2, 3), intArrayOf(4, 5, 6)).transpose().transpose()
         )
-    }
-
-    @Test
-    fun contentToString() {
-        assertEquals("[0, 1, 2, 3]\n[4, 5, 6, 7]\n[8, 9, 10, 11]", matrix3x4.contentToString())
     }
 }

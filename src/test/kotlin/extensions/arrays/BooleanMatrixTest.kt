@@ -1,8 +1,8 @@
 package extensions.arrays
 
 
-import org.junit.Assert.assertArrayEquals
-import org.junit.Assert.assertEquals
+import org.junit.Assert
+import org.junit.Assert.*
 import org.junit.Test
 
 class BooleanMatrixTest {
@@ -44,6 +44,27 @@ class BooleanMatrixTest {
         assertEquals(IntRange.EMPTY, emptyArray<IntArray>().rowIndices)
         assertEquals(IntRange.EMPTY, emptyArray<IntArray>().columnIndices)
     }
+
+    @Test
+    fun isValidPosition() {
+        assertTrue(matrix3x4.isValidPosition(0, 0))
+        assertTrue(matrix3x4.isValidPosition(0, 1))
+        assertTrue(matrix3x4.isValidPosition(0, 2))
+        assertTrue(matrix3x4.isValidPosition(0, 3))
+        assertFalse(matrix3x4.isValidPosition(0, 4))
+        assertTrue(matrix3x4.isValidPosition(1, 0))
+        assertTrue(matrix3x4.isValidPosition(1, 1))
+        assertTrue(matrix3x4.isValidPosition(1, 2))
+        assertTrue(matrix3x4.isValidPosition(1, 3))
+        assertFalse(matrix3x4.isValidPosition(1, 4))
+        assertTrue(matrix3x4.isValidPosition(2, 0))
+        assertTrue(matrix3x4.isValidPosition(2, 1))
+        assertTrue(matrix3x4.isValidPosition(2, 2))
+        assertTrue(matrix3x4.isValidPosition(2, 3))
+        assertFalse(matrix3x4.isValidPosition(2, 4))
+        assertFalse(matrix3x4.isValidPosition(3, 0))
+    }
+
 
     @Test
     fun booleanMatrixWithSize() {
@@ -105,14 +126,6 @@ class BooleanMatrixTest {
     fun toList() {
         assertEquals(list3x4, matrix3x4.toList())
         assertEquals(list1x3, matrix1x3.toList())
-    }
-
-    @Test
-    fun contentToString() {
-        assertEquals(
-            "[false, true, false, true]\n[false, true, false, true]\n[false, true, false, true]",
-            matrix3x4.contentToString()
-        )
     }
 
     @Test
