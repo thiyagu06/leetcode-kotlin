@@ -62,7 +62,7 @@ class OptimalSolution {
         var minus1 = 2              // climbStairs(2)
         var waysToClimbN = 1 + 2    // climbStairs(3)
 
-        (3..n).forEach { _ ->
+        (3..n).forEach {
             waysToClimbN = minus1 + minus2
             minus2 = minus1
             minus1 = waysToClimbN

@@ -1,8 +1,10 @@
 package extensions.arrays
 
 
-import org.junit.Assert
-import org.junit.Assert.*
+import org.junit.Assert.assertArrayEquals
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class BooleanMatrixTest {
@@ -13,7 +15,7 @@ class BooleanMatrixTest {
      *   [false, true, false, true]
      * ]
      */
-    private val matrix3x4: BooleanMatrix = Array(3) { _ ->
+    private val matrix3x4: BooleanMatrix = Array(3) {
         BooleanArray(4) { j -> j % 2 != 0 }
     }
 

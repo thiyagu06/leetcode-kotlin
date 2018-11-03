@@ -13,7 +13,7 @@ class Solution {
     fun isValid(s: String): Boolean {
         if (s.isEmpty()) return true
 
-        val stack = Stack<Char>()
+        val stack: Deque<Char> = ArrayDeque()
         s.forEach { c ->
             when {
                 c.isOpeningBrace() -> stack.push(c)

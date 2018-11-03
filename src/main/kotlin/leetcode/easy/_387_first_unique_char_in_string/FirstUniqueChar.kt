@@ -12,16 +12,10 @@ class Solution {
      * Space: O(n)
      */
     fun firstUniqChar(s: String): Int {
-        val charFrequencies = s.fold(mutableMapOf<Char, Int>()) { acc, c ->
-            acc[c] = (acc[c] ?: 0) + 1
-            acc
-        }
-        // or val charFrequencies = s.characterFrequencies()
+        val frequencies = s.groupingBy { it }.eachCount()
 
-        s.forEachIndexed { i, c ->
-            if (charFrequencies[c] == 1) {
-                return i
-            }
+        s.forEachIndexed { i, ch ->
+            if (frequencies[ch]!! == 1) return i
         }
 
         return NOT_FOUND
@@ -37,6 +31,6 @@ class SolutionTwo {
         val frequencies = s.characterFrequencies()
         return s.withIndex().firstOrNull { (_, c) ->
             frequencies[c] == 1
-        }?.index ?: -1
+        }?.index ?: NOT_FOUND
     }
 }

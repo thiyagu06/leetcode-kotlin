@@ -1,7 +1,6 @@
 package leetcode.medium._200_number_of_islands
 
 import org.junit.Assert.assertEquals
-import org.junit.Ignore
 import org.junit.Test
 
 class NumberOfIslandsTest {
