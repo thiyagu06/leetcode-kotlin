@@ -8,98 +8,214 @@ import java.util.ArrayDeque
  */
 class Solution {
 
-    private lateinit var visited: Array<BooleanArray>
     private lateinit var grid: Array<CharArray>
+    private lateinit var visited: Array<BooleanArray>
 
+    /**
+     * DFS solution.
+     */
     fun numIslands(grid: Array<CharArray>): Int {
         this.grid = grid
         this.visited = Array(grid.size) { i -> BooleanArray(grid[i].size) { false } }
 
-        var count = 0
-        val queue: Deque<Pair<Int, Int>> = ArrayDeque()
+        var islands = 0
 
-        for (r in grid.indices) {
-            for (c in grid[r].indices) {
-                // If already visited or is water, continue iterating through matrix
-                if (grid[r][c] == '1' && !visited[r][c]) {
-                    count++
-                    queue.offer(r to c)
-
-                    while (queue.isNotEmpty()) {
-                        val (i, j) = queue.poll()
-                        visited[i][j] = true
-                        getUnvisitedIslandNeighbors(i, j).forEach {
-                            queue.offer(it)
-                        }
-                    }
-                    // when queue is empty, we're done with the current island.
+        for (i in grid.indices) {
+            for (j in grid[i].indices) {
+                if (grid[i][j] == '1' && !visited[i][j]) {
+                    islands++
+                    dfs(i, j)
                 }
             }
         }
 
-
-        return count
+        return islands
     }
 
-    /** All valid unvisited (non-diagonally) adjacent neighbors */
-    private fun getUnvisitedIslandNeighbors(i: Int, j: Int): List<Pair<Int, Int>> = setOf(
-        (i - 1 to j),   // Up
-        (i to j + 1),   // Right
-        (i + 1 to j),   // Down
-        (i to j - 1)    // Left
-    ).filter { (row, col) ->
-        (row in grid.indices && col in grid[0].indices) && (grid[row][col] == '1')
+    private fun dfs(i: Int, j: Int) {
+        visited[i][j] = true
+        // Continue search for Up, Right, Down, & Left neighbors that are land & unvisited
+        setOf(
+            i - 1 to j,
+            i to j + 1,
+            i + 1 to j,
+            i to j - 1
+        ).filter { (r, c) ->
+            isValidCell(r, c) && grid[r][c] == '1' && !visited[r][c]
+        }.forEach { (r, c) ->
+            dfs(r, c)
+        }
     }
+
+    private fun isValidCell(i: Int, j: Int): Boolean = i in grid.indices && j in grid[0].indices
 }
 
-
-/**
- * BFS - same as above, but instead of visited matrix, mark visited squares as '0' in grid.
- * Time Limit Exceeded
- * TODO: try DFS
- */
 class SolutionTwo {
 
     private lateinit var grid: Array<CharArray>
 
+    /**
+     * DFS. Same as [Solution], except instead of keeping a visited matrix as used in this
+     * solution, we change each visited land cell from '1' to '0' in the grid.
+     */
     fun numIslands(grid: Array<CharArray>): Int {
         this.grid = grid
 
-        var count = 0
-        val queue: Deque<Pair<Int, Int>> = ArrayDeque()
+        var islands = 0
 
-        for (r in grid.indices) {
-            for (c in grid[r].indices) {
-                // If already visited or is water, continue iterating through matrix
-                if (grid[r][c] == '1') {
-                    count++
-                    grid[r][c] = '0'
-                    queue.offer(r to c)
-
-                    while (queue.isNotEmpty()) {
-                        val (i, j) = queue.poll()
-                        grid[i][j] = '0'    // mark visited
-                        getUnvisitedIslandNeighbors(i, j).forEach {
-                            grid[i][j] = '0'
-                            queue.offer(it)
-                        }
-                    }
-                    // when queue is empty, we're done with the current island.
+        for (i in grid.indices) {
+            for (j in grid[i].indices) {
+                if (grid[i][j] == '1') {
+                    islands++
+                    dfs(i, j)
                 }
             }
         }
 
-
-        return count
+        return islands
     }
 
-    /** All valid unvisited (non-diagonally) adjacent neighbors */
-    private fun getUnvisitedIslandNeighbors(i: Int, j: Int): List<Pair<Int, Int>> = setOf(
-        (i - 1 to j),   // Up
-        (i to j + 1),   // Right
-        (i + 1 to j),   // Down
-        (i to j - 1)    // Left
-    ).filter { (r, c) ->
-        (r in grid.indices && c in grid[0].indices) && (grid[r][c] == '1')
+    private fun dfs(i: Int, j: Int) {
+        // Changing it to '0' is equivalent of marking it visited, since
+        // we just want to prevent DFS from being called again on the cell.
+        grid[i][j] = '0'
+        // Continue search for Up, Right, Down, & Left neighbors that are land & unvisited
+        setOf(
+            i - 1 to j,
+            i to j + 1,
+            i + 1 to j,
+            i to j - 1
+        ).filter { (r, c) ->
+            isValidCell(r, c) && grid[r][c] == '1'
+        }.forEach { (r, c) ->
+            dfs(r, c)
+        }
     }
+
+    private fun isValidCell(i: Int, j: Int): Boolean = i in grid.indices && j in grid[0].indices
+}
+
+class SolutionThree {
+
+    private lateinit var grid: Array<CharArray>
+
+    /**
+     * DFS. Same as [SolutionTwo], except uses a Stack instead of recursion.
+     */
+    fun numIslands(grid: Array<CharArray>): Int {
+        this.grid = grid
+
+        var islands = 0
+
+        for (i in grid.indices) {
+            for (j in grid[i].indices) {
+                if (grid[i][j] == '1') {
+                    islands++
+                    dfs(i, j)
+                }
+            }
+        }
+
+        return islands
+    }
+
+    private fun dfs(i: Int, j: Int) {
+        val stack: Deque<Pair<Int, Int>> = ArrayDeque()
+        // Changing it to '0' is equivalent of marking it visited, since
+        // we just want to prevent DFS from being called again on the cell.
+        grid[i][j] = '0'
+
+        var cell = i to j
+        stack.push(cell)
+
+        while (stack.isNotEmpty()) {
+            cell = stack.pop()
+            val (r, c) = cell
+            grid[r][c] = '0'    // mark as visited
+            // Continue search for Up, Right, Down, & Left neighbors that are land & unvisited
+            allNeighbors(cell).filter { (r, c) ->
+                isValidCell(r, c) && grid[r][c] == '1'
+            }.forEach {
+                stack.push(it)
+            }
+        }
+    }
+
+    private fun isValidCell(i: Int, j: Int): Boolean = i in grid.indices && j in grid[0].indices
+
+    // All non-diagonal neighbors (possibly invalid)
+    private fun allNeighbors(cell: Pair<Int, Int>): List<Pair<Int, Int>> {
+        val (i, j) = cell
+        return listOf(
+            i - 1 to j,
+            i to j + 1,
+            i + 1 to j,
+            i to j - 1
+        )
+    }
+}
+
+class SolutionFour {
+
+    private lateinit var grid: Array<CharArray>
+
+    /**
+     * BFS version
+     */
+    fun numIslands(grid: Array<CharArray>): Int {
+        if (grid.isEmpty()) return 0
+
+        this.grid = grid
+        var islands = 0
+
+        for (i in grid.indices) {
+            for (j in grid[i].indices) {
+                if (grid[i][j] == '1') {
+                    islands++
+                    bfs(i, j)
+                }
+            }
+        }
+
+        return islands
+    }
+
+    private fun bfs(i: Int, j: Int) {
+        var cell = i to j
+
+        val queue: Deque<Pair<Int, Int>> = ArrayDeque()
+        queue.offer(cell)
+
+        while (queue.isNotEmpty()) {
+            cell = queue.poll()
+            val (r, c) = cell
+
+            // Critically important:
+            // Cells can be added to queue multiple times. Make sure this
+            // is unvisited before processing it.
+            // Alternatively, can mark each as visited prior to enqueueing them.
+            if (grid[r][c] == '0') continue
+
+            grid[r][c] = '0'    // mark as visited
+
+            allNeighbors(cell).filter { (r, c) ->
+                isValidCell(r, c) && grid[r][c] == '1'
+            }.forEach { (r, c) ->
+                queue.offer(r to c)
+            }
+        }
+    }
+
+    // All non-diagonal neighbors
+    private fun allNeighbors(cell: Pair<Int, Int>): List<Pair<Int, Int>> {
+        val (i, j) = cell
+        return listOf(
+            i - 1 to j,
+            i to j + 1,
+            i + 1 to j,
+            i to j - 1
+        )
+    }
+
+    private fun isValidCell(i: Int, j: Int): Boolean = i in grid.indices && j in grid[0].indices
 }
