@@ -32,8 +32,8 @@ dependencies {
     compile "com.google.guava:guava:$guavaVersion"
     ktlint "com.pinterest:ktlint:$ktlintVersion"
     testCompile "junit:junit:$junitVersion"
-    testCompile "org.jetbrains.kotlin:kotlin-test"
-    testCompile "org.jetbrains.kotlin:kotlin-test-junit"
+    testCompile "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
+    testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
 }
 
 compileKotlin {
