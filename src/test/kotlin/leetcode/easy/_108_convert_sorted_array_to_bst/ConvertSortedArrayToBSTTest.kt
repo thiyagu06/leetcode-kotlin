@@ -3,7 +3,7 @@ package leetcode.easy._108_convert_sorted_array_to_bst
 import datastructures.tree.buildTree
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class ConvertSortedArrayToBSTTest {
 
@@ -26,5 +26,4 @@ class ConvertSortedArrayToBSTTest {
             solution.sortedArrayToBST(intArrayOf(-10, -3, -2, 0, 1, 3, 5, 9))
         )
     }
-
 }

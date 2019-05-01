@@ -1,6 +1,6 @@
 package leetcode.easy._438_find_all_anagrams
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class FindAllAnagramsTest {
@@ -19,8 +19,8 @@ class FindAllAnagramsTest {
         assertEquals(listOf(0), solution.findAnagrams("foo", "foo"))
         assertEquals(listOf(0, 1, 2, 3, 4, 5, 6, 7, 8, 9), solution.findAnagrams("abcabcabcabc", "abc"))
         assertEquals(listOf(0), solution.findAnagrams(bigInput, bigInput))
-        assertEquals(emptyList<Int>(), solution.findAnagrams("a", "abc"))
-        assertEquals(emptyList<Int>(), solution.findAnagrams("", "abc"))
+        assertEquals(emptyList(), solution.findAnagrams("a", "abc"))
+        assertEquals(emptyList(), solution.findAnagrams("", "abc"))
     }
 
     @Test
@@ -30,8 +30,8 @@ class FindAllAnagramsTest {
         assertEquals(listOf(0), solution2.findAnagrams("foo", "foo"))
         assertEquals(listOf(0, 1, 2, 3, 4, 5, 6, 7, 8, 9), solution2.findAnagrams("abcabcabcabc", "abc"))
         assertEquals(listOf(0), solution2.findAnagrams(bigInput, bigInput))
-        assertEquals(emptyList<Int>(), solution2.findAnagrams("a", "abc"))
-        assertEquals(emptyList<Int>(), solution2.findAnagrams("", "abc"))
+        assertEquals(emptyList(), solution2.findAnagrams("a", "abc"))
+        assertEquals(emptyList(), solution2.findAnagrams("", "abc"))
     }
 
     @Test
@@ -41,8 +41,8 @@ class FindAllAnagramsTest {
         assertEquals(listOf(0), solution3.findAnagrams("foo", "foo"))
         assertEquals(listOf(0, 1, 2, 3, 4, 5, 6, 7, 8, 9), solution3.findAnagrams("abcabcabcabc", "abc"))
         assertEquals(listOf(0), solution3.findAnagrams(bigInput, bigInput))
-        assertEquals(emptyList<Int>(), solution3.findAnagrams("a", "abc"))
-        assertEquals(emptyList<Int>(), solution3.findAnagrams("", "abc"))
+        assertEquals(emptyList(), solution3.findAnagrams("a", "abc"))
+        assertEquals(emptyList(), solution3.findAnagrams("", "abc"))
     }
 
     @Test
@@ -52,8 +52,7 @@ class FindAllAnagramsTest {
         assertEquals(listOf(0), solution4.findAnagrams("foo", "foo"))
         assertEquals(listOf(0, 1, 2, 3, 4, 5, 6, 7, 8, 9), solution4.findAnagrams("abcabcabcabc", "abc"))
         assertEquals(listOf(0), solution4.findAnagrams(bigInput, bigInput))
-        assertEquals(emptyList<Int>(), solution4.findAnagrams("a", "abc"))
-        assertEquals(emptyList<Int>(), solution4.findAnagrams("", "abc"))
+        assertEquals(emptyList(), solution4.findAnagrams("a", "abc"))
+        assertEquals(emptyList(), solution4.findAnagrams("", "abc"))
     }
-
 }

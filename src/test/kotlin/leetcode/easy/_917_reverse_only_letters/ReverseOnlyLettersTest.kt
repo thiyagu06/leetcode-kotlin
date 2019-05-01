@@ -2,7 +2,7 @@ package leetcode.easy._917_reverse_only_letters
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class ReverseOnlyLettersTest {
 

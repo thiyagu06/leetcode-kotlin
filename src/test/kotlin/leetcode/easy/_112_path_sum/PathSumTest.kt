@@ -3,7 +3,8 @@ package leetcode.easy._112_path_sum
 import datastructures.tree.buildTree
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class PathSumTest {
     private val solution = Solution()
@@ -51,5 +52,4 @@ class PathSumTest {
 
         assertTrue(solution3.hasPathSum(buildTree(-5, 3, 1), -2))
     }
-
 }

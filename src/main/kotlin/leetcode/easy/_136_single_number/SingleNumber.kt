@@ -28,5 +28,3 @@ class SolutionTwo {
      */
     fun singleNumber(nums: IntArray): Int = (2 * nums.toSet().sum()) - nums.sum()
 }
-
-

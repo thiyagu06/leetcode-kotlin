@@ -52,7 +52,6 @@ class SolutionThree {
     }
 }
 
-
 class FollowUpSolution {
     /**
      * It is very leetcode.easy to come up with a solution with run time O(n*sizeof(integer)).

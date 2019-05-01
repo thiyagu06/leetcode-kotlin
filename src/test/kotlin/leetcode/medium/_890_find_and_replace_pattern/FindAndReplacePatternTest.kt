@@ -1,8 +1,8 @@
 package leetcode.medium._890_find_and_replace_pattern
 
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import kotlin.test.assertEquals
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Test
 
 class FindAndReplacePatternTest {
@@ -41,7 +41,7 @@ class FindAndReplacePatternTest {
         assertEquals(
             listOf("abc", "deq"),
             solution.findAndReplacePattern(
-                words = arrayOf("abc","deq","mee","aqq","dkd","ccc"),
+                words = arrayOf("abc", "deq", "mee", "aqq", "dkd", "ccc"),
                 pattern = "abB"
             )
         )
@@ -111,7 +111,6 @@ class FindAndReplacePatternTest {
         assertTrue("xyy".matchesPattern("abbsdaofijqwijfqiowjfasidjfoq"))
     }
 
-
     @Test
     fun findAndReplacePattern2() {
         assertEquals(
@@ -143,7 +142,7 @@ class FindAndReplacePatternTest {
         assertEquals(
             listOf("abc", "deq"),
             solution2.findAndReplacePattern(
-                words = arrayOf("abc","deq","mee","aqq","dkd","ccc"),
+                words = arrayOf("abc", "deq", "mee", "aqq", "dkd", "ccc"),
                 pattern = "abB"
             )
         )
@@ -188,7 +187,6 @@ class FindAndReplacePatternTest {
             )
         )
     }
-
 
     @Test
     fun matchesPattern2() {

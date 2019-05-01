@@ -24,9 +24,9 @@ class Solution {
                 val leftSubtreeRange = validRange.start until root.`val`
                 val rightSubtreeRange = root.`val` + 1..validRange.endInclusive
 
-                root.`val` in validRange
-                        && isValidBST(root.left, leftSubtreeRange)
-                        && isValidBST(root.right, rightSubtreeRange)
+                root.`val` in validRange &&
+                        isValidBST(root.left, leftSubtreeRange) &&
+                        isValidBST(root.right, rightSubtreeRange)
             }
         }
 }

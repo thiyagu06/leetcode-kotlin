@@ -10,12 +10,10 @@ class Solution {
      * Time: O(n)
      * Space: O(n)
      */
-    fun frequencySort(s: String): String =
-             s.groupingBy { it }
-                     .eachCount()
-                     .entries
-                     .sortedByDescending { (_, freq) -> freq }
-                     .flatMap { (char, freq) -> char.repeated(freq) }
-                     .joinToString("")
-
+    fun frequencySort(s: String): String = s.groupingBy { it }
+        .eachCount()
+        .entries
+        .sortedByDescending { (_, freq) -> freq }
+        .flatMap { (char, freq) -> char.repeated(freq) }
+        .joinToString("")
 }

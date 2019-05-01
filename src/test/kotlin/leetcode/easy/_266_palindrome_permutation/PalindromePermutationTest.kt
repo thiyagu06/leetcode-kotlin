@@ -1,8 +1,8 @@
 package leetcode.easy._266_palindrome_permutation
 
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class PalindromePermutationTest {
 
@@ -18,7 +18,6 @@ class PalindromePermutationTest {
         assertFalse(solution.canPermutePalindrome("Aa"))
         assertFalse(solution.canPermutePalindrome("AaBb//a"))
         assertTrue(solution.canPermutePalindrome("aabbhijkkjih"))
-
     }
 
     @Test

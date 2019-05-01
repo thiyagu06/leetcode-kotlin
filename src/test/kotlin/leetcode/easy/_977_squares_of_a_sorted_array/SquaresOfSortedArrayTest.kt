@@ -1,8 +1,7 @@
 package leetcode.easy._977_squares_of_a_sorted_array
 
+import org.junit.Assert.assertArrayEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class SquaresOfSortedArrayTest {
 

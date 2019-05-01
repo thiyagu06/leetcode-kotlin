@@ -34,4 +34,3 @@ class SolutionTwo {
         return intersection.toIntArray()
     }
 }
-

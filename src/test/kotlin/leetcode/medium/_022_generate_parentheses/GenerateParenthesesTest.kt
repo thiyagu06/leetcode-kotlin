@@ -1,6 +1,6 @@
 package leetcode.medium._022_generate_parentheses
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class GenerateParenthesesTest {

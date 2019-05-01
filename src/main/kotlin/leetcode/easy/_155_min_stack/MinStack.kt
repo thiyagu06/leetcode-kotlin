@@ -34,6 +34,6 @@ class MinStack {
         else throw NoSuchElementException("Stack is empty")
 
     fun isEmpty(): Boolean = elements.isEmpty()
-    fun isNotEmpty(): Boolean = !elements.isEmpty()
+    fun isNotEmpty(): Boolean = elements.isNotEmpty()
     override fun toString(): String = "MinStack(elements=$elements)"
 }

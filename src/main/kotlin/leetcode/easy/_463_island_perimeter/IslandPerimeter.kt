@@ -74,4 +74,3 @@ class SolutionTwo {
         if (i in 0..lastRowIndex && j in 0..lastColumnIndex) this[i][j] == 0
         else false
 }
-

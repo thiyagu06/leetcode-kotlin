@@ -1,6 +1,6 @@
 package leetcode.medium._560_subarray_sum_equals_k
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class SubarraySumEqualsKTest {

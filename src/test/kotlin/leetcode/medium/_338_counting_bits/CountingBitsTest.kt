@@ -1,9 +1,8 @@
 package leetcode.medium._338_counting_bits
 
-import org.junit.Test
-
-import org.junit.Assert.*
+import org.junit.Assert.assertArrayEquals
 import org.junit.Ignore
+import org.junit.Test
 
 class CountingBitsTest {
 
@@ -11,7 +10,6 @@ class CountingBitsTest {
     private val solutionTwo = SolutionTwo()
     private val solutionThree = SolutionThree()
     private val followUpSolution = FollowUpSolution()
-
 
     @Test
     fun countBits1() {

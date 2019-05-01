@@ -3,7 +3,7 @@ package leetcode.easy._617_merge_two_binary_trees
 import datastructures.tree.buildTree
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class MergeBinaryTreesTest {
 
@@ -50,7 +50,6 @@ class MergeBinaryTreesTest {
             )
         )
     }
-
 
     @Test
     fun mergeTrees2() {

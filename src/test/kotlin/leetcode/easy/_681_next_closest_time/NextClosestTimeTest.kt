@@ -2,7 +2,7 @@ package leetcode.easy._681_next_closest_time
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class NextClosestTimeTest {
 

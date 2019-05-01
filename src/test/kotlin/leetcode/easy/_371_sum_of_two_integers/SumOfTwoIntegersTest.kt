@@ -1,6 +1,6 @@
 package leetcode.easy._371_sum_of_two_integers
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class SumOfTwoIntegersTest {

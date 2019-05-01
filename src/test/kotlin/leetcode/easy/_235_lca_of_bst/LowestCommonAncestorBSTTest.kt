@@ -1,7 +1,7 @@
 package leetcode.easy._235_lca_of_bst
 
 import datastructures.tree.buildTree
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class LowestCommonAncestorBSTTest {

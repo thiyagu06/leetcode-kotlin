@@ -1,8 +1,8 @@
 package leetcode.easy._234_palindrome_linked_list
 
 import datastructures.list.linkedListOf
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Test
 
 class PalindromeLinkedListTest {
@@ -33,5 +33,4 @@ class PalindromeLinkedListTest {
         assertFalse(followup.isPalindrome(linkedListOf(1, 2)))
         assertFalse(followup.isPalindrome(linkedListOf(1, 2, 2)))
     }
-
 }

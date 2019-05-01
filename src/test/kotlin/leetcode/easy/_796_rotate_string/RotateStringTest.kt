@@ -2,7 +2,8 @@ package leetcode.easy._796_rotate_string
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class RotateStringTest {
 

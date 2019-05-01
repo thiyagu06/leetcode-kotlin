@@ -2,7 +2,7 @@ package leetcode.easy._204_count_primes
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class CountPrimesTest {
 
@@ -48,5 +48,4 @@ class CountPrimesTest {
         assertEquals(9592, solution2.countPrimes(100000))
         assertEquals(41537, solution2.countPrimes(499979))
     }
-
 }

@@ -12,11 +12,13 @@ class Solution {
         n <= 2 -> 0
         else -> {
             val isPrime: (Int) -> Boolean = { x ->
-                x >= 2 && (x == 2 || x.isOdd) &&
-                (2..sqrt(x.toDouble()).toInt()).all { divisor -> x % divisor != 0 }}
+                x >= 2 &&
+                (x == 2 || x.isOdd) &&
+                (2..sqrt(x.toDouble()).toInt()).all { divisor -> x % divisor != 0 }
+            }
 
-            (2 until n).count { x ->
-                isPrime(x)
+            (2 until n).count {
+                isPrime(it)
             }
         }
     }

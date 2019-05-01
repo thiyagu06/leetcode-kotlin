@@ -1,6 +1,6 @@
 package leetcode.easy._401_binary_watch
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class BinaryWatchTest {
@@ -48,8 +48,8 @@ class BinaryWatchTest {
         assertEquals(expected8.size, actual8.size)
         assertEquals(expected8.toSet(), actual8.toSet())
 
-        assertEquals(emptyList<String>(), solution.readBinaryWatch(9))
-        assertEquals(emptyList<String>(), solution.readBinaryWatch(10))
+        assertEquals(emptyList(), solution.readBinaryWatch(9))
+        assertEquals(emptyList(), solution.readBinaryWatch(10))
     }
 
     @Test

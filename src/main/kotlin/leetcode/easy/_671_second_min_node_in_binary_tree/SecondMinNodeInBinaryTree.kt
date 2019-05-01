@@ -31,7 +31,6 @@ class Solution {
                 mins
             }
         }
-
     }
 
     internal fun placeValueInMins(value: Int, mins: Pair<Int?, Int?>): Pair<Int?, Int?> =
@@ -77,7 +76,6 @@ class SolutionThree {
         val secondMin = findSecondMinimumValue(root, firstMin = root.`val`)
         return if (secondMin < Long.MAX_VALUE) secondMin.toInt() else -1
     }
-
 
     private fun findSecondMinimumValue(root: TreeNode?, firstMin: Int, secondMin: Long = Long.MAX_VALUE): Long {
         root ?: return secondMin

@@ -1,7 +1,8 @@
 package leetcode.medium._094_binary_tree_inorder_traversal
 
 import datastructures.tree.TreeNode
-import java.util.*
+import java.util.ArrayDeque
+import java.util.Deque
 
 /**
  * 94 - https://leetcode.com/problems/binary-tree-inorder-traversal/
@@ -13,11 +14,11 @@ class Solution {
      * Space: O(n)
      */
     fun inorderTraversal(root: TreeNode?, values: MutableList<Int> = arrayListOf()): List<Int> =
-            root?.let {
-                root.left?.let { left -> inorderTraversal(left, values) }
-                values += root.`val`
-                root.right?.let { right -> inorderTraversal(right, values) }
-            } ?: values
+        root?.let {
+            root.left?.let { left -> inorderTraversal(left, values) }
+            values += root.`val`
+            root.right?.let { right -> inorderTraversal(right, values) }
+        } ?: values
 }
 
 class SolutionTwo {
@@ -30,7 +31,7 @@ class SolutionTwo {
      */
     fun inorderTraversal(root: TreeNode?): List<Int> {
         val visited: MutableList<Int> = arrayListOf()
-        val stack = Stack<TreeNode?>()
+        val stack: Deque<TreeNode?> = ArrayDeque()
         var node: TreeNode? = root
 
         while (node != null || stack.isNotEmpty()) {
@@ -61,7 +62,7 @@ class DebugSolutionTwo {
      */
     fun inorderTraversal(root: TreeNode?): List<Int> {
         val visited: MutableList<Int> = arrayListOf()
-        val stack = Stack<TreeNode?>()
+        val stack: Deque<TreeNode?> = ArrayDeque()
         var node: TreeNode? = root
 
         while (node != null || stack.isNotEmpty()) {

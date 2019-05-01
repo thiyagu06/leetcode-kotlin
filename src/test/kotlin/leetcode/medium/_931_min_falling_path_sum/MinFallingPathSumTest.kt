@@ -3,7 +3,7 @@ package leetcode.medium._931_min_falling_path_sum
 import extensions.arrays.buildIntMatrix
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class MinFallingPathSumTest {
 

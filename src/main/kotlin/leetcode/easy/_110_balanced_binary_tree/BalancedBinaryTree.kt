@@ -14,8 +14,8 @@ class Solution {
     fun isBalanced(root: TreeNode?): Boolean {
         root ?: return true
 
-        return isBalanced(root.left) && isBalanced(root.right)
-                && abs(maxDepth(root.left) - maxDepth(root.right)) <= 1
+        return isBalanced(root.left) && isBalanced(root.right) &&
+                abs(maxDepth(root.left) - maxDepth(root.right)) <= 1
     }
 
     private fun maxDepth(root: TreeNode?): Int {

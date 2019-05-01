@@ -1,8 +1,8 @@
 package leetcode.easy._206_reverse_linked_list
 
 import datastructures.list.linkedListOf
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNull
+import kotlin.test.assertEquals
+import kotlin.test.assertNull
 import org.junit.Test
 
 class ReverseLinkedListTest {
@@ -28,5 +28,4 @@ class ReverseLinkedListTest {
         assertEquals(linkedListOf(3, 2, 1), recursiveSolution.reverseList(linkedListOf(1, 2, 3)))
         assertEquals(linkedListOf(3, 3, 2, 2, 1), recursiveSolution.reverseList(linkedListOf(1, 2, 2, 3, 3)))
     }
-
 }

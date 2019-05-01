@@ -5,7 +5,6 @@ import datastructures.tree.hasLeft
 import datastructures.tree.hasRight
 import datastructures.tree.hasTwoChildren
 import datastructures.tree.height
-import datastructures.tree.isLeaf
 import kotlin.math.max
 
 /**

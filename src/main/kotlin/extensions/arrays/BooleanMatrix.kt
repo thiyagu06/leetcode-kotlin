@@ -67,4 +67,3 @@ fun BooleanMatrix.toList(): List<List<Boolean>> = fold(mutableListOf()) { acc, i
  * Create an [BooleanMatrix] from a 2D [List].
  */
 fun List<List<Boolean>>.toMatrix(): BooleanMatrix = Array(size = size, init = { i -> this[i].toBooleanArray() })
-

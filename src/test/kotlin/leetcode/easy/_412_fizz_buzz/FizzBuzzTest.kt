@@ -2,7 +2,7 @@ package leetcode.easy._412_fizz_buzz
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class FizzBuzzTest {
 

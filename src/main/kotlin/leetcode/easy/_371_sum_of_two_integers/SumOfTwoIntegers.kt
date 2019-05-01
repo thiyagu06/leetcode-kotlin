@@ -25,7 +25,6 @@ class Solution {
                 if (kthBitVal == 1) {
                     result = result or (1 shl k)
                 }
-
             }
             result
         }

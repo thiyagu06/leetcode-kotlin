@@ -2,7 +2,7 @@ package leetcode.easy._724_find_pivot_index
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class FindPivotIndexTest {
 

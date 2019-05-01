@@ -35,5 +35,4 @@ class Solution {
 
         return if (result.first() == 0) result.drop(1) else result
     }
-
 }

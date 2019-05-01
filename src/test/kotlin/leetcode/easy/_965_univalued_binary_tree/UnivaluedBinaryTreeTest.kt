@@ -4,7 +4,8 @@ import datastructures.tree.buildTree
 import datastructures.tree.tree123
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class UnivaluedBinaryTreeTest {
 

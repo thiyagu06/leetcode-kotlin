@@ -25,10 +25,14 @@ class Solution {
 
         // Iterate remaining chars in longer string
         (shorter.length..longer.lastIndex).forEach { index ->
-            val (nextCarry, currentDigit) = sumDigitsWithCarry(a = longer[index].numericValue, b = 0, carriedValue = prevCarry)
+            val (nextCarry, currentDigit) = sumDigitsWithCarry(
+                a = longer[index].numericValue,
+                b = 0,
+                carriedValue = prevCarry
+            )
             result += currentDigit
             prevCarry = nextCarry
-         }
+        }
 
         if (prevCarry > 0) {
             result += prevCarry
@@ -48,4 +52,3 @@ class Solution {
         return Pair(carry, rawSum % 10)
     }
 }
-

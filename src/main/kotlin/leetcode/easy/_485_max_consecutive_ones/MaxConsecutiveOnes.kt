@@ -54,4 +54,3 @@ class SolutionTwo {
         return globalMax
     }
 }
-

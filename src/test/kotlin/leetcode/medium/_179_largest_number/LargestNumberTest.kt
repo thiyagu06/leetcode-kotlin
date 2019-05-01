@@ -2,7 +2,7 @@ package leetcode.medium._179_largest_number
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class LargestNumberTest {
 

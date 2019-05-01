@@ -1,6 +1,6 @@
 package leetcode.easy._784_letter_case_permutation
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class LetterCasePermutationTest {
@@ -31,7 +31,6 @@ class LetterCasePermutationTest {
             solution.letterCasePermutation("12345").sorted()
         )
     }
-
 
     @Test
     fun letterCasePermutation2() {

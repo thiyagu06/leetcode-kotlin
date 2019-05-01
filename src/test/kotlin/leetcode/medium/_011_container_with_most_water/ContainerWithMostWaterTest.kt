@@ -2,7 +2,7 @@ package leetcode.medium._011_container_with_most_water
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class ContainerWithMostWaterTest {
 
@@ -18,5 +18,4 @@ class ContainerWithMostWaterTest {
     fun maxArea2() {
         assertEquals(49, solution2.maxArea(intArrayOf(1, 8, 6, 2, 5, 4, 8, 3, 7)))
     }
-
 }

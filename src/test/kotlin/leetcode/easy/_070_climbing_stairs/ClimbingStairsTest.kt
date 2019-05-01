@@ -2,7 +2,7 @@ package leetcode.easy._070_climbing_stairs
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class ClimbingStairsTest {
     private val naiveSolution = NaiveSolution()
@@ -65,5 +65,4 @@ class ClimbingStairsTest {
         assertEquals(5, optimal.climbStairs(4))
         assertEquals(34, optimal.climbStairs(8))
     }
-
 }

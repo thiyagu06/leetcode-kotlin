@@ -48,4 +48,3 @@ class SolutionTwo {
      */
     fun minDistance(word1: String, word2: String): Int = editDistance(word1, word2)
 }
-

@@ -3,7 +3,7 @@ package leetcode.easy._226_invert_binary_tree
 import datastructures.tree.TreeNode
 import datastructures.tree.buildTree
 import org.junit.After
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Assert.assertNotEquals
 import org.junit.Before
 import org.junit.Test
@@ -33,7 +33,6 @@ class InvertBinaryTreeTest {
     fun tearDown() {
         tree123 = null
     }
-
 
     @Test
     fun invertTree1() {
@@ -107,7 +106,6 @@ class InvertBinaryTreeTest {
         )
     }
 
-
     @Test
     fun invertTree5() {
         assertEquals(buildTree(1, 3, 2), solution5.invertTree(tree123))
@@ -125,6 +123,4 @@ class InvertBinaryTreeTest {
             solution5.invertTree(buildTree(20, 50, 200, 75, 25, null, 300))
         )
     }
-
-
 }

@@ -1,6 +1,6 @@
 package extensions.chars
 
-import java.util.*
+import java.util.Collections
 
 /**
  * Char extensions

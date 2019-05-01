@@ -26,7 +26,7 @@ class SolutionTwo {
      */
     fun findMaxAverage(nums: IntArray, k: Int): Double {
         val cumulativeSums = IntArray(nums.size)
-        (0..nums.lastIndex).forEach { i->
+        (0..nums.lastIndex).forEach { i ->
             when (i) {
                 0 -> cumulativeSums[0] = nums[0]
                 else -> cumulativeSums[i] = cumulativeSums[i - 1] + nums[i]

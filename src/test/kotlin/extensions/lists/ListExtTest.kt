@@ -1,8 +1,8 @@
 package extensions.lists
 
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import kotlin.test.assertEquals
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Test
 
 class ListExtTest {
@@ -60,7 +60,6 @@ class ListExtTest {
     @Test(expected = IllegalArgumentException::class)
     fun `toPair throws if size less than 2`() {
         listOf(1).toPair()
-
     }
 
     @Test(expected = IllegalArgumentException::class)
@@ -76,7 +75,6 @@ class ListExtTest {
     @Test(expected = IllegalArgumentException::class)
     fun `toTriple throws if size less than 3`() {
         listOf(1, 2).toTriple()
-
     }
 
     @Test(expected = IllegalArgumentException::class)
@@ -120,5 +118,4 @@ class ListExtTest {
         assertEquals((0 until 1), nestedList1x3.rowRange)
         assertEquals((0 until 3), nestedList1x3.columnRange)
     }
-
 }

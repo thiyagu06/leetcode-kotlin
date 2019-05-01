@@ -2,7 +2,7 @@ package leetcode.easy._434_number_of_segments_string
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class NumberOfSegmentsInStringTest {
 

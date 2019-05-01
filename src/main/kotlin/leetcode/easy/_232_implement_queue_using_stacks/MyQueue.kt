@@ -1,6 +1,8 @@
 package leetcode.easy._232_implement_queue_using_stacks
 
-import java.util.*
+import java.util.ArrayDeque
+import java.util.Deque
+import java.util.Stack
 
 /**
  * 232 - https://leetcode.com/problems/implement-queue-using-stacks/

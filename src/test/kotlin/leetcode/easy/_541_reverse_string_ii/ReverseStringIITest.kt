@@ -1,6 +1,6 @@
 package leetcode.easy._541_reverse_string_ii
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class ReverseStringIITest {
@@ -12,5 +12,4 @@ class ReverseStringIITest {
         assertEquals("bacdfeg", solution.reverseStr("abcdefg", 2))
         assertEquals("bacd", solution.reverseStr("abcd", 2))
     }
-
 }

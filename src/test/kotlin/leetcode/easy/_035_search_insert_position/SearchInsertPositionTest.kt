@@ -2,7 +2,7 @@ package leetcode.easy._035_search_insert_position
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class SearchInsertPositionTest {
 
@@ -24,5 +24,4 @@ class SearchInsertPositionTest {
         assertEquals(4, optimalSolution.searchInsert(intArrayOf(1, 3, 5, 6), 7))
         assertEquals(0, optimalSolution.searchInsert(intArrayOf(1, 3, 5, 6), 0))
     }
-
 }

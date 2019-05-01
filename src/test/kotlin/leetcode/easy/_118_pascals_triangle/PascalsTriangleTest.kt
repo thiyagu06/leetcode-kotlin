@@ -1,6 +1,6 @@
 package leetcode.easy._118_pascals_triangle
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 import kotlin.system.measureTimeMillis
 
@@ -20,7 +20,7 @@ class PascalsTriangleTest {
     @Test
     fun generate1() {
         val ms = measureTimeMillis {
-            assertEquals(emptyList<Int>(), solution1.generate(0))
+            assertEquals(emptyList(), solution1.generate(0))
             (1..6).forEach { rows ->
                 assertEquals(first7rows.slice(0 until rows), solution1.generate(rows))
             }
@@ -31,12 +31,11 @@ class PascalsTriangleTest {
     @Test
     fun generate2() {
         val ms = measureTimeMillis {
-            assertEquals(emptyList<Int>(), solution2.generate(0))
+            assertEquals(emptyList(), solution2.generate(0))
             (1..6).forEach { rows ->
                 assertEquals(first7rows.slice(0 until rows), solution2.generate(rows))
             }
         }
         println("$ms ms")
     }
-
 }

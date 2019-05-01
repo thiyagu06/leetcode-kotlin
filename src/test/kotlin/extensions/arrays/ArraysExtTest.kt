@@ -1,7 +1,12 @@
 package extensions.arrays
 
-import org.junit.Assert.*
+import org.junit.Assert.assertArrayEquals
+import kotlin.test.assertEquals
+
 import org.junit.Test
+import kotlin.test.assertFalse
+import kotlin.test.assertNull
+import kotlin.test.assertTrue
 
 class ArraysExtTest {
     private val arrayWithNulls = arrayOf("foo", null, "bar")
@@ -31,7 +36,6 @@ class ArraysExtTest {
 
     private val byteArray = byteArrayOf(0, 1, 2)
     private val emptyByteArray = byteArrayOf()
-
 
     @Test
     fun midIndex() {
@@ -93,7 +97,6 @@ class ArraysExtTest {
         val (h3, t3) = emptyStringArray.headAndTail
         assertNull(h3)
         assertArrayEquals(emptyStringArray, t3)
-
 
         val (hi1, ti1) = intArray.headAndTail
         assertEquals(1, hi1)
@@ -311,5 +314,4 @@ class ArraysExtTest {
             ), intArrayOf(1, 2, 3, 4, 5).sublists()
         )
     }
-
 }

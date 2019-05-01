@@ -1,25 +1,24 @@
 package extensions.binary
 
-import org.junit.Assert
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
 import org.junit.Test
 import kotlin.math.pow
+import kotlin.test.assertEquals
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 @SuppressWarnings("NumericOverflow")
 class BinaryTest {
 
     @Test
     fun isEvenNumber() {
-        setOf(-10, -4, 0, 2, 4, 6, 20, 100, 128).forEach { Assert.assertTrue(it.isEvenNumber) }
-        setOf(-9, -3, -1, 1, 3, 7, 21, 101, 127).forEach { Assert.assertFalse(it.isEvenNumber) }
+        setOf(-10, -4, 0, 2, 4, 6, 20, 100, 128).forEach { assertTrue(it.isEvenNumber) }
+        setOf(-9, -3, -1, 1, 3, 7, 21, 101, 127).forEach { assertFalse(it.isEvenNumber) }
     }
 
     @Test
     fun isOddNumber() {
-        setOf(-9, -3, -1, 1, 3, 7, 21, 101, 127).forEach { Assert.assertTrue(it.isOddNumber) }
-        setOf(-10, -4, 0, 2, 4, 6, 20, 100, 128).forEach { Assert.assertFalse(it.isOddNumber) }
+        setOf(-9, -3, -1, 1, 3, 7, 21, 101, 127).forEach { assertTrue(it.isOddNumber) }
+        setOf(-10, -4, 0, 2, 4, 6, 20, 100, 128).forEach { assertFalse(it.isOddNumber) }
     }
 
     @Test
@@ -77,7 +76,6 @@ class BinaryTest {
         assertEquals(0, (-5).positionOfRightmost1Bit())
         assertEquals(1, 234.positionOfRightmost1Bit())
     }
-
 
     @Test
     fun positionOfRightmost0Bit() {
@@ -250,7 +248,6 @@ class BinaryTest {
         assertEquals(7, 15.withKthBitUnset(3))
     }
 
-
     @Test
     fun withLastBitSet() {
         assertEquals(1, 0.withLastBitSet())
@@ -332,7 +329,6 @@ class BinaryTest {
         assertEquals(9, 3.swapBits(1, 3))
     }
 
-
     @Test
     fun `Int toBinaryString`() {
         assertEquals("00000000000000000000000000000000", 0.toBinaryString())
@@ -364,7 +360,10 @@ class BinaryTest {
 
     @Test
     fun `Long toBinaryString`() {
-        assertEquals("0111111111111111111111111111111111111111111111111111111111111111", Long.MAX_VALUE.toBinaryString())
+        assertEquals(
+            "0111111111111111111111111111111111111111111111111111111111111111",
+            Long.MAX_VALUE.toBinaryString()
+        )
         assertEquals("0000000000000000000000000000000000000000000000000000000000000000", 0L.toBinaryString())
         assertEquals("0000000000000000", 0L.toBinaryString(16))
         assertEquals("00000000", 0L.toBinaryString(8))

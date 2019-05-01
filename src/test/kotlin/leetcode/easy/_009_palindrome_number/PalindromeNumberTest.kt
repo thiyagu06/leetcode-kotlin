@@ -2,7 +2,8 @@ package leetcode.easy._009_palindrome_number
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertTrue
+import kotlin.test.assertFalse
 
 class PalindromeNumberTest {
     private val solution = Solution()
@@ -45,7 +46,6 @@ class PalindromeNumberTest {
         assertFalse(solution2.isPalindrome(Int.MIN_VALUE))
         assertFalse(solution2.isPalindrome(Int.MAX_VALUE))
     }
-
 
     @Test
     fun isPalindrome3() {

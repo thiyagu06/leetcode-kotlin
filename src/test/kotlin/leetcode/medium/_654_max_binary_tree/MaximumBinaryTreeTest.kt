@@ -3,10 +3,10 @@ package leetcode.medium._654_max_binary_tree
 import datastructures.tree.buildTree
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
+import kotlin.test.assertNull
 
 class MaximumBinaryTreeTest {
-
     private val solution = Solution()
 
     @Test

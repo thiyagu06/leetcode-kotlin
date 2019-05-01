@@ -98,4 +98,3 @@ fun IntMatrix.toList(): List<List<Int>> = fold(mutableListOf()) { acc, intArr ->
  * Create an [IntMatrix] from a 2D [List].
  */
 fun List<List<Int>>.toMatrix(): IntMatrix = Array(size = size, init = { i -> this[i].toIntArray() })
-

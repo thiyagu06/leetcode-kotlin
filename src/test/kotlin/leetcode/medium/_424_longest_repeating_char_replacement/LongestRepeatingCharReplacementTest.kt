@@ -1,6 +1,6 @@
  package leetcode.medium._424_longest_repeating_char_replacement
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class LongestRepeatingCharReplacementTest {

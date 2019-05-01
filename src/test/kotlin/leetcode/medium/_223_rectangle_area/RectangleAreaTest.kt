@@ -2,7 +2,7 @@ package leetcode.medium._223_rectangle_area
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class RectangleAreaTest {
 

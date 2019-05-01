@@ -25,7 +25,6 @@ class Solution {
     }
 }
 
-
 class SolutionTwo {
     /**
      * One-pass, constant space

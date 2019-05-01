@@ -1,6 +1,6 @@
 package leetcode.easy._169_majority_element
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 import kotlin.system.measureTimeMillis
 
@@ -64,7 +64,6 @@ class MajorityElementTest {
         }
         println("Alt 3: $ms ms")
     }
-
 
     @Test
     fun majorityElementImperative() {

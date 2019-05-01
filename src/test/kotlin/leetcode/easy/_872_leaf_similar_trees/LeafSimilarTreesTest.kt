@@ -5,7 +5,8 @@ import datastructures.tree.tree123
 import datastructures.tree.tree1to5
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class LeafSimilarTreesTest {
 

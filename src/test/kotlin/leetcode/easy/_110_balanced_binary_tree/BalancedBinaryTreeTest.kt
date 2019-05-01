@@ -5,17 +5,19 @@ import datastructures.tree.bstWithNulls
 import datastructures.tree.buildTree
 import datastructures.tree.tree123
 import datastructures.tree.tree1to5
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Test
 
 class BalancedBinaryTreeTest {
 
     private val solution = Solution()
     private val unbalancedTree = buildTree(7, 4, 9, 3, null, 8, null, 1, null, null, null, 2)
-    private val unbalancedTree2 = buildTree(7, 4, 9, 3, null, 8, null, 1, null, null, null, 2,
-            4, 9, 3, null, 8, null, 1, null, null, null, 2,  4, 9, 3, null, 8, null, 1, null, null, null, 2)
-    private val unbalancedTree3 = buildTree(1, null, 2, null,3)
+    private val unbalancedTree2 = buildTree(
+        7, 4, 9, 3, null, 8, null, 1, null, null, null, 2,
+        4, 9, 3, null, 8, null, 1, null, null, null, 2, 4, 9, 3, null, 8, null, 1, null, null, null, 2
+    )
+    private val unbalancedTree3 = buildTree(1, null, 2, null, 3)
 
     @Test
     fun isBalanced() {

@@ -1,8 +1,7 @@
 package leetcode.medium._034_find_first_and_last_pos
 
+import org.junit.Assert.assertArrayEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class FirstAndLastPositionTest {
 
@@ -33,5 +32,4 @@ class FirstAndLastPositionTest {
         assertArrayEquals(intArrayOf(0, 0), solutionTwo.searchRange(nums = intArrayOf(2), target = 2))
         assertArrayEquals(intArrayOf(-1, -1), solutionTwo.searchRange(nums = intArrayOf(2), target = 3))
     }
-
 }

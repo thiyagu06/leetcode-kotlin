@@ -1,7 +1,7 @@
 package leetcode.medium._725_split_linked_list_in_parts
 
 import datastructures.list.linkedListOf
-import org.junit.Assert.*
+import org.junit.Assert.assertArrayEquals
 import org.junit.Test
 
 class SplitLinkedListInPartsTest {

@@ -1,7 +1,7 @@
 package leetcode.medium._513_find_bottom_left_tree_value
 
 import datastructures.tree.buildTree
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class FindBottomLeftTreeValueTest {

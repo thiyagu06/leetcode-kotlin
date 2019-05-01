@@ -2,7 +2,7 @@ package leetcode.medium._692_top_k_frequent_words
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class TopKFrequentWordsTest {
 
@@ -25,7 +25,5 @@ class TopKFrequentWordsTest {
         assertEquals(listOf("i", "love"), solution2.topKFrequent(arrayOf("i", "love", "leetcode", "i", "love", "coding"), k = 2))
         assertEquals(listOf("the", "is", "sunny", "day"), solution2.topKFrequent(arrayOf("the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"), k = 4))
         assertEquals(listOf("i", "love", "coding"), solution2.topKFrequent(arrayOf("i", "love", "leetcode", "i", "love", "coding"), k = 3))
-
     }
-
 }

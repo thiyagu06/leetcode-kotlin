@@ -30,13 +30,13 @@ class Solution {
 
                 if (unmatchedChars.isEmpty()) {
                     startingIndices += left
-                    unmatchedChars.put(s[left], 1)
+                    unmatchedChars[s[left]] = 1
                     left++
                 }
             } else {
                 // Not in unmatchedChars because it's a duplicate
                 if (s[right] in pChars) {
-                    unmatchedChars.put(s[left], 1)
+                    unmatchedChars[s[left]] = 1
                     left++
                 } else {
                     // if the char isn't in p at all, no solution starting until after it
@@ -153,7 +153,6 @@ class SolutionThree {
                 hash[l] = (hash[l] ?: 0) + 1
                 leftIdx++
             }
-
         }
         return result
     }

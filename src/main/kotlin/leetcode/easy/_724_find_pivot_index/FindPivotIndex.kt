@@ -12,7 +12,7 @@ class Solution {
     fun pivotIndexBruteForce(nums: IntArray): Int {
         (0..nums.lastIndex).forEach { index ->
             val leftSum = nums.slice(0 until index).sum()
-            val rightSum = nums.slice(index+1..nums.lastIndex).sum()
+            val rightSum = nums.slice((index + 1)..nums.lastIndex).sum()
 
             if (leftSum == rightSum) {
                 return index

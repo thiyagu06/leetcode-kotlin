@@ -2,7 +2,7 @@ package leetcode.easy._557_reverse_words_in_string_III
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class ReverseWordsInAStringIIITest {
 

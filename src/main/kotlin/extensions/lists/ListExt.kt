@@ -33,7 +33,6 @@ fun <T> List<T>.valueToIndicesMap(): Map<T, List<Int>> = withIndex()
 fun <T> List<T>.valueToIndexMap(): Map<T, Int> = withIndex()
     .associateBy(keySelector = { it.value }, valueTransform = { it.index })
 
-
 fun <T : Comparable<T>> List<T>.isSorted(): Boolean = zipWithNext().all { (a, b) -> b >= a }
 fun <T : Comparable<T>> List<T>.isSortedDescending(): Boolean = zipWithNext().all { (a, b) -> b <= a }
 

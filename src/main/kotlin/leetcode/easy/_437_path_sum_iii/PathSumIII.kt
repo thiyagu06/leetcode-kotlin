@@ -60,9 +60,9 @@ class SolutionThree {
 
         val pathsToRootSums = pathSums.map { it + root.`val` } + root.`val`
 
-        return (pathsToRootSums
-            + collectAllPathSums(root.left, pathsToRootSums)
-            + collectAllPathSums(root.right, pathsToRootSums))
+        return (pathsToRootSums +
+                collectAllPathSums(root.left, pathsToRootSums) +
+                collectAllPathSums(root.right, pathsToRootSums))
     }
 }
 
@@ -80,4 +80,3 @@ class SolutionFour {
         return pathsToRoot + pathsFrom(root.left, pathsToRoot) + pathsFrom(root.right, pathsToRoot)
     }
 }
-

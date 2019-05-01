@@ -1,8 +1,8 @@
 package leetcode.medium._002_add_two_numbers
 
 import datastructures.list.linkedListOf
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNull
+import kotlin.test.assertEquals
+import kotlin.test.assertNull
 import org.junit.Test
 
 class AddTwoNumbersTest {

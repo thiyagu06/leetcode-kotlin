@@ -1,8 +1,8 @@
 package extensions.lists
 
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import kotlin.test.assertEquals
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Before
 import org.junit.Test
 
@@ -101,5 +101,4 @@ class MutableListExtTest {
         strings.swap(1, 3)
         assertEquals(mutableListOf("foo", "baz", "foo", "bar"), strings)
     }
-
 }

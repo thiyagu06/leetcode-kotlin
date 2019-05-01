@@ -25,7 +25,7 @@ class Solution {
         }
 
         node = head
-        while (node != null && stack.isNotEmpty() ) {
+        while (node != null && stack.isNotEmpty()) {
             val top = stack.pop()
             if (top.`val` != node.`val`) {
                 return false
@@ -65,7 +65,6 @@ class FollowUpSolution {
 
         return true
     }
-
 
     /**
      * From #206

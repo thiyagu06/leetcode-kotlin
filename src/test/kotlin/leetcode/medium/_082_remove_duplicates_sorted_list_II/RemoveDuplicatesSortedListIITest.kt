@@ -3,7 +3,8 @@ package leetcode.medium._082_remove_duplicates_sorted_list_II
 import datastructures.list.linkedListOf
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
+import kotlin.test.assertNull
 
 class RemoveDuplicatesSortedListIITest {
 

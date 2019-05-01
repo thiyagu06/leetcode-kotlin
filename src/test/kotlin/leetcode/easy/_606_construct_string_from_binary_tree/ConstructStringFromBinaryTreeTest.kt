@@ -3,7 +3,7 @@ package leetcode.easy._606_construct_string_from_binary_tree
 import datastructures.tree.buildTree
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class ConstructStringFromBinaryTreeTest {
 

@@ -2,7 +2,8 @@ package leetcode.easy._844_backspace_string_compare
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Ignore
 
 class BackspaceStringCompareTest {
@@ -17,7 +18,6 @@ class BackspaceStringCompareTest {
         assertTrue(solution.backspaceCompare(S = "a##c", T = "#a#c"))
         assertFalse(solution.backspaceCompare(S = "a#c", T = "b"))
         assertFalse(solution.backspaceCompare(S = "ab##", T = "ccd#"))
-
     }
 
     @Ignore("Unimplemented")

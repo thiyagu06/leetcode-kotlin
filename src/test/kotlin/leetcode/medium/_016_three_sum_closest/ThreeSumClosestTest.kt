@@ -2,7 +2,7 @@ package leetcode.medium._016_three_sum_closest
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class ThreeSumClosestTest {
 

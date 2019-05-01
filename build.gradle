@@ -15,14 +15,22 @@ apply plugin: 'java'
 apply plugin: 'kotlin'
 apply plugin: 'idea'
 
+targetCompatibility = 1.8
+sourceCompatibility = 1.8
+
 repositories {
     mavenCentral()
+}
+
+configurations {
+    ktlint
 }
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
     compile "com.google.guava:guava:$guavaVersion"
+    ktlint "com.pinterest:ktlint:$ktlintVersion"
     testCompile "junit:junit:$junitVersion"
     testCompile "org.jetbrains.kotlin:kotlin-test"
     testCompile "org.jetbrains.kotlin:kotlin-test-junit"
@@ -48,4 +56,19 @@ idea {
         outputDir = compileJava.destinationDir
         testOutputDir = compileTestJava.destinationDir
     }
+}
+
+task ktlint(type: JavaExec, group: "verification") {
+    description = "Check Kotlin code style."
+    classpath = configurations.ktlint
+    main = "com.pinterest.ktlint.Main"
+    args "src/**/*.kt"
+}
+check.dependsOn ktlint
+
+task ktlintFormat(type: JavaExec, group: "formatting") {
+    description = "Fix Kotlin code style deviations."
+    classpath = configurations.ktlint
+    main = "com.pinterest.ktlint.Main"
+    args "-F", "src/**/*.kt"
 }

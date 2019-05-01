@@ -50,7 +50,6 @@ class SolutionThree {
             val prevPowerSets = subsets(nums.sliceArray(0 until nums.lastIndex))
             prevPowerSets + prevPowerSets.map { it + nums.last() }
         }
-
     }
 }
 
@@ -76,7 +75,6 @@ class SolutionFour {
         }
     }
 }
-
 
 class SolutionFive {
     /**

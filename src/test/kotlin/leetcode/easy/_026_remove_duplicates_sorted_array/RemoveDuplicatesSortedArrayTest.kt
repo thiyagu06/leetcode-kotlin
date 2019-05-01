@@ -1,8 +1,9 @@
 package leetcode.easy._026_remove_duplicates_sorted_array
 
+import org.junit.Assert.assertArrayEquals
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class RemoveDuplicatesSortedArrayTest {
 
@@ -81,5 +82,4 @@ class RemoveDuplicatesSortedArrayTest {
         assertEquals(5, solution3.removeDuplicates(arr0to4))
         assertArrayEquals(intArrayOf(0, 1, 2, 3, 4), arr0to4.sliceArray(0 until 5))
     }
-
 }

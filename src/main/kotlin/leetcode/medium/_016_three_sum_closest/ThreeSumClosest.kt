@@ -20,7 +20,7 @@ class Solution {
         var closestSum = nums[0] + nums[1] + nums[2]    // can assume each input has a solution
 
         for (i in 0..(nums.lastIndex - 2)) {
-            for (j in (i + 1)..(nums.lastIndex - 1)) {
+            for (j in (i + 1) until nums.lastIndex) {
                 if ((nums[i] to nums[j]) in completedPairs) {
                     continue
                 }
@@ -69,7 +69,6 @@ class SolutionTwo {
                 if (abs(sum - target) < abs(closestSum - target))
                     closestSum = sum
             }
-
         }
 
         return closestSum

@@ -2,7 +2,7 @@ package leetcode.easy._744_find_smallest_letter_greater_than_target
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class FindSmallestLetterGreaterThanTargetTest {
 

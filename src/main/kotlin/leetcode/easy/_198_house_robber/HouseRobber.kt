@@ -26,7 +26,6 @@ class Solution {
     }
 }
 
-
 class SolutionTwo {
     /**
      * Time: O(n)

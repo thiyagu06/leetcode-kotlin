@@ -2,7 +2,7 @@ package leetcode.easy._437_path_sum_iii
 
 import datastructures.tree.buildTree
 import datastructures.tree.tree123
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class PathSumIIITest {
@@ -82,7 +82,7 @@ class PathSumIIITest {
 
     @Test
     fun pathsFrom() {
-        assertEquals(emptyList<List<Int>>(), solution4.pathsFrom(null))
+        assertEquals(emptyList(), solution4.pathsFrom(null))
 
         assertEquals(listOf(listOf(3)), solution4.pathsFrom(buildTree(3)))
         assertEquals(
@@ -107,5 +107,4 @@ class PathSumIIITest {
             solution4.pathsFrom(tree123)
         )
     }
-
 }

@@ -1,6 +1,6 @@
 package leetcode.hard._140_word_break_ii
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class WordBreakIITest {
@@ -21,8 +21,8 @@ class WordBreakIITest {
             listOf("cats and dog", "cat sand dog").toSet(),
             solution.wordBreak("catsanddog", listOf("cat", "cats", "and", "sand", "dog")).toSet()
         )
-        assertEquals(emptyList<String>(), solution.wordBreak("a", emptyList()))
-        assertEquals(emptyList<String>(), solution.wordBreak("a", listOf("b")))
+        assertEquals(emptyList(), solution.wordBreak("a", emptyList()))
+        assertEquals(emptyList(), solution.wordBreak("a", listOf("b")))
         assertEquals(listOf("a").toSet(), solution.wordBreak("a", listOf("a")).toSet())
         assertEquals(listOf("a a").toSet(), solution.wordBreak("aa", listOf("a")).toSet())
         assertEquals(listOf("a a", "aa").toSet(), solution.wordBreak("aa", listOf("a", "aa")).toSet())

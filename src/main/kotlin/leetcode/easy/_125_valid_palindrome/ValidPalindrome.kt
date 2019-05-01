@@ -16,7 +16,6 @@ class Solution {
     }.isPalindrome()
 }
 
-
 class SolutionTwo {
     /**
      * Time: O(n) - Single Pass

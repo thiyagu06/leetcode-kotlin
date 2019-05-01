@@ -1,8 +1,7 @@
 package leetcode.easy._643_max_avg_subarray_I
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class MaxAvgSubarrayTest {
 

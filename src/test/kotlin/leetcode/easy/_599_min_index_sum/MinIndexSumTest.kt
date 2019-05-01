@@ -1,8 +1,7 @@
 package leetcode.easy._599_min_index_sum
 
+import org.junit.Assert.assertArrayEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class MinIndexSumTest {
 

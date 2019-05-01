@@ -1,15 +1,14 @@
 package leetcode.medium._328_odd_even_linked_list
 
 import datastructures.list.linkedListOf
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNull
+import kotlin.test.assertEquals
+import kotlin.test.assertNull
 import org.junit.Test
 
 class OddEvenLinkedListTest {
 
     private val solution = Solution()
     private val solutionTwo = SolutionTwo()
-
 
     @Test
     fun oddEvenList() {
@@ -22,7 +21,6 @@ class OddEvenLinkedListTest {
         assertEquals(linkedListOf(1, 3, 5, 7, 2, 4, 6), solution.oddEvenList(linkedListOf(1, 2, 3, 4, 5, 6, 7)))
         assertEquals(linkedListOf(0, 2, 4, 6, 1, 3, 5, 7), solution.oddEvenList(linkedListOf(0, 1, 2, 3, 4, 5, 6, 7)))
     }
-
 
     @Test
     fun oddEvenListTwo() {

@@ -1,6 +1,6 @@
 package leetcode.easy._820_lemonade_change
 
-import org.junit.Assert.assertFalse
+import kotlin.test.assertFalse
 import org.junit.Test
 import kotlin.test.assertTrue
 
@@ -26,5 +26,4 @@ class LemonadeChangeTest {
         assertFalse(solution2.lemonadeChange(intArrayOf(10, 10)))
         assertFalse(solution2.lemonadeChange(intArrayOf(5, 5, 10, 10, 20)))
     }
-
 }

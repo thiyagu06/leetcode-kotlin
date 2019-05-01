@@ -2,7 +2,7 @@ package leetcode.easy._989_add_to_array_form_of_int
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class AddToArrayFormOfIntTest {
 

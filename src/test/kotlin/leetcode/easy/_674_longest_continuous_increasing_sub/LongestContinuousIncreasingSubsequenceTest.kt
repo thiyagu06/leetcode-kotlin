@@ -2,7 +2,7 @@ package leetcode.easy._674_longest_continuous_increasing_sub
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class LongestContinuousIncreasingSubsequenceTest {
 

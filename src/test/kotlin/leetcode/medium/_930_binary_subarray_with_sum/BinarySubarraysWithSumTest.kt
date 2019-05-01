@@ -2,7 +2,7 @@ package leetcode.medium._930_binary_subarray_with_sum
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class BinarySubarraysWithSumTest {
 

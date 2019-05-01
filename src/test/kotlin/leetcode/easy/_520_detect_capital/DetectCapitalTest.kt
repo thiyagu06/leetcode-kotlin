@@ -2,7 +2,8 @@ package leetcode.easy._520_detect_capital
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class DetectCapitalTest {
 

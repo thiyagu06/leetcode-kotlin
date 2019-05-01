@@ -6,7 +6,6 @@ import datastructures.tree.levels
 import java.util.ArrayDeque
 import java.util.Queue
 
-
 /**
  * 513 - https://leetcode.com/problems/find-bottom-left-tree-value/
  */
@@ -107,4 +106,3 @@ class SolutionFour {
             ?: findLeftmostLeafAtDepth(root.right, treeHeight, depth + 1)
     }
 }
-

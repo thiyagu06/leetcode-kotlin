@@ -1,7 +1,7 @@
 package leetcode.medium._064_min_path_sum
 
 import extensions.arrays.buildIntMatrix
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class MinimumPathSumTest {

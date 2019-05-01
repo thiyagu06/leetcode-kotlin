@@ -1,8 +1,7 @@
 package leetcode.easy._349_intersection_of_two_arrays
 
+import org.junit.Assert.assertArrayEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class IntersectionTwoArraysTest {
     private val solution = Solution()

@@ -2,7 +2,7 @@ package leetcode.medium._300_longest_increasing_subsequence
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class LongestIncreasingSubsequenceTest {
 

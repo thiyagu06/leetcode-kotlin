@@ -1,8 +1,8 @@
 package leetcode.hard._145_binary_tree_postorder_traversal
 
 import datastructures.tree.buildTree
-import org.junit.Assert
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class BinaryTreePostorderTraversalTest {
 
@@ -10,7 +10,7 @@ class BinaryTreePostorderTraversalTest {
 
     @Test
     fun postorderTraversal() {
-        Assert.assertEquals(
+        assertEquals(
             listOf(3, 2, 1),
             solution.postorderTraversal(buildTree(1, null, 2, 3))
         )

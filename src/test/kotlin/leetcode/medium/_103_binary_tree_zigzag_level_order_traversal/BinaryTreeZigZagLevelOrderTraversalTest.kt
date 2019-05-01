@@ -1,7 +1,7 @@
 package leetcode.medium._103_binary_tree_zigzag_level_order_traversal
 
 import datastructures.tree.buildTree
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class BinaryTreeZigZagLevelOrderTraversalTest {
@@ -50,7 +50,6 @@ class BinaryTreeZigZagLevelOrderTraversalTest {
                         listOf(-4)),
                 solution.zigzagLevelOrder(
                         buildTree(3, 4, 5, -7, -6, null, null, -7, null, -5, null, null, null, -4)))
-
     }
 
     @Test

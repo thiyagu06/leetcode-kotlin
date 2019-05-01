@@ -1,6 +1,6 @@
 package leetcode.medium._017_letter_combinations_of_a_phone_number
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 import kotlin.test.assertTrue
 
@@ -24,9 +24,7 @@ class LetterCombinationsOfAPhoneNumberTest {
         )
 
         assertEquals(emptyList<String>(), solution.letterCombinations(""))
-
     }
-
 
     @Test
     fun letterCombinations2() {

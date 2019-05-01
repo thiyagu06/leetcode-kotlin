@@ -1,8 +1,7 @@
 package leetcode.easy._506_relative_ranks
 
+import org.junit.Assert.assertArrayEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class RelativeRanks {
 

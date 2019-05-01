@@ -2,7 +2,7 @@ package leetcode.easy._038_count_and_say
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class CountAndSayTest {
 

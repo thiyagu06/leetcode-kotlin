@@ -1,6 +1,6 @@
 package leetcode.medium._487_max_consecutive_ones_ii
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class MaxConsecutiveOnesIITest {

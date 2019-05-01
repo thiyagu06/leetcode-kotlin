@@ -2,7 +2,7 @@ package leetcode.medium._515_find_largest_value_in_each_tree_row
 
 import datastructures.tree.buildTree
 import datastructures.tree.tree123
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class FindLargestValueInEachTreeRowTest {

@@ -86,5 +86,4 @@ class SolutionTwo {
 
         return sentinel.next
     }
-
 }

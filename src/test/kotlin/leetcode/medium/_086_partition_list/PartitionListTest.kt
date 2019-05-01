@@ -4,7 +4,8 @@ import datastructures.list.ListNode
 import datastructures.list.linkedListOf
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
+import kotlin.test.assertNull
 
 class PartitionListTest {
 

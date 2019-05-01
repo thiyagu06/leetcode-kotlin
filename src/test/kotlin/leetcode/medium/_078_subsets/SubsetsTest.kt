@@ -1,6 +1,6 @@
 package leetcode.medium._078_subsets
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class SubsetsTest {
@@ -27,7 +27,7 @@ class SubsetsTest {
 
     @Test
     fun subsets() {
-        assertEquals(listOf(emptyList<Int>()), solution.subsets(intArrayOf()))
+        assertEquals(listOf(emptyList()), solution.subsets(intArrayOf()))
 
         val actual123 = solution.subsets(intArrayOf(1, 2, 3))
         assertEquals(8, actual123.size)
@@ -36,7 +36,7 @@ class SubsetsTest {
 
     @Test
     fun subsets2() {
-        assertEquals(listOf(emptyList<Int>()), solution2.subsets(intArrayOf()))
+        assertEquals(listOf(emptyList()), solution2.subsets(intArrayOf()))
 
         val actual123 = solution2.subsets(intArrayOf(1, 2, 3))
         assertEquals(8, actual123.size)
@@ -45,7 +45,7 @@ class SubsetsTest {
 
     @Test
     fun subsets3() {
-        assertEquals(listOf(emptyList<Int>()), solution3.subsets(intArrayOf()))
+        assertEquals(listOf(emptyList()), solution3.subsets(intArrayOf()))
 
         val actual123 = solution3.subsets(intArrayOf(1, 2, 3))
         assertEquals(8, actual123.size)
@@ -54,7 +54,7 @@ class SubsetsTest {
 
     @Test
     fun subsets4() {
-        assertEquals(listOf(emptyList<Int>()), solution4.subsets(intArrayOf()))
+        assertEquals(listOf(emptyList()), solution4.subsets(intArrayOf()))
 
         val actual123 = solution4.subsets(intArrayOf(1, 2, 3))
         assertEquals(8, actual123.size)
@@ -63,7 +63,7 @@ class SubsetsTest {
 
     @Test
     fun subsets5() {
-        assertEquals(listOf(emptyList<Int>()), solution5.subsets(intArrayOf()))
+        assertEquals(listOf(emptyList()), solution5.subsets(intArrayOf()))
 
         val actual123 = solution5.subsets(intArrayOf(1, 2, 3))
         assertEquals(8, actual123.size)
@@ -72,7 +72,7 @@ class SubsetsTest {
 
     @Test
     fun subsets6() {
-        assertEquals(listOf(emptyList<Int>()), solution6.subsets(intArrayOf()))
+        assertEquals(listOf(emptyList()), solution6.subsets(intArrayOf()))
 
         val actual123 = solution6.subsets(intArrayOf(1, 2, 3))
         assertEquals(8, actual123.size)
@@ -81,7 +81,7 @@ class SubsetsTest {
 
     @Test
     fun subsets7() {
-        assertEquals(listOf(emptyList<Int>()), solution7.subsets(intArrayOf()))
+        assertEquals(listOf(emptyList()), solution7.subsets(intArrayOf()))
 
         val actual123 = solution7.subsets(intArrayOf(1, 2, 3))
         assertEquals(8, actual123.size)
@@ -90,7 +90,7 @@ class SubsetsTest {
 
     @Test
     fun subsets8() {
-        assertEquals(listOf(emptyList<Int>()), solution8.subsets(intArrayOf()))
+        assertEquals(listOf(emptyList()), solution8.subsets(intArrayOf()))
 
         val actual123 = solution8.subsets(intArrayOf(1, 2, 3))
         assertEquals(8, actual123.size)

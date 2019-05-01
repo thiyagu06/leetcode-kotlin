@@ -1,8 +1,8 @@
 package leetcode.easy._001_two_sum
 
+import org.junit.Assert.assertArrayEquals
 import org.junit.Test
 
-import org.junit.Assert.*
 import java.lang.IllegalArgumentException
 
 class TwoSumTest {

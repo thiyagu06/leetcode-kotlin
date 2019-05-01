@@ -2,7 +2,7 @@ package leetcode.easy._067_add_binary
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class AddBinaryTest {
 

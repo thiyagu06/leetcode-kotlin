@@ -2,7 +2,7 @@ package leetcode.easy._389_find_the_difference
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class FindTheDifferenceTest {
 

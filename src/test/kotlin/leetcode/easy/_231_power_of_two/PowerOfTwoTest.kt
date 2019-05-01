@@ -1,7 +1,7 @@
 package leetcode.easy._231_power_of_two
 
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Test
 
 class PowerOfTwoTest {
@@ -35,6 +35,4 @@ class PowerOfTwoTest {
         assertFalse(solutionTwo.isPowerOfTwo(-1))
         assertFalse(solutionTwo.isPowerOfTwo(3))
     }
-
-
 }

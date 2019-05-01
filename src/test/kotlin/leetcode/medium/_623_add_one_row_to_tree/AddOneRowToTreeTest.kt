@@ -3,7 +3,7 @@ package leetcode.medium._623_add_one_row_to_tree
 import datastructures.tree.buildTree
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class AddOneRowToTreeTest {
 

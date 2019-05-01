@@ -1,6 +1,6 @@
 package leetcode.easy._268_missing_number
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class MissingNumberTest {
@@ -19,7 +19,6 @@ class MissingNumberTest {
         assertEquals(2, solution.missingNumber(intArrayOf(3, 0, 1)))
         assertEquals(1, solution.missingNumber(intArrayOf(0)))
         assertEquals(8, solution.missingNumber(intArrayOf(9, 6, 4, 2, 3, 5, 7, 0, 1)))
-
     }
 
     @Test

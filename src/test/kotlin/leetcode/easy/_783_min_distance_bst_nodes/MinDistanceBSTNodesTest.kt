@@ -3,7 +3,7 @@ package leetcode.easy._783_min_distance_bst_nodes
 import datastructures.tree.buildTree
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class MinDistanceBSTNodesTest {
 

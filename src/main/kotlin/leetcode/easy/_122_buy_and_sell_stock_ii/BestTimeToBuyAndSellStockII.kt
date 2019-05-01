@@ -1,6 +1,6 @@
 package leetcode.easy._122_buy_and_sell_stock_ii
 
-import java.util.*
+import java.util.LinkedList
 import kotlin.math.max
 
 /**

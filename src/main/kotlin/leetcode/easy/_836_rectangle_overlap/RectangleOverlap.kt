@@ -21,7 +21,6 @@ class Solution {
     private fun isOneRectangleToLeftOfOther(r1: Rectangle, r2: Rectangle): Boolean =
         (r1.topRight.x <= r2.bottomLeft.x) || (r2.topRight.x <= r1.bottomLeft.x)
 
-
     private fun IntArray.toRectangle(): Rectangle =
         Rectangle(bottomLeft = Point2D(this[0], this[1]), topRight = Point2D(this[2], this[3]))
 }

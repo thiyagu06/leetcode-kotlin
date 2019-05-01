@@ -2,7 +2,7 @@ package leetcode.medium._322_coin_change
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class CoinChangeTest {
 
@@ -26,5 +26,4 @@ class CoinChangeTest {
     fun `coinChange - Int Overflow`() {
         assertEquals(2, solution.coinChange(intArrayOf(1, Int.MAX_VALUE), 2))
     }
-
 }

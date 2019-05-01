@@ -43,8 +43,10 @@ class RecursiveDFSSolution {
         else -> {
             seen[r][c] = true
 
-            (1 + areaOfIslandAt(r + 1, c) + areaOfIslandAt(r - 1, c)
-                    + areaOfIslandAt(r, c - 1) + areaOfIslandAt(r, c + 1))
+            (1 + areaOfIslandAt(r + 1, c) +
+                    areaOfIslandAt(r - 1, c) +
+                    areaOfIslandAt(r, c - 1) +
+                    areaOfIslandAt(r, c + 1))
         }
     }
 }
@@ -80,8 +82,10 @@ class RecursiveDFSSolutionTwo {
         else -> {
             seen[r][c] = true
 
-            (1 + areaOfIslandAt(r + 1, c) + areaOfIslandAt(r - 1, c)
-                    + areaOfIslandAt(r, c - 1) + areaOfIslandAt(r, c + 1))
+            (1 + areaOfIslandAt(r + 1, c) +
+                    areaOfIslandAt(r - 1, c) +
+                    areaOfIslandAt(r, c - 1) +
+                    areaOfIslandAt(r, c + 1))
         }
     }
 }

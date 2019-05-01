@@ -1,7 +1,7 @@
 package leetcode.easy._326_power_of_three
 
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Test
 
 class PowerOfThreeTest {

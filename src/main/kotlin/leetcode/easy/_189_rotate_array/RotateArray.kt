@@ -71,7 +71,6 @@ class SolutionThree {
                 currentIndex = nextIndex
 
                 replacements++
-
             } while (currentIndex != startIndex)
 
             startIndex++ // Go to next index if looped back to previous position

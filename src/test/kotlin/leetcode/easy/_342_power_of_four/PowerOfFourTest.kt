@@ -1,7 +1,7 @@
 package leetcode.easy._342_power_of_four
 
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Test
 
 class PowerOfFourTest {
@@ -38,5 +38,4 @@ class PowerOfFourTest {
             assertFalse(solutionTwo.isPowerOfFour(n))
         }
     }
-
 }

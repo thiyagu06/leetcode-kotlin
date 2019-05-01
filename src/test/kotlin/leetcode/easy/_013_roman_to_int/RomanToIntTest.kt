@@ -1,6 +1,6 @@
 package leetcode.easy._013_roman_to_int
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class RomanToIntTest {
@@ -38,5 +38,4 @@ class RomanToIntTest {
         assertEquals(10, solution2.romanToInt("X"))
         assertEquals(3999, solution2.romanToInt("MMMCMXCIX"))
     }
-
 }

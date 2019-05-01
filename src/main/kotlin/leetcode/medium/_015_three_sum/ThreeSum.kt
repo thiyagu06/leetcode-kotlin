@@ -25,7 +25,7 @@ class Solution {
                 continue
             }
 
-            for (j in (i + 1)..(nums.lastIndex - 1)) {
+            for (j in (i + 1) until nums.lastIndex) {
                 // a = nums[i], b = nums[j]
                 // Need a + b + c = 0, so c = -(a + b)
                 val c = -(nums[i] + nums[j])
@@ -58,7 +58,7 @@ class SolutionTwo {
         val completedPairs = hashSetOf<Pair<Int, Int>>()
 
         for (i in 0..(nums.lastIndex - 2)) {
-            for (j in (i + 1)..(nums.lastIndex - 1)) {
+            for (j in (i + 1) until nums.lastIndex) {
                 if ((nums[i] to nums[j]) in completedPairs) {
                     continue
                 }
@@ -69,7 +69,7 @@ class SolutionTwo {
                 indexMap[c]?.filter { k ->
                     i < k && j < k
                 }?.forEach { k ->
-                    zeroSumTriplets += listOf(nums[i], nums[j], nums[k]) //.sorted()
+                    zeroSumTriplets += listOf(nums[i], nums[j], nums[k])
                     completedPairs += (nums[i] to nums[j])
                 }
             }
@@ -96,7 +96,7 @@ class SolutionThree {
         val completedPairs = hashSetOf<Pair<Int, Int>>()
 
         for (i in 0..(nums.lastIndex - 2)) {
-            for (j in (i + 1)..(nums.lastIndex - 1)) {
+            for (j in (i + 1) until nums.lastIndex) {
                 if ((nums[i] to nums[j]) in completedPairs) {
                     continue
                 }
@@ -134,7 +134,7 @@ class SolutionFour {
         val completedPairs = hashSetOf<Pair<Int, Int>>()
 
         for (i in 0..(nums.lastIndex - 2)) {
-            for (j in (i + 1)..(nums.lastIndex - 1)) {
+            for (j in (i + 1) until nums.lastIndex) {
                 if ((nums[i] to nums[j]) in completedPairs) {
                     continue
                 }

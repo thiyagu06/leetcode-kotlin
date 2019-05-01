@@ -1,7 +1,7 @@
 package leetcode.medium._139_word_break
 
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Ignore
 import org.junit.Test
 

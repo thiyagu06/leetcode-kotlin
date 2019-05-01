@@ -41,7 +41,6 @@ class Solution {
         }
 }
 
-
 class SolutionTwo {
 
     /**

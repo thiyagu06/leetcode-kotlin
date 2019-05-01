@@ -47,7 +47,6 @@ class TransposeMatrixTest {
         )
     }
 
-
     @Test
     fun transpose2() {
         assertArrayEquals(
@@ -69,5 +68,4 @@ class TransposeMatrixTest {
             solution2.transpose(arrayOf(intArrayOf(1, 2, 3), intArrayOf(4, 5, 6)))
         )
     }
-
 }

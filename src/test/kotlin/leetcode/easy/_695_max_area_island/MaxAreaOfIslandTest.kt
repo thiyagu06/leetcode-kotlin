@@ -2,7 +2,7 @@ package leetcode.easy._695_max_area_island
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 import org.junit.Ignore
 
 class MaxAreaOfIslandTest {

@@ -1,7 +1,7 @@
 package leetcode.easy._292_nim_game
 
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Ignore
 import org.junit.Test
 import kotlin.system.measureNanoTime
@@ -93,5 +93,4 @@ class NimGameTest {
         }
         println("$nanoseconds nanoseconds")
     }
-
 }

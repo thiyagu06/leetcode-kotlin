@@ -2,7 +2,7 @@ package leetcode.easy._485_max_consecutive_ones
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class MaxConsecutiveOnesTest {
 
@@ -32,5 +32,4 @@ class MaxConsecutiveOnesTest {
         assertEquals(3, solution2.findMaxConsecutiveOnes(intArrayOf(0, 1, 1, 1)))
         assertEquals(3, solution2.findMaxConsecutiveOnes(intArrayOf(1, 1, 0, 1, 1, 1)))
     }
-
 }

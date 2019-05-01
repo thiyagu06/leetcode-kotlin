@@ -41,7 +41,7 @@ class SolutionThree {
     fun hasPathSum(root: TreeNode?, sum: Int, currentPathSum: Int = 0): Boolean = when {
         root == null -> false
         (currentPathSum + root.`val`) == sum && root.isLeaf -> true
-        else -> hasPathSum(root.left, sum, currentPathSum + root.`val`)
-                || hasPathSum(root.right, sum, currentPathSum + root.`val`)
+        else -> hasPathSum(root.left, sum, currentPathSum + root.`val`) ||
+                hasPathSum(root.right, sum, currentPathSum + root.`val`)
     }
 }

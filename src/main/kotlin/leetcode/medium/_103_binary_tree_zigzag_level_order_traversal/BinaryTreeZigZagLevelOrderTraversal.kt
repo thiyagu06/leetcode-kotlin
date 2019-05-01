@@ -55,7 +55,6 @@ class SolutionTwo {
         .mapIndexed { depth, level ->
             if (depth.isOdd) level.reversed() else level
         }
-
 }
 
 class SolutionThree {
@@ -89,5 +88,4 @@ class SolutionThree {
 
         return values
     }
-
 }

@@ -3,7 +3,7 @@ package leetcode.medium._102_binary_tree_level_order_traversal
 import datastructures.tree.buildTree
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class BinaryTreeLevelOrderTraversalTest {
 
@@ -63,5 +63,4 @@ class BinaryTreeLevelOrderTraversalTest {
                 listOf(15, 7)),
             dfsSolution.levelOrder(buildTree(3, 9, 20, null, null, 15, 7)))
     }
-
 }

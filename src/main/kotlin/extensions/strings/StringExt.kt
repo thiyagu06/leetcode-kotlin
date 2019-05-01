@@ -1,6 +1,6 @@
 package extensions.strings
 
-import java.util.*
+import java.util.Collections
 
 /**
  * String extensions.
@@ -172,7 +172,6 @@ fun String.replaceLast(
     return if (index < 0) this else this.replaceRange(index, index + oldValue.length, newValue)
 }
 
-
 /**
  * Returns the [Longest Common Substring](https://en.wikipedia.org/wiki/Longest_common_substring_problem) of
  * [a] and [b].
@@ -202,7 +201,6 @@ fun longestCommonSubstring(a: String, b: String): String {
 
     return a.substring((endIndex - maxLength) until endIndex)
 }
-
 
 /**
  * Returns the [Longest Common Subsequence (LCS)](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem) of

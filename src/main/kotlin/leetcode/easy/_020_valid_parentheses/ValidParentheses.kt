@@ -1,6 +1,7 @@
 package leetcode.easy._020_valid_parentheses
 
-import java.util.*
+import java.util.ArrayDeque
+import java.util.Deque
 
 /**
  * 20 - https://leetcode.com/problems/valid-parentheses/

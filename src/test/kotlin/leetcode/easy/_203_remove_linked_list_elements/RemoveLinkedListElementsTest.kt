@@ -1,8 +1,8 @@
 package leetcode.easy._203_remove_linked_list_elements
 
 import datastructures.list.linkedListOf
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNull
+import kotlin.test.assertEquals
+import kotlin.test.assertNull
 import org.junit.Test
 
 class RemoveLinkedListElementsTest {
@@ -51,7 +51,6 @@ class RemoveLinkedListElementsTest {
         // remove all elements in list
         assertNull(solution.removeElements(linkedListOf(1, 1, 1, 1), 1))
     }
-
 
     @Test
     fun removeElements2() {
@@ -134,5 +133,4 @@ class RemoveLinkedListElementsTest {
         // remove all elements in list
         assertNull(solution3.removeElements(linkedListOf(1, 1, 1, 1), 1))
     }
-
 }

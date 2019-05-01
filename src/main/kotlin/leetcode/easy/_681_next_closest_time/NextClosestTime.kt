@@ -2,7 +2,6 @@ package leetcode.easy._681_next_closest_time
 
 import extensions.chars.numericValue
 
-
 class Solution {
     /**
      * Time: O(1) - several O(n) operations but n is constant (4 digits)

@@ -1,6 +1,6 @@
 package extensions.java
 
-import java.util.*
+import java.util.Collections
 
 /**
  * Kotlin extensions for Java standard library methods.

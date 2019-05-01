@@ -1,9 +1,14 @@
 package datastructures.list
 
 import org.junit.After
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 import org.junit.Before
 import org.junit.Test
+import kotlin.test.assertFalse
+import kotlin.test.assertNotEquals
+import kotlin.test.assertNotNull
+import kotlin.test.assertNull
+import kotlin.test.assertTrue
 
 class ListNodeTest {
 
@@ -85,7 +90,7 @@ class ListNodeTest {
             linkedListOf(1, 2, 3, 4, 5, 6) to 4
         )
 
-        expected.forEach { list, middleValue ->
+        expected.forEach { (list, middleValue) ->
             assertEquals(middleValue, list.middleNode?.`val`)
         }
     }

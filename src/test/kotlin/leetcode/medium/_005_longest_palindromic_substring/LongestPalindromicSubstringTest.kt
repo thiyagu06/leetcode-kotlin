@@ -2,7 +2,7 @@ package leetcode.medium._005_longest_palindromic_substring
 
 import extensions.chars.repeated
 import extensions.strings.repeated
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 import kotlin.test.assertTrue
 
@@ -26,5 +26,4 @@ class LongestPalindromicSubstringTest {
         assertEquals(bigInput, solution.longestPalindrome(bigInput))
         assertEquals(bigInput2, solution.longestPalindrome(bigInput2))
     }
-
 }

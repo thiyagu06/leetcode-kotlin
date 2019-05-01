@@ -3,7 +3,7 @@ package leetcode.medium._143_reorder_list
 import datastructures.list.linkedListOf
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class ReorderListTest {
     private val solution = Solution()

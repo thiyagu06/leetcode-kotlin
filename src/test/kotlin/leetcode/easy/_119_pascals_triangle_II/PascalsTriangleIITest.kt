@@ -2,7 +2,7 @@ package leetcode.easy._119_pascals_triangle_II
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 import kotlin.system.measureTimeMillis
 
 class PascalsTriangleIITest {
@@ -49,6 +49,4 @@ class PascalsTriangleIITest {
         }
         println("$ms ms")
     }
-
-
 }

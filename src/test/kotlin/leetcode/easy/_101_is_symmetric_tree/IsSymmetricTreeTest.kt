@@ -3,7 +3,8 @@ package leetcode.easy._101_is_symmetric_tree
 import datastructures.tree.buildTree
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class IsSymmetricTreeTest {
 
@@ -50,7 +51,6 @@ class IsSymmetricTreeTest {
 
         assertFalse(solution.isSymmetric(buildTree(9, -42, -42, null, 76, 76, null, null, 13, null, 13)))
     }
-
 
     @Test
     fun isSymmetricIterative() {

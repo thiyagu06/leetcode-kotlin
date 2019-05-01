@@ -3,7 +3,7 @@ package leetcode.medium._129_sum_root_to_leaf_numbers
 import datastructures.tree.buildTree
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class SumRootToLeafNumbersTest {
 

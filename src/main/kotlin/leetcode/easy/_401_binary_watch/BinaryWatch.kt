@@ -66,8 +66,9 @@ class Solution {
     private fun formatMinutes(minutes: Int): String = if (minutes in 0..9) "0$minutes" else "$minutes"
 
     /** The bit string's hours must be in 0..11, and minutes within 0..59 */
-    private fun String.isValidBitString(): Boolean = length == 10
-            && convertHourBits(take(4)) < 12 && convertMinuteBits(drop(4)) < 60
+    private fun String.isValidBitString(): Boolean = length == 10 &&
+            convertHourBits(take(4)) < 12 &&
+            convertMinuteBits(drop(4)) < 60
 
     companion object {
         private val WATCH_BITS_ALL_UNSET = "0".repeat(10)

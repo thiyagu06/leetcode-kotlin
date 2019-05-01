@@ -95,5 +95,4 @@ class FollowUpSolutionTwo {
 
         return if (start == list.size) -1 else list[start]
     }
-
 }

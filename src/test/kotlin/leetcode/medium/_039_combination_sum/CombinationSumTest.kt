@@ -1,7 +1,7 @@
 package leetcode.medium._039_combination_sum
 
 import extensions.math.roundedToNDecimalPlaces
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 import kotlin.system.measureTimeMillis
 

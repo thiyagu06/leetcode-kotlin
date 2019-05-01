@@ -71,5 +71,4 @@ class SolutionTwo {
 
         return head
     }
-
 }

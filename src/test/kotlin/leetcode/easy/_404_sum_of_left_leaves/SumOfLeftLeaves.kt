@@ -7,7 +7,7 @@ import datastructures.tree.tree123
 import datastructures.tree.tree1to5
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class SumOfLeftLeaves {
     private val solution = Solution()
@@ -21,5 +21,4 @@ class SumOfLeftLeaves {
         assertEquals(24, solution.sumOfLeftLeaves(buildTree(3, 9, 20, null, null, 15, 7)))
         assertEquals(28, solution.sumOfLeftLeaves(buildTree(14, 3, 12, 9, 20, 4, null, null, null, 15, 7)))
     }
-
 }

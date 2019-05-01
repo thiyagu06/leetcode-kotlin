@@ -1,7 +1,7 @@
 package leetcode.easy._671_second_min_node_in_binary_tree
 
 import datastructures.tree.buildTree
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class SecondMinNodeInBinaryTreeTest {

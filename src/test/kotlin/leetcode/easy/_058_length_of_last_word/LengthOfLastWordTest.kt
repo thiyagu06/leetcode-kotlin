@@ -2,7 +2,7 @@ package leetcode.easy._058_length_of_last_word
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class LengthOfLastWordTest {
     private val solution = Solution()
@@ -25,5 +25,4 @@ class LengthOfLastWordTest {
         assertEquals(3, solution.lengthOfLastWord(" abc"))
         assertEquals(3, solution.lengthOfLastWord("   abc "))
     }
-
 }

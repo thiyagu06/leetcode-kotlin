@@ -14,7 +14,6 @@ class SetMismatchTest {
         assertArrayEquals(intArrayOf(2, 3), solution.findErrorNums(intArrayOf(1, 2, 2, 4)))
     }
 
-
     @Test
     fun findErrorNumsOptimal() {
         assertArrayEquals(intArrayOf(1, 2), optimal.findErrorNums(intArrayOf(4, 1, 3, 1)))

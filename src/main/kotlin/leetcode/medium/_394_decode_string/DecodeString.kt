@@ -157,7 +157,6 @@ class SolutionTwo {
     private fun String.isDecoded(): Boolean = all { it.isLetter() }
 }
 
-
 class SolutionThree {
     /**
      * https://leetcode.com/problems/decode-string/discuss/87567/Java-Simple-Recursive-solution
@@ -194,5 +193,4 @@ class SolutionThree {
             toString()
         }
     }
-
 }

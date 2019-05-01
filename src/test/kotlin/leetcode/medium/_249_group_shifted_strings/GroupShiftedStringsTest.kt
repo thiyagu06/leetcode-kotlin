@@ -1,6 +1,6 @@
 package leetcode.medium._249_group_shifted_strings
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class GroupShiftedStringsTest {

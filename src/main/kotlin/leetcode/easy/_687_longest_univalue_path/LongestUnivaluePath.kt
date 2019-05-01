@@ -58,7 +58,7 @@ class SolutionTwo {
 
 class SolutionThree {
     /**
-     * Avoid global var or repetition w/ nested function (or just a private function like [SolutionOne]): http://tinyurl.com/y8b7qd4z
+     * Avoid global var or repetition w/ nested function (or just a private function like [Solution]): http://tinyurl.com/y8b7qd4z
      * Time: O(?)
      * Space: O(?)
      */

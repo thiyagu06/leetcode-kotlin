@@ -2,7 +2,7 @@ package leetcode.easy._771_jewels_and_stones
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class JewelsAndStonesTest {
 

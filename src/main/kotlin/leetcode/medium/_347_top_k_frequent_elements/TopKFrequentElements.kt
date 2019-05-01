@@ -1,12 +1,12 @@
 package leetcode.medium._347_top_k_frequent_elements
 
 import extensions.arrays.groupingBy
-import java.util.*
+import java.util.PriorityQueue
 
 /**
  * 347 - https://leetcode.com/problems/top-k-frequent-elements/
  */
-data class ElementWithFrequency(val element: Int, private val frequency: Int): Comparable<ElementWithFrequency> {
+data class ElementWithFrequency(val element: Int, private val frequency: Int) : Comparable<ElementWithFrequency> {
     override fun compareTo(other: ElementWithFrequency): Int = other.frequency - this.frequency
 }
 

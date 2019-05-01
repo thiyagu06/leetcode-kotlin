@@ -15,5 +15,4 @@ class IntersectionTwoArraysIITest {
         assertArrayEquals(intArrayOf(1, 1), solution.intersect(intArrayOf(1, 1), intArrayOf(1, 1, 1, 2, 2)))
         assertArrayEquals(intArrayOf(2, 2), solution.intersect(intArrayOf(1, 2, 2, 1), intArrayOf(2, 2)))
     }
-
 }

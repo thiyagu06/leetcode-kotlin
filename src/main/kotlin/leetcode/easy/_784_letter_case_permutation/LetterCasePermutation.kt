@@ -1,7 +1,8 @@
 package leetcode.easy._784_letter_case_permutation
 
 import extensions.chars.invertCase
-import java.util.*
+import java.util.LinkedList
+import java.util.Queue
 
 /**
  * 784 - https://leetcode.com/problems/find-pivot-index

@@ -1,6 +1,6 @@
 package leetcode.medium._394_decode_string
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class DecodeStringTest {

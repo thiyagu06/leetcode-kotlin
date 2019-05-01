@@ -2,7 +2,7 @@ package leetcode.hard._273_integer_to_english_words
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class IntegerToEnglishWordsTest {
 

@@ -1,7 +1,7 @@
 package leetcode.easy._237_delete_node_in_linked_list
 
 import datastructures.list.linkedListOf
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class DeleteNodeInLinkedListTest {

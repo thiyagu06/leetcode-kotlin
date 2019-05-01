@@ -2,7 +2,7 @@ package leetcode.medium._621_task_scheduler
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 import org.junit.Ignore
 
 class TaskSchedulerTest {

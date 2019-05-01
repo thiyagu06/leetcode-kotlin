@@ -3,7 +3,7 @@ package leetcode.medium._148_sort_list
 import datastructures.list.linkedListOf
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 import org.junit.Ignore
 
 class SortListTest {

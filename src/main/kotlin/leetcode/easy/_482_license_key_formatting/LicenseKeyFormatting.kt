@@ -13,8 +13,7 @@ class Solution {
             .map { it.toUpperCase() }
             .joinToString("")
 
-        val group1Size = noDashes.length % K
-        return when (group1Size) {
+        return when (val group1Size = noDashes.length % K) {
             // All groups have K chars
             0 -> return noDashes.chunked(K).joinToString("-")
             // First group has 1..K-1 chars

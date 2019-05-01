@@ -2,7 +2,7 @@ package leetcode.easy._929_unique_email_addresses
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class UniqueEmailAddressesTest {
 

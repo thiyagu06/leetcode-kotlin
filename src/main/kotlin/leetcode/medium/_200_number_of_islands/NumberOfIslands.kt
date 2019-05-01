@@ -45,7 +45,6 @@ class Solution {
         }
     }
 
-
     private fun neighborsOf(i: Int, j: Int): List<Pair<Int, Int>> = listOf(
         i to j + 1,
         i + 1 to j,

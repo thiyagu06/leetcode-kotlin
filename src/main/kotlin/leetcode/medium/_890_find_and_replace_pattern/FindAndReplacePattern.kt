@@ -47,7 +47,6 @@ class SolutionTwo {
     fun findAndReplacePattern(words: Array<String>, pattern: String): List<String> = words.filter { word ->
         word.matchesPattern2(pattern)
     }
-
 }
 
 internal fun String.matchesPattern2(pattern: String): Boolean {

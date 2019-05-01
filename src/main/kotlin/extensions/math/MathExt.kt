@@ -104,7 +104,6 @@ fun <T> Set<T>.combinations(k: Int): Set<Set<T>> = when (k) {
         .toSet()
 }
 
-
 fun <T> Set<T>.combinations2(k: Int): Set<Set<T>> = toList().combinations(k)
     .map { it.toSet() }
     .toSet()
@@ -157,4 +156,3 @@ fun <T> List<T>.permutations(): Set<List<T>> = when (size) {
         permutations
     }
 }
-

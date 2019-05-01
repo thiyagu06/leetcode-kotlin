@@ -2,7 +2,7 @@ package leetcode.hard._564_find_the_closest_palindrome
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class FindClosestPalindromeTest {
 
@@ -19,13 +19,13 @@ class FindClosestPalindromeTest {
         assertEquals("15351", solution.nearestPalindromic("15399"))
 
         // middle digit is 0
-        assertEquals("20002", solution.nearestPalindromic("20001"))     // b > a
-        assertEquals("9999", solution.nearestPalindromic("10000"))      // b > a
-        assertEquals("10101", solution.nearestPalindromic("10087"))     // ?
+        assertEquals("20002", solution.nearestPalindromic("20001")) // b > a
+        assertEquals("9999", solution.nearestPalindromic("10000"))  // b > a
+        assertEquals("10101", solution.nearestPalindromic("10087")) // ?
 
         // middle digit is 9
-        assertEquals("15951", solution.nearestPalindromic("15909"))     // a > c
-        assertEquals("11011", solution.nearestPalindromic("10987"))     // c > a
+        assertEquals("15951", solution.nearestPalindromic("15909")) // a > c
+        assertEquals("11011", solution.nearestPalindromic("10987")) // c > a
     }
 
     @Test

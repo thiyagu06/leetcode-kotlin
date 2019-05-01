@@ -20,8 +20,6 @@ class Solution {
         val letterToWord = hashMapOf<Char, String>()
         val wordToLetter = hashMapOf<String, Char>()
 
-
-
         pattern.forEachIndexed { i, letter ->
             val word = words[i]
 
@@ -54,8 +52,8 @@ class SolutionTwo {
 
         val biMap: HashBiMap<Char, String> = HashBiMap.create(maxOf(words.size, pattern.length))
         pattern.foldIndexed(biMap) { i, acc, c ->
-            val bijective = (if (acc.containsKey(c)) acc[c] == words[i] else true)
-                    && (if (acc.containsValue(words[i])) acc.inverse()[words[i]] == c else true)
+            val bijective = (if (c in acc) acc[c] == words[i] else true) &&
+                    (if (acc.containsValue(words[i])) acc.inverse()[words[i]] == c else true)
 
             if (!bijective) return false
 

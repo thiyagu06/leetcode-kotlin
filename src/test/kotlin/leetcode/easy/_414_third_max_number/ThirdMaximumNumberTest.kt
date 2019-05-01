@@ -2,7 +2,7 @@ package leetcode.easy._414_third_max_number
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class ThirdMaximumNumberTest {
 
@@ -18,5 +18,4 @@ class ThirdMaximumNumberTest {
         assertEquals(9, solution.thirdMax(intArrayOf(7, 7, 7, 7, 9)))
         assertEquals(Int.MIN_VALUE, solution.thirdMax(intArrayOf(1, 2, Int.MIN_VALUE)))
     }
-
 }

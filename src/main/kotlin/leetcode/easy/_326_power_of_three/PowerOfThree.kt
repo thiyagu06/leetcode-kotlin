@@ -67,13 +67,11 @@ class SolutionThree {
                 power.toInt() > n -> return false
                 power.toInt() == n -> return true
             }
-
         }
 
         return false
     }
 }
-
 
 /**
  * Follow-up: Could you do it without using any loop / recursion?

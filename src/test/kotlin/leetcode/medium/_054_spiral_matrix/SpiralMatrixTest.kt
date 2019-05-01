@@ -2,7 +2,7 @@ package leetcode.medium._054_spiral_matrix
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class SpiralMatrixTest {
 

@@ -3,7 +3,7 @@ package leetcode.easy._543_diameter_of_binary_tree
 import datastructures.tree.buildTree
 import datastructures.tree.tree123
 import datastructures.tree.tree1to5
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class DiameterOfBinaryTreeTest {

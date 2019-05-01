@@ -1,7 +1,7 @@
 
 import leetcode.medium._012_int_to_roman.Solution
 import leetcode.medium._012_int_to_roman.SolutionTwo
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class IntToRomanTest {
@@ -17,7 +17,6 @@ class IntToRomanTest {
         assertEquals("LVIII", solution.intToRoman(58))
         assertEquals("MCMXCIV", solution.intToRoman(1994))
     }
-
 
     @Test
     fun intToRoman2() {

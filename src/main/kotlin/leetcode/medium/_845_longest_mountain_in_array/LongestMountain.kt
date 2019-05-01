@@ -78,8 +78,8 @@ class SolutionTwo {
     fun longestMountain(A: IntArray): Int {
         var longest = 0
         var base = 0
-        var peak = 0
-        var end = 0
+        var peak: Int
+        var end: Int
         var inclineRange: IntRange?
         var declineRange: IntRange?
 

@@ -1,6 +1,6 @@
 package leetcode.easy._415_add_strings
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class AddStringsTest {

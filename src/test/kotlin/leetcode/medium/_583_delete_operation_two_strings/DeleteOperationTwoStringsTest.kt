@@ -2,7 +2,7 @@ package leetcode.medium._583_delete_operation_two_strings
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class DeleteOperationTwoStringsTest {
 

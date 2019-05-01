@@ -2,7 +2,7 @@ package leetcode.easy._387_first_unique_char_in_string
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class FirstUniqueCharTest {
 

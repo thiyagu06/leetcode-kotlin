@@ -24,7 +24,7 @@ class SolutionTwo {
      * Time: O(1)
      * Space: O(1)
      */
-    fun isPowerOfFour(num: Int): Boolean = (num > 0)
-            && (num and (num - 1) == 0)
-            && (num and 0x55555555 != 0)
+    fun isPowerOfFour(num: Int): Boolean = (num > 0) &&
+            (num and (num - 1) == 0) &&
+            (num and 0x55555555 != 0)
 }

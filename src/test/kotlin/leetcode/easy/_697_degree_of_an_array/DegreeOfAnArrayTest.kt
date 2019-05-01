@@ -2,7 +2,7 @@ package leetcode.easy._697_degree_of_an_array
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class DegreeOfAnArrayTest {
 
@@ -73,5 +73,4 @@ class DegreeOfAnArrayTest {
             solution.findAllDegreesAndRanges(intArrayOf(1, 2, 4, 2, 3, 1, 4, 4))
         )
     }
-
 }

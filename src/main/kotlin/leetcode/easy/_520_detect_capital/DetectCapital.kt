@@ -9,7 +9,7 @@ class Solution {
      * Space: O(1)
      */
     fun detectCapitalUse(word: String): Boolean =
-        word.all { it.isUpperCase() }
-                || word.all { it.isLowerCase() }
-                || (word.first().isUpperCase() && word.drop(1).all { it.isLowerCase() })
+        word.all { it.isUpperCase() } ||
+                word.all { it.isLowerCase() } ||
+                (word.first().isUpperCase() && word.drop(1).all { it.isLowerCase() })
 }

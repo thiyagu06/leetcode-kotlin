@@ -1,7 +1,7 @@
 package leetcode.medium._144_binary_tree_preorder_traversal
 
 import datastructures.tree.buildTree
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class BinaryTreePreorderTraversalTest {

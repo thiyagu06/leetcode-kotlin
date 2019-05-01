@@ -2,7 +2,7 @@ package leetcode.easy._258_add_digits
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class AddDigitsTest {
 

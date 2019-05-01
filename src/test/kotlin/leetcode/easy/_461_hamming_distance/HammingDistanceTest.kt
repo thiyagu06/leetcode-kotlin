@@ -2,7 +2,7 @@ package leetcode.easy._461_hamming_distance
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class HammingDistanceTest {
 

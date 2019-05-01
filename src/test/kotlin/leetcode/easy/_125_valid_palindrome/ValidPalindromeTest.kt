@@ -2,7 +2,8 @@ package leetcode.easy._125_valid_palindrome
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class ValidPalindromeTest {
     private val solution = Solution()
@@ -25,5 +26,4 @@ class ValidPalindromeTest {
         assertFalse(solution2.isPalindrome("race a car"))
         assertFalse(solution2.isPalindrome("9A man, a plan, a canal: Panama7"))
     }
-
 }

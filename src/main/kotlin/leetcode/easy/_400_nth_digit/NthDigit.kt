@@ -39,5 +39,3 @@ class Solution {
 
     private fun sizeOfRange(digitsInRange: Int): Int = (9 * 10.0.pow(digitsInRange)).toInt()
 }
-
-

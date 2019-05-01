@@ -20,7 +20,6 @@ class Solution {
         !t.hasLeft && t.hasRight -> "${t.`val`}()(${tree2str(t.right)})"
         else -> "${t.`val`}(${tree2str(t.left)})(${tree2str(t.right)})"
     }
-
 }
 
 class SolutionTwo {
@@ -30,7 +29,7 @@ class SolutionTwo {
      */
     fun tree2str(t: TreeNode?): String =
         if (t == null) ""
-        else ("${t.`val`}"
-            + (if (!t.isLeaf) "(${tree2str(t.left)})" else "")
-            + (if (t.hasRight) "(${tree2str(t.right)})" else ""))
+        else ("${t.`val`}" +
+                (if (!t.isLeaf) "(${tree2str(t.left)})" else "") +
+                (if (t.hasRight) "(${tree2str(t.right)})" else ""))
 }

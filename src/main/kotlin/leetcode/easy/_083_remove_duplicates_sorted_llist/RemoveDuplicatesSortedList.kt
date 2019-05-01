@@ -28,7 +28,6 @@ class Solution {
     }
 }
 
-
 class TwoPointerSolution {
     /**
      * Using a second pointer to search for non-duplicate values.
@@ -80,7 +79,6 @@ class AltSolution {
                 result = result?.next
             }
             node = node.next
-
         }
 
         result?.next = null
@@ -88,4 +86,3 @@ class AltSolution {
         return sentinel.next
     }
 }
-

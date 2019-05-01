@@ -1,6 +1,6 @@
 package leetcode.medium._200_number_of_islands
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class NumberOfIslandsTest {
@@ -396,6 +396,4 @@ class NumberOfIslandsTest {
     fun largeInput4() {
         assertEquals(1, solution4.numIslands(largeInput))
     }
-
-
 }

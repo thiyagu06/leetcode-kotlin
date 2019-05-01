@@ -289,7 +289,7 @@ fun TreeNode?.levels(): List<List<Int>> {
 fun TreeNode?.isBST(validRange: IntRange = (Int.MIN_VALUE..Int.MAX_VALUE)): Boolean {
     this ?: return true
 
-    val leftSubtreeRange = validRange.first..(`val` - 1)
+    val leftSubtreeRange = validRange.first until `val`
     val rightSubtreeRange = (`val` + 1)..validRange.last
 
     return `val` in validRange && left.isBST(leftSubtreeRange) && right.isBST(rightSubtreeRange)

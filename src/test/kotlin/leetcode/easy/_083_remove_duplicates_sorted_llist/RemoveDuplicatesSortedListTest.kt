@@ -2,7 +2,7 @@ package leetcode.easy._083_remove_duplicates_sorted_llist
 
 import datastructures.list.ListNode
 import datastructures.list.linkedListOf
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class RemoveDuplicatesSortedListTest {

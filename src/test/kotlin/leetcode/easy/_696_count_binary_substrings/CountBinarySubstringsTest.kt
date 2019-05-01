@@ -1,6 +1,8 @@
 package leetcode.easy._696_count_binary_substrings
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Test
 
 class CountBinarySubstringsTest {
@@ -45,7 +47,6 @@ class CountBinarySubstringsTest {
         assertTrue(solution.isValid("011110", 4..5))
         assertFalse(solution.isValid("011110", 1..3))
     }
-
 
     @Test
     fun countBinarySubstrings2() {

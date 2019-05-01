@@ -27,4 +27,3 @@ class Solution {
             else                   -> isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
         }
 }
-

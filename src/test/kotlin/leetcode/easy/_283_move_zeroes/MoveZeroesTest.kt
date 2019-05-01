@@ -48,7 +48,6 @@ class MoveZeroesTest {
         }
     }
 
-
     @Test
     fun moveZeroes4() {
         expected.forEach { (input, output) ->

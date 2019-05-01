@@ -4,7 +4,8 @@ import datastructures.tree.TreeNode
 import datastructures.tree.buildTree
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 class FindDuplicateSubtreesTest {
 

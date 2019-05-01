@@ -1,8 +1,8 @@
 package leetcode.easy._246_strobogrammatic_number
 
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class StrobogrammaticNumberTest {
     private val solution = Solution()
@@ -42,6 +42,5 @@ class StrobogrammaticNumberTest {
         assertFalse(solution.isStrobogrammatic("6918"))
         assertFalse(solution.isStrobogrammatic("1818"))
         assertFalse(solution.isStrobogrammatic("69696"))
-
     }
 }

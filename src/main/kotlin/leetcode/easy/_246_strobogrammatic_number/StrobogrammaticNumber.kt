@@ -9,10 +9,9 @@ class Solution {
     fun isStrobogrammatic(num: String): Boolean = when {
         num.isEmpty() -> true
         num.length == 1 -> num in setOf("0", "1", "8")
-        num.any { it !in setOf('0', '1', '6', '8', '9')} -> false
+        num.any { it !in setOf('0', '1', '6', '8', '9') } -> false
         else -> isSemiSymmetric(num)
     }
-
 
     // must be symmetric except for 6/9 or 9/6 pairs.
     private fun isSemiSymmetric(num: String): Boolean {

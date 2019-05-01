@@ -3,7 +3,7 @@ package leetcode.medium._865_smallest_subtree_deepest_nodes
 import datastructures.tree.bstWithNulls
 import datastructures.tree.buildTree
 import datastructures.tree.treeUnbalanced2
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class SmallestSubtreeDeepestNodesTest {

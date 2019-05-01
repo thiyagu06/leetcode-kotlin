@@ -19,9 +19,8 @@ class Solution {
         while (aIndex >= 0 || bIndex >= 0) {
             val aBit = if (aIndex >= 0) a[aIndex--].numericValue else 0
             val bBit = if (bIndex >= 0) b[bIndex--].numericValue else 0
-            val sum = aBit + bBit + carry
 
-            when (sum) {
+            when (val sum = aBit + bBit + carry) {
                 in 0..1 -> {
                     result = Character.forDigit(sum, 10) + result
                     carry = 0

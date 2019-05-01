@@ -2,7 +2,7 @@ package leetcode.medium._718_max_length_repeated_subarray
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class MaxLengthRepeatedSubarrayTest {
 
@@ -21,5 +21,4 @@ class MaxLengthRepeatedSubarrayTest {
         assertEquals(4, solution.findLength(intArrayOf(0, 0, 0, 0, 1), intArrayOf(1, 0, 0, 0, 0)))
         assertEquals(2, solution.findLength(intArrayOf(1, 2, 4, 3), intArrayOf(1, 2, 3, 4)))
     }
-
 }

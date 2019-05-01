@@ -2,7 +2,7 @@ package leetcode.medium._525_contiguous_array
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class ContiguousArrayTest {
 

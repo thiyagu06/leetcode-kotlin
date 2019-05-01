@@ -3,7 +3,7 @@ package leetcode.easy._107_binary_tree_level_order_traversal_ii
 import datastructures.tree.buildTree
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class BinaryTreeLevelOrderTraversalIITest {
 
@@ -12,7 +12,7 @@ class BinaryTreeLevelOrderTraversalIITest {
 
     @Test
     fun levelOrderBottom() {
-        assertEquals(emptyList<List<Int>>(), solution.levelOrderBottom(null))
+        assertEquals(emptyList(), solution.levelOrderBottom(null))
         assertEquals(listOf(listOf(1)), solution.levelOrderBottom(buildTree(1)))
         assertEquals(listOf(listOf(2), listOf(1)), solution.levelOrderBottom(buildTree(1, 2)))
         assertEquals(listOf(listOf(2), listOf(1)), solution.levelOrderBottom(buildTree(1, null, 2)))
@@ -39,7 +39,7 @@ class BinaryTreeLevelOrderTraversalIITest {
 
     @Test
     fun levelOrderBottom2() {
-        assertEquals(emptyList<List<Int>>(), solution2.levelOrderBottom(null))
+        assertEquals(emptyList(), solution2.levelOrderBottom(null))
         assertEquals(listOf(listOf(1)), solution2.levelOrderBottom(buildTree(1)))
         assertEquals(listOf(listOf(2), listOf(1)), solution2.levelOrderBottom(buildTree(1, 2)))
         assertEquals(listOf(listOf(2), listOf(1)), solution2.levelOrderBottom(buildTree(1, null, 2)))

@@ -1,6 +1,6 @@
 package leetcode.easy._303_range_sum_query_immutable
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class RangeSumQueryImmutableTest {

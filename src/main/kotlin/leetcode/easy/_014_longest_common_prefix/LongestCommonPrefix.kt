@@ -19,7 +19,6 @@ class Solution {
     private fun longestCommonPrefix(s1: String, s2: String): String =
         s1.zip(s2).fold("") { lcp, (c1, c2) ->
             if (c1 == c2) lcp + c1 else return lcp
-
         }
 }
 

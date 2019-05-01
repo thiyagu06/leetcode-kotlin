@@ -3,7 +3,6 @@ package leetcode.easy._884_uncommon_words
 import org.junit.Assert.assertArrayEquals
 import org.junit.Test
 
-
 class UncommonWordsTest {
 
     private val solution = Solution()
@@ -41,7 +40,6 @@ class UncommonWordsTest {
             solution.uncommonFromSentences("apple", "banana").sorted().toTypedArray()
         )
     }
-
 
     @Test
     fun uncommonFromSentences2() {

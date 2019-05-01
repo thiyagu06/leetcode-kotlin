@@ -1,8 +1,8 @@
 package leetcode.easy._219_contains_duplicate_ii
 
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class ContainsDuplicatesIITest {
     private val solution = Solution()
@@ -26,5 +26,4 @@ class ContainsDuplicatesIITest {
         assertTrue(solution2.containsNearbyDuplicate(arr, 2))
         assertTrue(solution2.containsNearbyDuplicate(intArrayOf(-1, -1), 1))
     }
-
 }

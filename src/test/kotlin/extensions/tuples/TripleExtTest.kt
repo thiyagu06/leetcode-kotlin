@@ -3,9 +3,9 @@ package extensions.tuples
 import extensions.math.EPSILON
 import org.junit.Assert.assertArrayEquals
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
 import org.junit.Test
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class TripleExtTest {
 
@@ -39,7 +39,11 @@ class TripleExtTest {
 
     @Test
     fun toFloatArray() {
-        assertArrayEquals(floatArrayOf(123.4f, 567.8f, 999.9f), Triple(123.4f, 567.8f, 999.9f).toFloatArray(), EPSILON.toFloat())
+        assertArrayEquals(
+            floatArrayOf(123.4f, 567.8f, 999.9f),
+            Triple(123.4f, 567.8f, 999.9f).toFloatArray(),
+            EPSILON.toFloat()
+        )
     }
 
     @Test

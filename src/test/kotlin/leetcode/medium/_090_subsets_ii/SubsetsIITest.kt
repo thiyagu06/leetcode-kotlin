@@ -1,7 +1,7 @@
 package leetcode.medium._090_subsets_ii
 
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 import org.junit.Ignore
 import org.junit.Test
 
@@ -12,7 +12,7 @@ class SubsetsIITest {
 
     @Test
     fun subsetsWithDup() {
-        assertEquals(listOf(emptyList<Int>()), solution.subsetsWithDup(intArrayOf()))
+        assertEquals(listOf(emptyList()), solution.subsetsWithDup(intArrayOf()))
 
         val result122 = solution.subsetsWithDup(intArrayOf(1, 2, 2))
         assertEquals(6, result122.size)
@@ -86,7 +86,7 @@ class SubsetsIITest {
     @Ignore("Unimplemented")
     @Test
     fun subsetsWithDup2() {
-        assertEquals(listOf(emptyList<Int>()), solution2.subsetsWithDup(intArrayOf()))
+        assertEquals(listOf(emptyList()), solution2.subsetsWithDup(intArrayOf()))
 
         val result122 = solution2.subsetsWithDup(intArrayOf(1, 2, 2))
         assertEquals(6, result122.size)

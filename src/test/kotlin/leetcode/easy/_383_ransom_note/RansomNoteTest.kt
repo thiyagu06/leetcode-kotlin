@@ -2,7 +2,8 @@ package leetcode.easy._383_ransom_note
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class RansomNoteTest {
 
@@ -14,5 +15,4 @@ class RansomNoteTest {
         assertFalse(solution.canConstruct("aa", "ab"))
         assertTrue(solution.canConstruct("aa", "aab"))
     }
-
 }

@@ -1,7 +1,7 @@
 package leetcode.medium._567_permutation_in_a_string
 
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Test
 
 class PermutationInAStringTest {
@@ -70,7 +70,6 @@ class PermutationInAStringTest {
         assertTrue(solution2.checkInclusion(s1 = "adc", s2 = "dcda"))
     }
 
-
     @Test
     fun checkInclusionLong2() {
         assertTrue(
@@ -96,7 +95,6 @@ class PermutationInAStringTest {
             )
         )
     }
-
 
     @Test
     fun checkInclusion3() {

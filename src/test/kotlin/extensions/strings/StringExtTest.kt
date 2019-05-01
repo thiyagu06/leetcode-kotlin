@@ -1,8 +1,8 @@
 package extensions.strings
 
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import kotlin.test.assertEquals
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Test
 import java.lang.StringBuilder
 
@@ -82,7 +82,6 @@ class StringExtTest {
         assertEquals(mapOf('f' to 1, 'o' to 2), "FOo".characterFrequencies(caseSensitive = false))
         assertEquals(mapOf('F' to 1, 'o' to 1, 'O' to 1), "FOo".characterFrequencies())
         assertEquals(mapOf('F' to 1, 'o' to 1, 'O' to 1), "FOo".characterFrequencies(caseSensitive = true))
-
     }
 
     @Test
@@ -203,7 +202,6 @@ class StringExtTest {
             "(()())()abcxyz".replaceLast(oldValue = "abcxyz", newValue = "zyxcba", startIndex = 4)
         )
     }
-
 
     @Test
     fun longestCommonSubstring() {

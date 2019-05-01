@@ -1,6 +1,6 @@
 package leetcode.medium._047_permutations_ii
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class PermutationsIITest {

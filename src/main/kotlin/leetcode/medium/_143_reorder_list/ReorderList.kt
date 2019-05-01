@@ -2,7 +2,8 @@ package leetcode.medium._143_reorder_list
 
 import datastructures.list.ListNode
 import datastructures.list.forEachNode
-import java.util.*
+import java.util.ArrayDeque
+import java.util.Deque
 
 /**
  * 143 - https://leetcode.com/problems/reorder-list/

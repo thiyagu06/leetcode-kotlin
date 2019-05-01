@@ -1,6 +1,6 @@
 package leetcode.easy._007_reverse_integer
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class ReverseIntegerTest {

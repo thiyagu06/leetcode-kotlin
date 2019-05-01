@@ -1,6 +1,6 @@
 package leetcode.medium._003_longest_substring_without_repeating_chars
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class LongestSubstringWithoutRepeatingCharsTest {
@@ -25,5 +25,4 @@ class LongestSubstringWithoutRepeatingCharsTest {
         assertEquals(3, solution2.lengthOfLongestSubstring("pwwkewwwwwwwwwwwwwwwww"))
         assertEquals(6, solution2.lengthOfLongestSubstring("abcABC"))
     }
-
 }

@@ -15,9 +15,9 @@ class Solution {
                 val grouped = sortedDeck.chunked(k)
                 val firstGroupSize = grouped.first().size
                 val splittable = grouped.all { group ->
-                    group.size >= 2
-                            && group.size == firstGroupSize
-                            && group.all { element -> element == group.first() }
+                    group.size >= 2 &&
+                            group.size == firstGroupSize &&
+                            group.all { element -> element == group.first() }
                 }
                 if (splittable) return true
             }

@@ -9,7 +9,7 @@ class Solution {
      * Space: O(n)
      */
     fun largestNumber(nums: IntArray): String {
-        val comparator = Comparator<Int> { a, b -> 
+        val comparator = Comparator<Int> { a, b ->
             "$a$b".compareTo("$b$a")
         }.reversed()
 

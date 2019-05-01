@@ -1,6 +1,6 @@
 package leetcode.easy._628_maximum_product_of_three_numbers
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class MaxProductThreeNumbersTest {
@@ -39,5 +39,4 @@ class MaxProductThreeNumbersTest {
         assertEquals(1, solutionTwo.maximumProduct(intArrayOf(1, 1, 0, -1, -1)))
         assertEquals(1000, solutionTwo.maximumProduct(intArrayOf(10, 0, 10, 10)))
     }
-
 }

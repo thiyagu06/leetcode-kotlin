@@ -4,8 +4,8 @@ import datastructures.tree.bst3LevelsFull
 import datastructures.tree.bstWithNulls
 import datastructures.tree.buildTree
 import datastructures.tree.tree123
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Test
 
 class ValidateBSTTest {
@@ -44,5 +44,4 @@ class ValidateBSTTest {
         assertFalse(solution2.isValidBST(buildTree(Int.MAX_VALUE, Int.MAX_VALUE)))
         assertFalse(solution2.isValidBST(buildTree(Int.MAX_VALUE, null, Int.MAX_VALUE)))
     }
-
 }

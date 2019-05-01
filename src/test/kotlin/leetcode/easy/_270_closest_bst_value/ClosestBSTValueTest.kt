@@ -3,7 +3,7 @@ package leetcode.easy._270_closest_bst_value
 import datastructures.tree.buildTree
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class ClosestBSTValueTest {
 

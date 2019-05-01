@@ -1,9 +1,10 @@
 package leetcode.easy._733_flood_fill
 
 import extensions.arrays.toMatrix
+import org.junit.Assert.assertArrayEquals
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class FloodFillTest {
 

@@ -1,6 +1,6 @@
 package leetcode.easy._014_longest_common_prefix
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class LongestCommonPrefixTest {

@@ -41,5 +41,4 @@ class PlusOneTest {
         assertArrayEquals(intArrayOf(9, 9, 0, 0), solution3.plusOne(intArrayOf(9, 8, 9, 9)))
         assertArrayEquals(intArrayOf(9, 0, 0, 0), solution3.plusOne(intArrayOf(8, 9, 9, 9)))
     }
-
 }

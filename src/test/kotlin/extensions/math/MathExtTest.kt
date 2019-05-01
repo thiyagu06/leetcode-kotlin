@@ -1,8 +1,8 @@
 package extensions.math
 
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import kotlin.test.assertEquals
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Test
 import java.math.BigInteger
 import kotlin.system.measureTimeMillis
@@ -159,7 +159,6 @@ class MathExtTest {
                 )
 
                 assertEquals(252, (1..10).toSet().combinations(k = 5).size)
-
             }
             times += ms
         }
@@ -177,7 +176,6 @@ class MathExtTest {
     fun `combinations - k greater than size`() {
         setOf(1, 2, 3).combinations(k = 5)
     }
-
 
     @Test
     fun combinations2() {

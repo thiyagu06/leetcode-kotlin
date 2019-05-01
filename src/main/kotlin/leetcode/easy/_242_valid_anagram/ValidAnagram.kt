@@ -48,8 +48,8 @@ class SolutionThree {
      * Time: O(n)
      * Space: O(1) - uses space for HashMaps, but size of each is limited to 26 mappings.
      */
-    fun isAnagram(s: String, t: String): Boolean = s.length == t.length
-            && s.characterFrequencies() == t.characterFrequencies()
+    fun isAnagram(s: String, t: String): Boolean = s.length == t.length &&
+            s.characterFrequencies() == t.characterFrequencies()
 }
 
 class SolutionFour {

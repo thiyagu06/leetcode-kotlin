@@ -1,8 +1,7 @@
 package leetcode.easy._088_merge_sorted_array
 
+import org.junit.Assert.assertArrayEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class MergeSortedArrayTest {
     private val solution = Solution()
@@ -75,7 +74,6 @@ class MergeSortedArrayTest {
         assertArrayEquals(intArrayOf(1, 1, 1, 1, 1, 2, 2, 3, 3, 4, 5, 6, 6, 7), k)
     }
 
-
     @Test
     fun merge3() {
         val a = intArrayOf(0)
@@ -108,5 +106,4 @@ class MergeSortedArrayTest {
         solution3.merge(nums1 = k, m = 7, nums2 = l, n = 7)
         assertArrayEquals(intArrayOf(1, 1, 1, 1, 1, 2, 2, 3, 3, 4, 5, 6, 6, 7), k)
     }
-
 }

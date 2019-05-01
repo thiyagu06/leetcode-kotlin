@@ -32,7 +32,6 @@ inline fun <T> Pair<T, T>.reversedIf(predicate: (Pair<T, T>) -> Boolean) =
 
 fun <T> Pair<T, T>.contains(value: T) = first == value || second == value
 
-
 /* Pair<String, String> */
 /**
  * @return The shorter of 2 strings (if equal length, the first of the two is returned)

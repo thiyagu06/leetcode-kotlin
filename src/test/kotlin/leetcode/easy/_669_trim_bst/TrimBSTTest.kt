@@ -3,7 +3,7 @@ package leetcode.easy._669_trim_bst
 import datastructures.tree.buildTree
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class TrimBSTTest {
 

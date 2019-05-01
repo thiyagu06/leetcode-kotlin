@@ -20,7 +20,7 @@ class Solution {
         while (i < j) {
             if (s[i] != s[j]) {
                 return if (tolerance == 0) false
-                else isValidPalindrome(s, i..(j - 1), 0) || isValidPalindrome(s, (i + 1)..j, 0)
+                else isValidPalindrome(s, i until j, 0) || isValidPalindrome(s, (i + 1)..j, 0)
             }
             i++
             j--

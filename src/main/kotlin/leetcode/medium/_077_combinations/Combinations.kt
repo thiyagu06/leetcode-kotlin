@@ -24,7 +24,6 @@ private tailrec fun <T> powerSet(list: List<T>, acc: List<List<T>>): List<List<T
     if (list.isEmpty()) acc
     else powerSet(list.drop(1), acc + acc.map { it + list.first() })
 
-
 class SolutionTwo {
     /**
      * Time: O(?)
@@ -54,4 +53,3 @@ class SolutionTwo {
         }
     }
 }
-

@@ -2,7 +2,7 @@ package leetcode.medium._347_top_k_frequent_elements
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class TopKFrequentElementsTest {
 

@@ -148,8 +148,7 @@ fun Int.withLastBitUnset(): Int = this and 1.inv()
 fun Int.unsetRightmost1Bit(): Int = this and (this - 1)
 
 fun Int.setRightmost0Bit(): Int {
-    if (this == -1)     // no 0 bits
-        return -1
+    if (this == -1) return -1
 
     val rightmost0Bit = extractRightmost0Bit()
     return this xor rightmost0Bit
@@ -172,8 +171,9 @@ fun Int.swapBits(i: Int, j: Int): Int {
     val iBit = (this shr i) and 1
     val jBit = (this shr j) and 1
 
-    if (iBit xor jBit == 0)     // both 0 or both 1
+    if (iBit xor jBit == 0) { // both 0 or both 1
         return this
+    }
 
     return this xor ((1 shl i) or (1 shl j))
 }

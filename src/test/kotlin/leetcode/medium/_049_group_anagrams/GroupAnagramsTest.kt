@@ -1,7 +1,7 @@
 package leetcode.medium._049_group_anagrams
 
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 import org.junit.Test
 
 class GroupAnagramsTest {
@@ -143,5 +143,4 @@ class GroupAnagramsTest {
             assertTrue(sublist in actualLargeResult)
         }
     }
-
 }

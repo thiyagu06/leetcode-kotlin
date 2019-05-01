@@ -14,5 +14,4 @@ class TwoSumIITest {
         assertArrayEquals(intArrayOf(1, 3), solution.twoSum(intArrayOf(2, 3, 4), target = 6))
         assertArrayEquals(intArrayOf(3, 4), solution.twoSum(intArrayOf(1, 2, 4, 4), target = 8))
     }
-
 }

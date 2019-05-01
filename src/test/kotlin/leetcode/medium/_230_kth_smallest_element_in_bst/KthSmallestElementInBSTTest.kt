@@ -5,7 +5,7 @@ import datastructures.tree.bstWithNulls
 import datastructures.tree.buildBST
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class KthSmallestElementInBSTTest {
 

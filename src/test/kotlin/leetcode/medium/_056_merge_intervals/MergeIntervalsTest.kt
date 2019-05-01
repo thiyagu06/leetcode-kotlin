@@ -1,8 +1,8 @@
 package leetcode.medium._056_merge_intervals
 
 import datastructures.interval.Interval
-import org.junit.Assert.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class MergeIntervalsTest {
 
@@ -10,7 +10,7 @@ class MergeIntervalsTest {
 
     @Test
     fun merge() {
-        assertEquals(emptyList<Interval>(), solution.merge(emptyList()))
+        assertEquals(emptyList(), solution.merge(emptyList()))
         assertEquals(listOf(Interval(1, 3)), solution.merge(listOf(Interval(1, 3))))
         assertEquals(
             listOf(Interval(1, 6), Interval(8, 10), Interval(15, 18)),

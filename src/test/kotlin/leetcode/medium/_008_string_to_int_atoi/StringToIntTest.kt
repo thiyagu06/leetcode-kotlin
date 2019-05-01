@@ -1,6 +1,7 @@
 package leetcode.medium._008_string_to_int_atoi
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
+import kotlin.test.assertNull
 import org.junit.Test
 import java.math.BigInteger
 
@@ -62,7 +63,6 @@ class StringToIntTest {
         assertEquals(4193, solution.digitStringToInt("4193", isNegative = false))
         assertEquals(-4193, solution.digitStringToInt("4193", isNegative = true))
     }
-
 
     @Test
     fun myAtoi2() {

@@ -2,8 +2,8 @@ package leetcode.easy._141_linked_list_cycle
 
 import datastructures.list.ListNode
 import datastructures.list.linkedListOf
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Test
 
 class LinkedListCycleTest {
@@ -17,7 +17,6 @@ class LinkedListCycleTest {
         middle.next?.next = head
         head
     }
-
 
     @Test
     fun hasCycle() {

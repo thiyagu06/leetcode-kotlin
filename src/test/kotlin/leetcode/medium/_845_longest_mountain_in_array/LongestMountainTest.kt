@@ -2,7 +2,8 @@ package leetcode.medium._845_longest_mountain_in_array
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
+import kotlin.test.assertNull
 
 class LongestMountainTest {
 

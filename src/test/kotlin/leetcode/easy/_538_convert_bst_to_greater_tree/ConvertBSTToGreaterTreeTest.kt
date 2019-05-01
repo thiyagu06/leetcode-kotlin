@@ -5,7 +5,7 @@ import datastructures.tree.bst3LevelsFull
 import datastructures.tree.buildTree
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class ConvertBSTToGreaterTreeTest {
 
@@ -27,9 +27,7 @@ class ConvertBSTToGreaterTreeTest {
                     }
                 },
                 solution.convertBST(bst3LevelsFull))
-
     }
-
 
     @Test
     fun convertBST2() {
@@ -46,6 +44,5 @@ class ConvertBSTToGreaterTreeTest {
                 }
             },
             solution2.convertBST(bst3LevelsFull))
-
     }
 }

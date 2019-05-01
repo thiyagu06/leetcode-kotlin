@@ -1,6 +1,6 @@
 package leetcode.easy._747_largest_num_twice_others
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class LargestNumberTwiceOthersTest {

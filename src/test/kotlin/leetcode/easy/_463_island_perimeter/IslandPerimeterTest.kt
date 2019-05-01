@@ -3,7 +3,7 @@ package leetcode.easy._463_island_perimeter
 import extensions.arrays.IntMatrix
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 import org.junit.Before
 
 class IslandPerimeterTest {
@@ -35,6 +35,4 @@ class IslandPerimeterTest {
     fun islandPerimeter2() {
         assertEquals(16, solution2.islandPerimeter(grid))
     }
-
-
 }

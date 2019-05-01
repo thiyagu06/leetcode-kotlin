@@ -1,7 +1,7 @@
 package leetcode.easy._217_contains_duplicate
 
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import org.junit.Test
 
 class ContainsDuplicateTest {
@@ -25,7 +25,6 @@ class ContainsDuplicateTest {
         assertTrue(solution.containsDuplicate(intArrayOf(1, 1, 1, 3, 3, 4, 3, 2, 4, 2)))
         assertTrue(solution.containsDuplicate(bigInputStartDuplicate))
         assertFalse(solution.containsDuplicate(bigInput))
-
     }
 
     @Test
@@ -54,6 +53,5 @@ class ContainsDuplicateTest {
         assertTrue(solution3.containsDuplicate(intArrayOf(1, 1, 1, 3, 3, 4, 3, 2, 4, 2)))
         assertTrue(solution3.containsDuplicate(bigInputStartDuplicate))
         assertFalse(solution3.containsDuplicate(bigInput))
-
     }
 }

@@ -2,7 +2,7 @@ package leetcode.medium._611_valid_triangle_number
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class ValidTriangleNumberTest {
 

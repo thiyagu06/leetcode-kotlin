@@ -1,6 +1,6 @@
 package leetcode.easy._136_single_number
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 class SingleNumberTest {

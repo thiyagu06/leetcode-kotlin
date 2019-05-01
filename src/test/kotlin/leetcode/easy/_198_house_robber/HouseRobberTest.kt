@@ -2,7 +2,7 @@ package leetcode.easy._198_house_robber
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class HouseRobberTest {
     private val solution = Solution()
@@ -36,5 +36,4 @@ class HouseRobberTest {
             assertEquals(output, solution3.rob(input))
         }
     }
-
 }

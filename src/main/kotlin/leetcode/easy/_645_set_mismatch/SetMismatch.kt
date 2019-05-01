@@ -44,7 +44,6 @@ class OptimalSolution {
             if (nums[mappedIndex] > 0) {
                 duplicate = abs(n)
             }
-
         }
 
         nums.forEachIndexed { i, n ->
@@ -57,4 +56,3 @@ class OptimalSolution {
         return intArrayOf(duplicate, missing)
     }
 }
-

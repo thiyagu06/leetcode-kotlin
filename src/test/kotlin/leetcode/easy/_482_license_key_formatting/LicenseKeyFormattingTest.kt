@@ -2,7 +2,7 @@ package leetcode.easy._482_license_key_formatting
 
 import org.junit.Test
 
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class LicenseKeyFormattingTest {
 
