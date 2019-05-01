@@ -6,12 +6,13 @@ import kotlin.math.log2
  * Extensions for Bit Manipulation & handling binary numbers.
  */
 const val INT_BITS = 32
-const val ALL_1_BITMASK = 0.inv()
+const val ALL_1_BITMASK_32_BIT = 0.inv()
+const val ALL_1_BITMASK_64_BIT = (0L).inv()
 
 /* CHECKING BIT-BASED PROPERTIES */
 val Int.isOddNumber: Boolean get() = (this and 1) == 1
 val Int.isEvenNumber: Boolean get() = (this and 1) == 0
-val Int.isPowerOfTwo: Boolean get() = this != 0 && (this `&` (this - 1)) == 0
+val Int.isPowerOfTwo: Boolean get() = this != 0 && (this and (this - 1)) == 0
 
 /* CHECKING THE VALUE OF BITS */
 /**
@@ -34,7 +35,7 @@ fun Int.extractRightmost1Bit(): Int {
     val x = this
     if (x == 0) return -1
 
-    return x `&` (-x) // 4 (0100) if lowest set bit is at k = 2
+    return x and (-x) // 4 (0100) if lowest set bit is at k = 2
 }
 
 /**
@@ -55,7 +56,7 @@ fun Int.extractRightmost0Bit(): Int {
     val x = this
     if (x == -1) return -1
 
-    return x.inv() `&` (x + 1)    // ~x & (x + 1)
+    return x.inv() and (x + 1)    // ~x & (x + 1)
 }
 
 /**
@@ -109,7 +110,7 @@ fun Int.numberOfZeroBitsAlt(): Int =
  */
 fun Int.withKthBitSet(k: Int): Int {
     require(k in 0..31) { "k must be in range 0..31" }
-    return this `|` (1 shl k)
+    return this or (1 shl k)
 }
 
 /**
@@ -118,7 +119,7 @@ fun Int.withKthBitSet(k: Int): Int {
  */
 fun Int.withKthBitUnset(k: Int): Int {
     require(k in 0..31) { "k must be in range 0..31" }
-    return this `&` (1 shl k).inv()
+    return this and (1 shl k).inv()
 }
 
 /**
@@ -128,7 +129,7 @@ fun Int.withKthBitUnset(k: Int): Int {
  */
 fun Int.toggleKthBit(k: Int): Int {
     require(k in 0..31) { "k must be in range 0..31" }
-    return this `^` (1 shl k)
+    return this xor (1 shl k)
 }
 
 /**
@@ -168,13 +169,13 @@ fun Int.reverseBytes(): Int = Integer.reverseBytes(this)
  * @return the value produced by swapping the bits at positions [i] and [j]
  */
 fun Int.swapBits(i: Int, j: Int): Int {
-    val iBit = (this shr i) `&` 1
-    val jBit = (this shr j) `&` 1
+    val iBit = (this shr i) and 1
+    val jBit = (this shr j) and 1
 
-    if (iBit `^` jBit == 0)     // both 0 or both 1
+    if (iBit xor jBit == 0)     // both 0 or both 1
         return this
 
-    return this `^` ((1 shl i) `|` (1 shl j))
+    return this xor ((1 shl i) or (1 shl j))
 }
 
 /* BINARY <-> INT HELPER FUNCTIONS */

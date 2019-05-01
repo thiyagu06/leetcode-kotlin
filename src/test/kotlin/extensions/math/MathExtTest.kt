@@ -27,6 +27,33 @@ class MathExtTest {
     }
 
     @Test
+    fun testGCD() {
+        assertEquals(1, gcd(1, 0))
+        assertEquals(1, gcd(0, 1))
+        assertEquals(21, gcd(0, 21))
+        assertEquals(1, gcd(1, 1))
+        assertEquals(1, gcd(1, 7))
+        assertEquals(7, gcd(7, 7))
+        assertEquals(1, gcd(3, 4))
+        assertEquals(1, gcd(3, 8))
+        assertEquals(3, gcd(3, 12))
+        assertEquals(6, gcd(6, 12))
+        assertEquals(4, gcd(8, 12))
+        assertEquals(3, gcd(9, 12))
+        assertEquals(3, gcd(15, 12))
+        assertEquals(6, gcd(18, 12))
+        assertEquals(1, gcd(19, 12))
+        assertEquals(6, gcd(24, 18))
+        assertEquals(6, gcd(30, 18))
+        assertEquals(21, gcd(1071, 462))
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `testGCD - zero zero`() {
+        gcd(0, 0)
+    }
+
+    @Test
     fun medianTest() {
         assertEquals(2, median(1, 2, 3))
         assertEquals(-2, median(-1, -2, -3))
@@ -131,7 +158,7 @@ class MathExtTest {
                     setOf(1, 2, 3, 4, 5, 6).combinations(k = 4)
                 )
 
-                setOf((1..100).toList().toSet()).combinations(k = 10)
+                assertEquals(252, (1..10).toSet().combinations(k = 5).size)
 
             }
             times += ms
@@ -139,6 +166,83 @@ class MathExtTest {
         val adjustedTimes = times.drop(3)
         println("adjustedTimes for combinations (power set): $adjustedTimes")
         println("average run: ${adjustedTimes.average().roundedToNDecimalPlaces(2)}")
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `combinations - negative k`() {
+        setOf(1, 2, 3).combinations(k = -5)
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `combinations - k greater than size`() {
+        setOf(1, 2, 3).combinations(k = 5)
+    }
+
+
+    @Test
+    fun combinations2() {
+        val times = arrayListOf<Long>()
+        repeat(15) {
+            val ms = measureTimeMillis {
+                assertEquals(
+                    setOf(emptySet<Int>()),
+                    setOf(1, 2, 3).combinations2(k = 0)
+                )
+
+                assertEquals(
+                    setOf(setOf(1), setOf(2), setOf(3)),
+                    setOf(1, 2, 3).combinations2(k = 1)
+                )
+
+                assertEquals(
+                    setOf(setOf(1, 2), setOf(1, 3), setOf(2, 3)),
+                    setOf(1, 2, 3).combinations2(k = 2)
+                )
+
+                assertEquals(
+                    setOf(setOf(1, 2, 3)),
+                    setOf(1, 2, 3).combinations2(k = 3)
+                )
+
+                assertEquals(
+                    setOf(
+                        setOf(1, 2, 3, 4),
+                        setOf(1, 2, 3, 5),
+                        setOf(1, 2, 3, 6),
+                        setOf(1, 2, 4, 5),
+                        setOf(1, 2, 4, 6),
+                        setOf(1, 2, 5, 6),
+                        setOf(1, 3, 4, 5),
+                        setOf(1, 3, 4, 6),
+                        setOf(1, 3, 5, 6),
+                        setOf(1, 4, 5, 6),
+                        setOf(2, 3, 4, 5),
+                        setOf(2, 3, 4, 6),
+                        setOf(2, 3, 5, 6),
+                        setOf(2, 4, 5, 6),
+                        setOf(3, 4, 5, 6)
+                    ),
+                    setOf(1, 2, 3, 4, 5, 6).combinations2(k = 4)
+                )
+
+                assertEquals(252, (1..10).toSet().combinations2(k = 5).size)
+
+            }
+            times += ms
+        }
+        val adjustedTimes = times.drop(3)
+        println("adjustedTimes for combinations2 (power set): $adjustedTimes")
+        println("average run: ${adjustedTimes.average().roundedToNDecimalPlaces(2)}")
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `combinations2 - negative k`() {
+        setOf(1, 2, 3).combinations2(k = -5)
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `combinations2 - k greater than size`() {
+        setOf(1, 2, 3).combinations2(k = 5)
     }
 
     @Test

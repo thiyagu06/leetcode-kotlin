@@ -7,7 +7,7 @@ import kotlin.system.measureTimeMillis
 class FindDuplicatesInArrayTest {
 
     private val solution = Solution()
-    private val solution2 = Solution2()
+    private val solution2 = SolutionTwo()
     private val followup = FollowUpSolution()
 
     @Test

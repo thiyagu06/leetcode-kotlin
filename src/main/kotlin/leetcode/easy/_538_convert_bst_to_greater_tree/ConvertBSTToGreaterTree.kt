@@ -60,7 +60,7 @@ class SolutionTwo {
      */
     private fun buildTransformedTree(node: TreeNode?, transformMap: Map<Int, Int>): TreeNode? =
         node?.let {
-            TreeNode(transformMap[node.`val`]!!).apply {
+            TreeNode(transformMap.getValue(node.`val`)).apply {
                 left = buildTransformedTree(node.left, transformMap)
                 right = buildTransformedTree(node.right, transformMap)
             }

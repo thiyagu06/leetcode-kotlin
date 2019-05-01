@@ -17,7 +17,7 @@ class ProductOfArrayExceptSelfTest {
         )
     }
 
-    @Ignore // Not implemented
+    @Ignore("Unimplemented")
     @Test
     fun productExceptSelfFollowup() {
         assertArrayEquals(

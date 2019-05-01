@@ -41,7 +41,7 @@ class Solution {
 /**
  * Easier to understand with separate parameter for depth.
  */
-class Solution2 {
+class SolutionTwo {
     fun addOneRow(root: TreeNode?, v: Int, d: Int, nodeDepth: Int = 1): TreeNode? {
         root ?: return null
 

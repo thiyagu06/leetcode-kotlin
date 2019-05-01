@@ -6,31 +6,28 @@ import kotlin.math.max
  * 198 - https://leetcode.com/problems/house-robber/
  */
 class Solution {
-
-    /**
-     * Adjusting indices
-     *
-     * Time: O(n)
-     * Space: O(n)
-     */
     fun rob(nums: IntArray): Int {
         if (nums.isEmpty()) return 0
+        if (nums.size == 1) return nums[0]
 
-        val maxValues = IntArray(nums.size + 1)
-        val houses = intArrayOf(0) + nums
+        // dp[i] = the maximum value for indices 0..i
+        val dp = IntArray(nums.size)
+        dp[0] = nums[0]
+        dp[1] = max(nums[0], nums[1])
 
-        maxValues[0] = 0
-        maxValues[1] = houses[1]    // nums[0]
-        for (i in 2..houses.lastIndex) {
-            maxValues[i] = max(maxValues[i - 1], houses[i] + maxValues[i - 2])
+        for (i in 2..nums.lastIndex) {
+            dp[i] = max(
+                dp[i - 1],              // don't rob
+                dp[i - 2] + nums[i]     // rob
+            )
         }
 
-        return maxValues.last()
+        return dp.last()
     }
 }
 
-class SolutionTwo {
 
+class SolutionTwo {
     /**
      * Time: O(n)
      * Space: O(n)

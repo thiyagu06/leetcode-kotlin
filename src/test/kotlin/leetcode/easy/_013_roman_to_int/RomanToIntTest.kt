@@ -4,22 +4,39 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class RomanToIntTest {
-    private val roman = Solution()
+    private val solution = Solution()
+    private val solution2 = SolutionTwo()
 
     @Test
-    fun testRomanToInt() {
-        assertEquals(0, roman.romanToInt(""))
-        assertEquals(1, roman.romanToInt("I"))
-        assertEquals(2, roman.romanToInt("II"))
-        assertEquals(3, roman.romanToInt("III"))
-        assertEquals(4, roman.romanToInt("IV"))
-        assertEquals(5, roman.romanToInt("V"))
-        assertEquals(6, roman.romanToInt("VI"))
-        assertEquals(7, roman.romanToInt("VII"))
-        assertEquals(8, roman.romanToInt("VIII"))
-        assertEquals(9, roman.romanToInt("IX"))
-        assertEquals(10, roman.romanToInt("X"))
-        assertEquals(3999, roman.romanToInt("MMMCMXCIX"))
+    fun romanToInt() {
+        assertEquals(0, solution.romanToInt(""))
+        assertEquals(1, solution.romanToInt("I"))
+        assertEquals(2, solution.romanToInt("II"))
+        assertEquals(3, solution.romanToInt("III"))
+        assertEquals(4, solution.romanToInt("IV"))
+        assertEquals(5, solution.romanToInt("V"))
+        assertEquals(6, solution.romanToInt("VI"))
+        assertEquals(7, solution.romanToInt("VII"))
+        assertEquals(8, solution.romanToInt("VIII"))
+        assertEquals(9, solution.romanToInt("IX"))
+        assertEquals(10, solution.romanToInt("X"))
+        assertEquals(3999, solution.romanToInt("MMMCMXCIX"))
+    }
+
+    @Test
+    fun romanToInt2() {
+        assertEquals(0, solution2.romanToInt(""))
+        assertEquals(1, solution2.romanToInt("I"))
+        assertEquals(2, solution2.romanToInt("II"))
+        assertEquals(3, solution2.romanToInt("III"))
+        assertEquals(4, solution2.romanToInt("IV"))
+        assertEquals(5, solution2.romanToInt("V"))
+        assertEquals(6, solution2.romanToInt("VI"))
+        assertEquals(7, solution2.romanToInt("VII"))
+        assertEquals(8, solution2.romanToInt("VIII"))
+        assertEquals(9, solution2.romanToInt("IX"))
+        assertEquals(10, solution2.romanToInt("X"))
+        assertEquals(3999, solution2.romanToInt("MMMCMXCIX"))
     }
 
 }

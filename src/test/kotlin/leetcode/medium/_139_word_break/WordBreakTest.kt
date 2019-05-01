@@ -48,7 +48,7 @@ class WordBreakTest {
         assertTrue(solution.wordBreak(s = "leetcoder", wordDict = listOf("leet", "coder", "leetc", "ode")))
     }
 
-    @Ignore // Brute-force, un-memoized
+    @Ignore("Brute-force, un-memoized")
     @Test
     fun wordBreakBigInput() {
         assertFalse(solution.wordBreak(bigInputString, bigInputWordDict))

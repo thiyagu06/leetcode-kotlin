@@ -10,7 +10,7 @@ import org.junit.Test
 class MinDepthOfBinaryTreeTest {
 
     private val solution = Solution()
-    private val altSolution = AltSolution()
+    private val solution2 = SolutionTwo()
 
     @Test
     fun minDepth() {
@@ -21,13 +21,12 @@ class MinDepthOfBinaryTreeTest {
         assertEquals(3, solution.minDepth(bstWithNulls))
     }
 
-
     @Test
     fun minDepthAlt() {
-        assertEquals(0, altSolution.minDepth(null))
-        assertEquals(1, altSolution.minDepth(buildTree(1)))
-        assertEquals(2, altSolution.minDepth(tree123))
-        assertEquals(3, altSolution.minDepth(bst3LevelsFull))
-        assertEquals(3, altSolution.minDepth(bstWithNulls))
+        assertEquals(0, solution2.minDepth(null))
+        assertEquals(1, solution2.minDepth(buildTree(1)))
+        assertEquals(2, solution2.minDepth(tree123))
+        assertEquals(3, solution2.minDepth(bst3LevelsFull))
+        assertEquals(3, solution2.minDepth(bstWithNulls))
     }
 }

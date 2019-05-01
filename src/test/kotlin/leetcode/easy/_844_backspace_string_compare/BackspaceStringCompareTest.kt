@@ -20,8 +20,7 @@ class BackspaceStringCompareTest {
 
     }
 
-    // TODO
-    @Ignore
+    @Ignore("Unimplemented")
     @Test
     fun backspaceCompareFollowUp() {
         assertTrue(followup.backspaceCompare(S = "ab#c", T = "ad#c"))

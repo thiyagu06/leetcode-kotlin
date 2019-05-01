@@ -15,13 +15,13 @@ class Solution {
     fun deleteDuplicates(head: ListNode?): ListNode? {
         head ?: return null
 
-        var node: ListNode? = head
-        while (node?.next != null) {
+        var node: ListNode = head
+        while (node.next != null) {
             // skip the next node if it has the same value.
             if (node.`val` == node.next?.`val`) {
                 node.next = node.next?.next
             } else {
-                node = node.next
+                node = node.next!!
             }
         }
         return head

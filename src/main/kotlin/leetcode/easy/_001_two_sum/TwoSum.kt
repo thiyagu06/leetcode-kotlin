@@ -13,13 +13,13 @@ class Solution {
         val valueToIndicesMap = nums.withIndex()
             .groupBy(keySelector = { it.value }, valueTransform = { it.index })
 
-        nums.forEachIndexed { i, value ->
+        nums.forEachIndexed { index, value ->
             val complement = target - value
             if (complement in valueToIndicesMap) {
-                val complementIndices = valueToIndicesMap[complement]!!
-                val uniqueComplementIndex = complementIndices.firstOrNull { it != i }
+                val complementIndices = valueToIndicesMap.getValue(complement)
+                val uniqueComplementIndex = complementIndices.firstOrNull { it != index }
                 if (uniqueComplementIndex != null) {
-                    return intArrayOf(i, uniqueComplementIndex)
+                    return intArrayOf(index, uniqueComplementIndex)
                 }
             }
         }
@@ -40,7 +40,7 @@ class SolutionTwo {
             val complement = target - n
 
             if (map.containsKey(complement) && map[complement] != index) {
-                return intArrayOf(index, map[complement]!!)
+                return intArrayOf(index, map.getValue(complement))
             }
         }
 

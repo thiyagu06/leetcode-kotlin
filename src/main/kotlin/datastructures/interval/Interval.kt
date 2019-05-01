@@ -5,10 +5,12 @@ import kotlin.math.min
 
 /**
  * Definition for an interval.
+ * ```
  * class Interval(
  *     var start: Int = 0,
  *     var end: Int = 0
  * )
+ * ```
  */
 class Interval(var start: Int = 0, var end: Int = 0) {
     override fun toString(): String = "($start, $end)"

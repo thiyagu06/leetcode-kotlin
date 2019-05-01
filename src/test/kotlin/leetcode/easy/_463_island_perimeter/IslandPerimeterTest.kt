@@ -9,7 +9,7 @@ import org.junit.Before
 class IslandPerimeterTest {
 
     private val solution = Solution()
-    private val solution2 = Solution2()
+    private val solution2 = SolutionTwo()
 
     private lateinit var grid: IntMatrix
 

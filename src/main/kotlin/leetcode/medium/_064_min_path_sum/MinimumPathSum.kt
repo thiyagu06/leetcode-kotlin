@@ -49,7 +49,6 @@ data class Cell(val row: Int, val column: Int) {
 
     fun valueIn(grid: IntMatrix): Int = grid[row][column]
     fun isValidCellIn(grid: IntMatrix): Boolean = row in grid.rowIndices && column in grid.columnIndices
-    fun isLastCellOf(grid: IntMatrix): Boolean = row == grid.lastRowIndex && column == grid.lastColumnIndex
 
     override fun toString(): String = "[$row][$column]"
 }

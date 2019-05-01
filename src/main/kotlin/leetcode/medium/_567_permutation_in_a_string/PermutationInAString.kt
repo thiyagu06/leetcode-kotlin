@@ -7,48 +7,46 @@ import extensions.strings.characterFrequencies
  */
 class Solution {
     /**
-     * Time: O(?)
-     * Space: O(?)
+     * Time: O(n) - where n is the length of s2
+     * Space: O(n)
      */
     fun checkInclusion(s1: String, s2: String): Boolean {
-        var count = s1.length
-        val n = s2.length
-        val hash = s1.characterFrequencies().toMutableMap()
-        var leftIdx = 0
-        var rightIdx = 0
+        val s1CharFreqs: Map<Char, Int> = s1.groupingBy { it }.eachCount()
+        var remainingChars: MutableMap<Char, Int> = s1CharFreqs.toMutableMap()
+        var found = 0
+        var l = 0
+        var r = 0
 
-
-        while (count > 0 && leftIdx < n && rightIdx < n) {
-            val (charL, charR) = (s2[leftIdx] to s2[rightIdx])
+        while (r <= s2.lastIndex && found < s1.length) {
+            val charR = s2[r]
             when {
-                // charR is in s1, and is not 'overused' in current window.
-                // modify hash & count, and expand window to the right.
-                charR in hash && hash[charR]!! > 0 -> {
-                    count--
-                    hash[charR] = hash[charR]!! - 1
-                    rightIdx++
-                }
-                // charR in hash, but we've already found the necessary number of occurrences.
-                // Evict charL and shorten the window.
-                // If charL was in hash, modify hash & count since its no longer in the window.
-                // Don't move R pointer up yet - charR will be rechecked on next iteration.
-                charL in hash -> {  // could replace with leftIdx != rightIdx. If charL in hash, the window size is > 1
-                    count++
-                    hash[charL] = hash[charL]!! + 1
-                    leftIdx++
+                // charR is in s1, and we haven't found all of that letter in s2.
+                charR in remainingChars && remainingChars[charR]!! > 0 -> {
+                    remainingChars[charR] = remainingChars[charR]!! - 1
+                    found++
+                    r++
                 }
 
-                // charR not in s1, and evicted char not in s1.
-                // Evict charL and shorten the window.
-                // leftIdx = rightIdx in this case (window size is 1 letter).
-                // Slide both indices up to next letter.
-                else -> {
-                    leftIdx++
-                    rightIdx++
+                // charR is in s1, but we've already found all occurrences of it in s2
+                charR in remainingChars && remainingChars[charR]!! == 0 -> {
+                    val charL = s2[l]
+                    remainingChars[charL] = remainingChars[charL]!! + 1     // !!: safe, because window never contains chars in s1.
+                    found--
+                    l++
+                }
+
+                // charR not in s2. Window can't be a permutation of s1 if it contains any
+                // chars that aren't in s2, so evict the entire window.
+                charR !in remainingChars -> {
+                    remainingChars = s1CharFreqs.toMutableMap()
+                    found = 0
+                    r++
+                    l = r
                 }
             }
         }
-        return count == 0
+
+        return found == s1.length
     }
 }
 

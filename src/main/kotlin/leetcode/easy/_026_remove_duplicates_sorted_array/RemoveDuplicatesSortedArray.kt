@@ -9,15 +9,15 @@ class Solution {
      * Space: O(1)
      */
     fun removeDuplicates(nums: IntArray): Int {
-        if (nums.size < 2) return nums.size
+        if (nums.isEmpty()) return 0
 
-        var insertIndex = 0
-        for (i in nums.indices) {
-            if (i > 0 && nums[i] != nums[insertIndex]) {
-                nums[++insertIndex] = nums[i]
+        var i = 0
+        for (j in 1..nums.lastIndex) {
+            if (nums[j] != nums[i]) {
+                nums[++i] = nums[j]
             }
         }
-        return insertIndex + 1
+        return i + 1
     }
 }
 

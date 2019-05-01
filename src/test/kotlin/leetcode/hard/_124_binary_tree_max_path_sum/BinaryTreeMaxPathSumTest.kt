@@ -9,7 +9,7 @@ class BinaryTreeMaxPathSumTest {
 
     private val solution = Solution()
 
-    @Ignore
+    @Ignore("Unimplemented")
     @Test
     fun maxPathSum() {
         assertEquals(6, solution.maxPathSum(buildTree(1, 2, 3)))

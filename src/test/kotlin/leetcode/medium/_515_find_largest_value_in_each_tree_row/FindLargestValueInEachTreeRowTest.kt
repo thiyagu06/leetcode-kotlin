@@ -8,7 +8,7 @@ import org.junit.Test
 class FindLargestValueInEachTreeRowTest {
 
     private val bfsSolution = Solution()
-    private val dfsSolution = Solution2()
+    private val dfsSolution = SolutionTwo()
 
     @Test
     fun largestValuesBFS() {

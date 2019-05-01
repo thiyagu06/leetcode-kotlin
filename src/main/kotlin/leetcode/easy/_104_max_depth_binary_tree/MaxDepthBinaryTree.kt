@@ -10,9 +10,12 @@ class Solution {
      * Time: O(n)
      * Space: O(n)
      */
-    fun maxDepth(root: TreeNode?): Int {
-        root ?: return 0
-        return 1 + maxOf(maxDepth(root.left), maxDepth(root.right))
+    fun maxDepth(root: TreeNode?): Int = when (root) {
+        null -> 0
+        else -> 1 + maxOf(
+            maxDepth(root.left),
+            maxDepth(root.right)
+        )
     }
 }
 

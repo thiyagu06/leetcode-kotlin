@@ -26,7 +26,7 @@ class Solution {
     }
 }
 
-class Solution2 {
+class SolutionTwo {
     /**
      * Better: Hash the nums, then add duplicates
      *

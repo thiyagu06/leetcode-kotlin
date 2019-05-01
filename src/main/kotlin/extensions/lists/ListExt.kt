@@ -1,28 +1,8 @@
 package extensions.lists
 
-import extensions.iterable.valueToIndicesMap
-
 /**
  * List extensions
  */
-
-/**
- * Returns a list containing all elements except the first element.
- *
- * **Time**: `O(n)`
- *
- * **Space**: `O(n)`
- */
-fun <E> List<E>.dropFirst(): List<E> = drop(1)
-
-/**
- * Returns a list containing all elements except the last element.
- *
- * **Time**: `O(n)`
- *
- * **Space**: `O(n)`
- */
-fun <E> List<E>.dropLast(): List<E> = dropLast(1)
 
 /**
  * Returns views of the first and second halves of the list.
@@ -33,6 +13,13 @@ val <T> List<T>.halves: Pair<List<T>, List<T>>
         0 -> Pair(emptyList(), emptyList())
         else -> slice(0..lastIndex / 2) to slice((lastIndex / 2) + 1..lastIndex)
     }
+
+/**
+ * Return a map where for each entry, the key is an element in the array, and
+ * its value is a list of the indices at which the element is found in the array.
+ */
+fun <T> List<T>.valueToIndicesMap(): Map<T, List<Int>> = withIndex()
+    .groupBy(keySelector = { it.value }, valueTransform = { it.index })
 
 /**
  * Return a map where for each entry the key is the `element: T` and

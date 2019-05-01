@@ -8,7 +8,7 @@ import org.junit.Ignore
 class MaxAreaOfIslandTest {
 
     private val recDFSSolution = RecursiveDFSSolution()
-    private val recDFSSolution2 = RecursiveDFSSolution2()
+    private val recDFSSolution2 = RecursiveDFSSolutionTwo()
     private val bfsSolution = BFSSolution()
 
     private val grid1 = arrayOf(
@@ -70,7 +70,7 @@ class MaxAreaOfIslandTest {
         assertEquals(1, recDFSSolution2.maxAreaOfIsland(grid8))
     }
 
-    @Ignore
+    @Ignore("Unimplemented")
     @Test
     fun maxAreaOfIslandBFS() {
         assertEquals(4, bfsSolution.maxAreaOfIsland(grid1))

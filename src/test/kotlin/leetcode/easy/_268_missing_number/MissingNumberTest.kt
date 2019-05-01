@@ -7,7 +7,7 @@ class MissingNumberTest {
     private val solution = Solution()
     private val solution2 = SolutionTwo()
     private val followup = FollowUpSolution()
-    private val followup2 = FollowUpSolution2()
+    private val followup2 = FollowUpSolutionTwo()
     private val followup3 = FollowUpSolution3()
 
     @Test

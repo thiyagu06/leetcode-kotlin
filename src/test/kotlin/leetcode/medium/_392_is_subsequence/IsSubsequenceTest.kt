@@ -7,8 +7,8 @@ import org.junit.Assert.*
 class IsSubsequenceTest {
 
     private val solution = Solution()
-    private val followup1 = FollowUpSolution1()
-    private val followup2 = FollowUpSolution2()
+    private val followup1 = FollowUpSolutionOne()
+    private val followup2 = FollowUpSolutionTwo()
 
     @Test
     fun isSubsequence() {

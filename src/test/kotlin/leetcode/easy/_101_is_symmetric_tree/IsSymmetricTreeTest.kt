@@ -38,7 +38,7 @@ class IsSymmetricTreeTest {
         //   / \
         //  2   2
         //   \   \
-        //    3    3
+        //    3   3
         assertFalse(solution.isSymmetric(buildTree(1, 2, 2, null, 3, null, 3)))
 
         //      1
@@ -80,7 +80,7 @@ class IsSymmetricTreeTest {
         //   / \
         //  2   2
         //   \   \
-        //    3    3
+        //    3   3
         assertFalse(iterativeSolution.isSymmetric(buildTree(1, 2, 2, null, 3, null, 3)))
 
         //      1

@@ -47,7 +47,7 @@ class FollowUpSolution {
     fun missingNumber(nums: IntArray): Int = sumOfFirstNPositiveIntegers(nums.size) - nums.sum()
 }
 
-class FollowUpSolution2 {
+class FollowUpSolutionTwo {
     /**
      * Bit Manipulation
      * Time: O(n)

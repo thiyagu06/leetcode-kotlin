@@ -14,7 +14,7 @@ class Solution {
     fun transpose(A: IntMatrix): IntMatrix = A.transpose()
 }
 
-class Solution2 {
+class SolutionTwo {
     /**
      * Time: O(m * n)
      * Space: O(m * n) - makes a copy rather than mutating input

@@ -7,11 +7,54 @@ import kotlin.collections.forEach
 import kotlin.collections.mutableMapOf
 import kotlin.collections.set
 
+class Solution {
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
+    fun findAnagrams(s: String, p: String): List<Int> {
+        val pChars = p.groupingBy { it }.eachCount()
+        var unmatchedChars: MutableMap<Char, Int> = pChars.toMutableMap()
+        val startingIndices = ArrayList<Int>()
+
+        var left = 0
+        var right = 0
+
+        while (right <= s.lastIndex) {
+
+            if (s[right] in unmatchedChars) {
+                // decrement count of found char, & remove the entry if its value is now 0
+                unmatchedChars[s[right]] = unmatchedChars.getValue(s[right]) - 1
+                unmatchedChars.remove(s[right], 0)
+                right++
+
+                if (unmatchedChars.isEmpty()) {
+                    startingIndices += left
+                    unmatchedChars.put(s[left], 1)
+                    left++
+                }
+            } else {
+                // Not in unmatchedChars because it's a duplicate
+                if (s[right] in pChars) {
+                    unmatchedChars.put(s[left], 1)
+                    left++
+                } else {
+                    // if the char isn't in p at all, no solution starting until after it
+                    right++
+                    left = right
+                    unmatchedChars = pChars.toMutableMap()
+                }
+            }
+        }
+
+        return startingIndices
+    }
+}
 
 /**
  * 438 - https://leetcode.com/problems/find-all-anagrams-in-a-string/
  */
-class Solution {
+class SolutionTwo {
     /**
      * Sliding Window
      * Credit: http://tinyurl.com/y9vaz2mf
@@ -57,7 +100,7 @@ class Solution {
     }
 }
 
-class SolutionTwo {
+class SolutionThree {
     /**
      * Sliding Window
      * Credit: http://tinyurl.com/y9vaz2mf
@@ -116,7 +159,7 @@ class SolutionTwo {
     }
 }
 
-class SolutionThree {
+class SolutionFour {
     /**
      * Sliding Window
      * Credit: http://tinyurl.com/y9vaz2mf
@@ -127,8 +170,7 @@ class SolutionThree {
     fun findAnagrams(s: String, p: String): List<Int> {
         val result = ArrayList<Int>()
 
-        if (s.isBlank() || p.isBlank())
-            return result
+        if (s.isBlank() || p.isBlank()) return result
 
         val hash = IntArray(256)                    // ASCII character hash
 

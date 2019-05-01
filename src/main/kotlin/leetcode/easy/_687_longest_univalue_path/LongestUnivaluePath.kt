@@ -4,27 +4,33 @@ import datastructures.tree.TreeNode
 
 /**
  * TODO - REVIEW
- * Avoid global var or repetition w/ lambda: http://tinyurl.com/y8b7qd4z
  *
  * 687 - https://leetcode.com/problems/longest-univalue-path/
  */
 class Solution {
-    fun longestUnivaluePath(root: TreeNode?): Int =
-        root?.let {
-            val sub = maxOf(longestUnivaluePath(root.left), longestUnivaluePath(root.right))
-            maxOf(sub, helper(root.left, root.`val`) + helper(root.right, root.`val`))
-        } ?: 0
+    fun longestUnivaluePath(root: TreeNode?): Int {
+        root ?: return 0
 
-    private fun helper(root: TreeNode?, parentVal: Int): Int =
-        root?.let {
-            if (root.`val` == parentVal)
-                1 + maxOf(helper(root.left, parentVal), helper(root.right, parentVal))
-            else 0
-        } ?: 0
+        return maxOf(
+            arrowLength(root.left, root.`val`) + arrowLength(root.right, root.`val`),
+            longestUnivaluePath(root.left),
+            longestUnivaluePath(root.right)
+        )
+    }
+
+    private fun arrowLength(node: TreeNode?, parentVal: Int): Int = when {
+        node == null -> 0
+        node.`val` != parentVal -> 0
+        else -> 1 + maxOf(
+            arrowLength(node.left, parentVal),
+            arrowLength(node.right, parentVal)
+        )
+    }
 }
 
-class IntWrapper(var value: Int = 0)
-class Solution2 {
+class SolutionTwo {
+
+    private class IntWrapper(var value: Int = 0)
 
     fun longestUnivaluePath(root: TreeNode?): Int {
         val ans = IntWrapper()
@@ -50,3 +56,30 @@ class Solution2 {
     }
 }
 
+class SolutionThree {
+    /**
+     * Avoid global var or repetition w/ nested function (or just a private function like [SolutionOne]): http://tinyurl.com/y8b7qd4z
+     * Time: O(?)
+     * Space: O(?)
+     */
+    fun longestUnivaluePath(root: TreeNode?): Int {
+
+        fun arrowLength(node: TreeNode?, parentVal: Int?): Int = when {
+            node == null -> 0
+            node.`val` != parentVal -> 0
+            else -> 1 + maxOf(
+                arrowLength(node.left, node.`val`),
+                arrowLength(node.right, node.`val`)
+            )
+        }
+
+        root ?: return 0
+
+        val maxPathRootedHere = arrowLength(root.left, root.`val`) + arrowLength(root.right, root.`val`)
+        return maxOf(
+            maxPathRootedHere,
+            longestUnivaluePath(root.left),
+            longestUnivaluePath(root.right)
+        )
+    }
+}

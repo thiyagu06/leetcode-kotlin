@@ -1,9 +1,9 @@
 package leetcode.easy._160_intersection_linked_list
 
 import datastructures.list.linkedListOf
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class IntersectionOf2LinkedListsTest {
 

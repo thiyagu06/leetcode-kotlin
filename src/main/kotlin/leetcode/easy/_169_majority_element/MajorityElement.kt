@@ -16,7 +16,7 @@ class Solution {
         .key
 }
 
-class AltSolution1 {
+class SolutionTwo {
     /**
      * Time: O(n)
      * Space: O(n)
@@ -27,7 +27,7 @@ class AltSolution1 {
         .first
 }
 
-class AltSolution2 {
+class SolutionThree {
     /**
      * Time: O(n)
      * Space: O(n)
@@ -39,7 +39,7 @@ class AltSolution2 {
         .single()
 }
 
-class AltSolution3 {
+class SolutionFour {
     /**
      * Time: O(n log n) - sorting step
      * Space: O(n)

@@ -4,9 +4,7 @@ import org.junit.Assert.*
 import org.junit.Test
 
 class ArraysExtTest {
-    private val nullRefArray: Array<String?>? = null
     private val arrayWithNulls = arrayOf("foo", null, "bar")
-    private val arrayAllNulls: Array<String?> = arrayOf(null, null, null)
     private val arrayNoNulls: Array<String?> = arrayOf("foo", "bar", "baz")
     private val emptyStringArray: Array<String?> = arrayOf()
 
@@ -16,12 +14,39 @@ class ArraysExtTest {
     private val doubleArray = doubleArrayOf(1.0, 2.0, 3.0)
     private val emptyDoubleArray = doubleArrayOf()
 
+    private val floatArray = floatArrayOf(1.0f, 2.0f, 3.0f)
+    private val emptyFloatArray = floatArrayOf()
+
     private val charArray = charArrayOf('1', '2', '3')
     private val emptyCharArray = charArrayOf()
+
+    private val longArray = longArrayOf(1L, 2L, 3L)
+    private val emptyLongArray = longArrayOf()
+
+    private val shortArray = shortArrayOf(1, 2, 3)
+    private val emptyShortArray = shortArrayOf()
 
     private val boolArray = booleanArrayOf(true, false, false, true)
     private val emptyBoolArray = booleanArrayOf()
 
+    private val byteArray = byteArrayOf(0, 1, 2)
+    private val emptyByteArray = byteArrayOf()
+
+
+    @Test
+    fun midIndex() {
+        assertEquals(0, emptyStringArray.midIndex)
+        assertEquals(1, arrayOf("ab", "cd", "ef").midIndex)
+        assertEquals(1, arrayOf("ab", "cd", "ef", "gh").midIndex)
+        assertEquals(1, intArray.midIndex)
+        assertEquals(1, doubleArray.midIndex)
+        assertEquals(1, charArray.midIndex)
+        assertEquals(1, shortArray.midIndex)
+        assertEquals(1, longArray.midIndex)
+        assertEquals(1, floatArray.midIndex)
+        assertEquals(1, byteArray.midIndex)
+        assertEquals(1, boolArray.midIndex)
+    }
 
     @Test
     fun head() {

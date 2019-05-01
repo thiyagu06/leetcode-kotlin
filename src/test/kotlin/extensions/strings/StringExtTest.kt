@@ -4,6 +4,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
+import java.lang.StringBuilder
 
 class StringExtTest {
 
@@ -24,24 +25,29 @@ class StringExtTest {
     }
 
     @Test
+    fun repeated() {
+        assertEquals("ABCABCABC", "ABC".repeated(3))
+        assertEquals("XYZXYZXYZXYZ", StringBuilder("XYZ").repeated(4))
+    }
+
+    @Test
+    fun isPalindrome() {
+        assertTrue("".isPalindrome())
+        assertTrue("a".isPalindrome())
+        assertTrue("aa".isPalindrome())
+        assertTrue("aba".isPalindrome())
+        assertTrue("a-b-a".isPalindrome())
+
+        assertFalse("ab".isPalindrome())
+        assertFalse("abb".isPalindrome())
+        assertFalse("a-ba".isPalindrome())
+    }
+
+    @Test
     fun headAndTail() {
         assertEquals(('f' to "oobar"), "foobar".headAndTail)
         assertEquals(('f' to ""), "f".headAndTail)
         assertEquals((null to ""), "".headAndTail)
-    }
-
-    @Test
-    fun dropFirst() {
-        assertEquals("oobar", "foobar".dropFirst())
-        assertEquals("", "".dropFirst())
-        assertEquals("", "f".dropFirst())
-    }
-
-    @Test
-    fun dropLast() {
-        assertEquals("fooba", "foobar".dropLast())
-        assertEquals("", "".dropLast())
-        assertEquals("", "f".dropLast())
     }
 
     @Test
@@ -103,6 +109,13 @@ class StringExtTest {
     }
 
     @Test
+    fun toSortedChars() {
+        assertEquals(listOf('a', 'b', 'c'), "bac".toSortedChars())
+        assertEquals(listOf('a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'd', 'e'), "cbaebabacd".toSortedChars())
+        assertEquals(listOf(' ', ' ', 'a', 'b', 'c'), "b a c".toSortedChars())
+    }
+
+    @Test
     fun toSortedString() {
         assertEquals("abc", "bac".toSortedString())
         assertEquals("aaabbbccde", "cbaebabacd".toSortedString())
@@ -144,6 +157,27 @@ class StringExtTest {
     }
 
     @Test
+    fun permutations() {
+        assertEquals(emptySet<String>(), "".permutations())
+        assertEquals(setOf("a"), "a".permutations())
+        assertEquals(setOf("ab", "ba"), "ab".permutations())
+        assertEquals(setOf("abc", "acb", "bac", "bca", "cab", "cba"), "abc".permutations())
+        assertEquals(
+            setOf(
+                "abcd", "abdc", "acbd", "acdb", "adbc", "adcb",
+                "bacd", "badc", "bcad", "bcda", "bdac", "bdca",
+                "cabd", "cadb", "cbad", "cbda", "cdab", "cdba",
+                "dabc", "dacb", "dbac", "dbca", "dcab", "dcba"
+            ),
+            "abcd".permutations()
+        )
+        assertEquals(
+            setOf("aba", "aab", "baa"),
+            "aba".permutations()
+        )
+    }
+
+    @Test
     fun `replaceLast - Char`() {
         assertEquals("foobaz", "foobar".replaceLast(oldChar = 'r', newChar = 'z', ignoreCase = false))
         assertEquals("foobaz", "foobaR".replaceLast(oldChar = 'r', newChar = 'z', ignoreCase = true))
@@ -156,9 +190,18 @@ class StringExtTest {
     fun `replaceLast - String`() {
         assertEquals("(()())__abcxyz", "(()())()abcxyz".replaceLast(oldValue = "()", newValue = "__"))
         assertEquals("(()())()zyxcba", "(()())()abcxyz".replaceLast(oldValue = "abcxyz", newValue = "zyxcba"))
-        assertEquals("(()())()CBAxyz", "(()())()abcxyz".replaceLast(oldValue = "ABC", newValue = "CBA", ignoreCase = true))
-        assertEquals("(()())()abcxyz", "(()())()abcxyz".replaceLast(oldValue = "ABC", newValue = "CBA", ignoreCase = false))
-        assertEquals("(()())()abcxyz", "(()())()abcxyz".replaceLast(oldValue = "abcxyz", newValue = "zyxcba", startIndex = 4))
+        assertEquals(
+            "(()())()CBAxyz",
+            "(()())()abcxyz".replaceLast(oldValue = "ABC", newValue = "CBA", ignoreCase = true)
+        )
+        assertEquals(
+            "(()())()abcxyz",
+            "(()())()abcxyz".replaceLast(oldValue = "ABC", newValue = "CBA", ignoreCase = false)
+        )
+        assertEquals(
+            "(()())()abcxyz",
+            "(()())()abcxyz".replaceLast(oldValue = "abcxyz", newValue = "zyxcba", startIndex = 4)
+        )
     }
 
 

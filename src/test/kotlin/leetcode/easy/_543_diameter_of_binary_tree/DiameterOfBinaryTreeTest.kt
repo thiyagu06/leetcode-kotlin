@@ -22,6 +22,9 @@ class DiameterOfBinaryTreeTest {
         assertEquals(3, solution.diameterOfBinaryTree(tree1to5))
         assertEquals(6, solution.diameterOfBinaryTree(testTree))
         assertEquals(8, solution.diameterOfBinaryTree(bigTree))
+        assertEquals(2, solution.diameterOfBinaryTree(buildTree(1, 2, null, null, 5)))
+        assertEquals(3, solution.diameterOfBinaryTree(buildTree(1, 2, null, null, 5, 7)))
+        assertEquals(7, solution.diameterOfBinaryTree(buildTree(1, 2, null, 3, 4, 5, null, null, null, 6, 7, null, null, 8, 9, null, null, 10, null, 11)))
     }
 
     @Test
@@ -33,5 +36,34 @@ class DiameterOfBinaryTreeTest {
         assertEquals(3, solution2.diameterOfBinaryTree(tree1to5))
         assertEquals(6, solution2.diameterOfBinaryTree(testTree))
         assertEquals(8, solution2.diameterOfBinaryTree(bigTree))
+        assertEquals(2, solution2.diameterOfBinaryTree(buildTree(1, 2, null, null, 5)))
+        assertEquals(3, solution2.diameterOfBinaryTree(buildTree(1, 2, null, null, 5, 7)))
+        assertEquals(7, solution2.diameterOfBinaryTree(buildTree(1, 2, null, 3, 4, 5, null, null, null, 6, 7, null, null, 8, 9, null, null, 10, null, 11)))
+    }
+
+    @Test
+    fun diameterOfBinaryTree3() {
+        // Global Variable is used
+        val t1 = SolutionThree()
+        val t2 = SolutionThree()
+        val t3 = SolutionThree()
+        val t4 = SolutionThree()
+        val t5 = SolutionThree()
+        val t6 = SolutionThree()
+        val t7 = SolutionThree()
+        val t8 = SolutionThree()
+        val t9 = SolutionThree()
+        val t10 = SolutionThree()
+
+        assertEquals(0, t1.diameterOfBinaryTree(buildTree(1)))
+        assertEquals(1, t2.diameterOfBinaryTree(buildTree(1, 2)))
+        assertEquals(1, t3.diameterOfBinaryTree(buildTree(1, null, 3)))
+        assertEquals(2, t4.diameterOfBinaryTree(tree123))
+        assertEquals(3, t5.diameterOfBinaryTree(tree1to5))
+        assertEquals(6, t6.diameterOfBinaryTree(testTree))
+        assertEquals(8, t7.diameterOfBinaryTree(bigTree))
+        assertEquals(2, t8.diameterOfBinaryTree(buildTree(1, 2, null, null, 5)))
+        assertEquals(3, t9.diameterOfBinaryTree(buildTree(1, 2, null, null, 5, 7)))
+        assertEquals(7, t10.diameterOfBinaryTree(buildTree(1, 2, null, 3, 4, 5, null, null, null, 6, 7, null, null, 8, 9, null, null, 10, null, 11)))
     }
 }

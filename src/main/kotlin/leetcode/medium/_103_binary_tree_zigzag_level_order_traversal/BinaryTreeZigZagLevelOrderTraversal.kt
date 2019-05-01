@@ -6,7 +6,8 @@ import extensions.lists.append
 import extensions.lists.prepend
 import extensions.math.isEven
 import extensions.math.isOdd
-import java.util.*
+import java.util.Queue
+import java.util.ArrayDeque
 
 /**
  * 103 - https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
@@ -19,28 +20,28 @@ class Solution {
      */
     fun zigzagLevelOrder(
         root: TreeNode?,
-        values: MutableList<MutableList<Int>> = arrayListOf()
+        levels: MutableList<MutableList<Int>> = arrayListOf()
     ): List<List<Int>> {
 
-        root ?: return values
+        root ?: return levels
 
         val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque()
-        queue.add(Pair(root, 0))
+        queue.offer(Pair(root, 0))
 
         while (queue.isNotEmpty()) {
-            val (node, depth) = queue.remove()!!
+            val (node, depth) = queue.poll()
 
             when {
-                depth > values.lastIndex -> values += arrayListOf(node.`val`)
-                depth.isOdd -> values[depth].prepend(node.`val`)
-                depth.isEven -> values[depth].append(node.`val`)
+                depth == levels.size -> levels += arrayListOf(node.`val`)
+                depth.isOdd -> levels[depth].prepend(node.`val`)
+                depth.isEven -> levels[depth].append(node.`val`)
             }
 
-            node.left?.let { queue.add(Pair(it, depth + 1)) }
-            node.right?.let { queue.add(Pair(it, depth + 1)) }
+            node.left?.let { queue.offer(it to depth + 1) }
+            node.right?.let { queue.offer(it to depth + 1) }
         }
 
-        return values
+        return levels
     }
 }
 
@@ -51,9 +52,9 @@ class SolutionTwo {
      * Space: O(n)
      */
     fun zigzagLevelOrder(root: TreeNode?): List<List<Int>> = root.levels()
-            .mapIndexed { depth, values ->
-                if (depth.isOdd) values.reversed() else values
-            }
+        .mapIndexed { depth, level ->
+            if (depth.isOdd) level.reversed() else level
+        }
 
 }
 
@@ -64,11 +65,11 @@ class SolutionThree {
      * Space: O(n)
      */
     fun zigzagLevelOrder(root: TreeNode?): List<List<Int>> = levelOrder(root)
-        .mapIndexed { depth, values ->
+        .mapIndexed { depth, level ->
             if (depth.isOdd)
-                values.reverse()
+                level.reverse()
 
-            values
+            level
         }
 
     private fun levelOrder(

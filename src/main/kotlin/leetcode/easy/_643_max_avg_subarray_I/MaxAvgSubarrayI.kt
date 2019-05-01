@@ -17,7 +17,7 @@ class Solution {
         }.max()!!
 }
 
-class Solution2 {
+class SolutionTwo {
     /**
      * Cumulative Sum method
      *

@@ -1,5 +1,6 @@
 package extensions.math
 
+import kotlin.math.abs
 import kotlin.math.absoluteValue
 import kotlin.math.log10
 import kotlin.math.pow
@@ -8,9 +9,19 @@ import kotlin.math.pow
  * Extensions for class: Int.
  */
 
-
 val Int.isEven: Boolean get() = this % 2 == 0
 val Int.isOdd: Boolean get() = this % 2 != 0
+
+/**
+ * Returns true if the receiver evenly divides [n] (`this|n`).
+ * Equivalently, `n` is a multiple of the receiver.
+ */
+fun Int.divides(n: Int): Boolean = n % this == 0
+
+/**
+ * Returns true if the receiver is a multiple of `n`
+ */
+fun Int.isMultipleOf(n: Int): Boolean = this % n == 0
 
 /**
  * Applies Java's [Character.forDigit].
@@ -39,6 +50,34 @@ fun Int.digits(): List<Int> {
     }
 
     return digits.reversed()
+}
+
+/**
+ * Return the integer produced by reversing all digits in the integer,
+ * or `null` if the reversed integer does not fit into 32-bit Int range
+ * (i.e., causes overflow)
+ */
+fun Int.withDigitsReversed(): Int? {
+    if (this < 0) {
+        val absValue = abs(this)
+        if (absValue < 0) return null   // Edge case: Int.MIN_VALUE
+
+        val reversedAbsVal = absValue.withDigitsReversed() ?: return null
+        return reversedAbsVal * -1
+    }
+
+    var x: Long = this.toLong()
+    var r: Long = 0
+
+    while (x > 0L) {
+        r = (r * 10) + (x % 10)
+        x /= 10
+
+        // Overflow occurred
+        if (r > Int.MAX_VALUE) return null
+    }
+
+    return r.toInt()
 }
 
 /**

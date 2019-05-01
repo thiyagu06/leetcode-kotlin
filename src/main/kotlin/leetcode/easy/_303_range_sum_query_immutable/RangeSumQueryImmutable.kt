@@ -32,9 +32,9 @@ class NumArray2(nums: IntArray) {
 
     fun sumRange(i: Int, j: Int): Int {
         return if (i..j in cache) {
-            cache[i..j]!!
+            cache.getValue(i..j)
         } else if (j >= 1 && (i until j) in cache) {
-            cache[i until j]!! + _nums[j]
+            cache.getValue(i until j) + _nums[j]
         } else {
             sumIndexRange(i..j)
         }
@@ -53,7 +53,6 @@ class NumArray2(nums: IntArray) {
 class NumArray3(nums: IntArray) {
 
     private val cache: MutableMap<IntRange, Int> = mutableMapOf()
-    private val _nums: IntArray = nums
 
     init {
         for (i in nums.indices) {
@@ -65,5 +64,5 @@ class NumArray3(nums: IntArray) {
         }
     }
 
-    fun sumRange(i: Int, j: Int): Int = cache[i..j]!!
+    fun sumRange(i: Int, j: Int): Int = cache.getValue(i..j)
 }

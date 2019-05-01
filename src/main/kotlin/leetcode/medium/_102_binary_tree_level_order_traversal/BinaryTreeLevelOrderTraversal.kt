@@ -14,22 +14,22 @@ class BFSSolution {
      * Space: O(n)
      */
     fun levelOrder(root: TreeNode?): List<List<Int>> {
-        root ?: return emptyList()
+        val levels: MutableList<MutableList<Int>> = ArrayList()
+        root ?: return levels
 
-        val levels = ArrayList<ArrayList<Int>>()
         val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque()
-        queue.add(root to 0)
+        queue.offer(root to 0)
 
         while (queue.isNotEmpty()) {
-            val (node, depth) = queue.remove() ?: return levels
+            val (node, depth) = queue.poll()
 
             if (depth > levels.lastIndex) {
-                levels.add(arrayListOf())
+                levels += ArrayList<Int>()
             }
             levels[depth].add(node.`val`)
 
-            node.left?.let { queue.add(it to depth + 1) }
-            node.right?.let { queue.add(it to depth + 1) }
+            node.left?.let { queue.offer(it to depth + 1) }
+            node.right?.let { queue.offer(it to depth + 1) }
         }
 
         return levels
@@ -46,18 +46,18 @@ class DFSSolution {
     fun levelOrder(
         root: TreeNode?,
         depth: Int = 0,
-        values: MutableList<MutableList<Int>> = arrayListOf()
+        levels: MutableList<MutableList<Int>> = ArrayList()
     ): List<List<Int>> {
-        root ?: return values
+        root ?: return levels
 
-        if (depth > values.lastIndex) {
-            values += arrayListOf<Int>()
+        if (depth > levels.lastIndex) {
+            levels += ArrayList<Int>()
         }
-        values[depth].add(root.`val`)
+        levels[depth].add(root.`val`)
 
-        levelOrder(root.left, depth + 1, values)
-        levelOrder(root.right, depth + 1, values)
+        levelOrder(root.left, depth + 1, levels)
+        levelOrder(root.right, depth + 1, levels)
 
-        return values
+        return levels
     }
 }

@@ -18,25 +18,22 @@ class Solution {
         root.hasTwoChildren -> minOf(minDepth(root.left, depth + 1), minDepth(root.right, depth + 1))
         root.hasLeft        -> minDepth(root.left, depth + 1)
         root.hasRight       -> minDepth(root.right, depth + 1)
-        else /* is leaf */  -> depth
+        else                -> depth
     }
 }
 
-class AltSolution {
+class SolutionTwo {
     /**
      * Another way to write the solution - same complexity.
      *
      * Time: O(n)
      * Space: O(n)
      */
-    fun minDepth(root: TreeNode?): Int {
-        root ?: return 0
-
-        return when {
-            root.hasTwoChildren -> 1 + minOf(minDepth(root.left), minDepth(root.right))
-            root.hasLeft -> 1 + minDepth(root.left)
-            root.hasRight -> 1 + minDepth(root.right)
-            else -> 1
-        }
+    fun minDepth(root: TreeNode?): Int = when {
+        root == null        -> 0
+        root.hasTwoChildren -> 1 + minOf(minDepth(root.left), minDepth(root.right))
+        root.hasLeft        -> 1 + minDepth(root.left)
+        root.hasRight       -> 1 + minDepth(root.right)
+        else                -> 1
     }
 }

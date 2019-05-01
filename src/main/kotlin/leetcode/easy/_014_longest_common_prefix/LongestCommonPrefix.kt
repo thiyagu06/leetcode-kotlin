@@ -5,22 +5,50 @@ package leetcode.easy._014_longest_common_prefix
  */
 class Solution {
     /**
+     * Horizontal Scanning (Approach 1)
      * Time: O(S), where S is the sum of all chars in strs
      * Space: O(1) - if zip() weren't used for convenience/cleanness
      */
-    fun longestCommonPrefix(strs: Array<String>): String =
-        when (strs.size) {
-            0 -> ""
-            1 -> strs.first()
-            else -> (1..strs.lastIndex).fold(strs[0]) { lcp, i ->
-                longestCommonPrefix(strs[i], lcp)
-            }
+    fun longestCommonPrefix(strs: Array<String>): String = when (strs.size) {
+        0 -> ""
+        else -> (1..strs.lastIndex).fold(strs[0]) { lcp, i ->
+            longestCommonPrefix(strs[i], lcp)
         }
+    }
 
-    internal fun longestCommonPrefix(s1: String, s2: String): String =
+    private fun longestCommonPrefix(s1: String, s2: String): String =
         s1.zip(s2).fold("") { lcp, (c1, c2) ->
             if (c1 == c2) lcp + c1 else return lcp
+
         }
+}
+
+class SolutionTwo {
+    /**
+     * Vertical Scanning (Approach 2)
+     * Time: O(S), where S is the sum of all chars in strs; in best case only n * minLength comparison are made.
+     * Space: O(1)
+     */
+    fun longestCommonPrefix(strs: Array<String>): String {
+        if (strs.isEmpty()) return ""
+
+        var prefix = ""
+        var charIndex = 0
+        while (charIndex < Int.MAX_VALUE) {
+            if (charIndex !in strs[0].indices) return prefix
+            val currentChar = strs[0][charIndex]
+
+            for (stringIndex in 1..strs.lastIndex) {
+                if (charIndex !in strs[stringIndex].indices || strs[stringIndex][charIndex] != currentChar) {
+                    return prefix
+                }
+            }
+            prefix += currentChar
+            charIndex++
+        }
+
+        return prefix
+    }
 }
 
 /**

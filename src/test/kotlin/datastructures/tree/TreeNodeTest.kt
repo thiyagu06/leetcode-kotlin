@@ -268,7 +268,8 @@ class TreeNodeTest {
         assertEquals(4, tree3?.size)
         assertEquals(treeUnbalanced, tree3)
 
-        val tree4 = buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 2)
+        val tree4 =
+            buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 2)
         assertEquals(12, tree4?.size)
         assertEquals(treeUnbalanced2, tree4)
 
@@ -356,7 +357,9 @@ class TreeNodeTest {
         assertEquals("1(2(4))(3)", buildTree(1, 2, 3, 4).stringRepresentation())
         assertEquals("1(2()(4))(3)", buildTree(1, 2, 3, null, 4).stringRepresentation())
         assertEquals("1(2(4)(5))(3(6)(7))", buildTree(1, 2, 3, 4, 5, 6, 7).stringRepresentation())
-        assertEquals("1(2(4(8)(9))(5(10)(11)))(3(6(12)(13))(7(14)(15)))",
-            buildTree(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15).stringRepresentation())
+        assertEquals(
+            "1(2(4(8)(9))(5(10)(11)))(3(6(12)(13))(7(14)(15)))",
+            buildTree(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15).stringRepresentation()
+        )
     }
 }

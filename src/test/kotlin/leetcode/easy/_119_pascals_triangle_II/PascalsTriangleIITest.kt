@@ -8,7 +8,7 @@ import kotlin.system.measureTimeMillis
 class PascalsTriangleIITest {
     private val solution = Solution()
     private val followup = FollowUpSolution()
-    private val followup2 = FollowUpSolution2()
+    private val followup2 = FollowUpSolutionTwo()
 
     private val first7rows = listOf(
             listOf(1),

@@ -1,5 +1,7 @@
 package extensions.chars
 
+import java.util.*
+
 /**
  * Char extensions
  */
@@ -12,8 +14,8 @@ val Char.asciiValue: Int get() = toInt()
 
 /**
  * Returns the decimal value (rather than the ASCII value) if this is a digit.
- * Note: '0'.toInt() returns 48; '0'.numericValue returns 0.
- * Equivalent of Java's Character.getNumericValue(char c) if the [Char] is
+ * Note: `'0'.toInt()` returns 48; `'0'.numericValue` returns 0.
+ * Equivalent of Java's [Character.getNumericValue] if the [Char] is
  * a digit, otherwise throws an [IllegalArgumentException].
  * @throws IllegalArgumentException if the receiver is not a digit ('0'..'9').
  */
@@ -34,3 +36,8 @@ val Char.isVowel: Boolean get() = toLowerCase() in "aeiou"
  * If not a letter, behavior undefined (but will likely return the same Char)
  */
 fun Char.invertCase(): Char = if (isLowerCase()) toUpperCase() else toLowerCase()
+
+/**
+ * Returns the String that is this Char repeated [n] times.
+ */
+fun Char.repeated(n: Int): String = Collections.nCopies(n, this).joinToString("")

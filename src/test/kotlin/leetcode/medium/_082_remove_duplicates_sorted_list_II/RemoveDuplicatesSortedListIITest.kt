@@ -8,6 +8,7 @@ import org.junit.Assert.*
 class RemoveDuplicatesSortedListIITest {
 
     private val solution = Solution()
+    private val solution2 = SolutionTwo()
 
     @Test
     fun deleteDuplicates() {
@@ -38,6 +39,38 @@ class RemoveDuplicatesSortedListIITest {
         assertEquals(
             linkedListOf(2),
             solution.deleteDuplicates(linkedListOf(1, 1, 1, 2, 3, 3))
+        )
+    }
+
+    @Test
+    fun deleteDuplicates2() {
+        assertNull(solution2.deleteDuplicates(null))
+        assertNull(solution2.deleteDuplicates(linkedListOf(1, 1)))
+        assertNull(solution2.deleteDuplicates(linkedListOf(11, 11, 11, 11, 75, 75)))
+
+        assertEquals(
+            linkedListOf(1),
+            solution2.deleteDuplicates(linkedListOf(1))
+        )
+
+        assertEquals(
+            linkedListOf(1, 2),
+            solution2.deleteDuplicates(linkedListOf(1, 2))
+        )
+
+        assertEquals(
+            linkedListOf(1, 2, 5),
+            solution2.deleteDuplicates(linkedListOf(1, 2, 3, 3, 4, 4, 5))
+        )
+
+        assertEquals(
+            linkedListOf(2, 3),
+            solution2.deleteDuplicates(linkedListOf(1, 1, 1, 2, 3))
+        )
+
+        assertEquals(
+            linkedListOf(2),
+            solution2.deleteDuplicates(linkedListOf(1, 1, 1, 2, 3, 3))
         )
     }
 }

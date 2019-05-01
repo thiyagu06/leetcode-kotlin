@@ -15,7 +15,7 @@ class Solution {
         val frequencies = s.groupingBy { it }.eachCount()
 
         s.forEachIndexed { i, ch ->
-            if (frequencies[ch]!! == 1) return i
+            if (frequencies.getValue(ch) == 1) return i
         }
 
         return NOT_FOUND

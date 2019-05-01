@@ -7,8 +7,8 @@ import org.junit.Test
 class SecondMinNodeInBinaryTreeTest {
 
     private val solution = Solution()
-    private val solution2 = Solution2()
-    private val solution3 = Solution3()
+    private val solution2 = SolutionTwo()
+    private val solution3 = SolutionThree()
 
     @Test
     fun findSecondMinimumValue() {

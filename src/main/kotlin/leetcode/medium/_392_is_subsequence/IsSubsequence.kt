@@ -29,7 +29,7 @@ class Solution {
  * If there are lots of incoming `S`, say `S1, S2, ... , Sk` where `k >= 1B`, and you want to check one by one to see
  * if `T` has its subsequence. In this scenario, how would you change your code?
  */
-class FollowUpSolution1 {
+class FollowUpSolutionOne {
     /**
      * Time: O(n * k) - where n is the length of t, and k is the length of s
      *                  In the worst case, `for (ch in s)` will iterate all chars in s, and for each char we do
@@ -43,7 +43,7 @@ class FollowUpSolution1 {
         for (ch in s) {
             if (ch !in charIndices) return false
             // Search the indices where the current char appears in t.
-            prevCharIndex = charIndices[ch]!!.firstOrNull { index -> index > prevCharIndex } ?: return false
+            prevCharIndex = charIndices.getValue(ch).firstOrNull { index -> index > prevCharIndex } ?: return false
         }
 
         return true
@@ -55,9 +55,9 @@ class FollowUpSolution1 {
  * If there are lots of incoming `S`, say `S1, S2, ... , Sk` where `k >= 1B`, and you want to check one by one to see
  * if `T` has its subsequence. In this scenario, how would you change your code?
  */
-class FollowUpSolution2 {
+class FollowUpSolutionTwo {
     /**
-     * Improve [FollowUpSolution1] by using Binary Search instead of `firstOrNull`, since we know that the indices
+     * Improve [FollowUpSolutionOne] by using Binary Search instead of `firstOrNull`, since we know that the indices
      * will be sorted since they were added to the map in order.
      *
      * Time: O(n * log (k)) - where n is the length of t, and k is the length of s
@@ -72,7 +72,7 @@ class FollowUpSolution2 {
         for (ch in s) {
             if (ch !in charIndices) return false
             // Search the indices where the current char appears in t.
-            prevCharIndex = binarySearch(prevCharIndex, charIndices[ch]!!)
+            prevCharIndex = binarySearch(prevCharIndex, charIndices.getValue(ch))
             if (prevCharIndex == -1) return false
         }
 

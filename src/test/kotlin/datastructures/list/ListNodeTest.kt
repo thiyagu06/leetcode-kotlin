@@ -40,7 +40,8 @@ class ListNodeTest {
 
     @Test
     fun tail() {
-        assertNull(null.tail)
+        val nullList: ListNode? = null
+        assertNull(nullList.tail)
 
         val singleList = linkedListOf(1)
         assertNull(singleList.tail)
@@ -87,6 +88,21 @@ class ListNodeTest {
         expected.forEach { list, middleValue ->
             assertEquals(middleValue, list.middleNode?.`val`)
         }
+    }
+
+    @Test
+    fun forEachNode() {
+        val list = linkedListOf(1, 2, 3, 4, 5)
+        val nodesInList = ArrayList<ListNode>()
+        list.forEachNode { node ->
+            nodesInList += node
+        }
+
+        assertEquals(list, nodesInList[0])
+        assertEquals(linkedListOf(2, 3, 4, 5), nodesInList[1])
+        assertEquals(linkedListOf(3, 4, 5), nodesInList[2])
+        assertEquals(linkedListOf(4, 5), nodesInList[3])
+        assertEquals(linkedListOf(5), nodesInList[4])
     }
 
     @Test

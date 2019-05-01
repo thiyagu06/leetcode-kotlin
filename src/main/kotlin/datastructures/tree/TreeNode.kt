@@ -1,12 +1,10 @@
 package datastructures.tree
 
-import datastructures.tree.DFSTraversalOrder.INORDER
-import datastructures.tree.DFSTraversalOrder.POSTORDER
-import datastructures.tree.DFSTraversalOrder.PREORDER
+import datastructures.tree.DFSTraversalOrder.*
 import java.util.*
 
 /**
- * Definition for a binary tree node.
+ * Definition for a binary tree node, from LeetCode.
  */
 class TreeNode(var `val`: Int = 0, var left: TreeNode? = null, var right: TreeNode? = null) : Iterable<Int> {
 
@@ -115,12 +113,6 @@ fun TreeNode?.find(searchValue: Int): TreeNode? {
  */
 operator fun TreeNode.contains(value: Int): Boolean = find(value) != null
 
-sealed class DFSTraversalOrder {
-    object PREORDER : DFSTraversalOrder()
-    object INORDER : DFSTraversalOrder()
-    object POSTORDER : DFSTraversalOrder()
-}
-
 /**
  * Perform depth-first traversal on the tree, executing [visit] on each node.
  *
@@ -210,17 +202,17 @@ fun TreeNode?.collectUnique(acc: MutableSet<Int> = hashSetOf()): Set<Int> =
  *
  * **Space**: `O(n)`
  */
-fun TreeNode?.bfs(visit: (TreeNode) -> Unit) {
+inline fun TreeNode?.bfs(visit: (TreeNode) -> Unit) {
     this ?: return
 
     val queue: Queue<TreeNode> = ArrayDeque()
     var node: TreeNode = this
-    queue.add(node)
+    queue.offer(node)
     while (queue.isNotEmpty()) {
-        node = queue.remove() ?: return
+        node = queue.poll()
         visit(node)
-        node.left?.let { queue.add(it) }
-        node.right?.let { queue.add(it) }
+        node.left?.let { queue.offer(it) }
+        node.right?.let { queue.offer(it) }
     }
 }
 
@@ -238,20 +230,20 @@ fun TreeNode?.bfs(visit: (TreeNode) -> Unit) {
  * println(treeLevels)
  * ```
  */
-fun TreeNode?.depthAwareBFS(visit: (Pair<TreeNode, Int>) -> Unit) {
+inline fun TreeNode?.depthAwareBFS(visit: (Pair<TreeNode, Int>) -> Unit) {
     this ?: return
 
     val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque()
-    queue.add(Pair(this, 0))
+    queue.offer(Pair(this, 0))
 
     while (queue.isNotEmpty()) {
-        val (node, depth) = queue.remove()!!
+        val (node, depth) = queue.poll()
         visit(node to depth)
         node.left?.let {
-            queue.add(Pair(it, depth + 1))
+            queue.offer(Pair(it, depth + 1))
         }
         node.right?.let {
-            queue.add(Pair(it, depth + 1))
+            queue.offer(Pair(it, depth + 1))
         }
     }
 }
@@ -267,7 +259,7 @@ fun TreeNode?.levels(): List<List<Int>> {
     this ?: return emptyList()
 
     val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque()
-    queue.add(this to 0)
+    queue.offer(this to 0)
 
     val levels = arrayListOf<MutableList<Int>>()
 
@@ -280,8 +272,8 @@ fun TreeNode?.levels(): List<List<Int>> {
 
         levels[depth].add(node.`val`)
 
-        node.left?.let { queue.add(it to depth + 1) }
-        node.right?.let { queue.add(it to depth + 1) }
+        node.left?.let { queue.offer(it to depth + 1) }
+        node.right?.let { queue.offer(it to depth + 1) }
     }
 
     return levels
@@ -367,15 +359,15 @@ fun buildTree(vararg elements: Int?): TreeNode? {
     val root = TreeNode(elements.first()!!)
     var parent = root
     val parentQueue: Queue<TreeNode> = ArrayDeque()
-    parentQueue.add(parent)
+    parentQueue.offer(parent)
     var i = 1
     while (i < elements.size) {
-        parent = parentQueue.remove() ?: return root
+        parent = parentQueue.poll() // ?: return root
 
         parent.left = if (elements[i] != null) TreeNode(elements[i]!!) else null
         i++
         parent.left?.let {
-            parentQueue.add(it)
+            parentQueue.offer(it)
         }
 
         if (i > elements.lastIndex)
@@ -384,7 +376,7 @@ fun buildTree(vararg elements: Int?): TreeNode? {
         parent.right = if (elements[i] != null) TreeNode(elements[i]!!) else null
         i++
         parent.right?.let {
-            parentQueue.add(it)
+            parentQueue.offer(it)
         }
     }
 
@@ -417,7 +409,6 @@ fun buildBST(vararg elements: Int?): TreeNode? {
  */
 fun TreeNode?.toList(): List<Int> = collect { it.`val` }.toList()
 
-
 /**
  * Returns a string representation of the tree.
  *
@@ -433,9 +424,9 @@ fun TreeNode?.toList(): List<Int> = collect { it.`val` }.toList()
  *
  */
 fun TreeNode?.stringRepresentation(): String = when {
-        this == null -> ""
-        isLeaf -> "$`val`"
-        hasLeft && !hasRight -> "$`val`(${left.stringRepresentation()})"
-        !hasLeft && hasRight -> "$`val`()(${right.stringRepresentation()})"
-        else -> "$`val`(${left.stringRepresentation()})(${right.stringRepresentation()})"
-    }
+    this == null -> ""
+    isLeaf -> "$`val`"
+    hasLeft && !hasRight -> "$`val`(${left.stringRepresentation()})"
+    !hasLeft && hasRight -> "$`val`()(${right.stringRepresentation()})"
+    else -> "$`val`(${left.stringRepresentation()})(${right.stringRepresentation()})"
+}

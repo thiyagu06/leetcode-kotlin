@@ -10,14 +10,33 @@ class NaiveSolution {
      * Time: O(2^n)
      * Space: O(n)
      */
-    fun climbStairs(n: Int): Int = when {
-        n == 0 -> 1
-        n < 0 -> 0
+    fun climbStairs(n: Int): Int = when (n) {
+        in 0..2 -> n
         else -> climbStairs(n - 1) + climbStairs(n - 2)
     }
 }
 
-class MemoizedSolution {
+class MemoizedSolutionOne {
+
+    private val cache = mutableMapOf(
+        0 to 0,
+        1 to 1,
+        2 to 2
+    )
+
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
+    fun climbStairs(n: Int): Int {
+        if (n !in cache) {
+            cache[n] = climbStairs(n - 1) + climbStairs(n - 2)
+        }
+        return cache.getValue(n)
+    }
+}
+
+class MemoizedSolutionTwo {
 
     /**
      * Time: O(n)
@@ -30,8 +49,26 @@ class MemoizedSolution {
         if (n !in cache) {
             cache[n] = climbStairs(n - 1, cache) + climbStairs(n - 2, cache)
         }
-        return cache[n]!!
+        return cache.getValue(n)
     }
+}
+
+class MemoizedSolutionThree {
+
+    private val cache = mutableMapOf(
+        0 to 0,
+        1 to 1,
+        2 to 2
+    )
+
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
+    fun climbStairs(n: Int): Int = cache.getOrPut(
+        key = n,
+        defaultValue = { climbStairs(n - 1) + climbStairs(n - 2) }
+    )
 }
 
 class TabulationSolution {
@@ -41,11 +78,17 @@ class TabulationSolution {
      * Space: O(n)
      */
     fun climbStairs(n: Int): Int {
-        val cache: MutableMap<Int, Int> = hashMapOf(0 to 1, 1 to 1, 2 to 2)
+        val cache = mutableMapOf(
+            0 to 0,
+            1 to 1,
+            2 to 2
+        )
+
         (3..n).forEach { x ->
-            cache[x] = cache[x - 1]!! + cache[x - 2]!!
+            cache[x] = cache.getValue(x - 1) + cache.getValue(x - 2)
         }
-        return cache[n]!!
+
+        return cache.getValue(n)
     }
 }
 
@@ -62,7 +105,7 @@ class OptimalSolution {
         var minus1 = 2              // climbStairs(2)
         var waysToClimbN = 1 + 2    // climbStairs(3)
 
-        (3..n).forEach {
+        (3..n).forEach { _ ->
             waysToClimbN = minus1 + minus2
             minus2 = minus1
             minus1 = waysToClimbN

@@ -1,7 +1,8 @@
 package datastructures.list
 
+
 /**
- * Definition for singly-linked list.
+ * Definition for singly-linked list, from LeetCode.
  * Note: although `val` is declared with a default argument, LeetCode
  * won't compile if you try to create a node without passing an argument.
  */
@@ -36,24 +37,13 @@ class ListNode(var `val`: Int = 0) : Iterable<Int> {
          * @param elements The elements to add to the list.
          * @return The head of a linked list of the [elements], or null if [elements] is empty.
          */
-        fun from(elements: Collection<Int>): ListNode? {
-            if (elements.isEmpty())
-                return null
-
-            val sentinel = ListNode()
-            var node: ListNode? = sentinel
-            for (element in elements) {
-                node?.next = ListNode(element)
-                node = node?.next
-            }
-
-            return sentinel.next
-        }
+        fun from(elements: Collection<Int>): ListNode? =
+            if (elements.isEmpty()) null else linkedListOf(*elements.toIntArray())
     }
 }
 
 /**
- * @return the number of elements in the linked list from this [ListNode].
+ * @return the number of elements in the linked list (starting from this [ListNode]).
  *
  * **Time**: `O(n)`
  *
@@ -100,10 +90,21 @@ val ListNode?.middleNode: ListNode?
         return tortoise
     }
 
-/**
- * Return the list of all nodes except the first.
- */
+/** Return all nodes after this node. */
 val ListNode?.tail: ListNode? get() = this?.next
+
+/**
+ * Performs the given action on each *node* in the list.
+ * To iterate over each value in the list, use [ListNode.iterator].
+ */
+fun ListNode?.forEachNode(action: (ListNode) -> Unit) {
+    this ?: return
+    var node: ListNode? = this
+    while (node != null) {
+        action(node)
+        node = node.next
+    }
+}
 
 /**
  * Returns a new [ListNode] in reverse order.

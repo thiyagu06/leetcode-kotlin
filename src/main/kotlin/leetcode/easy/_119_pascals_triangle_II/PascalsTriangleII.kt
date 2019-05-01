@@ -46,7 +46,7 @@ class FollowUpSolution {
  *
  * C(n, k) = C(n, n - k)
  */
-class FollowUpSolution2 {
+class FollowUpSolutionTwo {
     /**
      * The value at the nth row, kth index = C(n, k)
      */

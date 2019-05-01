@@ -3,9 +3,8 @@ package leetcode.easy._501_find_mode_in_bst
 import datastructures.tree.bst3LevelsFull
 import datastructures.tree.bstWithNulls
 import datastructures.tree.buildTree
+import org.junit.Assert.assertArrayEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class FindModeInBSTTest {
 

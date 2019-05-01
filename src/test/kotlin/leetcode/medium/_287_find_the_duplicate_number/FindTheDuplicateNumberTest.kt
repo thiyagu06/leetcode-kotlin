@@ -35,7 +35,7 @@ class FindTheDuplicateNumberTest {
         assertEquals(2, solution2.findDuplicate(intArrayOf(2, 2, 2, 2, 2, 2)))
     }
 
-    @Ignore // Unimplemented
+    @Ignore("Unimplemented")
     @Test
     fun findDuplicate3() {
         assertEquals(2, solution3.findDuplicate(intArrayOf(1, 3, 4, 2, 2)))

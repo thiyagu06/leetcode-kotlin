@@ -10,7 +10,9 @@ class FizzBuzzTest {
 
     @Test
     fun fizzBuzz() {
-        assertEquals(listOf("1",
+        assertEquals(
+            listOf(
+                "1",
                 "2",
                 "Fizz",
                 "4",
@@ -24,6 +26,8 @@ class FizzBuzzTest {
                 "Fizz",
                 "13",
                 "14",
-                "FizzBuzz"), solution.fizzBuzz(15))
+                "FizzBuzz"
+            ), solution.fizzBuzz(15)
+        )
     }
 }

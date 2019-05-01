@@ -16,26 +16,40 @@ class ListExtTest {
     private val nestedList1x3 = listOf(listOf(1, 2, 3))
 
     @Test
-    fun dropFirst() {
-        assertEquals(listOf(2, 3, 4), listOf(1, 2, 3, 4).dropFirst())
-        assertEquals(emptyList<Int>(), emptyList<Int>().dropFirst())
-        assertEquals(emptyList<Int>(), listOf(1).dropFirst())
-    }
-
-    @Test
-    fun dropLast() {
-        assertEquals(listOf(1, 2, 3), listOf(1, 2, 3, 4).dropLast())
-        assertEquals(emptyList<Int>(), emptyList<Int>().dropLast())
-        assertEquals(emptyList<Int>(), listOf(1).dropLast())
-    }
-
-    @Test
     fun halves() {
         assertEquals(Pair(emptyList<Int>(), emptyList<Int>()), emptyList<Int>().halves)
         assertEquals(Pair(listOf(1), emptyList<Int>()), listOf(1).halves)
         assertEquals(Pair(listOf(1), listOf(2)), listOf(1, 2).halves)
         assertEquals(Pair(listOf(1, 2), listOf(3)), listOf(1, 2, 3).halves)
         assertEquals(Pair(listOf(1, 2), listOf(3, 4)), listOf(1, 2, 3, 4).halves)
+    }
+
+    @Test
+    fun valueToIndicesMap() {
+        assertEquals(
+            mapOf("foo" to listOf(0, 2), "bar" to listOf(1), "baz" to listOf(3)),
+            listOf("foo", "bar", "foo", "baz").valueToIndicesMap()
+        )
+
+        assertEquals(
+            mapOf(1 to listOf(0, 2), 7 to listOf(1)),
+            listOf(1, 7, 1).valueToIndicesMap()
+        )
+    }
+
+    @Test
+    fun valueToIndexMap() {
+        // No duplicates
+        assertEquals(
+            mapOf(4 to 0, 3 to 1, 1 to 2, 2 to 3),
+            listOf(4, 3, 1, 2).valueToIndexMap()
+        )
+
+        // With duplicates
+        assertEquals(
+            mapOf(4 to 4, 3 to 1, 1 to 2, 2 to 3),
+            listOf(4, 3, 1, 2, 4).valueToIndexMap()
+        )
     }
 
     @Test
@@ -105,21 +119,6 @@ class ListExtTest {
         assertEquals(2, nestedList1x3.lastColumn)
         assertEquals((0 until 1), nestedList1x3.rowRange)
         assertEquals((0 until 3), nestedList1x3.columnRange)
-    }
-
-    @Test
-    fun valueToIndexMap() {
-        // No duplicates
-        assertEquals(
-            mapOf(4 to 0, 3 to 1, 1 to 2, 2 to 3),
-            listOf(4, 3, 1, 2).valueToIndexMap()
-        )
-
-        // With duplicates
-        assertEquals(
-            mapOf(4 to 4, 3 to 1, 1 to 2, 2 to 3),
-            listOf(4, 3, 1, 2, 4).valueToIndexMap()
-        )
     }
 
 }

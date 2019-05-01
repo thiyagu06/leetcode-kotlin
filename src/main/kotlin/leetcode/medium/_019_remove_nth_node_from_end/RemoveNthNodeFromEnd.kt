@@ -21,9 +21,7 @@ class Solution {
         }
 
         /* Edge case: n == size of list */
-        if (hare == null) {
-            return head.next
-        }
+        if (hare == null) return head.next
 
         /* Move H & T up until H reaches the end. T will be before the node to delete */
         while (hare?.next != null) {
@@ -40,32 +38,21 @@ class Solution {
 
 class SolutionTwo {
     /**
+     * Recursive version
      * Time: O(n)
-     * Space: O(1)
+     * Space: O(n)
      */
-    fun removeNthFromEnd(head: ListNode?, n: Int): ListNode? {
-        head ?: return null
-        if (n < 1) return head
-        var tortoise: ListNode? = head
-        var hare: ListNode? = head
+    fun removeNthFromEnd(head: ListNode?, n: Int): ListNode? = removeNth(head, n).first
 
-        /* Move hare up n + 1 nodes */
-        repeat(n + 1) { i ->
-            hare = hare?.next
-            /* Edge case: n == list.size */
-            if (i == n - 1 && hare == null) {
-                return head.next
-            }
+    private fun removeNth(head: ListNode?, n: Int): Pair<ListNode?, Int> {
+        head ?: return (null to 1)
+
+        val (tail, nValue) = removeNth(head.next, n)
+        return if (nValue == n) {
+            (tail to nValue + 1)
+        } else {
+            head.next = tail
+            (head to nValue + 1)
         }
-
-        /* Then move at same speed. Tortoise will end on node preceding nth from end */
-        while (hare != null) {
-            tortoise = tortoise?.next
-            hare = hare?.next
-        }
-
-        tortoise?.next = tortoise?.next?.next
-
-        return head
     }
 }

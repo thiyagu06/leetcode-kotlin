@@ -1,9 +1,9 @@
 package leetcode.easy._206_reverse_linked_list
 
 import datastructures.list.linkedListOf
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class ReverseLinkedListTest {
     private val iterativeSolution = IterativeSolution()

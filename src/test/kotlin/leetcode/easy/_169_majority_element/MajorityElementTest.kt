@@ -7,9 +7,9 @@ import kotlin.system.measureTimeMillis
 class MajorityElementTest {
 
     private val solution = Solution()
-    private val alt1 = AltSolution1()
-    private val alt2 = AltSolution2()
-    private val alt3 = AltSolution3()
+    private val solution2 = SolutionTwo()
+    private val solution3 = SolutionThree()
+    private val solution4 = SolutionFour()
     private val imperative = ImperativeSolution()
     private val bigInput = IntArray(1000) { i -> if (i % 100 == 0) 2 else 1 }
 
@@ -29,12 +29,12 @@ class MajorityElementTest {
     @Test
     fun majorityElementAlt1() {
         val ms = measureTimeMillis {
-            assertEquals(1, alt1.majorityElement(intArrayOf(1)))
-            assertEquals(1, alt1.majorityElement(intArrayOf(1, 1)))
-            assertEquals(1, alt1.majorityElement(intArrayOf(1, 3, 1)))
-            assertEquals(1, alt1.majorityElement(intArrayOf(1, 3, 1, 1)))
-            assertEquals(3, alt1.majorityElement(intArrayOf(1, 2, 3, 3, 3, 3, 4)))
-            assertEquals(1, alt1.majorityElement(bigInput))
+            assertEquals(1, solution2.majorityElement(intArrayOf(1)))
+            assertEquals(1, solution2.majorityElement(intArrayOf(1, 1)))
+            assertEquals(1, solution2.majorityElement(intArrayOf(1, 3, 1)))
+            assertEquals(1, solution2.majorityElement(intArrayOf(1, 3, 1, 1)))
+            assertEquals(3, solution2.majorityElement(intArrayOf(1, 2, 3, 3, 3, 3, 4)))
+            assertEquals(1, solution2.majorityElement(bigInput))
         }
         println("Alt 1: $ms ms")
     }
@@ -42,12 +42,12 @@ class MajorityElementTest {
     @Test
     fun majorityElementAlt2() {
         val ms = measureTimeMillis {
-            assertEquals(1, alt2.majorityElement(intArrayOf(1)))
-            assertEquals(1, alt2.majorityElement(intArrayOf(1, 1)))
-            assertEquals(1, alt2.majorityElement(intArrayOf(1, 3, 1)))
-            assertEquals(1, alt2.majorityElement(intArrayOf(1, 3, 1, 1)))
-            assertEquals(3, alt2.majorityElement(intArrayOf(1, 2, 3, 3, 3, 3, 4)))
-            assertEquals(1, alt2.majorityElement(bigInput))
+            assertEquals(1, solution3.majorityElement(intArrayOf(1)))
+            assertEquals(1, solution3.majorityElement(intArrayOf(1, 1)))
+            assertEquals(1, solution3.majorityElement(intArrayOf(1, 3, 1)))
+            assertEquals(1, solution3.majorityElement(intArrayOf(1, 3, 1, 1)))
+            assertEquals(3, solution3.majorityElement(intArrayOf(1, 2, 3, 3, 3, 3, 4)))
+            assertEquals(1, solution3.majorityElement(bigInput))
         }
         println("Alt 2: $ms ms")
     }
@@ -55,12 +55,12 @@ class MajorityElementTest {
     @Test
     fun majorityElementAlt3() {
         val ms = measureTimeMillis {
-            assertEquals(1, alt3.majorityElement(intArrayOf(1)))
-            assertEquals(1, alt3.majorityElement(intArrayOf(1, 1)))
-            assertEquals(1, alt3.majorityElement(intArrayOf(1, 3, 1)))
-            assertEquals(1, alt3.majorityElement(intArrayOf(1, 3, 1, 1)))
-            assertEquals(3, alt3.majorityElement(intArrayOf(1, 2, 3, 3, 3, 3, 4)))
-            assertEquals(1, alt3.majorityElement(bigInput))
+            assertEquals(1, solution4.majorityElement(intArrayOf(1)))
+            assertEquals(1, solution4.majorityElement(intArrayOf(1, 1)))
+            assertEquals(1, solution4.majorityElement(intArrayOf(1, 3, 1)))
+            assertEquals(1, solution4.majorityElement(intArrayOf(1, 3, 1, 1)))
+            assertEquals(3, solution4.majorityElement(intArrayOf(1, 2, 3, 3, 3, 3, 4)))
+            assertEquals(1, solution4.majorityElement(bigInput))
         }
         println("Alt 3: $ms ms")
     }

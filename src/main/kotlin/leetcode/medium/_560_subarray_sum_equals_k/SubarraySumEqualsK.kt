@@ -5,7 +5,35 @@ package leetcode.medium._560_subarray_sum_equals_k
  */
 class Solution {
     /**
-     * https://leetcode.com/problems/subarray-sum-equals-k/discuss/102106/java-solution-presum-hashmap
+     * [Solution](http://tinyurl.com/y7wkth4e)
+     * Time: O(n)
+     * Space: O(n)
+     */
+    fun subarraySum(nums: IntArray, k: Int): Int {
+        var count = 0
+        var sum = 0
+        val prefixSums: MutableMap<Int, List<Int>> = HashMap()
+
+        nums.forEachIndexed { i, num ->
+            sum += num
+            if (sum == k) {
+                count++         // nums[0..i] = k
+            } else {
+                if ((sum - k) in prefixSums) {
+                    // for each index j in prefixSums[sum - k], (j + 1)..i is a solution.
+                    // because SUM[i, j] = SUM[0, j] - SUM[0, i - 1]
+                    count += prefixSums[sum - k]!!.size
+                }
+            }
+            prefixSums[sum] = (prefixSums[sum] ?: emptyList()) + i
+        }
+        return count
+    }
+}
+
+class SolutionTwo {
+    /**
+     * [Solution](http://tinyurl.com/y7wkth4e)
      * Time: O(n)
      * Space: O(n)
      */

@@ -1,7 +1,8 @@
 package leetcode.medium._200_number_of_islands
 
-import java.util.Deque
 import java.util.ArrayDeque
+import java.util.Deque
+import java.util.Queue
 
 /**
  * 200 - https://leetcode.com/problems/number-of-islands
@@ -12,11 +13,14 @@ class Solution {
     private lateinit var visited: Array<BooleanArray>
 
     /**
-     * DFS solution.
+     * DFS Solution.
+     *
+     * Time: O(?)
+     * Space: O(?)
      */
     fun numIslands(grid: Array<CharArray>): Int {
         this.grid = grid
-        this.visited = Array(grid.size) { i -> BooleanArray(grid[i].size) { false } }
+        this.visited = Array(grid.size) { i -> BooleanArray(grid[i].size) }
 
         var islands = 0
 
@@ -33,21 +37,23 @@ class Solution {
     }
 
     private fun dfs(i: Int, j: Int) {
+        if (!isValid(i, j) || grid[i][j] == '0' || visited[i][j]) return
+
         visited[i][j] = true
-        // Continue search for Up, Right, Down, & Left neighbors that are land & unvisited
-        setOf(
-            i - 1 to j,
-            i to j + 1,
-            i + 1 to j,
-            i to j - 1
-        ).filter { (r, c) ->
-            isValidCell(r, c) && grid[r][c] == '1' && !visited[r][c]
-        }.forEach { (r, c) ->
+        neighborsOf(i, j).forEach { (r, c) ->
             dfs(r, c)
         }
     }
 
-    private fun isValidCell(i: Int, j: Int): Boolean = i in grid.indices && j in grid[0].indices
+
+    private fun neighborsOf(i: Int, j: Int): List<Pair<Int, Int>> = listOf(
+        i to j + 1,
+        i + 1 to j,
+        i to j - 1,
+        i - 1 to j
+    )
+
+    private fun isValid(i: Int, j: Int): Boolean = i in grid.indices && j in grid[i].indices
 }
 
 class SolutionTwo {
@@ -183,7 +189,7 @@ class SolutionFour {
     private fun bfs(i: Int, j: Int) {
         var cell = i to j
 
-        val queue: Deque<Pair<Int, Int>> = ArrayDeque()
+        val queue: Queue<Pair<Int, Int>> = ArrayDeque()
         queue.offer(cell)
 
         while (queue.isNotEmpty()) {

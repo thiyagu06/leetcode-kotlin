@@ -48,3 +48,47 @@ class Solution {
         return decimalValue
     }
 }
+
+class SolutionTwo {
+    private val symbolValues: Map<String, Int> = mapOf(
+        "I"  to 1,
+        "IV" to 4,
+        "V"  to 5,
+        "IX" to 9,
+        "X"  to 10,
+        "XL" to 40,
+        "L"  to 50,
+        "XC" to 90,
+        "C"  to 100,
+        "CD" to 400,
+        "D"  to 500,
+        "CM" to 900,
+        "M"  to 1000
+    )
+
+    private val subtractiveValues: Set<Char> = setOf('I', 'X', 'C')
+
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
+    fun romanToInt(s: String): Int {
+        var sum = 0
+
+        var i = 0
+        while (i <= s.lastIndex) {
+            // Check next numeral too if s[i] is I, X, or C
+            if (i < s.lastIndex && s[i] in subtractiveValues &&
+                (s.substring(i..(i + 1)) in symbolValues)
+            ) {
+                sum += symbolValues.getValue(s.substring(i..(i + 1)))
+                i += 2
+            } else {
+                sum += symbolValues[s[i].toString()] ?: throw IllegalArgumentException("Unrecognized numeral")
+                i++
+            }
+        }
+
+        return sum
+    }
+}

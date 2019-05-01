@@ -12,12 +12,14 @@ class SolutionDFS {
      * Space: O(n)
      */
     fun averageOfLevels(root: TreeNode?): DoubleArray =
-            collectTreeRows(root).map { level ->
-                level.sumByDouble { it.toDouble() } / level.size
-            }.toDoubleArray()
+        collectTreeRows(root).map { level ->
+            level.sumByDouble { it.toDouble() } / level.size
+        }.toDoubleArray()
 
-    private fun collectTreeRows(root: TreeNode?, depth: Int = 0,
-                                treeRows: MutableList<MutableList<Int>> = arrayListOf()): List<List<Int>> {
+    private fun collectTreeRows(
+        root: TreeNode?, depth: Int = 0,
+        treeRows: MutableList<MutableList<Int>> = arrayListOf()
+    ): List<List<Int>> {
         root ?: return treeRows
 
         if (depth > treeRows.lastIndex) {

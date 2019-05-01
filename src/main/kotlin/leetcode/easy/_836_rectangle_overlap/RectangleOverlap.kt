@@ -16,21 +16,21 @@ class Solution {
     }
 
     private fun isOneRectangleAboveOther(r1: Rectangle, r2: Rectangle): Boolean =
-        (r1.lowerLeft.y >= r2.upperRight.y) || (r2.lowerLeft.y >= r1.upperRight.y)
+        (r1.bottomLeft.y >= r2.topRight.y) || (r2.bottomLeft.y >= r1.topRight.y)
 
     private fun isOneRectangleToLeftOfOther(r1: Rectangle, r2: Rectangle): Boolean =
-        (r1.upperRight.x <= r2.lowerLeft.x) || (r2.upperRight.x <= r1.lowerLeft.x)
+        (r1.topRight.x <= r2.bottomLeft.x) || (r2.topRight.x <= r1.bottomLeft.x)
 
 
     private fun IntArray.toRectangle(): Rectangle =
-        Rectangle(lowerLeft = Point2D(this[0], this[1]), upperRight = Point2D(this[2], this[3]))
+        Rectangle(bottomLeft = Point2D(this[0], this[1]), topRight = Point2D(this[2], this[3]))
 }
 
 data class Point2D(val x: Int, val y: Int)
 
 data class Rectangle(
-    val lowerLeft: Point2D,
-    val upperRight: Point2D,
-    val upperLeft: Point2D = Point2D(lowerLeft.x, upperRight.y),
-    val lowerRight: Point2D = Point2D(upperRight.x, lowerLeft.y)
+    val bottomLeft: Point2D,
+    val topRight: Point2D,
+    val topLeft: Point2D = Point2D(bottomLeft.x, topRight.y),
+    val bottomRight: Point2D = Point2D(topRight.x, bottomLeft.y)
 )

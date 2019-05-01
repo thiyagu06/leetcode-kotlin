@@ -12,8 +12,7 @@ class Solution {
      * Time: O(n)
      * Space: O(n)
      */
-    fun isSymmetric(root: TreeNode?): Boolean =
-        (root == null) || areMirrorNodes(root.left, root.right)
+    fun isSymmetric(root: TreeNode?): Boolean = areMirrorNodes(root?.left, root?.right)
 
     private fun areMirrorNodes(p: TreeNode?, q: TreeNode?): Boolean = when {
         p == null || q == null -> p == q
@@ -31,8 +30,8 @@ class IterativeSolution {
         root ?: return true
 
         val queue: Queue<TreeNode> = LinkedList()
-        queue.add(root.left)
-        queue.add(root.right)
+        queue.offer(root.left)
+        queue.offer(root.right)
 
         while (queue.size >= 2) {
             val (left, right) = (queue.poll() to queue.poll())
@@ -44,10 +43,10 @@ class IterativeSolution {
                 (left == null) xor (right == null) -> return false
                 left.`val` != right.`val` -> return false
                 else -> {
-                    queue.add(left.left)
-                    queue.add(right.right)
-                    queue.add(left.right)
-                    queue.add(right.left)
+                    queue.offer(left.left)
+                    queue.offer(right.right)
+                    queue.offer(left.right)
+                    queue.offer(right.left)
                 }
             }
         }

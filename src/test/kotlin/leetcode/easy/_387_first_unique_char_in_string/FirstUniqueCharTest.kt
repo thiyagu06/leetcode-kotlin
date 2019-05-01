@@ -13,11 +13,13 @@ class FirstUniqueCharTest {
     fun firstUniqChar() {
         assertEquals(0, solution.firstUniqChar("leetcode"))
         assertEquals(2, solution.firstUniqChar("loveleetcode"))
+        assertEquals(8, solution.firstUniqChar("dddccdbba"))
     }
 
     @Test
     fun firstUniqChar2() {
         assertEquals(0, solution2.firstUniqChar("leetcode"))
         assertEquals(2, solution2.firstUniqChar("loveleetcode"))
+        assertEquals(8, solution2.firstUniqChar("dddccdbba"))
     }
 }

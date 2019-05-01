@@ -4,13 +4,17 @@ package leetcode.easy._819_most_common_word
  * 819 - https://leetcode.com/problems/most-common-word/
  */
 class Solution {
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
     fun mostCommonWord(paragraph: String, banned: Array<String>): String =
-        paragraph.split(" ", ".", ",", "!", "?", ";", "'")
+        paragraph.split(regex = """\W""".toRegex())
+            .asSequence()
             .map { it.toLowerCase() }
-            .filterNot { it.isBlank() }
+            .filter { it.isNotEmpty() && it !in banned }
             .groupingBy { it }
             .eachCount()
-            .filterNot { it.key in banned }
-            .maxBy { it.value }!!
+            .maxBy { (word, freq) -> freq }!!
             .key
 }

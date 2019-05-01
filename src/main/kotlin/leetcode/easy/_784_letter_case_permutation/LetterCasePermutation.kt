@@ -45,7 +45,7 @@ class SolutionTwo {
         for (i in S.indices) {
             if (S[i].isDigit()) continue
 
-            (0 until queue.size).forEach {
+            for (it in 0 until queue.size) {
                 val current = queue.poll()
                 val chars = current.toCharArray()
 

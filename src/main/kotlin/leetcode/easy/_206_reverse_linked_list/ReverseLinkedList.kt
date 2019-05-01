@@ -11,22 +11,21 @@ class IterativeSolution {
      * Space: O(1)
      */
     fun reverseList(head: ListNode?): ListNode? {
-        head ?: return head
+        head ?: return null
 
-        var prev: ListNode? = null
-        var curr: ListNode? = head
-        var next: ListNode? = head.next
+        var prevNode: ListNode? = null
+        var currNode: ListNode? = head
+        var nextNode: ListNode? = head.next
 
-        while (curr != null) {
-            curr.next = prev    // reverse link
+        while (currNode != null) {
+            currNode.next = prevNode
 
-            // Move each pointer up
-            prev = curr
-            curr = next
-            next = next?.next
+            prevNode = currNode
+            currNode = nextNode
+            nextNode = nextNode?.next
         }
 
-        return prev
+        return prevNode
     }
 }
 
@@ -35,15 +34,16 @@ class RecursiveSolution {
      * Time: O(n)
      * Space: O(n)
      */
-    fun reverseList(head: ListNode?): ListNode? {
-        head ?: return null
-        head.next ?: return head
 
-        val reversedHead = reverseList(head.next)
-
-        head.next?.next = head
-        head.next = null
-
-        return reversedHead
+    fun reverseList(head: ListNode?): ListNode? = when {
+        head == null -> null
+        head.next == null -> head
+        else -> {
+            val nextNode = head.next
+            val tailReversed = reverseList(nextNode)
+            nextNode?.next = head
+            head.next = null
+            tailReversed
+        }
     }
 }

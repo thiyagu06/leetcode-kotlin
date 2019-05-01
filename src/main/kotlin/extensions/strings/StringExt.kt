@@ -1,5 +1,7 @@
 package extensions.strings
 
+import java.util.*
+
 /**
  * String extensions.
  */
@@ -15,22 +17,23 @@ val String.tail: String get() = drop(1)
 val String.headAndTail: Pair<Char?, String> get() = (head to tail)
 
 /**
- * Returns a String containing all characters except the first element.
- *
- * **Time**: `O(n)`
- *
- * **Space**: `O(n)`
+ * Returns the String from the CharSequence repeated [n] times.
  */
-fun String.dropFirst(): String = drop(1)
+fun CharSequence.repeated(n: Int): String = Collections.nCopies(n, this).joinToString("")
 
 /**
- * Returns a String containing all characters except the last element.
- *
- * **Time**: `O(n)`
- *
- * **Space**: `O(n)`
+ * Return `true` if the string is a palindrome (same forwards and backwards).
+ * Does not ignore non-alphanumeric chars.
  */
-fun String.dropLast(): String = dropLast(1)
+fun String.isPalindrome(): Boolean {
+    var i = 0
+    var j = lastIndex
+    while (i < j) {
+        if (this[i++] != this[j--]) return false
+    }
+
+    return true
+}
 
 /**
  * Return a String with the elements in the specified range reversed.
@@ -65,7 +68,19 @@ fun String.characterIndices(): Map<Char, List<Int>> = withIndex()
 fun String.distinctChars(): List<Char> = toCharArray().distinct()
 
 /**
- * Returns a [String] with the chars sorted. Sorts by the Char's Int value (ASCII value).
+ * Returns a sorted list of all chars in the string (including chars that appear more than once).
+ * Sorts by the Char's Int value (ASCII value).
+ * If a string contains whitespace or punctuation characters, the sorted order
+ * will be by increasing [ASCII value](https://www.rapidtables.com/code/text/ascii-table.html).
+ *
+ * @see [toSortedSet] for similar function that returns only unique chars.
+ */
+fun String.toSortedChars(): List<Char> = toCharArray().sorted()
+
+/**
+ * Returns a string containing all the chars in the original string (including duplicates) arranged in
+ * sorted order.
+ * Sorts by the Char's Int value (ASCII value).
  * If a string contains whitespace or punctuation characters, the sorted order
  * will be by increasing [ASCII value](https://www.rapidtables.com/code/text/ascii-table.html).
  */
@@ -75,7 +90,7 @@ fun String.toSortedString(): String = toCharArray().sorted().joinToString("")
  * Returns true if the [String] is an anagram of [other] (i.e., a permutation of the letters in this
  * String could be rearranged to form the [other] string).
  */
-fun String.isAnagramOf(other: String): Boolean = toCharArray().sorted() == other.toCharArray().sorted()
+fun String.isAnagramOf(other: String): Boolean = toSortedChars() == other.toSortedChars()
 
 /**
  * Returns all (contiguous) substrings of length `0..n`.
@@ -95,6 +110,29 @@ fun String.substrings(): List<String> {
     return substrings
 }
 
+/**
+ * Generates all permutations of the String.
+ * Will generate all distinct permutations if the string has duplicate characters.
+ *
+ * ```
+ * "abc".permutations() => ["abc", "acb", "bac", "bca", "cab", "cba"]
+ * ```
+ */
+fun String.permutations(): Set<String> = when (length) {
+    0 -> emptySet()
+    1 -> setOf(this)
+    2 -> setOf(this, reversed())
+    else -> {
+        val permutations: MutableSet<String> = HashSet()
+        for (i in indices) {
+            val otherChars = take(i) + drop(i + 1)
+            val otherPermutations = otherChars.permutations()
+            val newPermutations = otherPermutations.map { this[i] + it }
+            permutations.addAll(newPermutations)
+        }
+        permutations
+    }
+}
 
 /**
  * Returns a new string with the last occurrence of [oldChar] replaced with [newChar].
@@ -189,4 +227,44 @@ fun lcs(a: String, b: String): String {
     }
 
     return dp[a.length][b.length]
+}
+
+/**
+ * Finds the Levenshtein Distance between [s1] and [s2].
+ * [Wikipedia: Edit Distance](https://en.wikipedia.org/wiki/Edit_distance)
+ * [Wikipedia: Levenshtein Distance](https://en.wikipedia.org/wiki/Levenshtein_distance)
+ * [TutorialHorizon: Edit Distance Problem](https://algorithms.tutorialhorizon.com/dynamic-programming-edit-distance-problem)
+ *
+ * **Time**: `O(m * n)`
+ *
+ * **Space**: `O(m * n)`
+ */
+fun editDistance(s1: String, s2: String): Int {
+    val dp = Array(s1.length + 1) { IntArray(s2.length + 1) }
+
+    // If either s1 or s2 is empty, the # of operations is the length of
+    // the other string
+    for (i in 0..s1.length) dp[i][0] = i
+    for (j in 0..s2.length) dp[0][j] = j
+
+    val m = s1.length
+    val n = s2.length
+
+    for (i in 1..m) {
+        for (j in 1..n) {
+            // If last chars match, no additional operations needed vs. s1[:m - 1] & s2[:n - 1]
+            // Note: i - 1 & j - 1 because we added rows for 0-length strings in dp table
+            if (s1[i - 1] == s2[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1]
+            } else {
+                dp[i][j] = 1 + minOf(
+                    dp[i][j - 1],       // insertion
+                    dp[i - 1][j],       // deletion
+                    dp[i - 1][j - 1]    // substitution
+                )
+            }
+        }
+    }
+
+    return dp[m][n]
 }

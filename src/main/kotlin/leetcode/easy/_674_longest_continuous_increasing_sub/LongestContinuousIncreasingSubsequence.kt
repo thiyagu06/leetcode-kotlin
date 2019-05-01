@@ -35,16 +35,12 @@ class SolutionTwo {
 
         var l = 0
         var r = 1
-        var maxLength = 0
+        var maxLength = 1
 
         while (r <= nums.lastIndex) {
             when {
-                l == r -> {
-                    maxLength = max(maxLength, 1)
-                    r++
-                }
-                nums[r] > nums[r - 1] -> {
-                    maxLength = max(maxLength, r - l + 1) // r - l + 1 = window length
+                l == r || nums[r] > nums[r - 1] -> {
+                    maxLength = max(maxLength, r - l + 1)   // r - l + 1 = window length
                     r++
                 }
                 else -> l = r // reset window

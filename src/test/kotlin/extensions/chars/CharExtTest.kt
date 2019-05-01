@@ -42,4 +42,9 @@ class CharExtTest {
         assertEquals('!', '!'.invertCase())
         assertEquals('7', '7'.invertCase())
     }
+
+    @Test
+    fun repeated() {
+        assertEquals("AAAAA", 'A'.repeated(5))
+    }
 }

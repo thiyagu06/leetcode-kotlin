@@ -1,7 +1,6 @@
 package leetcode.easy._696_count_binary_substrings
 
 import org.junit.Assert.*
-import org.junit.Ignore
 import org.junit.Test
 
 class CountBinarySubstringsTest {
@@ -18,7 +17,6 @@ class CountBinarySubstringsTest {
         assertEquals(4, solution.countBinarySubstrings("10101"))
     }
 
-    @Ignore
     @Test
     fun `countBinarySubstrings - large input`() {
         assertEquals(5718, solution.countBinarySubstrings(largeInput))

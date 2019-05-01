@@ -9,7 +9,7 @@ class Solution {
      * Space: O(m + n)
      */
     fun intersection(nums1: IntArray, nums2: IntArray): IntArray =
-        nums1.toSet().intersect(nums2.toSet()).toIntArray()
+        nums1.intersect(nums2.toSet()).toIntArray()
 }
 
 class SolutionTwo {

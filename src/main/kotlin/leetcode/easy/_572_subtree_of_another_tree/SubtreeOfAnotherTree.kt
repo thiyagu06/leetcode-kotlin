@@ -20,14 +20,11 @@ class Solution {
      * Time: O(n)
      * Space: O(n)
      */
-    internal fun isSameTree(s: TreeNode?, t: TreeNode?): Boolean =
+    internal fun isSameTree(p: TreeNode?, q: TreeNode?): Boolean =
         when {
-            s == null && t == null -> true
-
-            s != null && t != null ->
-                (s.`val` == t.`val`) && isSameTree(s.left, t.left) && isSameTree(s.right, t.right)
-
-            else -> false
+            p == null || q == null -> p == q
+            p.`val` != q.`val`     -> false
+            else                   -> isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
         }
 }
 

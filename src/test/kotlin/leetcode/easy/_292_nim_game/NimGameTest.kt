@@ -4,7 +4,7 @@ import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Ignore
 import org.junit.Test
-import kotlin.system.measureTimeMillis
+import kotlin.system.measureNanoTime
 
 class NimGameTest {
 
@@ -13,10 +13,10 @@ class NimGameTest {
     private val tabulated = SolutionTabulation()
     private val optimal = SolutionOptimal()
 
-    @Ignore
+    @Ignore("Brute-force solution")
     @Test
     fun canWinNimBruteForce() {
-        val ms = measureTimeMillis {
+        val nanoseconds = measureNanoTime {
             assertFalse(bruteForce.canWinNim(0))
             assertTrue(bruteForce.canWinNim(1))
             assertTrue(bruteForce.canWinNim(2))
@@ -31,12 +31,12 @@ class NimGameTest {
             assertTrue(bruteForce.canWinNim(11))
             assertFalse(bruteForce.canWinNim(44))
         }
-        println("$ms ms")
+        println("$nanoseconds nanoseconds")
     }
 
     @Test
     fun canWinNimMemo() {
-        val ms = measureTimeMillis {
+        val nanoseconds = measureNanoTime {
             assertFalse(memo.canWinNim(0))
             assertTrue(memo.canWinNim(1))
             assertTrue(memo.canWinNim(2))
@@ -51,12 +51,12 @@ class NimGameTest {
             assertTrue(memo.canWinNim(11))
             assertFalse(memo.canWinNim(44))
         }
-        println("$ms ms")
+        println("$nanoseconds nanoseconds")
     }
 
     @Test
     fun canWinNimTab() {
-        val ms = measureTimeMillis {
+        val nanoseconds = measureNanoTime {
             assertFalse(tabulated.canWinNim(0))
             assertTrue(tabulated.canWinNim(1))
             assertTrue(tabulated.canWinNim(2))
@@ -71,12 +71,12 @@ class NimGameTest {
             assertTrue(tabulated.canWinNim(11))
             assertFalse(tabulated.canWinNim(44))
         }
-        println("$ms ms")
+        println("$nanoseconds nanoseconds")
     }
 
     @Test
     fun canWinNimOptimal() {
-        val ms = measureTimeMillis {
+        val nanoseconds = measureNanoTime {
             assertFalse(optimal.canWinNim(0))
             assertTrue(optimal.canWinNim(1))
             assertTrue(optimal.canWinNim(2))
@@ -91,7 +91,7 @@ class NimGameTest {
             assertTrue(optimal.canWinNim(11))
             assertFalse(optimal.canWinNim(44))
         }
-        println("$ms ms")
+        println("$nanoseconds nanoseconds")
     }
 
 }

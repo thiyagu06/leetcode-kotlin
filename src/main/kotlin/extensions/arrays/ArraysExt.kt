@@ -1,6 +1,5 @@
 package extensions.arrays
 
-import extensions.iterable.valueToIndicesMap
 import extensions.ranges.mid
 
 /**
@@ -10,7 +9,7 @@ import extensions.ranges.mid
 const val NOT_FOUND: Int = -1
 
 /**
- * Get the middle index.
+ * Get the middle index (if array length is odd, the *first* of the 2 middle indices is returned).
  */
 val <T> Array<T>.midIndex: Int get() = indices.mid
 val IntArray.midIndex: Int get() = indices.mid
@@ -157,13 +156,16 @@ fun CharArray.swap(i: Int, j: Int) {
 
 /**
  * **Mutating** - Reverse the elements in the given index range.
+ * @throws IllegalArgumentException if [indexRange] is invalid
  */
 fun <T> Array<T>.reverseElementsInRange(indexRange: IntRange) {
-    require(indexRange.start >= 0 && indexRange.endInclusive <= lastIndex) {
-        "Invalid indexRange: $indexRange for array with indices: $indices"
-    }
     var i = indexRange.start
     var j = indexRange.endInclusive
+
+    require(indexRange.start in indices && indexRange.endInclusive in indices && i <= j) {
+        "Invalid indexRange: $indexRange for array with indices: $indices"
+    }
+
     while (i < j) {
         swap(i++, j--)
     }
@@ -171,10 +173,16 @@ fun <T> Array<T>.reverseElementsInRange(indexRange: IntRange) {
 
 /**
  * **Mutating** - Reverse the elements in the given index range.
+ * @throws IllegalArgumentException if [indexRange] is invalid
  */
 fun IntArray.reverseElementsInRange(indexRange: IntRange) {
     var i = indexRange.start
     var j = indexRange.endInclusive
+
+    require(indexRange.start in indices && indexRange.endInclusive in indices && i <= j) {
+        "Invalid indexRange: $indexRange for array with indices: $indices"
+    }
+
     while (i < j) {
         swap(i++, j--)
     }
@@ -231,7 +239,6 @@ fun IntArray.subarrays(): List<IntArray> =
         }
         acc
     }
-
 
 /**
  * Returns all contiguous, non-empty sublists

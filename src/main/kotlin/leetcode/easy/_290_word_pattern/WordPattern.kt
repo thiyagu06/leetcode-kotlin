@@ -39,7 +39,7 @@ class Solution {
     }
 }
 
-class Solution2 {
+class SolutionTwo {
     /**
      * Uses Guava's BiMap.
      *

@@ -10,16 +10,18 @@ class Solution {
     /**
      * Brute-force solution (Accepted)
      * Time: O(n^2)
-     * Space: O(n)
+     * Space: O(1)
+     *
+     * Runtime: 572 ms
      */
     fun maxProfit(prices: IntArray): Int {
         var maxProfit = 0
-        (0 until prices.lastIndex).forEach { i ->
-            ((i + 1)..prices.lastIndex).forEach { j ->
-                val profit = prices[j] - prices[i]
-                maxProfit = max(maxProfit, profit)
+        for (i in prices.indices) {
+            for (j in (i + 1)..prices.lastIndex) {
+                maxProfit = max(maxProfit, prices[j] - prices[i])
             }
         }
+
         return maxProfit
     }
 }
@@ -29,6 +31,8 @@ class SolutionTwo {
      * Dynamic Programming solution
      * Time: O(n)
      * Space: O(n)
+     *
+     * Runtime: 244 ms
      */
     fun maxProfit(prices: IntArray): Int {
         if (prices.size < 2) return 0
@@ -36,7 +40,6 @@ class SolutionTwo {
         /* maxProfits[i] = the max profit for prices[0..i] */
         val maxProfits = IntArray(prices.size)
         maxProfits[0] = 0
-        maxProfits[1] = max(prices[1] - prices[0], maxProfits[0])
         var minBuyPrice = prices[0]
 
         for (i in 1..prices.lastIndex) {
@@ -59,7 +62,7 @@ class SolutionThree {
         var maxProfit = 0
         var minBuyPrice = prices[0]
 
-        (1..prices.lastIndex).forEach { i ->
+        for (i in 1..prices.lastIndex) {
             minBuyPrice = min(minBuyPrice, prices[i])
             maxProfit = max(maxProfit, prices[i] - minBuyPrice)
         }

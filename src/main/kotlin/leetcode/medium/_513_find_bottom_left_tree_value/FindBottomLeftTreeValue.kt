@@ -6,6 +6,7 @@ import datastructures.tree.levels
 import java.util.ArrayDeque
 import java.util.Queue
 
+
 /**
  * 513 - https://leetcode.com/problems/find-bottom-left-tree-value/
  */
@@ -25,7 +26,7 @@ class Solution {
         val rows: MutableList<MutableList<Int>> = arrayListOf()
 
         val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque()
-        queue.add(this to 0)
+        queue.offer(this to 0)
 
         while (queue.isNotEmpty()) {
             val (node, depth) = queue.poll()
@@ -67,7 +68,7 @@ class SolutionThree {
         var bottomLeft = root!!.`val`   // Guaranteed to not be null
 
         val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque()
-        queue.add(root to 0)
+        queue.offer(root to 0)
 
         while (queue.isNotEmpty()) {
             val (node, depth) = queue.poll()

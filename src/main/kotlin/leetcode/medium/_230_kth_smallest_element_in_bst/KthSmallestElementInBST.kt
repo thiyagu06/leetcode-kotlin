@@ -25,32 +25,23 @@ class FollowUpSolution {
      * Time: O(n)
      * Space: O(n)
      */
-    fun kthSmallest(root: TreeNode?, k: Int): Int {
-        return dfs(root, k) ?: throw IllegalArgumentException("Invalid Input - no kth smallest")
-    }
+    fun kthSmallest(root: TreeNode?, k: Int): Int = dfs(root, k)!!      // Guaranteed k is valid
 
     private fun dfs(
         node: TreeNode?,
         k: Int,
         visited: MutableList<Int> = arrayListOf()
     ): Int? {
-        when {
-            visited.size == k -> return visited[k - 1]
-            node == null -> return null
-            else -> {
-                val leftResult = dfs(node.left, k, visited)
-                if (leftResult != null) {
-                    return leftResult
-                }
+        node ?: return null
 
-                visited += node.`val`
+        // Visit left side and return kth smallest if found
+        dfs(node.left, k, visited)?.let { return it }
 
-                val rightResult = dfs(node.right, k, visited)
-                if (rightResult != null) {
-                    return rightResult
-                }
-                return null
-            }
-        }
+        // Add node to visited; if kth element, return it
+        visited += node.`val`
+        if (visited.size == k) return visited.last()
+
+        // Visit right side and return kth smallest if found
+        return dfs(node.right, k, visited)
     }
 }

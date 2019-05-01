@@ -1,6 +1,11 @@
 package leetcode.easy._543_diameter_of_binary_tree
 
 import datastructures.tree.TreeNode
+import datastructures.tree.hasLeft
+import datastructures.tree.hasRight
+import datastructures.tree.hasTwoChildren
+import datastructures.tree.height
+import datastructures.tree.isLeaf
 import kotlin.math.max
 
 /**
@@ -11,6 +16,29 @@ class Solution {
      * https://leetcode.com/problems/diameter-of-binary-tree/discuss/101120/
      *
      * Time: O(n log n)
+     * Space: O(n)
+     */
+    fun diameterOfBinaryTree(root: TreeNode?): Int = when {
+        root == null -> 0
+        root.hasTwoChildren -> {
+            val longestLeafToLeafPathThroughRoot = 2 + root.left!!.height + root.right!!.height
+            maxOf(
+                diameterOfBinaryTree(root.left),
+                diameterOfBinaryTree(root.right),
+                longestLeafToLeafPathThroughRoot
+            )
+        }
+        root.hasLeft -> diameterOfBinaryTree(root.left) + if (root.left!!.hasTwoChildren) 0 else 1
+        root.hasRight -> diameterOfBinaryTree(root.right) + if (root.right!!.hasTwoChildren) 0 else 1
+        else -> 0   // leaf
+    }
+}
+
+class SolutionTwo {
+    /**
+     * https://leetcode.com/problems/diameter-of-binary-tree/discuss/101120/
+     *
+     * Time: O(n log n) - actually O(Nh) --> where h is the height of the tree: can be logN or N in case of skew tree. So the worst case time complexity is O(NN)
      * Space: O(n)
      */
     fun diameterOfBinaryTree(root: TreeNode?): Int {
@@ -27,7 +55,7 @@ class Solution {
     }
 }
 
-class SolutionTwo {
+class SolutionThree {
     /**
      * Time: O(n)
      * Space: O(n)
@@ -40,8 +68,7 @@ class SolutionTwo {
     }
 
     private fun dfs(node: TreeNode?): Int {
-        if (node == null)
-            return 0
+        node ?: return 0
 
         val left = dfs(node.left)
         val right = dfs(node.right)

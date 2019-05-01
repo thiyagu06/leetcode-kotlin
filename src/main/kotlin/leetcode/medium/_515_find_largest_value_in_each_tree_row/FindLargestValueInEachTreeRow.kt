@@ -31,22 +31,22 @@ class Solution {
         root ?: return
 
         val queue: Queue<Pair<TreeNode, Int>> = ArrayDeque()
-        queue.add(Pair(root, 0))
+        queue.offer(Pair(root, 0))
 
         while (queue.isNotEmpty()) {
-            val (node, depth) = queue.remove()!!
+            val (node, depth) = queue.poll()
             visit(node to depth)
             node.left?.let {
-                queue.add(Pair(it, depth + 1))
+                queue.offer(Pair(it, depth + 1))
             }
             node.right?.let {
-                queue.add(Pair(it, depth + 1))
+                queue.offer(Pair(it, depth + 1))
             }
         }
     }
 }
 
-class Solution2 {
+class SolutionTwo {
     /**
      * DFS + Hashing
      *

@@ -14,18 +14,33 @@ class Solution {
         nums.indices.forEach { i ->
             if (nums[i] == 0) {
                 var j = i + 1
-                while (j <= nums.lastIndex && nums[j] == 0)
-                    j++
+                while (j <= nums.lastIndex && nums[j] == 0) j++
 
-                if (j > nums.lastIndex) return
-
-                nums.swap(i, j)
+                if (j <= nums.lastIndex)
+                    nums.swap(i, j)
             }
         }
     }
 }
 
 class SolutionTwo {
+    /**
+     * Time: O(n^2)
+     * Space: O(1)
+     */
+    fun moveZeroes(nums: IntArray) {
+        var r = 0
+        nums.indices.forEach { l ->
+            if (nums[l] == 0) {
+                r = l + 1
+                while (r <= nums.lastIndex && nums[r] == 0) r++
+                if (r <= nums.lastIndex) nums.swap(l, r)
+            }
+        }
+    }
+}
+
+class SolutionThree {
     /**
      * Optimal
      *
@@ -48,7 +63,7 @@ class SolutionTwo {
     }
 }
 
-class SolutionThree {
+class SolutionFour {
     /**
      * Optimal
      *
@@ -59,8 +74,8 @@ class SolutionThree {
         var swapIdx = 0
         nums.indices.forEach { i ->
             if (nums[i] != 0) {
-                if (i == swapIdx) swapIdx++
-                else nums.swap(swapIdx++, i)
+                if (i != swapIdx) nums.swap(swapIdx, i)
+                swapIdx++
             }
         }
     }

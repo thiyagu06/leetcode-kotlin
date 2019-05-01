@@ -1,5 +1,6 @@
 package extensions.math
 
+import java.lang.IllegalArgumentException
 import java.math.BigInteger
 import kotlin.math.max
 import kotlin.math.min
@@ -28,6 +29,22 @@ fun Int.isPrime(): Boolean {
     val sqrt = sqrt(toDouble()).toInt()
     return (2..sqrt).all { this % it != 0 }
 }
+
+/**
+ * Greatest Common Divisor.
+ * If k is a non-zero integer, then k divides zero (k|0).
+ * The largest common divisor of k and zero is k.
+ * So gcd(k, 0) = gcd(0, k) = k.
+ * gcd(0, 0) is undefined.
+ *
+ * http://mfleck.cs.illinois.edu/building-blocks/version-1.0/number-theory.pdf
+ */
+fun gcd(a: Int, b: Int): Int {
+    require(a != 0 || b != 0) { "gcd(0, 0) is undefined" }
+    return calculateGCD(a, b)
+}
+
+tailrec fun calculateGCD(a: Int, b: Int): Int = if (b == 0) a else calculateGCD(b, a % b)
 
 /**
  * Returns the sum of the first n positive integers:
@@ -77,14 +94,34 @@ fun choose(n: Int, k: Int): BigInteger {
  * Generates all combinations of size [k].
  * See [leetcode.medium._077_combinations.Solution.combine] for an alternative algorithm.
  */
-fun <T> Set<T>.combinations(k: Int): Set<Set<T>> = when {
-    k < 0 -> throw Error("k cannot be smaller then 0, but was $k")
-    k == 0 -> setOf(setOf())
-    k >= size -> setOf(toSet())
+fun <T> Set<T>.combinations(k: Int): Set<Set<T>> = when (k) {
+    !in 0..size -> throw IllegalArgumentException("k must be in 0 <= k <= n, but was $k")
+    0 -> setOf(setOf())
+    size -> setOf(this)
     else -> powerSet()
         .asSequence()
         .filter { it.size == k }
         .toSet()
+}
+
+
+fun <T> Set<T>.combinations2(k: Int): Set<Set<T>> = toList().combinations(k)
+    .map { it.toSet() }
+    .toSet()
+
+fun <T> List<T>.combinations(k: Int): List<List<T>> = when {
+    isEmpty() || size == k -> listOf(this)
+    k !in 0..size -> throw IllegalArgumentException("k must be in 0..$size, but was $k (input: $this)")
+    k == 0 -> listOf(emptyList())
+    k == 1 -> map { listOf(it) }
+    else -> {
+        val combinations: MutableList<List<T>> = ArrayList()
+        for (i in 0..(size - k)) {
+            val tailCombinations = drop(i + 1).combinations(k - 1)
+            combinations += tailCombinations.map { listOf(this[i]) + it }
+        }
+        combinations
+    }
 }
 
 /**
@@ -92,16 +129,18 @@ fun <T> Set<T>.combinations(k: Int): Set<Set<T>> = when {
  *
  * **Time**: `O(2^n)`
  *
- * **Space**: `O(n)`
+ * **Space**: `O(2^n)`
  */
 fun <T> Collection<T>.powerSet(): Set<Set<T>> {
-    val powerSet: MutableSet<Set<T>> = hashSetOf(emptySet()) // contains only the null set {{}}
+    val powerSet: MutableSet<Set<T>> = hashSetOf(emptySet())    // contains only the null set {{}}
     for (x in this)
         powerSet += powerSet.map { it + x }
     return powerSet
 }
 
-
+/**
+ * Generates all permutations of the list.
+ */
 fun <T> List<T>.permutations(): Set<List<T>> = when (size) {
     0 -> setOf(emptyList())
     1 -> setOf(listOf(first()))
@@ -119,5 +158,3 @@ fun <T> List<T>.permutations(): Set<List<T>> = when (size) {
     }
 }
 
-// Returns List<List<Int>> due to signature of LeetCode Problems 46-47
-fun IntArray.permutations(): List<List<Int>> = toList().permutations().toList()

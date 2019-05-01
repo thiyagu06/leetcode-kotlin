@@ -46,7 +46,7 @@ class SolutionTwo {
 class SolutionThree {
     /**
      * Time: O(n)
-     * Space: O(n)
+     * Space: O(1) - uses space for HashMaps, but size of each is limited to 26 mappings.
      */
     fun isAnagram(s: String, t: String): Boolean = s.length == t.length
             && s.characterFrequencies() == t.characterFrequencies()
@@ -58,20 +58,19 @@ class SolutionFour {
      * Space: O(1) - uses space for HashMap, but size is limited to 26 mappings.
      */
     fun isAnagram(s: String, t: String): Boolean {
-        val charsInS = HashMap<Char, Int>()
-        s.forEach { ch ->
-            charsInS[ch] = (charsInS[ch] ?: 0) + 1
+        val sChars: MutableMap<Char, Int> = HashMap()
+        s.forEach { c ->
+            sChars[c] = (sChars[c] ?: 0) + 1
         }
 
-        t.forEach { ch ->
-            if (!charsInS.containsKey(ch)) {
-                return false
+        t.forEach { c ->
+            if (c in sChars) {
+                sChars[c] = sChars.getValue(c) - 1
+                sChars.remove(key = c, value = 0)   // if ch => 0, remove mapping
             } else {
-                charsInS[ch] = charsInS[ch]!! - 1
-                charsInS.remove(ch, 0)  // if ch => 0, remove mapping
+                return false
             }
-
         }
-        return charsInS.isEmpty()
+        return sChars.isEmpty()
     }
 }

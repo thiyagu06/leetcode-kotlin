@@ -10,7 +10,7 @@ class SortListTest {
 
     private val solution = Solution()
 
-    @Ignore // Not implemented
+    @Ignore("Unimplemented")
     @Test
     fun sortList() {
         assertEquals(

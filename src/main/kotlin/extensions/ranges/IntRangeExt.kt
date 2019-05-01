@@ -9,6 +9,5 @@ package extensions.ranges
  */
 val IntRange.mid: Int get() = start + ((endInclusive - start) / 2)
 
-
 fun IntRange.isNotEmpty(): Boolean = !isEmpty()
 

@@ -10,7 +10,7 @@ class MinStack {
     /** initialize your data structure here. */
     private val elements = arrayListOf<MinStackNode>()
 
-    private var minElement: Int? = null
+    private val minElement: Int?
         get() = elements.lastOrNull()?.minStackValue
 
     val size: Int get() = elements.size

@@ -36,7 +36,7 @@ class Solution {
             else false
 }
 
-class Solution2 {
+class SolutionTwo {
     fun islandPerimeter(grid: IntMatrix): Int {
         var count = grid.countHorizontalPerimeters()
         val transposed = grid.transpose()

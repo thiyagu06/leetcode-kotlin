@@ -16,8 +16,7 @@ class SlidingWindowMaximumTest {
         assertArrayEquals(intArrayOf(), solution.maxSlidingWindow(intArrayOf(), 0))
     }
 
-    // TODO
-    @Ignore
+    @Ignore("Unimplemented")
     @Test
     fun maxSlidingWindowOptimal() {
         assertArrayEquals(intArrayOf(3, 3, 5, 5, 6, 7),

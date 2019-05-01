@@ -14,8 +14,8 @@ class Solution {
     fun shortestDistance(words: Array<String>, word1: String, word2: String): Int {
         val indexMap = words.withIndex().groupBy({ it.value }, { it.index })
 
-        val word1Indices = indexMap[word1]!!
-        val word2Indices = indexMap[word2]!!
+        val word1Indices = indexMap.getValue(word1)
+        val word2Indices = indexMap.getValue(word2)
 
         var shortestDistance = words.size - 1
 

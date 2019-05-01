@@ -14,38 +14,36 @@ class Solution {
         if (nums.isEmpty())
             return
 
-        val rotated = nums.rotated(k)
+        val r = k % nums.size
+        val rotated = nums.takeLast(r) + nums.dropLast(r)
 
         /* Since the return type is Unit, and Kotlin parameters are vals: copy */
-        nums.forEachIndexed { i, _ ->
+        for (i in rotated.indices) {
             nums[i] = rotated[i]
         }
     }
-
-    private fun IntArray.rotated(k: Int): List<Int> = (takeLast(k % size) + dropLast(k % size))
 }
 
-class OptimalSolution1 {
+class SolutionTwo {
     /**
+     * In-place: uses reversals.
+     *
      * Time: O(n)
      * Space: O(1)
-     *
-     * Using Reversals
      */
     fun rotate(nums: IntArray, k: Int) {
-        if (nums.isEmpty()) return
+        if (nums.isEmpty() || nums.size == 1 || k == 0 || k == nums.size) return
 
         val n = nums.size
-        val rotations = k % n
-        if (rotations == 0) return
+        val r = k % n
 
         nums.reverse()
-        nums.reverseElementsInRange(0 until rotations)
-        nums.reverseElementsInRange(rotations until n)
+        nums.reverseElementsInRange(0 until r)          // reverse first r elements
+        nums.reverseElementsInRange(r..nums.lastIndex)  // reverse last (n - r) elements
     }
 }
 
-class OptimalSolution2 {
+class SolutionThree {
     /**
      * Time: O(n)
      * Space: O(1)
@@ -53,7 +51,7 @@ class OptimalSolution2 {
      * Using cyclical replacements
      */
     fun rotate(nums: IntArray, k: Int) {
-        if (nums.isEmpty()) return
+        if (nums.isEmpty() || nums.size == 1) return
 
         val n = nums.size
         val shift = k % n

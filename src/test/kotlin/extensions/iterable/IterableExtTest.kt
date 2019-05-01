@@ -40,18 +40,4 @@ class IterableExtTest {
         )
     }
 
-
-    @Test
-    fun valueToIndicesMap() {
-        assertEquals(
-            mapOf("foo" to listOf(0, 2), "bar" to listOf(1), "baz" to listOf(3)),
-            listOf("foo", "bar", "foo", "baz").valueToIndicesMap()
-        )
-
-        assertEquals(
-            mapOf(1 to listOf(0, 2), 7 to listOf(1)),
-            listOf(1, 7, 1).valueToIndicesMap()
-        )
-    }
-
 }

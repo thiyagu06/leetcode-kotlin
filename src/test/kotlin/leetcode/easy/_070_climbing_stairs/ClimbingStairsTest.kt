@@ -6,7 +6,9 @@ import org.junit.Assert.*
 
 class ClimbingStairsTest {
     private val naiveSolution = NaiveSolution()
-    private val memo = MemoizedSolution()
+    private val memo1 = MemoizedSolutionOne()
+    private val memo2 = MemoizedSolutionTwo()
+    private val memo3 = MemoizedSolutionThree()
     private val tabulation = TabulationSolution()
     private val optimal = OptimalSolution()
 
@@ -20,12 +22,30 @@ class ClimbingStairsTest {
     }
 
     @Test
-    fun climbStairsMemoized() {
-        assertEquals(1, memo.climbStairs(1))
-        assertEquals(2, memo.climbStairs(2))
-        assertEquals(3, memo.climbStairs(3))
-        assertEquals(5, memo.climbStairs(4))
-        assertEquals(34, memo.climbStairs(8))
+    fun climbStairsMemoized1() {
+        assertEquals(1, memo1.climbStairs(1))
+        assertEquals(2, memo1.climbStairs(2))
+        assertEquals(3, memo1.climbStairs(3))
+        assertEquals(5, memo1.climbStairs(4))
+        assertEquals(34, memo1.climbStairs(8))
+    }
+
+    @Test
+    fun climbStairsMemoized2() {
+        assertEquals(1, memo2.climbStairs(1))
+        assertEquals(2, memo2.climbStairs(2))
+        assertEquals(3, memo2.climbStairs(3))
+        assertEquals(5, memo2.climbStairs(4))
+        assertEquals(34, memo2.climbStairs(8))
+    }
+
+    @Test
+    fun climbStairsMemoized3() {
+        assertEquals(1, memo3.climbStairs(1))
+        assertEquals(2, memo3.climbStairs(2))
+        assertEquals(3, memo3.climbStairs(3))
+        assertEquals(5, memo3.climbStairs(4))
+        assertEquals(34, memo3.climbStairs(8))
     }
 
     @Test

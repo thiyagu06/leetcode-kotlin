@@ -1,7 +1,7 @@
 package leetcode.medium._508_most_freq_subtree_sum
 
 import datastructures.tree.TreeNode
-import extensions.iterable.frequencyMap
+import datastructures.tree.isLeaf
 
 /**
  * 508 - https://leetcode.com/problems/most-frequent-subtree-sum/
@@ -12,26 +12,27 @@ class Solution {
      * Space: O(n)
      */
     fun findFrequentTreeSum(root: TreeNode?): IntArray {
-        // Get all the subtree sums.
-        val subtreeSums = arrayListOf<Int>()
-        findAllSubtreeSums(root, subtreeSums)
+        val sumFreqs: MutableMap<Int, Int> = HashMap()
+        findSubtreeSums(root, sumFreqs)
 
-        // Map each sum to the frequency amongst the subtree sums
-        val subtreeSumFreqs = subtreeSums.frequencyMap()
-        val maxFreq = subtreeSumFreqs.values.max() ?: return intArrayOf()
-        return subtreeSumFreqs.filter { (_, freq) ->
-            freq == maxFreq
-        }.keys.toIntArray()
+        val maxFreq = sumFreqs.values.max()
+        return sumFreqs.filter { (_, freq) -> freq == maxFreq }
+            .map { (sum, _) -> sum }
+            .toIntArray()
     }
 
-    internal fun findAllSubtreeSums(root: TreeNode?, sums: MutableList<Int>): Int? {
-        if (root == null) {
-            return null
+    private fun findSubtreeSums(root: TreeNode?, sumFreqs: MutableMap<Int, Int>): Int = when {
+        root == null -> 0
+        root.isLeaf -> {
+            sumFreqs[root.`val`] = sumFreqs.getOrDefault(root.`val`, 0) + 1
+            root.`val`
         }
-        val leftSubtreeSum = findAllSubtreeSums(root.left, sums)
-        val rightSubtreeSum = findAllSubtreeSums(root.right, sums)
-        val rootSum = root.`val` + (leftSubtreeSum ?: 0) + (rightSubtreeSum ?: 0)
-        sums += rootSum
-        return rootSum
+        else -> {
+            val leftSum = findSubtreeSums(root.left, sumFreqs)
+            val rightSum = findSubtreeSums(root.right, sumFreqs)
+            val subtreeSum = leftSum + rightSum + root.`val`
+            sumFreqs[subtreeSum] = sumFreqs.getOrDefault(subtreeSum, 0) + 1
+            subtreeSum
+        }
     }
 }

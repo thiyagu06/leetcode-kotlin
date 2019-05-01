@@ -41,7 +41,7 @@ fun IntMatrix.transpose(): IntMatrix {
  * @param visited A [BooleanMatrix] used for tracking the visited matrix elements.
  * @param visit The action to perform for each element.
  */
-fun IntMatrix.dfs(
+inline fun IntMatrix.dfs(
     visited: BooleanMatrix = Array(size) { BooleanArray(this[0].size) },
     visit: (Int, Int) -> Unit
 ) {
@@ -99,8 +99,3 @@ fun IntMatrix.toList(): List<List<Int>> = fold(mutableListOf()) { acc, intArr ->
  */
 fun List<List<Int>>.toMatrix(): IntMatrix = Array(size = size, init = { i -> this[i].toIntArray() })
 
-/**
- * Returns a string representation of the contents of the IntMatrix as if it were a List<List<Int>>.
- * Since Kotlin 1.3, can use contentDeepToString()
- */
-fun IntMatrix.contentToString(): String = contentDeepToString()

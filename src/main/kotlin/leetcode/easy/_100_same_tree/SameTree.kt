@@ -10,10 +10,9 @@ class Solution {
      * Time: O(n)
      * Space: O(n)
      */
-    fun isSameTree(p: TreeNode?, q: TreeNode?): Boolean =
-        when {
-            p == null || q == null -> p == q
-            p.`val` != q.`val`     -> false
-            else                   -> isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
-        }
+    fun isSameTree(p: TreeNode?, q: TreeNode?): Boolean = when {
+        p == null || q == null -> p == q
+        p.`val` != q.`val` -> false
+        else -> isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+    }
 }

@@ -1,44 +1,40 @@
 package leetcode.easy._125_valid_palindrome
 
+import extensions.strings.isPalindrome
+
 /**
  * 125 - https://leetcode.com/problems/valid-palindrome/
  */
 class Solution {
     /**
-     * Time: O(n)
+     * Time: O(n) - Two passes
      * Space: O(1)
      */
-    fun isPalindrome(s: String): Boolean {
-        var i = 0
-        var j = s.lastIndex
-        while (i < j) {
-            when {
-                !s[i].isLetterOrDigit() -> i++
-                !s[j].isLetterOrDigit() -> j--
-                s[i].toLowerCase() != s[j].toLowerCase() -> return false
-                else -> {
-                    i++
-                    j--
-                }
-            }
-        }
-
-        return true
-    }
+    fun isPalindrome(s: String): Boolean = s.fold("") { acc, c ->
+        if (c.isLetterOrDigit()) acc + c.toLowerCase()
+        else acc
+    }.isPalindrome()
 }
 
 
 class SolutionTwo {
     /**
-     * Time: O(n)
+     * Time: O(n) - Single Pass
      * Space: O(1)
      */
     fun isPalindrome(s: String): Boolean {
-        val stripped = s.filter { it.isLetterOrDigit() }
-        val indices = stripped.indices
-        indices.zip(indices.reversed()).forEach { (i, j) ->
-            if (i >= j) return true
-            if (stripped[i].toLowerCase() != stripped[j].toLowerCase()) return false
+        var left = 0
+        var right = s.lastIndex
+        while (left < right) {
+            when {
+                !s[left].isLetterOrDigit() -> left++
+                !s[right].isLetterOrDigit() -> right--
+                !s[left].equals(s[right], ignoreCase = true) -> return false
+                else -> {
+                    left++
+                    right--
+                }
+            }
         }
 
         return true

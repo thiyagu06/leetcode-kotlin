@@ -49,7 +49,7 @@ class RecursiveDFSSolution {
     }
 }
 
-class RecursiveDFSSolution2 {
+class RecursiveDFSSolutionTwo {
     private lateinit var grid: IntMatrix
     private lateinit var seen: BooleanMatrix
 

@@ -49,7 +49,7 @@ class Solution {
     private fun extractResult(mins: Pair<Int?, Int?>): Int = mins.second ?: -1
 }
 
-class Solution2 {
+class SolutionTwo {
     /**
      * Same complexity, but much simpler
      * Time: O(n)
@@ -65,7 +65,7 @@ class Solution2 {
     }
 }
 
-class Solution3 {
+class SolutionThree {
     /**
      * Approach 2 - https://leetcode.com/problems/second-minimum-node-in-a-binary-tree/solution/
      * Time: O(n)
