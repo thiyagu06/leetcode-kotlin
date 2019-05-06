@@ -27,8 +27,54 @@ class SameTreeTest {
         )
         assertTrue(
             solution.isSameTree(
-                buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 2),
-                buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 2)
+                buildTree(
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    2
+                ),
+                buildTree(
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    2
+                )
             )
         )
 

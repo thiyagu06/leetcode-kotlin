@@ -1,9 +1,9 @@
 package leetcode.medium._139_word_break
 
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
 import org.junit.Ignore
 import org.junit.Test
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class WordBreakTest {
 
@@ -39,8 +39,14 @@ class WordBreakTest {
 
         /* Multiple valid solutions */
         assertTrue(solution.wordBreak(s = "leetcode", wordDict = listOf("leet", "code", "leetc", "ode")))
-        assertTrue(solution.wordBreak(s = "ilikesamsung", wordDict = listOf("i", "like", "sam", "sung", "samsung", "mobile", "ice",
-            "cream", "icecream", "man", "go", "mango")))
+        assertTrue(
+            solution.wordBreak(
+                s = "ilikesamsung", wordDict = listOf(
+                    "i", "like", "sam", "sung", "samsung", "mobile", "ice",
+                    "cream", "icecream", "man", "go", "mango"
+                )
+            )
+        )
 
         /* More than 1 first selection, but only 1 yields an answer */
         assertTrue(solution.wordBreak(s = "leetcode", wordDict = listOf("leetc", "od", "leet", "code")))
@@ -80,8 +86,14 @@ class WordBreakTest {
 
         /* Multiple valid solutions */
         assertTrue(solution2.wordBreak(s = "leetcode", wordDict = listOf("leet", "code", "leetc", "ode")))
-        assertTrue(solution2.wordBreak(s = "ilikesamsung", wordDict = listOf("i", "like", "sam", "sung", "samsung", "mobile", "ice",
-            "cream", "icecream", "man", "go", "mango")))
+        assertTrue(
+            solution2.wordBreak(
+                s = "ilikesamsung", wordDict = listOf(
+                    "i", "like", "sam", "sung", "samsung", "mobile", "ice",
+                    "cream", "icecream", "man", "go", "mango"
+                )
+            )
+        )
 
         /* More than 1 first selection, but only 1 yields an answer */
         assertTrue(solution2.wordBreak(s = "leetcode", wordDict = listOf("leetc", "od", "leet", "code")))

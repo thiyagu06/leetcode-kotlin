@@ -1,8 +1,8 @@
 package leetcode.medium._220_contains_duplicate_iii
 
+import org.junit.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class ContainsDuplicateIIITest {
 

@@ -18,23 +18,29 @@ class BinaryTreeLevelOrderTraversalTest {
         assertEquals(listOf(listOf(1), listOf(2)), bfsSolution.levelOrder(buildTree(1, null, 2)))
         assertEquals(listOf(listOf(1), listOf(2, 3)), bfsSolution.levelOrder(buildTree(1, 2, 3)))
         assertEquals(
-                listOf(
-                        listOf(1),
-                        listOf(2, 3),
-                        listOf(4, 5, 7)),
-                bfsSolution.levelOrder(buildTree(1, 2, 3, 4, 5, null, 7)))
+            listOf(
+                listOf(1),
+                listOf(2, 3),
+                listOf(4, 5, 7)
+            ),
+            bfsSolution.levelOrder(buildTree(1, 2, 3, 4, 5, null, 7))
+        )
         assertEquals(
-                listOf(
-                        listOf(1),
-                        listOf(2, 3),
-                        listOf(4, 5, 7)),
-                bfsSolution.levelOrder(buildTree(1, 2, 3, 4, 5, null, 7)))
+            listOf(
+                listOf(1),
+                listOf(2, 3),
+                listOf(4, 5, 7)
+            ),
+            bfsSolution.levelOrder(buildTree(1, 2, 3, 4, 5, null, 7))
+        )
         assertEquals(
-                listOf(
-                        listOf(3),
-                        listOf(9, 20),
-                        listOf(15, 7)),
-                bfsSolution.levelOrder(buildTree(3, 9, 20, null, null, 15, 7)))
+            listOf(
+                listOf(3),
+                listOf(9, 20),
+                listOf(15, 7)
+            ),
+            bfsSolution.levelOrder(buildTree(3, 9, 20, null, null, 15, 7))
+        )
     }
 
     @Test
@@ -48,19 +54,25 @@ class BinaryTreeLevelOrderTraversalTest {
             listOf(
                 listOf(1),
                 listOf(2, 3),
-                listOf(4, 5, 7)),
-            dfsSolution.levelOrder(buildTree(1, 2, 3, 4, 5, null, 7)))
+                listOf(4, 5, 7)
+            ),
+            dfsSolution.levelOrder(buildTree(1, 2, 3, 4, 5, null, 7))
+        )
         assertEquals(
             listOf(
                 listOf(1),
                 listOf(2, 3),
-                listOf(4, 5, 7)),
-            dfsSolution.levelOrder(buildTree(1, 2, 3, 4, 5, null, 7)))
+                listOf(4, 5, 7)
+            ),
+            dfsSolution.levelOrder(buildTree(1, 2, 3, 4, 5, null, 7))
+        )
         assertEquals(
             listOf(
                 listOf(3),
                 listOf(9, 20),
-                listOf(15, 7)),
-            dfsSolution.levelOrder(buildTree(3, 9, 20, null, null, 15, 7)))
+                listOf(15, 7)
+            ),
+            dfsSolution.levelOrder(buildTree(3, 9, 20, null, null, 15, 7))
+        )
     }
 }

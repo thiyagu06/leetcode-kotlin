@@ -10,8 +10,10 @@ class NextPermutationTest {
     @Test
     fun nextPermutation() {
         val nums = intArrayOf(1, 2, 3)
-        val nextPermutations = listOf(intArrayOf(1, 3, 2), intArrayOf(2, 1, 3), intArrayOf(2, 3, 1),
-                intArrayOf(3, 1, 2), intArrayOf(3, 2, 1))
+        val nextPermutations = listOf(
+            intArrayOf(1, 3, 2), intArrayOf(2, 1, 3), intArrayOf(2, 3, 1),
+            intArrayOf(3, 1, 2), intArrayOf(3, 2, 1)
+        )
 
         nextPermutations.forEach { p ->
             solution.nextPermutation(nums)

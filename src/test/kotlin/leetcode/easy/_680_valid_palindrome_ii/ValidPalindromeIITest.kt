@@ -1,8 +1,8 @@
 package leetcode.easy._680_valid_palindrome_ii
 
+import org.junit.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class ValidPalindromeIITest {
 

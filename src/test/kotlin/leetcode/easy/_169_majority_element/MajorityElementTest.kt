@@ -1,8 +1,8 @@
 package leetcode.easy._169_majority_element
 
-import kotlin.test.assertEquals
 import org.junit.Test
 import kotlin.system.measureTimeMillis
+import kotlin.test.assertEquals
 
 class MajorityElementTest {
 

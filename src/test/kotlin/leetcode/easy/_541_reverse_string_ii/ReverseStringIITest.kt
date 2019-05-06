@@ -1,7 +1,7 @@
 package leetcode.easy._541_reverse_string_ii
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class ReverseStringIITest {
 

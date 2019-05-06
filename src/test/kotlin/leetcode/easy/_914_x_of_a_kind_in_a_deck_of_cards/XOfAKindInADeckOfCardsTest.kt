@@ -1,8 +1,8 @@
 package leetcode.easy._914_x_of_a_kind_in_a_deck_of_cards
 
+import org.junit.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class XOfAKindInADeckOfCardsTest {
 

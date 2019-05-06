@@ -2,8 +2,8 @@ package leetcode.medium._094_binary_tree_inorder_traversal
 
 import datastructures.tree.bst3LevelsFull
 import datastructures.tree.bstWithNulls
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class BinaryTreeInorderTraversalTest {
 

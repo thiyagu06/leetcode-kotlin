@@ -1,10 +1,9 @@
 package leetcode.easy._844_backspace_string_compare
 
+import org.junit.Ignore
 import org.junit.Test
-
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Ignore
 
 class BackspaceStringCompareTest {
 

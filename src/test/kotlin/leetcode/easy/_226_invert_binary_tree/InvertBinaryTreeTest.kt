@@ -3,10 +3,10 @@ package leetcode.easy._226_invert_binary_tree
 import datastructures.tree.TreeNode
 import datastructures.tree.buildTree
 import org.junit.After
-import kotlin.test.assertEquals
 import org.junit.Assert.assertNotEquals
 import org.junit.Before
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class InvertBinaryTreeTest {
 
@@ -17,16 +17,16 @@ class InvertBinaryTreeTest {
     private val solution5 = SolutionFive()
 
     private var tree123: TreeNode? = TreeNode(1).apply {
-            left = TreeNode(2)
-            right = TreeNode(3)
-        }
+        left = TreeNode(2)
+        right = TreeNode(3)
+    }
 
     @Before
     fun setUp() {
         tree123 = TreeNode(1).apply {
-                left = TreeNode(2)
-                right = TreeNode(3)
-            }
+            left = TreeNode(2)
+            right = TreeNode(3)
+        }
     }
 
     @After
@@ -43,9 +43,12 @@ class InvertBinaryTreeTest {
         assertEquals(buildTree(2, 3, 1), solution.invertTree(buildTree(2, 1, 3)))
         assertEquals(buildTree(2, null, 3), solution.invertTree(buildTree(2, 3)))
         assertEquals(buildTree(2, 3), solution.invertTree(buildTree(2, null, 3)))
-        assertEquals(buildTree(4, 7, 2, 9, 6, 3, 1),
-                solution.invertTree(
-                        buildTree(4, 2, 7, 1, 3, 6, 9)))
+        assertEquals(
+            buildTree(4, 7, 2, 9, 6, 3, 1),
+            solution.invertTree(
+                buildTree(4, 2, 7, 1, 3, 6, 9)
+            )
+        )
         assertEquals(
             buildTree(20, 200, 50, 300, null, 25, 75),
             solution.invertTree(buildTree(20, 50, 200, 75, 25, null, 300))
@@ -61,9 +64,12 @@ class InvertBinaryTreeTest {
         assertEquals(buildTree(2, 3, 1), solution2.invertTree(buildTree(2, 1, 3)))
         assertEquals(buildTree(2, null, 3), solution2.invertTree(buildTree(2, 3)))
         assertEquals(buildTree(2, 3), solution2.invertTree(buildTree(2, null, 3)))
-        assertEquals(buildTree(4, 7, 2, 9, 6, 3, 1),
+        assertEquals(
+            buildTree(4, 7, 2, 9, 6, 3, 1),
             solution2.invertTree(
-                buildTree(4, 2, 7, 1, 3, 6, 9)))
+                buildTree(4, 2, 7, 1, 3, 6, 9)
+            )
+        )
         assertEquals(
             buildTree(20, 200, 50, 300, null, 25, 75),
             solution2.invertTree(buildTree(20, 50, 200, 75, 25, null, 300))
@@ -79,9 +85,12 @@ class InvertBinaryTreeTest {
         assertEquals(buildTree(2, 3, 1), solution3.invertTree(buildTree(2, 1, 3)))
         assertEquals(buildTree(2, null, 3), solution3.invertTree(buildTree(2, 3)))
         assertEquals(buildTree(2, 3), solution3.invertTree(buildTree(2, null, 3)))
-        assertEquals(buildTree(4, 7, 2, 9, 6, 3, 1),
-                solution3.invertTree(
-                        buildTree(4, 2, 7, 1, 3, 6, 9)))
+        assertEquals(
+            buildTree(4, 7, 2, 9, 6, 3, 1),
+            solution3.invertTree(
+                buildTree(4, 2, 7, 1, 3, 6, 9)
+            )
+        )
         assertEquals(
             buildTree(20, 200, 50, 300, null, 25, 75),
             solution3.invertTree(buildTree(20, 50, 200, 75, 25, null, 300))
@@ -97,9 +106,12 @@ class InvertBinaryTreeTest {
         assertEquals(buildTree(2, 3, 1), solution4.invertTree(buildTree(2, 1, 3)))
         assertEquals(buildTree(2, null, 3), solution4.invertTree(buildTree(2, 3)))
         assertEquals(buildTree(2, 3), solution4.invertTree(buildTree(2, null, 3)))
-        assertEquals(buildTree(4, 7, 2, 9, 6, 3, 1),
-                solution4.invertTree(
-                        buildTree(4, 2, 7, 1, 3, 6, 9)))
+        assertEquals(
+            buildTree(4, 7, 2, 9, 6, 3, 1),
+            solution4.invertTree(
+                buildTree(4, 2, 7, 1, 3, 6, 9)
+            )
+        )
         assertEquals(
             buildTree(20, 200, 50, 300, null, 25, 75),
             solution4.invertTree(buildTree(20, 50, 200, 75, 25, null, 300))
@@ -115,9 +127,12 @@ class InvertBinaryTreeTest {
         assertEquals(buildTree(2, 3, 1), solution5.invertTree(buildTree(2, 1, 3)))
         assertEquals(buildTree(2, null, 3), solution5.invertTree(buildTree(2, 3)))
         assertEquals(buildTree(2, 3), solution5.invertTree(buildTree(2, null, 3)))
-        assertEquals(buildTree(4, 7, 2, 9, 6, 3, 1),
+        assertEquals(
+            buildTree(4, 7, 2, 9, 6, 3, 1),
             solution5.invertTree(
-                buildTree(4, 2, 7, 1, 3, 6, 9)))
+                buildTree(4, 2, 7, 1, 3, 6, 9)
+            )
+        )
         assertEquals(
             buildTree(20, 200, 50, 300, null, 25, 75),
             solution5.invertTree(buildTree(20, 50, 200, 75, 25, null, 300))

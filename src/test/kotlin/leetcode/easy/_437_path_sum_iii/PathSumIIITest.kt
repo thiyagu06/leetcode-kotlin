@@ -2,8 +2,8 @@ package leetcode.easy._437_path_sum_iii
 
 import datastructures.tree.buildTree
 import datastructures.tree.tree123
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class PathSumIIITest {
 

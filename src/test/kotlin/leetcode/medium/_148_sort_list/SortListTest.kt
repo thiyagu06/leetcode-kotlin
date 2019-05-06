@@ -1,10 +1,9 @@
 package leetcode.medium._148_sort_list
 
 import datastructures.list.linkedListOf
-import org.junit.Test
-
-import kotlin.test.assertEquals
 import org.junit.Ignore
+import org.junit.Test
+import kotlin.test.assertEquals
 
 class SortListTest {
 

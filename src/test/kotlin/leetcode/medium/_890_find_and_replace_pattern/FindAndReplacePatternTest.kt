@@ -1,9 +1,9 @@
 package leetcode.medium._890_find_and_replace_pattern
 
+import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class FindAndReplacePatternTest {
 

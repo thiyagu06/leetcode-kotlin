@@ -1,7 +1,7 @@
 package leetcode.medium._077_combinations
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class CombinationsTest {
 

@@ -1,7 +1,7 @@
 package leetcode.easy._028_implement_strstr
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class StrStrTest {
 

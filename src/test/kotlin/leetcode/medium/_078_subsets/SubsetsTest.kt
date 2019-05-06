@@ -1,7 +1,7 @@
 package leetcode.medium._078_subsets
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class SubsetsTest {
 

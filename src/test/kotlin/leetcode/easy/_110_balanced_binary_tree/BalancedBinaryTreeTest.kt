@@ -5,9 +5,9 @@ import datastructures.tree.bstWithNulls
 import datastructures.tree.buildTree
 import datastructures.tree.tree123
 import datastructures.tree.tree1to5
+import org.junit.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class BalancedBinaryTreeTest {
 

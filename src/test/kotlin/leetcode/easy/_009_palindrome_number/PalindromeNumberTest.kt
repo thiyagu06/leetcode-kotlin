@@ -1,9 +1,8 @@
 package leetcode.easy._009_palindrome_number
 
 import org.junit.Test
-
-import kotlin.test.assertTrue
 import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class PalindromeNumberTest {
     private val solution = Solution()

@@ -12,17 +12,35 @@ class AddOneRowToTreeTest {
 
     @Test
     fun addOneRow() {
-        assertEquals(buildTree(4, 1, 1, 2, null, null, 6, 3, 1, 5), solution.addOneRow(buildTree(4, 2, 6, 3, 1, 5), v = 1, d = 2))
-        assertEquals(buildTree(4, 2, null, 1, 1, 3, null, null, 1), solution.addOneRow(buildTree(4, 2, null, 3, 1), v = 1, d = 3))
-        assertEquals(buildTree(1, 4, null, 2, 6, 3, 1, 5), solution.addOneRow(buildTree(4, 2, 6, 3, 1, 5), v = 1, d = 1))
+        assertEquals(
+            buildTree(4, 1, 1, 2, null, null, 6, 3, 1, 5),
+            solution.addOneRow(buildTree(4, 2, 6, 3, 1, 5), v = 1, d = 2)
+        )
+        assertEquals(
+            buildTree(4, 2, null, 1, 1, 3, null, null, 1),
+            solution.addOneRow(buildTree(4, 2, null, 3, 1), v = 1, d = 3)
+        )
+        assertEquals(
+            buildTree(1, 4, null, 2, 6, 3, 1, 5),
+            solution.addOneRow(buildTree(4, 2, 6, 3, 1, 5), v = 1, d = 1)
+        )
         assertEquals(buildTree(1, 1, 1), solution.addOneRow(buildTree(1), v = 1, d = 2))
     }
 
     @Test
     fun addOneRow2() {
-        assertEquals(buildTree(4, 1, 1, 2, null, null, 6, 3, 1, 5), solution2.addOneRow(buildTree(4, 2, 6, 3, 1, 5), v = 1, d = 2))
-        assertEquals(buildTree(4, 2, null, 1, 1, 3, null, null, 1), solution2.addOneRow(buildTree(4, 2, null, 3, 1), v = 1, d = 3))
-        assertEquals(buildTree(1, 4, null, 2, 6, 3, 1, 5), solution2.addOneRow(buildTree(4, 2, 6, 3, 1, 5), v = 1, d = 1))
+        assertEquals(
+            buildTree(4, 1, 1, 2, null, null, 6, 3, 1, 5),
+            solution2.addOneRow(buildTree(4, 2, 6, 3, 1, 5), v = 1, d = 2)
+        )
+        assertEquals(
+            buildTree(4, 2, null, 1, 1, 3, null, null, 1),
+            solution2.addOneRow(buildTree(4, 2, null, 3, 1), v = 1, d = 3)
+        )
+        assertEquals(
+            buildTree(1, 4, null, 2, 6, 3, 1, 5),
+            solution2.addOneRow(buildTree(4, 2, 6, 3, 1, 5), v = 1, d = 1)
+        )
         assertEquals(buildTree(1, 1, 1), solution2.addOneRow(buildTree(1), v = 1, d = 2))
     }
 }

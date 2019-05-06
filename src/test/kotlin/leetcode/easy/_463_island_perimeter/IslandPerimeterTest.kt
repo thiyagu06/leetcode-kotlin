@@ -1,10 +1,9 @@
 package leetcode.easy._463_island_perimeter
 
 import extensions.arrays.IntMatrix
-import org.junit.Test
-
-import kotlin.test.assertEquals
 import org.junit.Before
+import org.junit.Test
+import kotlin.test.assertEquals
 
 class IslandPerimeterTest {
 

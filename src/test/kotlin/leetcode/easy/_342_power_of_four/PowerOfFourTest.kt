@@ -1,8 +1,8 @@
 package leetcode.easy._342_power_of_four
 
+import org.junit.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class PowerOfFourTest {
 

@@ -1,10 +1,10 @@
 package leetcode.easy._292_nim_game
 
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
 import org.junit.Ignore
 import org.junit.Test
 import kotlin.system.measureNanoTime
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class NimGameTest {
 

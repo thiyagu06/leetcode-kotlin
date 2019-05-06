@@ -1,7 +1,7 @@
 package leetcode.easy._784_letter_case_permutation
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class LetterCasePermutationTest {
 

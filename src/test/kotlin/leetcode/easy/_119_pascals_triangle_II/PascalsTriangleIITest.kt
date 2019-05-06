@@ -1,9 +1,8 @@
 package leetcode.easy._119_pascals_triangle_II
 
 import org.junit.Test
-
-import kotlin.test.assertEquals
 import kotlin.system.measureTimeMillis
+import kotlin.test.assertEquals
 
 class PascalsTriangleIITest {
     private val solution = Solution()
@@ -11,13 +10,13 @@ class PascalsTriangleIITest {
     private val followup2 = FollowUpSolutionTwo()
 
     private val first7rows = listOf(
-            listOf(1),
-            listOf(1, 1),
-            listOf(1, 2, 1),
-            listOf(1, 3, 3, 1),
-            listOf(1, 4, 6, 4, 1),
-            listOf(1, 5, 10, 10, 5, 1),
-            listOf(1, 6, 15, 20, 15, 6, 1)
+        listOf(1),
+        listOf(1, 1),
+        listOf(1, 2, 1),
+        listOf(1, 3, 3, 1),
+        listOf(1, 4, 6, 4, 1),
+        listOf(1, 5, 10, 10, 5, 1),
+        listOf(1, 6, 15, 20, 15, 6, 1)
     )
 
     @Test

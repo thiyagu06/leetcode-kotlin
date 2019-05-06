@@ -1,8 +1,8 @@
 package leetcode.medium._567_permutation_in_a_string
 
+import org.junit.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class PermutationInAStringTest {
 

@@ -1,7 +1,7 @@
 package leetcode.easy._053_maximum_subarray
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class MaximumSubarrayTest {
 

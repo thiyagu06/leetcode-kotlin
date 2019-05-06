@@ -1,7 +1,7 @@
 package leetcode.medium._394_decode_string
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class DecodeStringTest {
 
@@ -18,7 +18,10 @@ class DecodeStringTest {
         assertEquals("accaccacc", solution.decodeString("3[a2[c]]"))
         assertEquals("aaabFFFFcbFFFFc", solution.decodeString("3[a]2[b4[F]c]"))
         assertEquals("bFFFFcbFFFFcaaa", solution.decodeString("2[b4[F]c]3[a]"))
-        assertEquals("zzzyypqjkjkefjkjkefjkjkefjkjkefyypqjkjkefjkjkefjkjkefjkjkefef", solution.decodeString("3[z]2[2[y]pq4[2[jk]e1[f]]]ef"))
+        assertEquals(
+            "zzzyypqjkjkefjkjkefjkjkefjkjkefyypqjkjkefjkjkefjkjkefjkjkefef",
+            solution.decodeString("3[z]2[2[y]pq4[2[jk]e1[f]]]ef")
+        )
     }
 
     @Test
@@ -60,7 +63,10 @@ class DecodeStringTest {
         assertEquals("codecodecodecodecodecodecodecodecodecode", solutionTwo.decodeString("10[code]"))
         assertEquals("accaccacc", solutionTwo.decodeString("3[a2[c]]"))
         assertEquals("aaabFFFFcbFFFFc", solutionTwo.decodeString("3[a]2[b4[F]c]"))
-        assertEquals("zzzyypqjkjkefjkjkefjkjkefjkjkefyypqjkjkefjkjkefjkjkefjkjkefef", solutionTwo.decodeString("3[z]2[2[y]pq4[2[jk]e1[f]]]ef"))
+        assertEquals(
+            "zzzyypqjkjkefjkjkefjkjkefjkjkefyypqjkjkefjkjkefjkjkefjkjkefef",
+            solutionTwo.decodeString("3[z]2[2[y]pq4[2[jk]e1[f]]]ef")
+        )
     }
 
     @Test
@@ -81,6 +87,9 @@ class DecodeStringTest {
         assertEquals("codecodecodecodecodecodecodecodecodecode", solutionThree.decodeString("10[code]"))
         assertEquals("accaccacc", solutionThree.decodeString("3[a2[c]]"))
         assertEquals("aaabFFFFcbFFFFc", solutionThree.decodeString("3[a]2[b4[F]c]"))
-        assertEquals("zzzyypqjkjkefjkjkefjkjkefjkjkefyypqjkjkefjkjkefjkjkefjkjkefef", solutionThree.decodeString("3[z]2[2[y]pq4[2[jk]e1[f]]]ef"))
+        assertEquals(
+            "zzzyypqjkjkefjkjkefjkjkefjkjkefyypqjkjkefjkjkefjkjkefjkjkefef",
+            solutionThree.decodeString("3[z]2[2[y]pq4[2[jk]e1[f]]]ef")
+        )
     }
 }

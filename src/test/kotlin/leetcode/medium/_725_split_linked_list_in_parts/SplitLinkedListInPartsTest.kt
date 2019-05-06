@@ -26,8 +26,8 @@ class SplitLinkedListInPartsTest {
         )
 
         assertArrayEquals(
-                arrayOf(linkedListOf(1), linkedListOf(2), linkedListOf(3), null, null),
-        solution.splitListToParts(linkedListOf(1, 2, 3), k = 5)
+            arrayOf(linkedListOf(1), linkedListOf(2), linkedListOf(3), null, null),
+            solution.splitListToParts(linkedListOf(1, 2, 3), k = 5)
         )
 
         assertArrayEquals(

@@ -1,10 +1,10 @@
 package leetcode.easy._232_implement_queue_using_stacks
 
+import org.junit.Test
+import java.util.EmptyStackException
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
-import java.util.EmptyStackException
 
 class MyQueueTest {
 

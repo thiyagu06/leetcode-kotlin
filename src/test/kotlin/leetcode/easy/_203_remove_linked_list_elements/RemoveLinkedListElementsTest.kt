@@ -1,9 +1,9 @@
 package leetcode.easy._203_remove_linked_list_elements
 
 import datastructures.list.linkedListOf
+import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
-import org.junit.Test
 
 class RemoveLinkedListElementsTest {
 
@@ -16,14 +16,20 @@ class RemoveLinkedListElementsTest {
         assertEquals(linkedListOf(1), solution.removeElements(linkedListOf(1), 7))
         assertEquals(linkedListOf(1, 2, 3), solution.removeElements(linkedListOf(1, 2, 3), 7))
         assertEquals(linkedListOf(1, 2, 3), solution.removeElements(linkedListOf(1, 2, 7, 3), 7))
-        assertEquals(linkedListOf(1, 2, 3, 4, 5),
-                solution.removeElements(linkedListOf(1, 2, 6, 3, 4, 5), 6))
+        assertEquals(
+            linkedListOf(1, 2, 3, 4, 5),
+            solution.removeElements(linkedListOf(1, 2, 6, 3, 4, 5), 6)
+        )
 
-        assertEquals(linkedListOf(1, 2, 3, 4, 5),
-                solution.removeElements(linkedListOf(1, 2, 6, 6, 6, 6, 3, 4, 5), 6))
+        assertEquals(
+            linkedListOf(1, 2, 3, 4, 5),
+            solution.removeElements(linkedListOf(1, 2, 6, 6, 6, 6, 3, 4, 5), 6)
+        )
 
-        assertEquals(linkedListOf(1, 2, 3, 4, 5),
-                solution.removeElements(linkedListOf(1, 2, 6, 3, 4, 5), 6))
+        assertEquals(
+            linkedListOf(1, 2, 3, 4, 5),
+            solution.removeElements(linkedListOf(1, 2, 6, 3, 4, 5), 6)
+        )
 
         assertEquals(
             linkedListOf(20, 14, 36, 11, 41),
@@ -43,8 +49,10 @@ class RemoveLinkedListElementsTest {
         assertEquals(linkedListOf(2, 7, 3), solution.removeElements(linkedListOf(1, 1, 2, 7, 3), 1))
 
         // remove last
-        assertEquals(linkedListOf(1, 2, 3, 4, 5),
-                solution.removeElements(linkedListOf(1, 2, 6, 3, 4, 5, 6), 6))
+        assertEquals(
+            linkedListOf(1, 2, 3, 4, 5),
+            solution.removeElements(linkedListOf(1, 2, 6, 3, 4, 5, 6), 6)
+        )
 
         // remove the only element
         assertNull(solution.removeElements(linkedListOf(1), 1))
@@ -57,14 +65,20 @@ class RemoveLinkedListElementsTest {
         assertEquals(linkedListOf(1), solution2.removeElements(linkedListOf(1), 7))
         assertEquals(linkedListOf(1, 2, 3), solution2.removeElements(linkedListOf(1, 2, 3), 7))
         assertEquals(linkedListOf(1, 2, 3), solution2.removeElements(linkedListOf(1, 2, 7, 3), 7))
-        assertEquals(linkedListOf(1, 2, 3, 4, 5),
-            solution2.removeElements(linkedListOf(1, 2, 6, 3, 4, 5), 6))
+        assertEquals(
+            linkedListOf(1, 2, 3, 4, 5),
+            solution2.removeElements(linkedListOf(1, 2, 6, 3, 4, 5), 6)
+        )
 
-        assertEquals(linkedListOf(1, 2, 3, 4, 5),
-            solution2.removeElements(linkedListOf(1, 2, 6, 6, 6, 6, 3, 4, 5), 6))
+        assertEquals(
+            linkedListOf(1, 2, 3, 4, 5),
+            solution2.removeElements(linkedListOf(1, 2, 6, 6, 6, 6, 3, 4, 5), 6)
+        )
 
-        assertEquals(linkedListOf(1, 2, 3, 4, 5),
-            solution2.removeElements(linkedListOf(1, 2, 6, 3, 4, 5), 6))
+        assertEquals(
+            linkedListOf(1, 2, 3, 4, 5),
+            solution2.removeElements(linkedListOf(1, 2, 6, 3, 4, 5), 6)
+        )
 
         assertEquals(
             linkedListOf(20, 14, 36, 11, 41),
@@ -84,8 +98,10 @@ class RemoveLinkedListElementsTest {
         assertEquals(linkedListOf(2, 7, 3), solution2.removeElements(linkedListOf(1, 1, 2, 7, 3), 1))
 
         // remove last
-        assertEquals(linkedListOf(1, 2, 3, 4, 5),
-            solution2.removeElements(linkedListOf(1, 2, 6, 3, 4, 5, 6), 6))
+        assertEquals(
+            linkedListOf(1, 2, 3, 4, 5),
+            solution2.removeElements(linkedListOf(1, 2, 6, 3, 4, 5, 6), 6)
+        )
 
         // remove the only element
         assertNull(solution2.removeElements(linkedListOf(1), 1))
@@ -98,14 +114,20 @@ class RemoveLinkedListElementsTest {
         assertEquals(linkedListOf(1), solution3.removeElements(linkedListOf(1), 7))
         assertEquals(linkedListOf(1, 2, 3), solution3.removeElements(linkedListOf(1, 2, 3), 7))
         assertEquals(linkedListOf(1, 2, 3), solution3.removeElements(linkedListOf(1, 2, 7, 3), 7))
-        assertEquals(linkedListOf(1, 2, 3, 4, 5),
-            solution3.removeElements(linkedListOf(1, 2, 6, 3, 4, 5), 6))
+        assertEquals(
+            linkedListOf(1, 2, 3, 4, 5),
+            solution3.removeElements(linkedListOf(1, 2, 6, 3, 4, 5), 6)
+        )
 
-        assertEquals(linkedListOf(1, 2, 3, 4, 5),
-            solution3.removeElements(linkedListOf(1, 2, 6, 6, 6, 6, 3, 4, 5), 6))
+        assertEquals(
+            linkedListOf(1, 2, 3, 4, 5),
+            solution3.removeElements(linkedListOf(1, 2, 6, 6, 6, 6, 3, 4, 5), 6)
+        )
 
-        assertEquals(linkedListOf(1, 2, 3, 4, 5),
-            solution3.removeElements(linkedListOf(1, 2, 6, 3, 4, 5), 6))
+        assertEquals(
+            linkedListOf(1, 2, 3, 4, 5),
+            solution3.removeElements(linkedListOf(1, 2, 6, 3, 4, 5), 6)
+        )
 
         assertEquals(
             linkedListOf(20, 14, 36, 11, 41),
@@ -125,8 +147,10 @@ class RemoveLinkedListElementsTest {
         assertEquals(linkedListOf(2, 7, 3), solution3.removeElements(linkedListOf(1, 1, 2, 7, 3), 1))
 
         // remove last
-        assertEquals(linkedListOf(1, 2, 3, 4, 5),
-            solution3.removeElements(linkedListOf(1, 2, 6, 3, 4, 5, 6), 6))
+        assertEquals(
+            linkedListOf(1, 2, 3, 4, 5),
+            solution3.removeElements(linkedListOf(1, 2, 6, 3, 4, 5, 6), 6)
+        )
 
         // remove the only element
         assertNull(solution3.removeElements(linkedListOf(1), 1))

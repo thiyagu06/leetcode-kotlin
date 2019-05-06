@@ -1,7 +1,7 @@
 package leetcode.easy._581_shorted_unsorted_continuous_subarray
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class ShortedUnsortedContinuousSubarrayTest {
 

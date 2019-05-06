@@ -1,8 +1,8 @@
 package leetcode.easy._242_valid_anagram
 
+import org.junit.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class ValidAnagramTest {
 

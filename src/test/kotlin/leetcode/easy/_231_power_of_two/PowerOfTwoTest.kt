@@ -1,8 +1,8 @@
 package leetcode.easy._231_power_of_two
 
+import org.junit.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class PowerOfTwoTest {
     private val solution = Solution()

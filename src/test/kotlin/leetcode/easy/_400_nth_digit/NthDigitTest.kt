@@ -1,9 +1,8 @@
 package leetcode.easy._400_nth_digit
 
-import org.junit.Test
-
-import kotlin.test.assertEquals
 import org.junit.Ignore
+import org.junit.Test
+import kotlin.test.assertEquals
 
 class NthDigitTest {
 

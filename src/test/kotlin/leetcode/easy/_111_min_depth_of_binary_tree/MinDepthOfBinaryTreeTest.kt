@@ -4,8 +4,8 @@ import datastructures.tree.bst3LevelsFull
 import datastructures.tree.bstWithNulls
 import datastructures.tree.buildTree
 import datastructures.tree.tree123
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class MinDepthOfBinaryTreeTest {
 

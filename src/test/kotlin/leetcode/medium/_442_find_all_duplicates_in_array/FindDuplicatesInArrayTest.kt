@@ -1,8 +1,8 @@
 package leetcode.medium._442_find_all_duplicates_in_array
 
-import kotlin.test.assertEquals
 import org.junit.Test
 import kotlin.system.measureTimeMillis
+import kotlin.test.assertEquals
 
 class FindDuplicatesInArrayTest {
 

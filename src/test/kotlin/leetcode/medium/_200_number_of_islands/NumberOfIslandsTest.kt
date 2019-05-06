@@ -1,7 +1,7 @@
 package leetcode.medium._200_number_of_islands
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class NumberOfIslandsTest {
 

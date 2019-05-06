@@ -1,7 +1,7 @@
 package leetcode.easy._401_binary_watch
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class BinaryWatchTest {
 

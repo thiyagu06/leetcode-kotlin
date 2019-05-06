@@ -1,13 +1,14 @@
 package leetcode.easy._007_reverse_integer
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class ReverseIntegerTest {
     private val solution = Solution()
     private val solution2 = SolutionTwo()
 
-    @Test fun reverse() {
+    @Test
+    fun reverse() {
         assertEquals(0, solution.reverse(0))
         assertEquals(1, solution.reverse(1))
         assertEquals(-1, solution.reverse(-1))
@@ -19,7 +20,8 @@ class ReverseIntegerTest {
         assertEquals(-1234567, solution.reverse(-76543210))
     }
 
-    @Test fun `reverse - Overflow`() {
+    @Test
+    fun `reverse - Overflow`() {
         // 8463847412 > Int.MAX_VALUE
         assertEquals(0, solution.reverse(Int.MIN_VALUE))
 
@@ -29,7 +31,8 @@ class ReverseIntegerTest {
         assertEquals(0, solution.reverse(1534236469))
     }
 
-    @Test fun reverse2() {
+    @Test
+    fun reverse2() {
         assertEquals(0, solution2.reverse(0))
         assertEquals(1, solution2.reverse(1))
         assertEquals(-1, solution2.reverse(-1))
@@ -41,7 +44,8 @@ class ReverseIntegerTest {
         assertEquals(-1234567, solution2.reverse(-76543210))
     }
 
-    @Test fun `reverse2 - Overflow`() {
+    @Test
+    fun `reverse2 - Overflow`() {
         // 8463847412 > Int.MAX_VALUE
         assertEquals(0, solution2.reverse(Int.MIN_VALUE))
 

@@ -1,8 +1,8 @@
 package leetcode.medium._392_is_subsequence
 
+import org.junit.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class IsSubsequenceTest {
 

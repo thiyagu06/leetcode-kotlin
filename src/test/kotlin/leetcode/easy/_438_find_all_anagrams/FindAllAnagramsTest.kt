@@ -1,7 +1,7 @@
 package leetcode.easy._438_find_all_anagrams
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class FindAllAnagramsTest {
 

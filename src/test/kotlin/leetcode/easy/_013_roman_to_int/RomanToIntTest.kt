@@ -1,7 +1,7 @@
 package leetcode.easy._013_roman_to_int
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class RomanToIntTest {
     private val solution = Solution()

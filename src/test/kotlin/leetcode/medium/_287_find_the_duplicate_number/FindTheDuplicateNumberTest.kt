@@ -1,9 +1,8 @@
 package leetcode.medium._287_find_the_duplicate_number
 
-import org.junit.Test
-
-import kotlin.test.assertEquals
 import org.junit.Ignore
+import org.junit.Test
+import kotlin.test.assertEquals
 
 class FindTheDuplicateNumberTest {
 

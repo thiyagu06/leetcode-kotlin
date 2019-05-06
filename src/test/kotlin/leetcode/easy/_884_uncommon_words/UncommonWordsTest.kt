@@ -16,8 +16,8 @@ class UncommonWordsTest {
         )
 
         assertArrayEquals(
-                arrayOf("banana"),
-        solution.uncommonFromSentences("apple apple", "banana")
+            arrayOf("banana"),
+            solution.uncommonFromSentences("apple apple", "banana")
         )
 
         assertArrayEquals(

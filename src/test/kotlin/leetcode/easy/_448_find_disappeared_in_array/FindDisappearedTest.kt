@@ -1,7 +1,7 @@
 package leetcode.easy._448_find_disappeared_in_array
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class FindDisappearedTest {
 

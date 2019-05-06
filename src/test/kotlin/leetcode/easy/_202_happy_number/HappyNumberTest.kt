@@ -1,8 +1,8 @@
 package leetcode.easy._202_happy_number
 
+import org.junit.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class HappyNumberTest {
 

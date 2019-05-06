@@ -9,19 +9,25 @@ class MinIndexSumTest {
 
     @Test
     fun findRestaurant() {
-        assertArrayEquals(arrayOf("Shogun", "KFC"), solution.findRestaurant(
+        assertArrayEquals(
+            arrayOf("Shogun", "KFC"), solution.findRestaurant(
                 arrayOf("Shogun", "KFC"),
                 arrayOf("KFC", "Shogun")
-        ))
+            )
+        )
 
-        assertArrayEquals(arrayOf("Shogun"), solution.findRestaurant(
+        assertArrayEquals(
+            arrayOf("Shogun"), solution.findRestaurant(
                 arrayOf("Shogun", "Tapioca Express", "Burger King", "KFC"),
                 arrayOf("Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun")
-        ))
+            )
+        )
 
-        assertArrayEquals(arrayOf("Shogun"), solution.findRestaurant(
+        assertArrayEquals(
+            arrayOf("Shogun"), solution.findRestaurant(
                 arrayOf("Shogun", "Tapioca Express", "Burger King", "KFC"),
                 arrayOf("KFC", "Shogun", "Burger King")
-        ))
+            )
+        )
     }
 }

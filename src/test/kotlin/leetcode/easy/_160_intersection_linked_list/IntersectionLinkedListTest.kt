@@ -1,9 +1,9 @@
 package leetcode.easy._160_intersection_linked_list
 
 import datastructures.list.linkedListOf
+import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
-import org.junit.Test
 
 class IntersectionOf2LinkedListsTest {
 

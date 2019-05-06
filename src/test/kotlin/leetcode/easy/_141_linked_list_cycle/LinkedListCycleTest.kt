@@ -2,9 +2,9 @@ package leetcode.easy._141_linked_list_cycle
 
 import datastructures.list.ListNode
 import datastructures.list.linkedListOf
+import org.junit.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class LinkedListCycleTest {
 

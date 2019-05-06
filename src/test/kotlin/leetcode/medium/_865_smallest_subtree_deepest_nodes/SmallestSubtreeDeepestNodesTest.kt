@@ -3,8 +3,8 @@ package leetcode.medium._865_smallest_subtree_deepest_nodes
 import datastructures.tree.bstWithNulls
 import datastructures.tree.buildTree
 import datastructures.tree.treeUnbalanced2
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class SmallestSubtreeDeepestNodesTest {
 
@@ -134,7 +134,26 @@ class SmallestSubtreeDeepestNodesTest {
 
         assertEquals(
             buildTree(9),
-            SolutionTwo().subtreeWithAllDeepest(buildTree(3, 5, 1, 6, 2, 0, 8, null, null, 7, 4, null, null, null, null, 9))
+            SolutionTwo().subtreeWithAllDeepest(
+                buildTree(
+                    3,
+                    5,
+                    1,
+                    6,
+                    2,
+                    0,
+                    8,
+                    null,
+                    null,
+                    7,
+                    4,
+                    null,
+                    null,
+                    null,
+                    null,
+                    9
+                )
+            )
         )
 
         assertEquals(buildTree(2), SolutionTwo().subtreeWithAllDeepest(treeUnbalanced2))

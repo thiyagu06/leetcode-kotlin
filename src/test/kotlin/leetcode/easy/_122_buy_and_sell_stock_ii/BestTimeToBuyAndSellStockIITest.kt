@@ -1,14 +1,15 @@
 package leetcode.easy._122_buy_and_sell_stock_ii
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class BestTimeToBuyAndSellStockIITest {
 
     private val solution = Solution()
     private val solution2 = SolutionTwo()
     private val solution3 = SolutionThree()
-    private val bigInput = intArrayOf(397, 6621, 4997, 7506, 8918, 1662, 9187, 3278, 3890, 514, 18, 9305, 93,
+    private val bigInput = intArrayOf(
+        397, 6621, 4997, 7506, 8918, 1662, 9187, 3278, 3890, 514, 18, 9305, 93,
         5508, 3031, 2692, 6019, 1134, 1691, 4949, 5071, 799, 8953, 7882, 4273, 302, 6753, 4657, 8368, 3942, 1982, 5117,
         563, 3332, 2623, 9482, 4994, 8163, 9112, 5236, 5029, 5483, 4542, 1474, 991, 3925, 4166, 3362, 5059, 5857, 4663,
         6482, 3008, 3616, 4365, 3634, 270, 1118, 8291, 4990, 1413, 273, 107, 1976, 9957, 9083, 7810, 4952, 7246, 3275,
@@ -61,7 +62,8 @@ class BestTimeToBuyAndSellStockIITest {
         528, 8102, 1446, 3985, 4724, 5306, 1355, 5163, 9074, 9709, 4043, 7285, 5250, 2617, 4756, 1818, 2105, 6790, 6627,
         2918, 7984, 7978, 7021, 2470, 1636, 3152, 7908, 8841, 4955, 222, 6480, 5484, 4676, 7926, 5821, 9401, 3232, 7176,
         916, 8658, 3237, 1311, 5943, 8487, 3928, 7051, 306, 6033, 3842, 3285, 8951, 1826, 7616, 2324, 648, 9252, 5476,
-        8556, 4445, 6784)
+        8556, 4445, 6784
+    )
 
     @Test
     fun maxProfit() {

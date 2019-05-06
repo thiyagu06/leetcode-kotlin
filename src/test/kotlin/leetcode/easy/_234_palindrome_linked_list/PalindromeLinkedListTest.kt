@@ -1,9 +1,9 @@
 package leetcode.easy._234_palindrome_linked_list
 
 import datastructures.list.linkedListOf
+import org.junit.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class PalindromeLinkedListTest {
 

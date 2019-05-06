@@ -1,7 +1,7 @@
 package leetcode.medium._152_max_product_subarray
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class MaxProductSubarrayTest {
 

@@ -1,7 +1,7 @@
 package leetcode.easy._268_missing_number
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class MissingNumberTest {
     private val solution = Solution()

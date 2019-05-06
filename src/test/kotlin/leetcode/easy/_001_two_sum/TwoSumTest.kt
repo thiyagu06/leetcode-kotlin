@@ -3,8 +3,6 @@ package leetcode.easy._001_two_sum
 import org.junit.Assert.assertArrayEquals
 import org.junit.Test
 
-import java.lang.IllegalArgumentException
-
 class TwoSumTest {
 
     private val solution = Solution()

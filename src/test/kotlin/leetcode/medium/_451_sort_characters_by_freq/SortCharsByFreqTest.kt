@@ -1,8 +1,8 @@
 package leetcode.medium._451_sort_characters_by_freq
 
+import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class SortCharsByFreqTest {
     private val solution = Solution()

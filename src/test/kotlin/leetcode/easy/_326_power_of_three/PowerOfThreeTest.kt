@@ -1,8 +1,8 @@
 package leetcode.easy._326_power_of_three
 
+import org.junit.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class PowerOfThreeTest {
     private val solution = Solution()

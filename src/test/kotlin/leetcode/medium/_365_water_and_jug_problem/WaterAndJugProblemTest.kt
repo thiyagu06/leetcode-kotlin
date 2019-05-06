@@ -1,8 +1,8 @@
 package leetcode.medium._365_water_and_jug_problem
 
+import org.junit.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class WaterAndJugProblemTest {
 

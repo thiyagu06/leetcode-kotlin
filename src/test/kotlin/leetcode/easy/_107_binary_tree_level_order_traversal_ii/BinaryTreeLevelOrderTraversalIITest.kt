@@ -18,23 +18,29 @@ class BinaryTreeLevelOrderTraversalIITest {
         assertEquals(listOf(listOf(2), listOf(1)), solution.levelOrderBottom(buildTree(1, null, 2)))
         assertEquals(listOf(listOf(2, 3), listOf(1)), solution.levelOrderBottom(buildTree(1, 2, 3)))
         assertEquals(
-                listOf(
-                        listOf(4, 5, 7),
-                        listOf(2, 3),
-                        listOf(1)),
-                solution.levelOrderBottom(buildTree(1, 2, 3, 4, 5, null, 7)))
+            listOf(
+                listOf(4, 5, 7),
+                listOf(2, 3),
+                listOf(1)
+            ),
+            solution.levelOrderBottom(buildTree(1, 2, 3, 4, 5, null, 7))
+        )
         assertEquals(
-                listOf(
-                        listOf(4, 5, 7),
-                        listOf(2, 3),
-                        listOf(1)),
-                solution.levelOrderBottom(buildTree(1, 2, 3, 4, 5, null, 7)))
+            listOf(
+                listOf(4, 5, 7),
+                listOf(2, 3),
+                listOf(1)
+            ),
+            solution.levelOrderBottom(buildTree(1, 2, 3, 4, 5, null, 7))
+        )
         assertEquals(
-                listOf(
-                        listOf(15, 7),
-                        listOf(9, 20),
-                        listOf(3)),
-                solution.levelOrderBottom(buildTree(3, 9, 20, null, null, 15, 7)))
+            listOf(
+                listOf(15, 7),
+                listOf(9, 20),
+                listOf(3)
+            ),
+            solution.levelOrderBottom(buildTree(3, 9, 20, null, null, 15, 7))
+        )
     }
 
     @Test
@@ -48,19 +54,25 @@ class BinaryTreeLevelOrderTraversalIITest {
             listOf(
                 listOf(4, 5, 7),
                 listOf(2, 3),
-                listOf(1)),
-            solution2.levelOrderBottom(buildTree(1, 2, 3, 4, 5, null, 7)))
+                listOf(1)
+            ),
+            solution2.levelOrderBottom(buildTree(1, 2, 3, 4, 5, null, 7))
+        )
         assertEquals(
             listOf(
                 listOf(4, 5, 7),
                 listOf(2, 3),
-                listOf(1)),
-            solution2.levelOrderBottom(buildTree(1, 2, 3, 4, 5, null, 7)))
+                listOf(1)
+            ),
+            solution2.levelOrderBottom(buildTree(1, 2, 3, 4, 5, null, 7))
+        )
         assertEquals(
             listOf(
                 listOf(15, 7),
                 listOf(9, 20),
-                listOf(3)),
-            solution2.levelOrderBottom(buildTree(3, 9, 20, null, null, 15, 7)))
+                listOf(3)
+            ),
+            solution2.levelOrderBottom(buildTree(3, 9, 20, null, null, 15, 7))
+        )
     }
 }

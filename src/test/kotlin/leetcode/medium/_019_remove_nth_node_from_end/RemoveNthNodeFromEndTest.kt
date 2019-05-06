@@ -1,9 +1,9 @@
 package leetcode.medium._019_remove_nth_node_from_end
 
 import datastructures.list.linkedListOf
+import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
-import org.junit.Test
 
 class RemoveNthNodeFromEndTest {
 

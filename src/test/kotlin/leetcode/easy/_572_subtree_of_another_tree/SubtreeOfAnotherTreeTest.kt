@@ -65,36 +65,65 @@ class SubtreeOfAnotherTreeTest {
         )
         assertTrue(
             solution.isSubtree(
-                buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null,
-                    1, 2),
+                buildTree(
+                    1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null,
+                    1, 2
+                ),
                 buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, 2)
             )
         )
         assertTrue(
             solution.isSubtree(
-                buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1,
-                    null, 1, 2),
+                buildTree(
+                    1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1,
+                    null, 1, 2
+                ),
                 buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, 2)
             )
         )
         assertTrue(
             solution.isSubtree(
-                buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1,
-                    null, 1, null, 1, 2),
+                buildTree(
+                    1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1,
+                    null, 1, null, 1, 2
+                ),
                 buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, 2)
             )
         )
         assertTrue(
             solution.isSubtree(
-                buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 2),
+                buildTree(
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    2
+                ),
                 buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, 2)
             )
         )
 
-        assertFalse(solution.isSubtree(buildTree(1,  2), buildTree(1)))
+        assertFalse(solution.isSubtree(buildTree(1, 2), buildTree(1)))
         assertFalse(solution.isSubtree(buildTree(1), buildTree(2)))
-        assertFalse(solution.isSubtree(buildTree(1), buildTree(1,  2)))
-        assertFalse(solution.isSubtree(buildTree(1,  2, 3), buildTree(1,  2)))
+        assertFalse(solution.isSubtree(buildTree(1), buildTree(1, 2)))
+        assertFalse(solution.isSubtree(buildTree(1, 2, 3), buildTree(1, 2)))
     }
 
     @Test
@@ -148,8 +177,54 @@ class SubtreeOfAnotherTreeTest {
 
         assertTrue(
             solution.isSameTree(
-                buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 2),
-                buildTree(1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 2)
+                buildTree(
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    2
+                ),
+                buildTree(
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    null,
+                    1,
+                    2
+                )
             )
         )
     }

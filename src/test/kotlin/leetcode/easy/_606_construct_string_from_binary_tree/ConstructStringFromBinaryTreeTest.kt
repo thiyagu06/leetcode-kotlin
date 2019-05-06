@@ -20,8 +20,10 @@ class ConstructStringFromBinaryTreeTest {
         assertEquals("1(2(4))(3)", solution.tree2str(buildTree(1, 2, 3, 4)))
         assertEquals("1(2()(4))(3)", solution.tree2str(buildTree(1, 2, 3, null, 4)))
         assertEquals("1(2(4)(5))(3(6)(7))", solution.tree2str(buildTree(1, 2, 3, 4, 5, 6, 7)))
-        assertEquals("1(2(4(8)(9))(5(10)(11)))(3(6(12)(13))(7(14)(15)))",
-                solution.tree2str(buildTree(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)))
+        assertEquals(
+            "1(2(4(8)(9))(5(10)(11)))(3(6(12)(13))(7(14)(15)))",
+            solution.tree2str(buildTree(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15))
+        )
     }
 
     @Test
@@ -34,7 +36,9 @@ class ConstructStringFromBinaryTreeTest {
         assertEquals("1(2(4))(3)", solution2.tree2str(buildTree(1, 2, 3, 4)))
         assertEquals("1(2()(4))(3)", solution2.tree2str(buildTree(1, 2, 3, null, 4)))
         assertEquals("1(2(4)(5))(3(6)(7))", solution2.tree2str(buildTree(1, 2, 3, 4, 5, 6, 7)))
-        assertEquals("1(2(4(8)(9))(5(10)(11)))(3(6(12)(13))(7(14)(15)))",
-            solution2.tree2str(buildTree(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)))
+        assertEquals(
+            "1(2(4(8)(9))(5(10)(11)))(3(6(12)(13))(7(14)(15)))",
+            solution2.tree2str(buildTree(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15))
+        )
     }
 }

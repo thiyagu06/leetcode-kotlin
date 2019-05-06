@@ -1,8 +1,8 @@
 package leetcode.medium._378_kth_smallest_in_sorted_matrix
 
 import extensions.arrays.buildIntMatrix
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class KthSmallestInSortedMatrixTest {
 
