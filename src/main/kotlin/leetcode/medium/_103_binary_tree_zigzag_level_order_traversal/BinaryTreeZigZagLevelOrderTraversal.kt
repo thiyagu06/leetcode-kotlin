@@ -6,8 +6,8 @@ import extensions.lists.append
 import extensions.lists.prepend
 import extensions.math.isEven
 import extensions.math.isOdd
-import java.util.Queue
 import java.util.ArrayDeque
+import java.util.Queue
 
 /**
  * 103 - https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
@@ -72,7 +72,8 @@ class SolutionThree {
         }
 
     private fun levelOrder(
-        root: TreeNode?, depth: Int = 0,
+        root: TreeNode?,
+        depth: Int = 0,
         values: MutableList<MutableList<Int>> = arrayListOf()
     ): MutableList<MutableList<Int>> {
 

@@ -1,7 +1,7 @@
 package leetcode.hard._076_min_window_substring
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class MinWindowSubstringTest {
 

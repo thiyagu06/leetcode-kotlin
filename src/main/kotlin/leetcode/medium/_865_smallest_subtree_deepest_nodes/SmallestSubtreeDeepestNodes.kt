@@ -23,10 +23,10 @@ class Solution {
         val (deepestRightNode, depthR) = findDeepest(root.right)
 
         val deepestNode: TreeNode? = when {
-                depthL == depthR -> root
-                depthL > depthR -> deepestLeftNode
-                else -> deepestRightNode
-            }
+            depthL == depthR -> root
+            depthL > depthR -> deepestLeftNode
+            else -> deepestRightNode
+        }
 
         return (deepestNode to max(depthL, depthR) + 1)
     }

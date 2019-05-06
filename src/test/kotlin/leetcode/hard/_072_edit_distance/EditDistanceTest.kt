@@ -1,7 +1,7 @@
 package leetcode.hard._072_edit_distance
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class EditDistanceTest {
 

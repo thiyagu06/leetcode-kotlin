@@ -59,7 +59,10 @@ class DebugSolution {
         result: MutableList<String>,
         depth: Int = 0
     ) {
-        printlnWithIndent(depth, "f(substring = $substring, (open, close) = ($openBraces, $closeBraces), result = $result")
+        printlnWithIndent(
+            depth,
+            "f(substring = $substring, (open, close) = ($openBraces, $closeBraces), result = $result"
+        )
         // Opening braces should be added to the substring first, so if the # of openBraces > # of closeBraces,
         // there is a problem.
         if (openBraces > closeBraces) {

@@ -30,7 +30,7 @@ class Solution {
                 // charR is in s1, but we've already found all occurrences of it in s2
                 charR in remainingChars && remainingChars[charR]!! == 0 -> {
                     val charL = s2[l]
-                    remainingChars[charL] = remainingChars[charL]!! + 1     // !!: safe, because window never contains chars in s1.
+                    remainingChars[charL] = remainingChars.getValue(charL) + 1
                     found--
                     l++
                 }

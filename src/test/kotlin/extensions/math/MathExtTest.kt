@@ -1,11 +1,11 @@
 package extensions.math
 
-import kotlin.test.assertEquals
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
 import org.junit.Test
 import java.math.BigInteger
 import kotlin.system.measureTimeMillis
+import kotlin.test.assertEquals
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class MathExtTest {
 
@@ -88,7 +88,7 @@ class MathExtTest {
         val times = arrayListOf<Long>()
         repeat(10) {
             val ms = measureTimeMillis {
-                assertEquals(setOf(emptySet<Int>()), emptySet<Int>().powerSet())
+                assertEquals(setOf(emptySet()), emptySet<Int>().powerSet())
                 assertEquals(setOf(setOf(), setOf(1)), setOf(1).powerSet())
                 assertEquals(setOf(setOf(), setOf(1), setOf(2), setOf(1, 2)), setOf(1, 2).powerSet())
                 assertEquals(
@@ -118,7 +118,7 @@ class MathExtTest {
         repeat(15) {
             val ms = measureTimeMillis {
                 assertEquals(
-                    setOf(emptySet<Int>()),
+                    setOf(emptySet()),
                     setOf(1, 2, 3).combinations(k = 0)
                 )
 
@@ -183,7 +183,7 @@ class MathExtTest {
         repeat(15) {
             val ms = measureTimeMillis {
                 assertEquals(
-                    setOf(emptySet<Int>()),
+                    setOf(emptySet()),
                     setOf(1, 2, 3).combinations2(k = 0)
                 )
 
@@ -224,7 +224,6 @@ class MathExtTest {
                 )
 
                 assertEquals(252, (1..10).toSet().combinations2(k = 5).size)
-
             }
             times += ms
         }
@@ -249,7 +248,7 @@ class MathExtTest {
         repeat(10) {
             val ms = measureTimeMillis {
                 assertEquals(
-                    setOf(emptyList<Int>()),
+                    setOf(emptyList()),
                     emptyList<Int>().permutations()
                 )
 

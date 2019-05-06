@@ -29,7 +29,7 @@ class SolutionTwo {
         t2 ?: return t1
 
         return TreeNode(t1.`val` + t2.`val`).apply {
-            left =  mergeTrees(t1.left, t2.left)
+            left = mergeTrees(t1.left, t2.left)
             right = mergeTrees(t1.right, t2.right)
         }
     }

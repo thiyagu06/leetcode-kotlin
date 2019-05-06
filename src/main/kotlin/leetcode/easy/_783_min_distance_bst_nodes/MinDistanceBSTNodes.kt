@@ -13,7 +13,7 @@ class Solution {
             .asSequence()
             .sorted()
             .zipWithNext()
-            .fold(Int.MAX_VALUE) { acc, (curr,  next) ->
+            .fold(Int.MAX_VALUE) { acc, (curr, next) ->
                 min(next - curr, acc)
             }
 }

@@ -1,10 +1,10 @@
 package extensions.arrays
 
 import org.junit.Assert.assertArrayEquals
+import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class BooleanMatrixTest {
     /**
@@ -107,17 +107,17 @@ class BooleanMatrixTest {
 
     @Test(expected = IllegalArgumentException::class)
     fun buildBooleanMatrixDifferingRowLengths() {
-        extensions.arrays.buildBooleanMatrix(listOf(true), listOf(true, false))
+        buildBooleanMatrix(listOf(true), listOf(true, false))
     }
 
     @Test(expected = IllegalArgumentException::class)
     fun buildBooleanMatrixNoElements() {
-        extensions.arrays.buildBooleanMatrix()
+        buildBooleanMatrix()
     }
 
     @Test(expected = IllegalArgumentException::class)
     fun buildBooleanMatrixNoElements2() {
-        extensions.arrays.buildBooleanMatrix(emptyList())
+        buildBooleanMatrix(emptyList())
     }
 
     @Test

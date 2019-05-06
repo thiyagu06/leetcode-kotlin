@@ -25,7 +25,8 @@ enum class RNGSecurityLevel {
 /**
  * Return an instance of [Random] based on the requirements expressed by the parameters.
  */
-fun getRandomNumberGenerator(securityLevel: RNGSecurityLevel, threadLocal: Boolean = false): Random = when (securityLevel) {
-    RNGSecurityLevel.STANDARD -> if (threadLocal) ThreadLocalRandom.current() else Random()
-    RNGSecurityLevel.CRYPTOGRAPHICALLY_SECURE -> SecureRandom()
-}
+fun getRandomNumberGenerator(securityLevel: RNGSecurityLevel, threadLocal: Boolean = false): Random =
+    when (securityLevel) {
+        RNGSecurityLevel.STANDARD -> if (threadLocal) ThreadLocalRandom.current() else Random()
+        RNGSecurityLevel.CRYPTOGRAPHICALLY_SECURE -> SecureRandom()
+    }

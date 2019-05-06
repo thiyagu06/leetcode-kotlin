@@ -19,7 +19,7 @@ class Solution {
         val modeFrequency = frequencies.maxBy { (_, freq) -> freq }!!.value
 
         return frequencies.filter { (_, freq) -> freq == modeFrequency }
-                .keys
-                .toIntArray()
+            .keys
+            .toIntArray()
     }
 }

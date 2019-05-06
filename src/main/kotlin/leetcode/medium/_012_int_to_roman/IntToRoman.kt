@@ -1,7 +1,5 @@
 package leetcode.medium._012_int_to_roman
 
-import java.lang.IllegalArgumentException
-
 /**
  * 12 - https://leetcode.com/problems/integer-to-roman/
  */

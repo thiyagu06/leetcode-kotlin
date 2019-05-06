@@ -13,5 +13,5 @@ class Solution {
      * Space: O(n)
      */
     fun preorderTraversal(root: TreeNode?): List<Int> =
-            root.collect(DFSTraversalOrder.PREORDER, arrayListOf()) { it.`val` }.toList()
+        root.collect(DFSTraversalOrder.PREORDER, arrayListOf()) { it.`val` }.toList()
 }

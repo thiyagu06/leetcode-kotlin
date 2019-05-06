@@ -125,5 +125,4 @@ class RotateArrayTest {
         solution3.rotate(nums9, 10)
         assertArrayEquals(intArrayOf(5, 6, 7, 1, 2, 3, 4), nums9)
     }
-
 }

@@ -1,6 +1,5 @@
 package datastructures.list
 
-
 /**
  * Definition for singly-linked list, from LeetCode.
  * Note: although `val` is declared with a default argument, LeetCode

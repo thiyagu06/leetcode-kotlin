@@ -1,10 +1,10 @@
 package extensions.random
 
-import kotlin.test.assertTrue
 import org.junit.Test
 import java.security.SecureRandom
 import java.util.Random
 import java.util.concurrent.ThreadLocalRandom
+import kotlin.test.assertTrue
 
 class RandomExtTest {
     @Test

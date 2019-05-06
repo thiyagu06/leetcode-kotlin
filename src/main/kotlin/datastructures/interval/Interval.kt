@@ -31,7 +31,6 @@ class Interval(var start: Int = 0, var end: Int = 0) {
         result = 31 * result + end
         return result
     }
-
 }
 
 fun Interval.overlapsWith(other: Interval): Boolean = (this.end >= other.start) || (other.end <= this.start)

@@ -1,7 +1,10 @@
 package datastructures.tree
 
-import datastructures.tree.DFSTraversalOrder.*
-import java.util.*
+import datastructures.tree.DFSTraversalOrder.INORDER
+import datastructures.tree.DFSTraversalOrder.POSTORDER
+import datastructures.tree.DFSTraversalOrder.PREORDER
+import java.util.ArrayDeque
+import java.util.Queue
 
 /**
  * Definition for a binary tree node, from LeetCode.

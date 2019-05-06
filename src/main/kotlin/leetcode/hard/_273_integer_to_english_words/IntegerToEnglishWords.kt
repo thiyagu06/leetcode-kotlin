@@ -1,7 +1,6 @@
 package leetcode.hard._273_integer_to_english_words
 
 import extensions.math.isMultipleOf
-import java.lang.IllegalArgumentException
 
 /**
  * 273 - https://leetcode.com/problems/integer-to-english-words
@@ -18,20 +17,20 @@ class Solution {
      * Space: O(?)
      */
     fun numberToWords(num: Int): String = when (num) {
-            0 -> "Zero"
-            in 1..9 -> singleDigit(num)
-            in 10..19 -> teenWords(num)
-            in 20..99 -> {
-                val prefix = tensPlacePrefix(num / 10)
-                if (num % 10 == 0) prefix
-                else "$prefix ${singleDigit(num % 10)}"
-            }
-            in 100 until 1000 -> numberToWords(num, 100)
-            in 1000 until ONE_MILLION -> numberToWords(num, 1000)
-            in ONE_MILLION until ONE_BILLION -> numberToWords(num, ONE_MILLION)
-            in ONE_BILLION..Int.MAX_VALUE -> numberToWords(num, ONE_BILLION)
-            else -> throw IllegalArgumentException("num must be a non-negative Int: [0, Int.MAX_VALUE].")
+        0 -> "Zero"
+        in 1..9 -> singleDigit(num)
+        in 10..19 -> teenWords(num)
+        in 20..99 -> {
+            val prefix = tensPlacePrefix(num / 10)
+            if (num % 10 == 0) prefix
+            else "$prefix ${singleDigit(num % 10)}"
         }
+        in 100 until 1000 -> numberToWords(num, 100)
+        in 1000 until ONE_MILLION -> numberToWords(num, 1000)
+        in ONE_MILLION until ONE_BILLION -> numberToWords(num, ONE_MILLION)
+        in ONE_BILLION..Int.MAX_VALUE -> numberToWords(num, ONE_BILLION)
+        else -> throw IllegalArgumentException("num must be a non-negative Int: [0, Int.MAX_VALUE].")
+    }
 
     /** Gets the largest unit (hundred, thousand, etc.) and recurses on the rest */
     private fun numberToWords(n: Int, divisor: Int): String {

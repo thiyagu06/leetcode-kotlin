@@ -42,7 +42,6 @@ class TreeNodeTest {
         assertEquals(3, bstWithNulls.height)
     }
 
-
     @Test
     fun children() {
         val (one, four) = bst3LevelsFull.left!!.children
@@ -201,7 +200,7 @@ class TreeNodeTest {
 
     @Test
     fun allDownwardPaths() {
-        assertEquals(emptyList<List<Int>>(), nullTree.allDownwardPaths())
+        assertEquals(emptyList(), nullTree.allDownwardPaths())
 
         val expected123 = listOf(listOf(1), listOf(2), listOf(1, 2), listOf(3), listOf(1, 3))
         val actual123 = tree123.allDownwardPaths()
@@ -257,19 +256,19 @@ class TreeNodeTest {
     fun buildTree() {
         val tree = buildTree(1, 2, 3)
         assertNotNull(tree)
-        assertEquals(3, tree?.size)
-        assertEquals(1, tree?.`val`)
-        assertEquals(2, tree?.left?.`val`)
-        assertEquals(3, tree?.right?.`val`)
+        assertEquals(3, tree.size)
+        assertEquals(1, tree.`val`)
+        assertEquals(2, tree.left?.`val`)
+        assertEquals(3, tree.right?.`val`)
 
         val tree2 = buildTree(5, 3, 8, 1, 4, 6, 9)
         assertNotNull(tree2)
-        assertEquals(7, tree2?.size)
+        assertEquals(7, tree2.size)
         assertEquals(bst3LevelsFull, tree2)
 
         val tree3 = buildTree(1, null, 1, null, 1, 2)
         assertNotNull(tree3)
-        assertEquals(4, tree3?.size)
+        assertEquals(4, tree3.size)
         assertEquals(treeUnbalanced, tree3)
 
         val tree4 =
@@ -292,12 +291,12 @@ class TreeNodeTest {
     fun buildTreeWithNulls() {
         val tree = buildTree(1, null, 2, 3)
         assertNotNull(tree)
-        assertEquals(3, tree?.size)
-        assertEquals(1, tree?.`val`)
-        assertNull(tree?.left?.`val`)
-        assertEquals(2, tree?.right?.`val`)
-        assertEquals(3, tree?.right?.left?.`val`)
-        assertNull(tree?.right?.left?.right)
+        assertEquals(3, tree.size)
+        assertEquals(1, tree.`val`)
+        assertNull(tree.left?.`val`)
+        assertEquals(2, tree.right?.`val`)
+        assertEquals(3, tree.right?.left?.`val`)
+        assertNull(tree.right?.left?.right)
 
         val tree2 = buildTree(7, 4, 9, 3, null, 8, null, 1)
         assertEquals(bstWithNulls, tree2)
@@ -319,10 +318,10 @@ class TreeNodeTest {
     fun buildBST() {
         val tree1 = buildBST(2, 1, 3)
         assertNotNull(tree1)
-        assertEquals(3, tree1?.size)
-        assertEquals(2, tree1?.`val`)
-        assertEquals(1, tree1?.left?.`val`)
-        assertEquals(3, tree1?.right?.`val`)
+        assertEquals(3, tree1.size)
+        assertEquals(2, tree1.`val`)
+        assertEquals(1, tree1.left?.`val`)
+        assertEquals(3, tree1.right?.`val`)
 
         val tree2 = buildBST(7, 4, 9, 3, null, 8, null, 1)
         assertEquals(bstWithNulls, tree2)

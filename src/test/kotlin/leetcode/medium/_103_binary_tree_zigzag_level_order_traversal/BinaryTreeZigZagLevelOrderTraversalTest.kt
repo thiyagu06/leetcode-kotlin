@@ -12,7 +12,7 @@ class BinaryTreeZigZagLevelOrderTraversalTest {
 
     @Test
     fun zigzagLevelOrder() {
-        assertEquals(emptyList<List<Int>>(), solution.zigzagLevelOrder(null))
+        assertEquals(emptyList(), solution.zigzagLevelOrder(null))
         assertEquals(listOf(listOf(1)), solution.zigzagLevelOrder(buildTree(1)))
         assertEquals(listOf(listOf(1), listOf(2)), solution.zigzagLevelOrder(buildTree(1, 2)))
         assertEquals(listOf(listOf(1), listOf(2)), solution.zigzagLevelOrder(buildTree(1, null, 2)))
@@ -54,7 +54,7 @@ class BinaryTreeZigZagLevelOrderTraversalTest {
 
     @Test
     fun zigzagLevelOrderSimple1() {
-        assertEquals(emptyList<List<Int>>(), solution2.zigzagLevelOrder(null))
+        assertEquals(emptyList(), solution2.zigzagLevelOrder(null))
         assertEquals(listOf(listOf(1)), solution2.zigzagLevelOrder(buildTree(1)))
         assertEquals(listOf(listOf(1), listOf(2)), solution2.zigzagLevelOrder(buildTree(1, 2)))
         assertEquals(listOf(listOf(1), listOf(2)), solution2.zigzagLevelOrder(buildTree(1, null, 2)))
@@ -96,7 +96,7 @@ class BinaryTreeZigZagLevelOrderTraversalTest {
 
     @Test
     fun zigzagLevelOrderSimple2() {
-        assertEquals(emptyList<List<Int>>(), solution3.zigzagLevelOrder(null))
+        assertEquals(emptyList(), solution3.zigzagLevelOrder(null))
         assertEquals(listOf(listOf(1)), solution3.zigzagLevelOrder(buildTree(1)))
         assertEquals(listOf(listOf(1), listOf(2)), solution3.zigzagLevelOrder(buildTree(1, 2)))
         assertEquals(listOf(listOf(1), listOf(2)), solution3.zigzagLevelOrder(buildTree(1, null, 2)))

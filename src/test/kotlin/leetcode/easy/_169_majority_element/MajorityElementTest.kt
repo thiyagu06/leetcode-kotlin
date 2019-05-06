@@ -77,5 +77,4 @@ class MajorityElementTest {
         }
         println("Imperative: $ms ms")
     }
-
 }

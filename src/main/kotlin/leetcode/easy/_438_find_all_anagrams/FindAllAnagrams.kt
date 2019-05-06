@@ -1,10 +1,6 @@
 package leetcode.easy._438_find_all_anagrams
 
 import extensions.chars.asciiValue
-import kotlin.collections.ArrayList
-import kotlin.collections.List
-import kotlin.collections.forEach
-import kotlin.collections.mutableMapOf
 import kotlin.collections.set
 
 class Solution {

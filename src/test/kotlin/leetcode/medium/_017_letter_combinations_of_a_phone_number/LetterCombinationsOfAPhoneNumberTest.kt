@@ -23,7 +23,7 @@ class LetterCombinationsOfAPhoneNumberTest {
             )
         )
 
-        assertEquals(emptyList<String>(), solution.letterCombinations(""))
+        assertEquals(emptyList(), solution.letterCombinations(""))
     }
 
     @Test
@@ -42,6 +42,6 @@ class LetterCombinationsOfAPhoneNumberTest {
             )
         )
 
-        assertEquals(emptyList<String>(), solution2.letterCombinations(""))
+        assertEquals(emptyList(), solution2.letterCombinations(""))
     }
 }

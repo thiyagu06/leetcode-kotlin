@@ -9,23 +9,23 @@ class PascalsTriangle {
      * Space: O(?)
      */
     fun generate(numRows: Int): List<List<Int>> =
-            (1..numRows).fold(mutableListOf()) { acc, i ->
-                acc += when (i) {
-                    1 -> listOf(1)
-                    2 -> listOf(1, 1)
-                    else -> ithRow(acc.last())
-                }
-                acc
+        (1..numRows).fold(mutableListOf()) { acc, i ->
+            acc += when (i) {
+                1 -> listOf(1)
+                2 -> listOf(1, 1)
+                else -> ithRow(acc.last())
             }
+            acc
+        }
 
     private fun ithRow(precedingRow: List<Int>): List<Int> =
-            arrayListOf<Int>().apply {
-                add(1)
-                (1..precedingRow.lastIndex).forEach { i ->
-                    add(precedingRow[i - 1] + precedingRow[i])
-                }
-                add(1)
+        arrayListOf<Int>().apply {
+            add(1)
+            (1..precedingRow.lastIndex).forEach { i ->
+                add(precedingRow[i - 1] + precedingRow[i])
             }
+            add(1)
+        }
 }
 
 class PascalsTriangle2 {

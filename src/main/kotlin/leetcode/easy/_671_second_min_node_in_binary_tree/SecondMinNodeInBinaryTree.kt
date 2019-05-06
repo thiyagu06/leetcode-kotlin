@@ -34,16 +34,15 @@ class Solution {
     }
 
     internal fun placeValueInMins(value: Int, mins: Pair<Int?, Int?>): Pair<Int?, Int?> =
-            when {
-                mins.first == null -> Pair(value, null)
-                value == mins.first -> mins
-                mins.second == null ->
-                    Pair(minOf(mins.first!!, value), maxOf(mins.first!!, value))
-
-                value < mins.first!! -> Pair(value, mins.first)
-                value > mins.first!! && value < mins.second!! -> Pair(mins.first, value)
-                else -> mins    // value == mins.first || value >= mins.second!! -> mins
-            }
+        when {
+            mins.first == null -> Pair(value, null)
+            value == mins.first -> mins
+            mins.second == null ->
+                Pair(minOf(mins.first!!, value), maxOf(mins.first!!, value))
+            value < mins.first!! -> Pair(value, mins.first)
+            value > mins.first!! && value < mins.second!! -> Pair(mins.first, value)
+            else -> mins    // value == mins.first || value >= mins.second!! -> mins
+        }
 
     private fun extractResult(mins: Pair<Int?, Int?>): Int = mins.second ?: -1
 }

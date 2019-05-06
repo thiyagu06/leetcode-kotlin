@@ -1,7 +1,7 @@
 package leetcode.medium._003_longest_substring_without_repeating_chars
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class LongestSubstringWithoutRepeatingCharsTest {
 

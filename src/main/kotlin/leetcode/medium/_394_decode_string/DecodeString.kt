@@ -65,7 +65,6 @@ class Solution {
                         ']' to 0 -> return Pair(encoded, s.substring(encoded.length + 2))
                         else -> encoded += c
                     }
-
                 }
                 return Pair(encoded, s.substring(encoded.length + 2))
             }

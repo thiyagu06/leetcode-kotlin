@@ -21,7 +21,7 @@ class FindAndReplacePatternTest {
         )
 
         assertEquals(
-            emptyList<String>(),
+            emptyList(),
             solution.findAndReplacePattern(
                 words = arrayOf("abc", "deq", "dkd", "ccc"),
                 pattern = "abb"
@@ -30,7 +30,7 @@ class FindAndReplacePatternTest {
 
         // Order matters - permutation
         assertEquals(
-            emptyList<String>(),
+            emptyList(),
             solution.findAndReplacePattern(
                 words = arrayOf("bba", "bab"),
                 pattern = "abb"
@@ -122,7 +122,7 @@ class FindAndReplacePatternTest {
         )
 
         assertEquals(
-            emptyList<String>(),
+            emptyList(),
             solution2.findAndReplacePattern(
                 words = arrayOf("abc", "deq", "dkd", "ccc"),
                 pattern = "abb"
@@ -131,7 +131,7 @@ class FindAndReplacePatternTest {
 
         // Order matters - permutation
         assertEquals(
-            emptyList<String>(),
+            emptyList(),
             solution2.findAndReplacePattern(
                 words = arrayOf("bba", "bab"),
                 pattern = "abb"

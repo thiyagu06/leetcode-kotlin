@@ -1,8 +1,7 @@
-
 import leetcode.medium._012_int_to_roman.Solution
 import leetcode.medium._012_int_to_roman.SolutionTwo
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class IntToRomanTest {
 

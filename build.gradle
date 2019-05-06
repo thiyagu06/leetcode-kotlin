@@ -1,5 +1,6 @@
 buildscript {
     repositories {
+        jcenter()
         mavenCentral()
     }
 
@@ -15,25 +16,26 @@ apply plugin: 'java'
 apply plugin: 'kotlin'
 apply plugin: 'idea'
 
-targetCompatibility = 1.8
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
+    jcenter()
     mavenCentral()
 }
 
-configurations {
-    ktlint
-}
+//configurations {
+//    ktlint
+//}
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
-    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
-    compile "com.google.guava:guava:$guavaVersion"
-    ktlint "com.pinterest:ktlint:$ktlintVersion"
-    testCompile "junit:junit:$junitVersion"
-    testCompile "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
-    testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    implementation "com.google.guava:guava:$guavaVersion"
+    // ktlint "com.pinterest:ktlint:$ktlintVersion"
+    testImplementation "junit:junit:$junitVersion"
+    testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
 }
 
 compileKotlin {
@@ -58,17 +60,18 @@ idea {
     }
 }
 
-task ktlint(type: JavaExec, group: "verification") {
-    description = "Check Kotlin code style."
-    classpath = configurations.ktlint
-    main = "com.pinterest.ktlint.Main"
-    args "src/**/*.kt"
-}
-check.dependsOn ktlint
-
-task ktlintFormat(type: JavaExec, group: "formatting") {
-    description = "Fix Kotlin code style deviations."
-    classpath = configurations.ktlint
-    main = "com.pinterest.ktlint.Main"
-    args "-F", "src/**/*.kt"
-}
+// TODO create ktlint rule set, & uncomment.
+//task ktlint(type: JavaExec, group: "verification") {
+//    description = "Check Kotlin code style."
+//    classpath = configurations.ktlint
+//    main = "com.pinterest.ktlint.Main"
+//    args "src/**/*.kt"
+//}
+//check.dependsOn ktlint
+//
+//task ktlintFormat(type: JavaExec, group: "formatting") {
+//    description = "Fix Kotlin code style deviations."
+//    classpath = configurations.ktlint
+//    main = "com.pinterest.ktlint.Main"
+//    args "-F", "src/**/*.kt"
+//}

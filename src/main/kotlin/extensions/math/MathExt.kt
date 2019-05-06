@@ -1,6 +1,5 @@
 package extensions.math
 
-import java.lang.IllegalArgumentException
 import java.math.BigInteger
 import kotlin.math.max
 import kotlin.math.min

@@ -1,7 +1,7 @@
 package leetcode.easy._119_pascals_triangle_II
 
-import leetcode.easy._118_pascals_triangle.PascalsTriangle
 import extensions.math.choose
+import leetcode.easy._118_pascals_triangle.PascalsTriangle
 
 /**
  * 119 - https://leetcode.com/problems/pascals-triangle-ii/

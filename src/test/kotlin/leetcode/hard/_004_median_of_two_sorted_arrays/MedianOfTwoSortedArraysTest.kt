@@ -2,9 +2,8 @@ package leetcode.hard._004_median_of_two_sorted_arrays
 
 import extensions.math.EPSILON
 import org.junit.Assert.assertEquals
-import org.junit.Test
-
 import org.junit.Ignore
+import org.junit.Test
 
 class MedianOfTwoSortedArraysTest {
 

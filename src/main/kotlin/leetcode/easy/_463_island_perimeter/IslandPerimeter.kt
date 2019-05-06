@@ -32,8 +32,8 @@ class Solution {
     }
 
     private fun IntMatrix.isWaterAt(i: Int, j: Int): Boolean =
-            if (i in 0..lastRowIndex && j in 0..lastColumnIndex) this[i][j] == 0
-            else false
+        if (i in 0..lastRowIndex && j in 0..lastColumnIndex) this[i][j] == 0
+        else false
 }
 
 class SolutionTwo {
@@ -46,10 +46,10 @@ class SolutionTwo {
 
     private fun IntMatrix.countHorizontalPerimeters(): Int {
         val perimeterConditions: List<(Int, Int) -> (Boolean)> = listOf(
-                { i: Int, j: Int -> isLandAt(i, j) && j == 0 },
-                { i: Int, j: Int -> isLandAt(i, j) && j == lastColumnIndex },
-                { i: Int, j: Int -> isLandAt(i, j) && isWaterAt(i, j - 1) },
-                { i: Int, j: Int -> isLandAt(i, j) && isWaterAt(i, j + 1) }
+            { i: Int, j: Int -> isLandAt(i, j) && j == 0 },
+            { i: Int, j: Int -> isLandAt(i, j) && j == lastColumnIndex },
+            { i: Int, j: Int -> isLandAt(i, j) && isWaterAt(i, j - 1) },
+            { i: Int, j: Int -> isLandAt(i, j) && isWaterAt(i, j + 1) }
         )
 
         var count = 0

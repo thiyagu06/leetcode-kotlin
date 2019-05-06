@@ -79,8 +79,8 @@ class SolutionThree {
 
         while (k >= 0) {
             nums1[k] = when {
-                i < 0 ->  nums2[j--]
-                j < 0 ->  nums1[i--]
+                i < 0 -> nums2[j--]
+                j < 0 -> nums1[i--]
                 nums1[i] < nums2[j] -> nums2[j--]
                 else -> nums1[i--]
             }

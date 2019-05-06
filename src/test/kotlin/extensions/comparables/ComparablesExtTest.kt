@@ -1,7 +1,7 @@
 package extensions.comparables
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class ComparablesExtTest {
 

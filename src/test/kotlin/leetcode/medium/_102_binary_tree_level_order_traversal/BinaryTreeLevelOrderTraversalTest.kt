@@ -12,7 +12,7 @@ class BinaryTreeLevelOrderTraversalTest {
 
     @Test
     fun levelOrderBFS() {
-        assertEquals(emptyList<List<Int>>(), bfsSolution.levelOrder(null))
+        assertEquals(emptyList(), bfsSolution.levelOrder(null))
         assertEquals(listOf(listOf(1)), bfsSolution.levelOrder(buildTree(1)))
         assertEquals(listOf(listOf(1), listOf(2)), bfsSolution.levelOrder(buildTree(1, 2)))
         assertEquals(listOf(listOf(1), listOf(2)), bfsSolution.levelOrder(buildTree(1, null, 2)))
@@ -39,7 +39,7 @@ class BinaryTreeLevelOrderTraversalTest {
 
     @Test
     fun levelOrderDFS() {
-        assertEquals(emptyList<List<Int>>(), dfsSolution.levelOrder(null))
+        assertEquals(emptyList(), dfsSolution.levelOrder(null))
         assertEquals(listOf(listOf(1)), dfsSolution.levelOrder(buildTree(1)))
         assertEquals(listOf(listOf(1), listOf(2)), dfsSolution.levelOrder(buildTree(1, 2)))
         assertEquals(listOf(listOf(1), listOf(2)), dfsSolution.levelOrder(buildTree(1, null, 2)))

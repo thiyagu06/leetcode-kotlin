@@ -1,9 +1,9 @@
 package leetcode.medium._008_string_to_int_atoi
 
-import kotlin.test.assertEquals
-import kotlin.test.assertNull
 import org.junit.Test
 import java.math.BigInteger
+import kotlin.test.assertEquals
+import kotlin.test.assertNull
 
 class StringToIntTest {
 
@@ -127,5 +127,4 @@ class StringToIntTest {
         assertNull(solution2.parseBigInteger("    42"))
         assertNull(solution2.parseBigInteger("    "))
     }
-
 }

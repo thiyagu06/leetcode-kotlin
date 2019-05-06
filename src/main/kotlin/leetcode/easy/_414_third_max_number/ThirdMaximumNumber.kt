@@ -25,9 +25,9 @@ class Solution {
             // must be distinct
             x == first || x == second || x == third -> maxes
 
-            first == null  || x > first   -> Triple(x, first, second)
-            second == null || x > second  -> Triple(first, x, second)
-            third == null  || x > third   -> Triple(first, second, x)
+            first  == null || x > first  -> Triple(x, first, second)
+            second == null || x > second -> Triple(first, x, second)
+            third  == null || x > third  -> Triple(first, second, x)
             else -> maxes
         }
     }

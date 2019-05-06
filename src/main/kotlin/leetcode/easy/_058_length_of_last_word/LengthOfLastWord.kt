@@ -7,7 +7,7 @@ class Solution {
     fun lengthOfLastWord(s: String): Int = when {
         s.isBlank() -> 0
         else -> s.split(" ")
-                .last { it.isNotEmpty() }
-                .length
+            .last { it.isNotEmpty() }
+            .length
     }
 }

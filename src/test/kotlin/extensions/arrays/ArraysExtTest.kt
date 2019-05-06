@@ -1,9 +1,8 @@
 package extensions.arrays
 
 import org.junit.Assert.assertArrayEquals
-import kotlin.test.assertEquals
-
 import org.junit.Test
+import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
@@ -283,7 +282,7 @@ class ArraysExtTest {
             intArrayOf(5)
         )
         val actual = intArrayOf(1, 2, 3, 4, 5).subarrays()
-        assertTrue(expected.size == actual.size)
+        assertEquals(expected.size, actual.size)
         (expected zip actual).forEach { (e, a) ->
             assertArrayEquals(e, a)
         }

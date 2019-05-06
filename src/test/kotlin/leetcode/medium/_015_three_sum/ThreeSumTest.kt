@@ -1,7 +1,7 @@
 package leetcode.medium._015_three_sum
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class ThreeSumTest {
 

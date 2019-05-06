@@ -2,7 +2,7 @@ package leetcode.easy._191_number_of_1_bits;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @SuppressWarnings("NumericOverflow")
 public class NumberOf1BitsTest {

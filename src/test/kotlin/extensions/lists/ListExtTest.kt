@@ -1,9 +1,9 @@
 package extensions.lists
 
+import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class ListExtTest {
 
@@ -17,8 +17,8 @@ class ListExtTest {
 
     @Test
     fun halves() {
-        assertEquals(Pair(emptyList<Int>(), emptyList<Int>()), emptyList<Int>().halves)
-        assertEquals(Pair(listOf(1), emptyList<Int>()), listOf(1).halves)
+        assertEquals(Pair(emptyList(), emptyList()), emptyList<Int>().halves)
+        assertEquals(Pair(listOf(1), emptyList()), listOf(1).halves)
         assertEquals(Pair(listOf(1), listOf(2)), listOf(1, 2).halves)
         assertEquals(Pair(listOf(1, 2), listOf(3)), listOf(1, 2, 3).halves)
         assertEquals(Pair(listOf(1, 2), listOf(3, 4)), listOf(1, 2, 3, 4).halves)

@@ -1,7 +1,5 @@
 package leetcode.easy._232_implement_queue_using_stacks
 
-import java.util.ArrayDeque
-import java.util.Deque
 import java.util.Stack
 
 /**
@@ -38,6 +36,7 @@ class MyQueue {
 
     /** Returns whether the queue is empty. */
     fun empty(): Boolean = size == 0
+
     fun isNotEmpty(): Boolean = !empty()
 
     fun toList(): List<Int> = stackOldest.toList() + stackNewest.toList()

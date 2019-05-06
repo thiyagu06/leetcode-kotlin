@@ -1,14 +1,12 @@
 package datastructures.list
 
 import org.junit.After
-import kotlin.test.assertEquals
 import org.junit.Before
 import org.junit.Test
-import kotlin.test.assertFalse
+import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
 import kotlin.test.assertNotNull
 import kotlin.test.assertNull
-import kotlin.test.assertTrue
 
 class ListNodeTest {
 
@@ -31,7 +29,7 @@ class ListNodeTest {
 
         val createdList = ListNode.from(listOf(0, 1, 2, 3))
         assertNotNull(createdList)
-        assertEquals(4, createdList?.size)
+        assertEquals(4, createdList.size)
         assertEquals(listA, createdList)
     }
 
@@ -62,11 +60,11 @@ class ListNodeTest {
     fun equals() {
         val a = linkedListOf(1, 2, 3, 4)
         val b = linkedListOf(1, 2, 3, 5)
-        assertFalse(a == b)
+        assertNotEquals(a, b)
         assertNotEquals(a, b)
 
         val c = linkedListOf(1, 2, 3, 4)
-        assertTrue(a == c)
+        assertEquals(a, c)
         assertEquals(a, c)
 
         // 1->2->4
@@ -204,5 +202,4 @@ class ListNodeTest {
             linkedListOf(1, 2, 3, 4) zip linkedListOf(9, 8, 7, 6, 5)
         )
     }
-
 }

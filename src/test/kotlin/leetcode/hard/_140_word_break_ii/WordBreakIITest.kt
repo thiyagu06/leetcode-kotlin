@@ -1,7 +1,7 @@
 package leetcode.hard._140_word_break_ii
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class WordBreakIITest {
 

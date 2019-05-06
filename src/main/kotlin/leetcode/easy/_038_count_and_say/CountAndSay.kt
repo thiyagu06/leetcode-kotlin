@@ -9,8 +9,8 @@ class Solution {
      * Space: O(n)
      */
     fun countAndSay(n: Int): String = generateSequence("1") {
-            generateNext(it)
-        }.elementAt(index = n - 1)
+        generateNext(it)
+    }.elementAt(index = n - 1)
 
     /**
      * Time: O(n)

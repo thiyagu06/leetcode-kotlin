@@ -14,7 +14,10 @@ class Solution {
     fun splitListToParts(root: ListNode?, k: Int): Array<ListNode?> {
         /* Initialize with sentinel nodes. */
         val result = Array<ListNode?>(k) { ListNode(Int.MIN_VALUE) }    // Each index is a (possibly null) linked list
-        val tailNodes: MutableList<ListNode?> = result.map { it }.toMutableList()   // pointers to end nodes of each list
+
+        // pointers to end nodes of each list
+        val tailNodes: MutableList<ListNode?> = result.map { it }.toMutableList()
+
         var node: ListNode? = root  // current node in input list
 
         val n = root.size

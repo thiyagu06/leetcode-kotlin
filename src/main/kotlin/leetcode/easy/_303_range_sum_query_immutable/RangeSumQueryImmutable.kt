@@ -41,9 +41,9 @@ class NumArray2(nums: IntArray) {
     }
 
     private fun sumIndexRange(indexRange: IntRange): Int =
-            indexRange.fold(0) { sum, index ->
-                sum + _nums[index]
-            }
+        indexRange.fold(0) { sum, index ->
+            sum + _nums[index]
+        }
 }
 
 /**

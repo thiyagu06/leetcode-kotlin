@@ -26,7 +26,8 @@ class SolutionTwo {
         var (start, end) = (0 to nums.lastIndex)
 
         // Find First
-        val firstIdx = findFirstOrLast(nums = nums, indexRange = nums.indices, target = target, position = Position.FIRST)
+        val firstIdx =
+            findFirstOrLast(nums = nums, indexRange = nums.indices, target = target, position = Position.FIRST)
         firstIdx ?: return result   // nums doesn't contain the target
         result[0] = firstIdx
         start = firstIdx

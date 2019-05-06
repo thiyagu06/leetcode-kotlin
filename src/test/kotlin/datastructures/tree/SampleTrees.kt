@@ -1,9 +1,8 @@
 package datastructures.tree
 
-/**
+/*
  * Sample TreeNode trees for testing purposes.
  */
-
 
 /** A null tree */
 val nullTree: TreeNode? = null

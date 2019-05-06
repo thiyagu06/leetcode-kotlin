@@ -2,10 +2,10 @@ package extensions.tuples
 
 import extensions.math.EPSILON
 import org.junit.Assert.assertArrayEquals
+import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class PairExtTest {
 

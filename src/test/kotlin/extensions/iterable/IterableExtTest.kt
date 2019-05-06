@@ -1,8 +1,8 @@
 package extensions.iterable
 
+import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
-import org.junit.Test
 
 class IterableExtTest {
 
@@ -16,15 +16,15 @@ class IterableExtTest {
     @Test
     fun tail() {
         assertEquals(listOf(2, 3, 4), listOf(1, 2, 3, 4).tail)
-        assertEquals(emptyList<Int>(), listOf(1).tail)
-        assertEquals(emptyList<Int>(), emptyList<Int>().tail)
+        assertEquals(emptyList(), listOf(1).tail)
+        assertEquals(emptyList(), emptyList<Int>().tail)
     }
 
     @Test
     fun headAndTail() {
         assertEquals((1 to listOf(2, 3, 4)), listOf(1, 2, 3, 4).headAndTail)
-        assertEquals((1 to emptyList<Int>()), listOf(1).headAndTail)
-        assertEquals((null to emptyList<Int>()), emptyList<Int>().headAndTail)
+        assertEquals((1 to emptyList()), listOf(1).headAndTail)
+        assertEquals((null to emptyList()), emptyList<Int>().headAndTail)
     }
 
     @Test

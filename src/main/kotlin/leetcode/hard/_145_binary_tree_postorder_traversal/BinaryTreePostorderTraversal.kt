@@ -13,7 +13,7 @@ class Solution {
      * Space: O(n)
      */
     fun postorderTraversal(root: TreeNode?): List<Int> =
-            root.collect(DFSTraversalOrder.POSTORDER, arrayListOf()) { it.`val` }.toList()
+        root.collect(DFSTraversalOrder.POSTORDER, arrayListOf()) { it.`val` }.toList()
 }
 
 // TODO iterative solution

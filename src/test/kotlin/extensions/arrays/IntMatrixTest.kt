@@ -1,10 +1,10 @@
 package extensions.arrays
 
 import org.junit.Assert.assertArrayEquals
+import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class IntMatrixTest {
     /**
@@ -98,7 +98,7 @@ class IntMatrixTest {
 
     @Test(expected = IllegalArgumentException::class)
     fun buildIntMatrixDifferingRowLengths() {
-        extensions.arrays.buildIntMatrix(listOf(1), listOf(2, 3))
+        buildIntMatrix(listOf(1), listOf(2, 3))
     }
 
     @Test(expected = IllegalArgumentException::class)
@@ -108,7 +108,7 @@ class IntMatrixTest {
 
     @Test(expected = IllegalArgumentException::class)
     fun buildIntMatrixNoElements2() {
-        extensions.arrays.buildIntMatrix(emptyList())
+        buildIntMatrix(emptyList())
     }
 
     @Test

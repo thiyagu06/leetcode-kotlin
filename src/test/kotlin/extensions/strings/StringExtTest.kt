@@ -1,10 +1,9 @@
 package extensions.strings
 
+import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import org.junit.Test
-import java.lang.StringBuilder
 
 class StringExtTest {
 
@@ -157,7 +156,7 @@ class StringExtTest {
 
     @Test
     fun permutations() {
-        assertEquals(emptySet<String>(), "".permutations())
+        assertEquals(emptySet(), "".permutations())
         assertEquals(setOf("a"), "a".permutations())
         assertEquals(setOf("ab", "ba"), "ab".permutations())
         assertEquals(setOf("abc", "acb", "bac", "bca", "cab", "cba"), "abc".permutations())
@@ -205,24 +204,24 @@ class StringExtTest {
 
     @Test
     fun longestCommonSubstring() {
-        kotlin.test.assertEquals("", longestCommonSubstring("", ""))
-        kotlin.test.assertEquals("", longestCommonSubstring("A", ""))
-        kotlin.test.assertEquals("", longestCommonSubstring("", "A"))
-        kotlin.test.assertEquals("A", longestCommonSubstring("A", "A"))
-        kotlin.test.assertEquals("A", longestCommonSubstring("ABC", "A"))
-        kotlin.test.assertEquals("AB", longestCommonSubstring("ABC", "BABA"))
-        kotlin.test.assertEquals("ABCABC", longestCommonSubstring("ABCABCA", "CABCABC"))
-        kotlin.test.assertEquals("ABCABC", longestCommonSubstring("CABCABC", "ABCABCA"))
-        kotlin.test.assertEquals("abcd", longestCommonSubstring("abcdxyz", "xyzabcd"))
-        kotlin.test.assertEquals("abcdez", longestCommonSubstring("zxabcdezy", "yzabcdezx"))
-        kotlin.test.assertEquals("ABC", longestCommonSubstring("ABC", "ABCD"))
-        kotlin.test.assertTrue(longestCommonSubstring("ABAB", "BABA") in setOf("ABA", "BAB"))
+        assertEquals("", longestCommonSubstring("", ""))
+        assertEquals("", longestCommonSubstring("A", ""))
+        assertEquals("", longestCommonSubstring("", "A"))
+        assertEquals("A", longestCommonSubstring("A", "A"))
+        assertEquals("A", longestCommonSubstring("ABC", "A"))
+        assertEquals("AB", longestCommonSubstring("ABC", "BABA"))
+        assertEquals("ABCABC", longestCommonSubstring("ABCABCA", "CABCABC"))
+        assertEquals("ABCABC", longestCommonSubstring("CABCABC", "ABCABCA"))
+        assertEquals("abcd", longestCommonSubstring("abcdxyz", "xyzabcd"))
+        assertEquals("abcdez", longestCommonSubstring("zxabcdezy", "yzabcdezx"))
+        assertEquals("ABC", longestCommonSubstring("ABC", "ABCD"))
+        assertTrue(longestCommonSubstring("ABAB", "BABA") in setOf("ABA", "BAB"))
     }
 
     @Test
     fun lcs() {
-        kotlin.test.assertTrue(lcs("ABCBDAB", "BDCABA") in setOf("BCBA", "BDAB"))
-        kotlin.test.assertTrue(lcs("GTTCCTAATA", "CGATAATTGAGA") in setOf("GTTTAA", "CTAATA"))
+        assertTrue(lcs("ABCBDAB", "BDCABA") in setOf("BCBA", "BDAB"))
+        assertTrue(lcs("GTTCCTAATA", "CGATAATTGAGA") in setOf("GTTTAA", "CTAATA"))
         assertEquals("MJAU", lcs("XMJYAUZ", "MZJAWXU"))
         assertEquals("BBCDA", lcs("ABABCDA", "BBCDAXY"))
     }

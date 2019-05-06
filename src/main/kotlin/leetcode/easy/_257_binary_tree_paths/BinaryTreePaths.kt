@@ -18,4 +18,4 @@ class Solution {
                 path.joinToString("->")
             }
         } ?: emptyList()
-    }
+}

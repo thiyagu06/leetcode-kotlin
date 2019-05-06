@@ -3,12 +3,6 @@ package leetcode.medium._102_binary_tree_level_order_traversal
 import datastructures.tree.TreeNode
 import java.util.ArrayDeque
 import java.util.Queue
-import kotlin.collections.ArrayList
-import kotlin.collections.List
-import kotlin.collections.MutableList
-import kotlin.collections.isNotEmpty
-import kotlin.collections.lastIndex
-import kotlin.collections.plusAssign
 
 /**
  * 102 - https://leetcode.com/problems/binary-tree-level-order-traversal/

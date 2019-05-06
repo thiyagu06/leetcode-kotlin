@@ -6,6 +6,7 @@ package extensions.tuples
 
 /* To Array */
 fun Pair<Boolean, Boolean>.toBooleanArray(): BooleanArray = booleanArrayOf(first, second)
+
 fun Pair<Byte, Byte>.toByteArray(): ByteArray = byteArrayOf(first, second)
 fun Pair<Char, Char>.toCharArray(): CharArray = charArrayOf(first, second)
 fun Pair<Double, Double>.toDoubleArray(): DoubleArray = doubleArrayOf(first, second)
@@ -19,6 +20,7 @@ fun <T : Comparable<T>> Pair<T, T>.min() = minOf(first, second)
 
 /* Null checking */
 fun <T : Any?> Pair<T?, T?>.bothNull(): Boolean = first == null && second == null
+
 fun <T : Any?> Pair<T?, T?>.eitherNull(): Boolean = first == null || second == null
 fun <T : Any?> Pair<T?, T?>.neitherNull(): Boolean = first != null && second != null
 
@@ -27,6 +29,7 @@ infix fun <A, B, C> Pair<A, B>.and(that: C): Triple<A, B, C> = Triple(this.first
 
 // Flip the pair's order
 fun <T, U> Pair<T, U>.reversed() = Pair(second, first)
+
 inline fun <T> Pair<T, T>.reversedIf(predicate: (Pair<T, T>) -> Boolean) =
     if (predicate(this)) Pair(second, first) else this
 

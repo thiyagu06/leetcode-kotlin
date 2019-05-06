@@ -41,6 +41,7 @@ fun buildBooleanMatrix(vararg rows: List<Boolean>): BooleanMatrix {
     require(rows.all { row -> row.size == rows[0].size && row.isNotEmpty() }) {
         "All rows must have the same length, and cannot be empty"
     }
+
     val m = rows.size
     val n = rows[0].size
 

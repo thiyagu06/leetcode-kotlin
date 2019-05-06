@@ -118,7 +118,7 @@ class SolutionThree {
             remaining < 0 -> return
             remaining == 0 -> solutionSet += currentSolution
             else ->
-                candidates.forEachIndexed { i, n  ->
+                candidates.forEachIndexed { i, n ->
                     if (!solutionSet.contains(currentSolution + n)) {
                         backtrack(
                             candidates = candidates.drop(i),

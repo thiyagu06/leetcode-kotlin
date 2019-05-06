@@ -31,7 +31,9 @@ class Solution {
             root.isLeaf -> "${root.`val`}"
             root.hasLeft && !root.hasRight -> "${root.`val`}(${serializeAndCacheSubtrees(root.left, counts, dupes)})"
             !root.hasLeft && root.hasRight -> "${root.`val`}()(${serializeAndCacheSubtrees(root.right, counts, dupes)})"
-            else -> "${root.`val`}(${serializeAndCacheSubtrees(root.left, counts, dupes)})(${serializeAndCacheSubtrees(root.right, counts, dupes)})"
+            else -> "${root.`val`}" +
+                    "(${serializeAndCacheSubtrees(root.left, counts, dupes)})" +
+                    "(${serializeAndCacheSubtrees(root.right, counts, dupes)})"
         }
 
         counts[serialized] = (counts[serialized] ?: 0) + 1

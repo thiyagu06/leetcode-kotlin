@@ -17,7 +17,8 @@ class SolutionDFS {
         }.toDoubleArray()
 
     private fun collectTreeRows(
-        root: TreeNode?, depth: Int = 0,
+        root: TreeNode?,
+        depth: Int = 0,
         treeRows: MutableList<MutableList<Int>> = arrayListOf()
     ): List<List<Int>> {
         root ?: return treeRows

@@ -11,16 +11,20 @@ class SlidingWindowMaximumTest {
 
     @Test
     fun maxSlidingWindow() {
-        assertArrayEquals(intArrayOf(3, 3, 5, 5, 6, 7),
-            solution.maxSlidingWindow(intArrayOf(1, 3, -1, -3, 5, 3, 6, 7), 3))
+        assertArrayEquals(
+            intArrayOf(3, 3, 5, 5, 6, 7),
+            solution.maxSlidingWindow(intArrayOf(1, 3, -1, -3, 5, 3, 6, 7), 3)
+        )
         assertArrayEquals(intArrayOf(), solution.maxSlidingWindow(intArrayOf(), 0))
     }
 
     @Ignore("Unimplemented")
     @Test
     fun maxSlidingWindowOptimal() {
-        assertArrayEquals(intArrayOf(3, 3, 5, 5, 6, 7),
-            followup.maxSlidingWindow(intArrayOf(1, 3, -1, -3, 5, 3, 6, 7), 3))
+        assertArrayEquals(
+            intArrayOf(3, 3, 5, 5, 6, 7),
+            followup.maxSlidingWindow(intArrayOf(1, 3, -1, -3, 5, 3, 6, 7), 3)
+        )
 
         assertArrayEquals(intArrayOf(), followup.maxSlidingWindow(intArrayOf(), 0))
     }

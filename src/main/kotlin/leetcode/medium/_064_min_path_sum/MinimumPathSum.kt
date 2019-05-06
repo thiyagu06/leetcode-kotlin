@@ -59,11 +59,17 @@ data class Cell(val row: Int, val column: Int) {
 class SolutionTwo {
     fun minPathSum(grid: Array<IntArray>): Int {
         val minPaths = mutableMapOf<Pair<Int, Int>, Int>()
-        findMinPathSum(grid, i = 0, j = 0, pathSum = 0, minPaths =  minPaths)
+        findMinPathSum(grid, i = 0, j = 0, pathSum = 0, minPaths = minPaths)
         return minPaths[grid.lastRowIndex to grid.lastColumnIndex]!!
     }
 
-    private fun findMinPathSum(grid: IntMatrix, i: Int, j: Int, pathSum: Int, minPaths: MutableMap<Pair<Int, Int>, Int>) {
+    private fun findMinPathSum(
+        grid: IntMatrix,
+        i: Int,
+        j: Int,
+        pathSum: Int,
+        minPaths: MutableMap<Pair<Int, Int>, Int>
+    ) {
         // Update min path sum to cell if lower
         if (i !in grid.rowIndices || j !in grid.columnIndices) {
             return
